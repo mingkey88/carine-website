@@ -1,0 +1,65 @@
+# carine-website
+
+Single-page brochure site for Carine Zheng, financial planner with Financial
+Alliance, Singapore.
+
+Static HTML, CSS and one small JS file. No build step, no dependencies.
+
+---
+
+## Run it
+
+```sh
+open index.html
+```
+
+Or, if you want a local server (needed only if you add anything that fetches):
+
+```sh
+python3 -m http.server 8000
+```
+
+## Deploy it
+
+Upload the folder. Everything is relative and self-contained, so GitHub Pages,
+Netlify, Cloudflare Pages, Vercel or plain S3 all work with no configuration.
+
+---
+
+## Before this goes live
+
+**This site is not launch-ready.** Two blockers, both in
+[CONTENT-QUERIES.md](CONTENT-QUERIES.md):
+
+1. **Financial Alliance compliance has not signed off.** Carine is a licensed
+   representative and MAS rules govern how she advertises. The footer disclaimer
+   is placeholder wording written by us, not approved text.
+2. **Carine has not approved the copy.** Everything on the page is either taken
+   from her public Financial Alliance profile or listed in CONTENT-QUERIES.md as
+   needing her confirmation. Three claims from the original brief (mother of
+   three, fifteen years' experience, family-protection positioning) were left
+   off the page because they could not be verified.
+
+Also outstanding: her portrait, see [ASSETS-TODO.md](ASSETS-TODO.md).
+
+---
+
+## Files
+
+| Path | What it is |
+|---|---|
+| `index.html` | The page. Six sections plus nav and footer. |
+| `css/styles.css` | Tokens, layout, motion, print styles. |
+| `js/main.js` | Scroll reveal and nav state. Nothing else. |
+| `assets/fonts/` | EB Garamond and Instrument Sans, self-hosted. |
+| `assets/img/` | Empty. Portrait goes here. |
+| `DESIGN.md` | Why the page looks the way it does. |
+| `CONTENT-QUERIES.md` | What needs Carine's or compliance's sign-off. |
+| `ASSETS-TODO.md` | What images are missing and how to drop them in. |
+
+## Notes
+
+- Dark mode follows the system setting. There is no toggle.
+- Fonts are self-hosted, so nothing leaves the page at runtime. No analytics, no
+  trackers, no CDN calls.
+- Contrast in both themes was measured against WCAG AA. See DESIGN.md.

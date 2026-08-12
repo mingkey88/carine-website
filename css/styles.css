@@ -1,0 +1,771 @@
+/* ==========================================================================
+   Carine Zheng - personal brand landing page
+   Design system. See DESIGN.md for the reasoning behind these choices.
+   ========================================================================== */
+
+/* --- Fonts (self-hosted, latin subset, variable) ------------------------- */
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('../assets/fonts/eb-garamond.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('../assets/fonts/eb-garamond-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('../assets/fonts/instrument-sans.woff2') format('woff2');
+}
+
+/* --- Tokens -------------------------------------------------------------- */
+
+:root {
+  /* Palette: forest + bone + brick. One accent (brick), locked page-wide. */
+  --ground: #f4f4ef;
+  --surface: #eaebe3;
+  --ink: #16211c;
+  --ink-soft: #4a574f;
+  --ink-faint: #5e6961; /* 5.19:1 on ground, 4.77:1 on surface */
+  --forest: #1e4635;
+  --forest-deep: #16352a;
+  --on-forest: #eef1ea;
+  --on-forest-soft: #a9bcaf;
+  --accent: #a63d22;
+  --accent-tint: #f0e3de;
+  --forest-tint: #e2e8e0;
+  --rule: #d3d5cb; /* decorative dividers only, exempt from 1.4.11 */
+  --rule-control: #828b83; /* interactive boundaries, 3.19:1 on ground */
+
+  /* The primary button carries its own tokens because a fill that reads clearly
+     on bone is not the same fill that reads clearly on near-black. */
+  --btn-bg: #1e4635; /* 9.60:1 as a shape on ground */
+  --btn-bg-hover: #16352a;
+  --btn-fg: #eef1ea; /* 9.28:1 on the fill */
+
+  --r: 3px;
+  --container: 1180px;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --section-y: clamp(4rem, 8vw, 7rem);
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif;
+  --font-body: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #101512;
+    --surface: #18201b;
+    --ink: #e9eae3;
+    --ink-soft: #a4afa7;
+    --ink-faint: #87938a; /* 5.77:1 on ground, 5.21:1 on surface */
+    --forest: #24513d;
+    --forest-deep: #1b3f30;
+    --on-forest: #eef1ea;
+    --on-forest-soft: #a9bcaf;
+    --accent: #e0724f;
+    --accent-tint: #2a1c17;
+    --forest-tint: #1b241e;
+    --rule: #2b332d;
+    --rule-control: #606961; /* 3.24:1 on ground */
+
+    /* Inverted: a light green fill with dark text. The light-mode forest fill
+       only reaches 2.04:1 as a shape here, so the button would read as a patch
+       of background rather than a control. */
+    --btn-bg: #4e9c79; /* 5.58:1 as a shape on ground */
+    --btn-bg-hover: #5cab86;
+    --btn-fg: #16211c; /* 5.01:1 on the fill */
+  }
+}
+
+/* --- Reset --------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.012em;
+  line-height: 1.12;
+}
+
+p {
+  margin: 0;
+}
+
+ul,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--r);
+}
+
+/* --- Layout primitives --------------------------------------------------- */
+
+.wrap {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--forest);
+  color: var(--on-forest);
+  padding: 0.75rem 1.25rem;
+  z-index: 100;
+}
+
+.skip:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+/* --- Type ---------------------------------------------------------------- */
+
+.display {
+  font-size: clamp(2.6rem, 6.4vw, 4.5rem);
+  line-height: 1.06;
+}
+
+.h2 {
+  font-size: clamp(1.9rem, 3.8vw, 2.9rem);
+}
+
+.h3 {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.4;
+}
+
+.lead {
+  font-size: clamp(1.0625rem, 1.4vw, 1.1875rem);
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 34ch;
+}
+
+.prose {
+  color: var(--ink-soft);
+  max-width: 62ch;
+}
+
+.measure {
+  max-width: 58ch;
+}
+
+/* --- Buttons ------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 0.8125rem 1.5rem;
+  border-radius: var(--r);
+  border: 1px solid transparent;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.25s var(--ease), border-color 0.25s var(--ease),
+    color 0.25s var(--ease), transform 0.12s var(--ease);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+}
+
+.btn--primary:hover {
+  background: var(--btn-bg-hover);
+}
+
+/* Label contrast 15.0:1 light, 15.2:1 dark. Border uses --rule-control so the
+   control boundary clears WCAG 1.4.11 at 3:1, unlike the decorative rules. */
+.btn--ghost {
+  border-color: var(--rule-control);
+  color: var(--ink);
+}
+
+.btn--ghost:hover {
+  border-color: var(--ink);
+}
+
+/* --- Navigation ---------------------------------------------------------- */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--ground) 88%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s var(--ease);
+}
+
+.nav[data-scrolled='true'] {
+  border-bottom-color: var(--rule);
+}
+
+.nav__inner {
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.nav__brand {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+.nav__link {
+  font-size: 0.9375rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+}
+
+.nav__link:hover {
+  color: var(--ink);
+}
+
+.nav .btn {
+  padding: 0.5625rem 1.125rem;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 720px) {
+  .nav__link {
+    display: none;
+  }
+}
+
+/* --- Hero (asymmetric split) --------------------------------------------- */
+
+.hero {
+  padding-top: clamp(2.5rem, 6vw, 5.5rem);
+  padding-bottom: clamp(3.5rem, 8vw, 6.5rem);
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+/* Sized down from .display so the 44-character headline holds to two lines
+   beside the portrait rather than spilling to three. */
+.hero__title {
+  font-size: clamp(2.35rem, 5.2vw, 3.7rem);
+  text-wrap: balance;
+}
+
+.hero__lead {
+  margin-top: 1.5rem;
+}
+
+.hero__actions {
+  margin-top: 2.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Portrait frame. Both the placeholder slot and the real image share a frame,
+   so swapping .portrait__slot for an image element carrying .portrait__img
+   changes nothing visually except the content. See ASSETS-TODO.md. */
+.portrait {
+  margin: 0;
+  position: relative;
+}
+
+.portrait__slot,
+.portrait__img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--r);
+  object-fit: cover;
+}
+
+.portrait__slot {
+  display: grid;
+  place-content: center;
+  gap: 0.5rem;
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--forest-tint);
+  border: 1px solid var(--rule);
+  color: var(--ink-faint);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.portrait__slot strong {
+  display: block;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 860px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .portrait {
+    max-width: 380px;
+  }
+
+  .lead {
+    max-width: 46ch;
+  }
+}
+
+/* --- Statement block (single deliberate colour block) --------------------- */
+
+.statement {
+  background: var(--forest);
+  color: var(--on-forest);
+}
+
+.statement__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: start;
+}
+
+.statement__title {
+  color: var(--on-forest);
+}
+
+.statement__body {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+  line-height: 1.45;
+  color: var(--on-forest);
+  max-width: 44ch;
+}
+
+@media (max-width: 800px) {
+  .statement__grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+/* --- Topics (asymmetric four-cell grid) ---------------------------------- */
+
+.topics__head {
+  max-width: 46ch;
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.topics__head .prose,
+.how__head .prose {
+  margin-top: 1rem;
+}
+
+/* Mobile first: one column. The asymmetric twelve-column arrangement is layered
+   on above 760px. Written this way round because the :nth-child span rules
+   outrank a plain .topic override, so a max-width reset would lose to them. */
+.topics__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* Two rows mirroring each other, 7/5 then 5/7. Exactly four cells, no empty
+   tracks. */
+@media (min-width: 761px) {
+  .topics__grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .topics__grid > .topic:nth-child(1),
+  .topics__grid > .topic:nth-child(4) {
+    grid-column: span 7;
+  }
+
+  .topics__grid > .topic:nth-child(2),
+  .topics__grid > .topic:nth-child(3) {
+    grid-column: span 5;
+  }
+}
+
+.topic {
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  border-radius: var(--r);
+  border: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 100%;
+}
+
+/* Visual variation across cells so the grid is not four identical boxes. */
+.topic--tint-forest {
+  background: var(--forest-tint);
+  border-color: transparent;
+}
+
+.topic--tint-accent {
+  background: var(--accent-tint);
+  border-color: transparent;
+}
+
+.topic__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 2.2vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.topic__desc {
+  color: var(--ink-soft);
+  font-size: 0.96875rem;
+  max-width: 44ch;
+}
+
+
+/* --- How it works (vertical stack with hanging rule) --------------------- */
+
+.how__head {
+  max-width: 46ch;
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.steps {
+  display: grid;
+  gap: 0;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.5fr);
+  gap: clamp(1rem, 4vw, 3rem);
+  padding-block: clamp(1.75rem, 3.5vw, 2.5rem);
+  border-top: 1px solid var(--rule);
+}
+
+.step:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.step__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.step__desc {
+  color: var(--ink-soft);
+  max-width: 52ch;
+  align-self: center;
+}
+
+@media (max-width: 760px) {
+  .step {
+    grid-template-columns: 1fr;
+    gap: 0.625rem;
+  }
+
+  .step__desc {
+    align-self: start;
+  }
+}
+
+/* --- Credentials --------------------------------------------------------- */
+
+/* A data strip, not a full section. Full section padding leaves three short
+   lines floating in a tall empty band. */
+.creds.section {
+  padding-block: clamp(2.25rem, 4vw, 3.25rem);
+  background: var(--surface);
+}
+
+.creds__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.creds dt {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.creds dd {
+  margin-top: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  line-height: 1.35;
+}
+
+.creds a {
+  color: var(--ink);
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.creds a:hover {
+  color: var(--accent);
+}
+
+/* --- Contact ------------------------------------------------------------- */
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.contact__title {
+  text-wrap: balance;
+}
+
+.contact__lead {
+  margin-top: 1.25rem;
+  max-width: 40ch;
+}
+
+.contact__actions {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.details {
+  display: grid;
+  gap: 0;
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding-block: 1.125rem;
+  border-top: 1px solid var(--rule);
+  align-items: baseline;
+}
+
+.detail:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.detail dt {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.detail dd {
+  font-size: 0.96875rem;
+}
+
+.detail a {
+  color: var(--ink);
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.2s var(--ease);
+}
+
+.detail a:hover {
+  color: var(--accent);
+}
+
+.detail address {
+  font-style: normal;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 800px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .detail {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}
+
+/* --- Footer -------------------------------------------------------------- */
+
+.footer {
+  border-top: 1px solid var(--rule);
+  padding-block: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.footer__brand {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+}
+
+.footer__disclaimer {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--ink-faint);
+  max-width: 68ch;
+}
+
+.footer__disclaimer p + p {
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 760px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Motion -------------------------------------------------------------- */
+/* Purpose: sequence sections into view so the page reads as a narrative rather
+   than arriving all at once. Entry only, never looping. */
+
+/* Scoped to .js so content is never hidden unless JavaScript is present to
+   bring it back. No script, no hiding. */
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .btn:active {
+    transform: none;
+  }
+}
+
+/* --- Print --------------------------------------------------------------- */
+
+@media print {
+  .nav,
+  .hero__actions,
+  .contact__actions {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+}
