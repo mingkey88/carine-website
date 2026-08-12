@@ -17,6 +17,7 @@ Alliance compliance has signed off.**
 | 1.2 | What exact disclaimer wording does FAPL require? | The footer currently carries generic wording written by us. It is a placeholder for whatever compliance mandates. |
 | 1.3 | FAPL company registration number? | Deliberately omitted rather than guessed. Firms usually require it in the footer. |
 | 1.4 | Is "Representative No. ZKC300055466" the correct public format? | Taken from her engage.fa.com.sg profile. Confirm it should be displayed. |
+| 1.5 | Who owns the hero portrait, and is it cleared for this use? | The supplied file (`Carine Zheng.jpg`, Sony A7R IV, June 2026) looks like a professional shoot. If Financial Alliance commissioned it, the firm may hold the licence, and use outside FAPL channels may need permission. Confirm before launch. |
 
 ---
 

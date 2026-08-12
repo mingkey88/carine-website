@@ -58,14 +58,12 @@
       </div>
 
       <figure class="portrait reveal" style="--reveal-delay: 120ms;">
-        <!-- Replace this <div> with:
-             <img class="portrait__img" src="assets/img/carine.jpg"
-                  alt="Carine Zheng, financial planner" width="800" height="1000">
-             The frame styling carries over unchanged. See ASSETS-TODO.md. -->
-        <div class="portrait__slot">
-          <strong>Portrait of Carine</strong>
-          Add as assets/img/carine.jpg, portrait crop, 4:5, 800&times;1000 or larger.
-        </div>
+        <picture>
+          <source srcset="assets/img/carine.webp" type="image/webp">
+          <img class="portrait__img" src="assets/img/carine.jpg"
+               alt="Carine Zheng, financial planner with Financial Alliance"
+               width="1200" height="1500" fetchpriority="high" decoding="async">
+        </picture>
       </figure>
     </div>
   </section>

@@ -5,49 +5,47 @@ considerably, and it is deliberately not faked.
 
 ---
 
-## 1. Portrait of Carine (needed)
+## 1. Portrait of Carine (done)
 
 | | |
 |---|---|
-| **Path** | `assets/img/carine.jpg` |
-| **Crop** | Portrait, 4:5 |
-| **Size** | 800 x 1000 minimum, 1200 x 1500 preferred |
+| **Path** | `assets/img/carine.jpg` + `assets/img/carine.webp` |
+| **Size** | 1200 x 1500, 4:5 |
+| **Weight** | 124KB JPEG, 50KB WebP |
 | **Where** | Hero, right column |
 
-Currently a styled placeholder frame, not a broken image, so the layout looks
-finished while you wait for the file.
+### How it was processed
 
-### Swapping it in
+The supplied original is `Carine Zheng.jpg`: 6083 x 9124, 26.3MB, shot on a Sony
+A7R IV at 85mm f/1.4. **The original is not in this repository.** 26MB of binary
+does not belong in git, and it is not needed at runtime. Keep it somewhere safe;
+you will want it if the crop ever needs redoing.
 
-In `index.html`, replace this block:
+Steps applied:
 
-```html
-<div class="portrait__slot">
-  <strong>Portrait of Carine</strong>
-  Add as assets/img/carine.jpg, portrait crop, 4:5, 800&times;1000 or larger.
-</div>
-```
+1. **Cropped** to `(913, 456) -> (5292, 5930)`, which is 4:5, running from just
+   above her head down through the crossed arms. The full-length original loses
+   her face at the size this renders (417 x 521 on desktop).
+2. **Resized** to 1200 x 1500, Lanczos. That covers 2x retina for the largest
+   viewport the slot reaches.
+3. **Stripped EXIF.** Removes camera body, serial number and any GPS, and saves
+   a few KB.
+4. **Exported** JPEG at q82 progressive, plus WebP at q80, served through a
+   `<picture>` element so browsers take the smaller file.
 
-with:
+Net: 26.3MB to 50KB for most browsers, a 99.8% reduction.
 
-```html
-<img class="portrait__img" src="assets/img/carine.jpg"
-     alt="Carine Zheng, financial planner" width="800" height="1000">
-```
+### Notes on the shot itself
 
-The frame styling is shared between the two, so nothing else changes. The
-`width`/`height` attributes are there to hold layout and keep CLS at zero.
+- It is a **navy blazer against a white curtain**: cool-toned, where the page is
+  warm greige. It reads fine, but it does not have the warm natural light of the
+  Halden reference. No colour grading was applied, because altering someone's
+  photo is not a change to make unasked. Say the word and I will warm it
+  slightly to sit better against the page.
+- **Rights are unconfirmed.** Logged in CONTENT-QUERIES.md as query 1.5.
 
-### A note on sourcing it
-
-There is a headshot on her Financial Alliance profile
-(`engage.fa.com.sg/wp-content/uploads/jet-engine-forms/250/2023/07/myself.jpg`).
-It was **not** copied into this project. It sits on her employer's CDN, it is
-low resolution for a hero slot, and its licensing for use outside FAPL's own
-site is unclear. Ask Carine for the original file, or commission a new one.
-
-**Do not substitute a stock photo or an AI-generated face.** This is a real,
-licensed person. The portrait has to be her.
+**Never substitute a stock photo or an AI-generated face.** This is a real,
+licensed person.
 
 ---
 

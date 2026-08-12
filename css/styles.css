@@ -354,12 +354,16 @@ li {
   gap: 0.75rem;
 }
 
-/* Portrait frame. Both the placeholder slot and the real image share a frame,
-   so swapping .portrait__slot for an image element carrying .portrait__img
-   changes nothing visually except the content. See ASSETS-TODO.md. */
+/* Portrait frame. The placeholder slot and the real image share a frame, so
+   either can occupy it without the layout changing. */
 .portrait {
   margin: 0;
   position: relative;
+}
+
+/* <picture> is inline by default, which leaves a baseline gap under the image. */
+.portrait picture {
+  display: block;
 }
 
 .portrait__slot,

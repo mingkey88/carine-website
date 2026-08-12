@@ -185,10 +185,11 @@ Deploys to any static host as-is.
 
 ## Known gaps
 
-1. **Photography.** This is now the biggest one. The reference is roughly 70%
-   photography, and every section of it is carried by warm natural-light
-   imagery. This page has one portrait slot and no photos at all. It will read
-   as sparse until Carine has a proper shoot. See ASSETS-TODO.md.
+1. **Photography beyond the hero.** The hero portrait is now in place. But the
+   reference is roughly 70% photography and every one of its sections is
+   carried by warm natural-light imagery, where this page has exactly one
+   photo. The remaining three sections would each benefit from one. Shot list
+   and art direction are in ASSETS-TODO.md.
 2. **No `og:image`.** Links currently unfurl as text.
 3. **Positioning conflict unresolved.** The four content pillars are
    family-themed; the verified hero copy addresses young working adults. See
