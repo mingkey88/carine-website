@@ -61,8 +61,10 @@ every financial site wears. Brick gives warmth where gold would give
 **Rejected:** navy + gold, the category default. Also rejected the warm
 beige-and-brass palette that reads as premium-but-generic.
 
-Dark mode is a full token swap under `prefers-color-scheme`, not an
-afterthought. Both themes were contrast-audited (below).
+The page is **light only, by request**. `color-scheme: light` is declared so
+that form controls, scrollbars and browser chrome also stay light for readers
+whose system is set to dark, rather than framing the page in a theme it was not
+designed for.
 
 ### Layout: six sections, six different structures
 
@@ -113,31 +115,24 @@ smooth scrolling is switched off, and the button press translate is removed.
 Contrast was measured, not eyeballed. Every text pairing in both themes clears
 WCAG AA at 4.5:1:
 
-| | Light | Dark |
+| | Ratio | Required |
 |---|---|---|
-| Body on ground | 15.01:1 | 15.24:1 |
-| Secondary text on ground | 6.88:1 | 8.14:1 |
-| Small labels on surface | 4.77:1 | 5.21:1 |
-| Primary button label | 9.28:1 | 5.01:1 |
-| Ghost button label | 15.01:1 | 15.24:1 |
-| Accent link | 5.75:1 | 5.88:1 |
+| Body on ground | 15.01:1 | 4.5:1 |
+| Secondary text on ground | 6.88:1 | 4.5:1 |
+| Small labels on surface | 4.77:1 | 4.5:1 |
+| Primary button label | 9.28:1 | 4.5:1 |
+| Ghost button label | 15.01:1 | 4.5:1 |
+| Accent link | 5.75:1 | 4.5:1 |
+| Primary button as a shape | 9.60:1 | 3:1 |
+| Ghost button border | 3.19:1 | 3:1 |
 
-Three token pairs exist because one value could not serve both themes.
+Two divider tokens exist for a reason. `--rule` draws decorative hairlines and
+sits below 3:1 on purpose, which WCAG 1.4.11 permits for decoration.
+`--rule-control` draws the ghost button border at 3.19:1, because that boundary
+identifies a control.
 
-**`--rule` and `--rule-control`.** `--rule` draws decorative hairlines and sits
-below 3:1 on purpose, which WCAG 1.4.11 permits for decoration.
-`--rule-control` draws the ghost button border at 3.19:1 light and 3.24:1 dark,
-because that boundary identifies a control.
-
-**`--btn-bg` inverts in dark mode.** The forest fill reads at 9.60:1 as a shape
-on bone, but only 2.04:1 on near-black. The label stayed legible, so it passed a
-text-only audit while the button itself dissolved into the page. Dark mode uses
-a light green fill (`#4e9c79`) with dark text instead: 5.58:1 as a shape, 5.01:1
-for the label. Green either way, so the brand holds, but the primary action
-actually reads as a button in both themes.
-
-Measured against the *fill*, not just the text. A CTA that nobody recognises as
-a CTA is a conversion bug before it is an accessibility one.
+Buttons are measured against the *fill* as well as the text. A CTA that nobody
+recognises as a CTA is a conversion bug before it is an accessibility one.
 
 Also: skip link, `:focus-visible` rings on the accent colour, semantic landmarks,
 labelled nav, `<address>` for the office, and a print stylesheet that drops the

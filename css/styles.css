@@ -48,8 +48,8 @@
   --rule: #d3d5cb; /* decorative dividers only, exempt from 1.4.11 */
   --rule-control: #828b83; /* interactive boundaries, 3.19:1 on ground */
 
-  /* The primary button carries its own tokens because a fill that reads clearly
-     on bone is not the same fill that reads clearly on near-black. */
+  /* The primary button keeps its own tokens so the fill can be tuned for shape
+     contrast independently of the brand green. */
   --btn-bg: #1e4635; /* 9.60:1 as a shape on ground */
   --btn-bg-hover: #16352a;
   --btn-fg: #eef1ea; /* 9.28:1 on the fill */
@@ -64,33 +64,10 @@
   --font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif;
   --font-body: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
-  color-scheme: light dark;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ground: #101512;
-    --surface: #18201b;
-    --ink: #e9eae3;
-    --ink-soft: #a4afa7;
-    --ink-faint: #87938a; /* 5.77:1 on ground, 5.21:1 on surface */
-    --forest: #24513d;
-    --forest-deep: #1b3f30;
-    --on-forest: #eef1ea;
-    --on-forest-soft: #a9bcaf;
-    --accent: #e0724f;
-    --accent-tint: #2a1c17;
-    --forest-tint: #1b241e;
-    --rule: #2b332d;
-    --rule-control: #606961; /* 3.24:1 on ground */
-
-    /* Inverted: a light green fill with dark text. The light-mode forest fill
-       only reaches 2.04:1 as a shape here, so the button would read as a patch
-       of background rather than a control. */
-    --btn-bg: #4e9c79; /* 5.58:1 as a shape on ground */
-    --btn-bg-hover: #5cab86;
-    --btn-fg: #16211c; /* 5.01:1 on the fill */
-  }
+  /* Light only, by choice. `color-scheme: light` also keeps form controls,
+     scrollbars and browser chrome light for readers whose system is set to
+     dark, so the page is never framed in a theme it was not designed for. */
+  color-scheme: light;
 }
 
 /* --- Reset --------------------------------------------------------------- */
@@ -253,8 +230,8 @@ li {
   background: var(--btn-bg-hover);
 }
 
-/* Label contrast 15.0:1 light, 15.2:1 dark. Border uses --rule-control so the
-   control boundary clears WCAG 1.4.11 at 3:1, unlike the decorative rules. */
+/* Label contrast 15.0:1. Border uses --rule-control so the control boundary
+   clears WCAG 1.4.11 at 3:1, unlike the decorative rules. */
 .btn--ghost {
   border-color: var(--rule-control);
   color: var(--ink);

@@ -74,7 +74,9 @@ without it turning up in a search for her name.
 
 ## Notes
 
-- Dark mode follows the system setting. There is no toggle.
+- Light mode only. The page stays light even when the reader's system is set to
+  dark, and there is no toggle.
 - Fonts are self-hosted, so nothing leaves the page at runtime. No analytics, no
   trackers, no CDN calls.
-- Contrast in both themes was measured against WCAG AA. See DESIGN.md.
+- Contrast was measured against WCAG AA, buttons against 1.4.11 as well. See
+  DESIGN.md.
