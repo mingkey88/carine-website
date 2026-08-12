@@ -14,8 +14,8 @@
      again. Without this, a script failure leaves the page blank below the fold. -->
 <script>document.documentElement.classList.add('js');</script>
 
-<link rel="preload" href="assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/eb-garamond.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ibm-plex-serif.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/styles.css">
 
 <meta property="og:type" content="profile">
@@ -70,16 +70,20 @@
     </div>
   </section>
 
-  <!-- Statement: single deliberate colour block ------------------------------ -->
-  <section class="statement section" id="who">
-    <div class="wrap statement__grid">
-      <h2 class="h2 statement__title reveal">Who I work with</h2>
-      <p class="statement__body reveal" style="--reveal-delay: 100ms;">
-        I specialise in empowering young working adults in Singapore through
-        expert financial planning. My mission is to guide them to create a
-        robust financial strategy, ensuring they can retire early with
-        confidence.
-      </p>
+  <!-- Statement: the page's one inverted surface ----------------------------- -->
+  <section class="section" id="who">
+    <div class="wrap">
+      <div class="statement reveal">
+        <div class="statement__inner">
+          <h2 class="h2 statement__title">Who I work with</h2>
+          <p class="statement__body">
+            I specialise in empowering young working adults in Singapore through
+            expert financial planning. My mission is to guide them to create a
+            robust financial strategy, ensuring they can retire early with
+            confidence.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -94,7 +98,7 @@
       </div>
 
       <div class="topics__grid">
-        <article class="topic topic--tint-forest reveal">
+        <article class="topic topic--deep reveal">
           <h3 class="topic__name">Motherhood &amp; Money</h3>
           <p class="topic__desc">
             What changes financially when you become a parent, and the decisions
@@ -118,7 +122,7 @@
           </p>
         </article>
 
-        <article class="topic topic--tint-accent reveal" style="--reveal-delay: 240ms;">
+        <article class="topic topic--deep reveal" style="--reveal-delay: 240ms;">
           <h3 class="topic__name">Preparing Our Children</h3>
           <p class="topic__desc">
             Money habits, financial literacy, and what AI and a changing world
@@ -169,9 +173,9 @@
   </section>
 
   <!-- Credentials ------------------------------------------------------------ -->
-  <section class="creds section">
+  <section class="section section--tight">
     <div class="wrap">
-      <dl class="creds__grid reveal">
+      <dl class="creds creds__inner reveal">
         <div>
           <dt>Practice</dt>
           <dd>Financial Alliance Pte Ltd</dd>

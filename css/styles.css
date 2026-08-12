@@ -3,66 +3,80 @@
    Design system. See DESIGN.md for the reasoning behind these choices.
    ========================================================================== */
 
-/* --- Fonts (self-hosted, latin subset, variable) ------------------------- */
+/* --- Fonts (self-hosted, latin subset) ----------------------------------- */
 
 @font-face {
-  font-family: 'EB Garamond';
+  font-family: 'IBM Plex Serif';
   font-style: normal;
-  font-weight: 400 600;
+  font-weight: 400;
   font-display: swap;
-  src: url('../assets/fonts/eb-garamond.woff2') format('woff2');
+  src: url('../assets/fonts/ibm-plex-serif.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'EB Garamond';
+  font-family: 'IBM Plex Serif';
   font-style: italic;
-  font-weight: 400 500;
+  font-weight: 400;
   font-display: swap;
-  src: url('../assets/fonts/eb-garamond-italic.woff2') format('woff2');
+  src: url('../assets/fonts/ibm-plex-serif-italic.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Instrument Sans';
+  font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 400 600;
   font-display: swap;
-  src: url('../assets/fonts/instrument-sans.woff2') format('woff2');
+  src: url('../assets/fonts/ibm-plex-sans.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/ibm-plex-mono.woff2') format('woff2');
 }
 
 /* --- Tokens -------------------------------------------------------------- */
 
 :root {
-  /* Palette: forest + bone + brick. One accent (brick), locked page-wide. */
-  --ground: #f4f4ef;
-  --surface: #eaebe3;
-  --ink: #16211c;
-  --ink-soft: #4a574f;
-  --ink-faint: #5e6961; /* 5.19:1 on ground, 4.77:1 on surface */
-  --forest: #1e4635;
-  --forest-deep: #16352a;
-  --on-forest: #eef1ea;
-  --on-forest-soft: #a9bcaf;
-  --accent: #a63d22;
-  --accent-tint: #f0e3de;
-  --forest-tint: #e2e8e0;
-  --rule: #d3d5cb; /* decorative dividers only, exempt from 1.4.11 */
-  --rule-control: #828b83; /* interactive boundaries, 3.19:1 on ground */
+  /* Warm neutral. No chromatic accent anywhere: the warmth comes from the
+     greige tints and, once it exists, from the photography. */
+  --ground: #f7f7f2;
+  --surface: #efede7;
+  --surface-deep: #e1dcd5;
+  --ink: #191818; /* 16.49:1 on ground */
+  --ink-soft: #5c5854; /* 6.56:1 ground, 6.02:1 surface, 5.17:1 surface-deep */
+  --ink-faint: #635e58; /* 5.97 / 5.48 / 4.71 across the three light grounds */
 
-  /* The primary button keeps its own tokens so the fill can be tuned for shape
-     contrast independently of the brand green. */
-  --btn-bg: #1e4635; /* 9.60:1 as a shape on ground */
-  --btn-bg-hover: #16352a;
-  --btn-fg: #eef1ea; /* 9.28:1 on the fill */
+  --dark: #191818;
+  --on-dark: #f7f7f2; /* 16.49:1 on dark */
+  --on-dark-soft: #b4b0aa; /* 8.21:1 on dark */
 
-  --r: 3px;
+  --rule: #ded9d1; /* decorative dividers only, exempt from WCAG 1.4.11 */
+  --rule-control: #87837c; /* interactive boundaries, 3.51:1 on ground */
+
+  /* The button keeps its own tokens so the fill can be tuned for shape
+     contrast independently of the text palette. */
+  --btn-bg: #191818; /* 16.49:1 as a shape on ground */
+  --btn-bg-hover: #322f2d;
+  --btn-fg: #f7f7f2; /* 16.49:1 on the fill */
+
+  /* Shape scale: large surfaces 16px, small elements 8px, buttons pill.
+     Three steps, applied consistently, no exceptions. */
+  --r-lg: 16px;
+  --r-sm: 8px;
+  --r-pill: 999px;
+
   --container: 1180px;
   --gutter: clamp(1.25rem, 5vw, 4rem);
   --section-y: clamp(4rem, 8vw, 7rem);
 
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 
-  --font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif;
-  --font-body: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'IBM Plex Serif', 'Iowan Old Style', Georgia, serif;
+  --font-body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* Light only, by choice. `color-scheme: light` also keeps form controls,
      scrollbars and browser chrome light for readers whose system is set to
@@ -89,7 +103,7 @@ body {
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 1rem;
-  line-height: 1.65;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -109,8 +123,8 @@ h2,
 h3 {
   margin: 0;
   font-family: var(--font-display);
-  font-weight: 500;
-  letter-spacing: -0.012em;
+  font-weight: 400;
+  letter-spacing: -0.03em;
   line-height: 1.12;
 }
 
@@ -130,9 +144,9 @@ li {
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--ink);
   outline-offset: 3px;
-  border-radius: var(--r);
+  border-radius: var(--r-sm);
 }
 
 /* --- Layout primitives --------------------------------------------------- */
@@ -148,13 +162,20 @@ li {
   padding-block: var(--section-y);
 }
 
+/* For sections whose content is already inside a padded panel, so the panel's
+   own padding is not stacked on top of a full section rhythm. */
+.section--tight {
+  padding-block: clamp(1.5rem, 3vw, 2.5rem);
+}
+
 .skip {
   position: absolute;
   left: -9999px;
   top: 0;
-  background: var(--forest);
-  color: var(--on-forest);
+  background: var(--dark);
+  color: var(--on-dark);
   padding: 0.75rem 1.25rem;
+  border-radius: var(--r-sm);
   z-index: 100;
 }
 
@@ -166,27 +187,26 @@ li {
 /* --- Type ---------------------------------------------------------------- */
 
 .display {
-  font-size: clamp(2.6rem, 6.4vw, 4.5rem);
-  line-height: 1.06;
+  font-size: clamp(2.5rem, 5.6vw, 4rem);
+  line-height: 1.1;
 }
 
 .h2 {
-  font-size: clamp(1.9rem, 3.8vw, 2.9rem);
+  font-size: clamp(1.85rem, 3.6vw, 2.75rem);
 }
 
-.h3 {
-  font-family: var(--font-body);
-  font-size: 1.0625rem;
-  font-weight: 600;
-  letter-spacing: -0.005em;
-  line-height: 1.4;
+/* Emphasis inside a display line uses the same family's italic, never a
+   second typeface. */
+.display em,
+.h2 em {
+  font-style: italic;
 }
 
 .lead {
   font-size: clamp(1.0625rem, 1.4vw, 1.1875rem);
   line-height: 1.6;
   color: var(--ink-soft);
-  max-width: 34ch;
+  max-width: 36ch;
 }
 
 .prose {
@@ -194,9 +214,9 @@ li {
   max-width: 62ch;
 }
 
-.measure {
-  max-width: 58ch;
-}
+/* The reference's mono texture is carried by the small uppercase <dt> labels in
+   the credentials and contact lists, not by pill eyebrows above every heading.
+   One device, used where it actually labels data. */
 
 /* --- Buttons ------------------------------------------------------------- */
 
@@ -206,7 +226,7 @@ li {
   justify-content: center;
   white-space: nowrap;
   padding: 0.8125rem 1.5rem;
-  border-radius: var(--r);
+  border-radius: var(--r-pill);
   border: 1px solid transparent;
   font-family: var(--font-body);
   font-size: 0.9375rem;
@@ -230,7 +250,7 @@ li {
   background: var(--btn-bg-hover);
 }
 
-/* Label contrast 15.0:1. Border uses --rule-control so the control boundary
+/* Label contrast 16.5:1. Border uses --rule-control so the control boundary
    clears WCAG 1.4.11 at 3:1, unlike the decorative rules. */
 .btn--ghost {
   border-color: var(--rule-control);
@@ -239,6 +259,7 @@ li {
 
 .btn--ghost:hover {
   border-color: var(--ink);
+  background: var(--surface);
 }
 
 /* --- Navigation ---------------------------------------------------------- */
@@ -258,7 +279,7 @@ li {
 }
 
 .nav__inner {
-  height: 68px;
+  height: 74px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -267,9 +288,8 @@ li {
 
 .nav__brand {
   font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 500;
-  letter-spacing: -0.01em;
+  font-size: 1.375rem;
+  letter-spacing: -0.02em;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -292,7 +312,7 @@ li {
 }
 
 .nav .btn {
-  padding: 0.5625rem 1.125rem;
+  padding: 0.5625rem 1.25rem;
   font-size: 0.875rem;
 }
 
@@ -305,8 +325,8 @@ li {
 /* --- Hero (asymmetric split) --------------------------------------------- */
 
 .hero {
-  padding-top: clamp(2.5rem, 6vw, 5.5rem);
-  padding-bottom: clamp(3.5rem, 8vw, 6.5rem);
+  padding-top: clamp(2rem, 5vw, 4rem);
+  padding-bottom: clamp(3.5rem, 8vw, 6rem);
 }
 
 .hero__grid {
@@ -316,10 +336,10 @@ li {
   align-items: center;
 }
 
-/* Sized down from .display so the 44-character headline holds to two lines
-   beside the portrait rather than spilling to three. */
+/* Sized down from .display so this 44-character headline holds to two lines
+   beside the portrait. At the full display scale it runs to three. */
 .hero__title {
-  font-size: clamp(2.35rem, 5.2vw, 3.7rem);
+  font-size: clamp(2.2rem, 4.4vw, 3.25rem);
   text-wrap: balance;
 }
 
@@ -346,7 +366,7 @@ li {
 .portrait__img {
   width: 100%;
   aspect-ratio: 4 / 5;
-  border-radius: var(--r);
+  border-radius: var(--r-lg);
   object-fit: cover;
 }
 
@@ -356,8 +376,7 @@ li {
   gap: 0.5rem;
   text-align: center;
   padding: 1.5rem;
-  background: var(--forest-tint);
-  border: 1px solid var(--rule);
+  background: var(--surface-deep);
   color: var(--ink-faint);
   font-size: 0.8125rem;
   line-height: 1.5;
@@ -376,7 +395,7 @@ li {
   }
 
   .portrait {
-    max-width: 380px;
+    max-width: 400px;
   }
 
   .lead {
@@ -384,36 +403,41 @@ li {
   }
 }
 
-/* --- Statement block (single deliberate colour block) --------------------- */
+/* --- Statement block (the page's one inverted surface) -------------------- */
 
 .statement {
-  background: var(--forest);
-  color: var(--on-forest);
+  background: var(--dark);
+  color: var(--on-dark);
+  border-radius: var(--r-lg);
 }
 
-.statement__grid {
+.statement__inner {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
   gap: clamp(1.5rem, 5vw, 4rem);
   align-items: start;
+  padding: clamp(2.5rem, 6vw, 4.5rem);
 }
 
+/* Wide enough for "Who I work with" to break after "Who", not after "work". */
 .statement__title {
-  color: var(--on-forest);
+  color: var(--on-dark);
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  text-wrap: balance;
 }
 
 .statement__body {
   font-family: var(--font-display);
-  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+  font-size: clamp(1.25rem, 2.2vw, 1.625rem);
   line-height: 1.45;
-  color: var(--on-forest);
-  max-width: 44ch;
+  color: var(--on-dark);
+  max-width: 46ch;
 }
 
 @media (max-width: 800px) {
-  .statement__grid {
+  .statement__inner {
     grid-template-columns: 1fr;
-    gap: 1.75rem;
+    gap: 1.5rem;
   }
 }
 
@@ -458,29 +482,24 @@ li {
 
 .topic {
   padding: clamp(1.75rem, 3vw, 2.5rem);
-  border-radius: var(--r);
-  border: 1px solid var(--rule);
+  border-radius: var(--r-lg);
+  background: var(--surface);
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   min-height: 100%;
 }
 
-/* Visual variation across cells so the grid is not four identical boxes. */
-.topic--tint-forest {
-  background: var(--forest-tint);
-  border-color: transparent;
-}
-
-.topic--tint-accent {
-  background: var(--accent-tint);
-  border-color: transparent;
+/* Two of the four sit a step deeper so the grid has tonal rhythm rather than
+   four identical panels. */
+.topic--deep {
+  background: var(--surface-deep);
 }
 
 .topic__name {
   font-family: var(--font-display);
   font-size: clamp(1.375rem, 2.2vw, 1.75rem);
-  font-weight: 500;
+  letter-spacing: -0.025em;
   line-height: 1.2;
 }
 
@@ -489,7 +508,6 @@ li {
   font-size: 0.96875rem;
   max-width: 44ch;
 }
-
 
 /* --- How it works (vertical stack with hanging rule) --------------------- */
 
@@ -518,7 +536,7 @@ li {
 .step__name {
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 2.6vw, 2rem);
-  font-weight: 500;
+  letter-spacing: -0.03em;
   line-height: 1.15;
 }
 
@@ -541,43 +559,39 @@ li {
 
 /* --- Credentials --------------------------------------------------------- */
 
-/* A data strip, not a full section. Full section padding leaves three short
-   lines floating in a tall empty band. */
-.creds.section {
-  padding-block: clamp(2.25rem, 4vw, 3.25rem);
+.creds__inner {
   background: var(--surface);
-}
-
-.creds__grid {
+  border-radius: var(--r-lg);
+  padding: clamp(2rem, 4vw, 2.75rem);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: clamp(1.5rem, 4vw, 3rem);
 }
 
 .creds dt {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.09em;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
   color: var(--ink-faint);
 }
 
 .creds dd {
-  margin-top: 0.5rem;
+  margin-top: 0.625rem;
   font-family: var(--font-display);
   font-size: 1.1875rem;
+  letter-spacing: -0.02em;
   line-height: 1.35;
 }
 
 .creds a {
   color: var(--ink);
-  text-decoration-color: var(--accent);
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
 }
 
 .creds a:hover {
-  color: var(--accent);
+  color: var(--ink-soft);
 }
 
 /* --- Contact ------------------------------------------------------------- */
@@ -624,9 +638,9 @@ li {
 }
 
 .detail dt {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.09em;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
   color: var(--ink-faint);
 }
@@ -637,14 +651,13 @@ li {
 
 .detail a {
   color: var(--ink);
-  text-decoration-color: var(--accent);
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
   transition: color 0.2s var(--ease);
 }
 
 .detail a:hover {
-  color: var(--accent);
+  color: var(--ink-soft);
 }
 
 .detail address {
@@ -682,7 +695,8 @@ li {
 
 .footer__brand {
   font-family: var(--font-display);
-  font-size: 1.125rem;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
 }
 
 .footer__disclaimer {
@@ -704,10 +718,10 @@ li {
 
 /* --- Motion -------------------------------------------------------------- */
 /* Purpose: sequence sections into view so the page reads as a narrative rather
-   than arriving all at once. Entry only, never looping. */
-
-/* Scoped to .js so content is never hidden unless JavaScript is present to
+   than arriving all at once. Entry only, never looping.
+   Scoped to .js so content is never hidden unless JavaScript is present to
    bring it back. No script, no hiding. */
+
 @media (prefers-reduced-motion: no-preference) {
   .js .reveal {
     opacity: 0;
@@ -743,6 +757,17 @@ li {
 
   body {
     background: #fff;
+    color: #000;
+  }
+
+  .statement {
+    background: #fff;
+    color: #000;
+    border: 1px solid #000;
+  }
+
+  .statement__title,
+  .statement__body {
     color: #000;
   }
 }

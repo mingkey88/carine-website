@@ -66,7 +66,7 @@ without it turning up in a search for her name.
 | `index.html` | The page. Six sections plus nav and footer. |
 | `css/styles.css` | Tokens, layout, motion, print styles. |
 | `js/main.js` | Scroll reveal and nav state. Nothing else. |
-| `assets/fonts/` | EB Garamond and Instrument Sans, self-hosted. |
+| `assets/fonts/` | IBM Plex Serif, Sans and Mono, self-hosted. |
 | `assets/img/` | Empty. Portrait goes here. |
 | `DESIGN.md` | Why the page looks the way it does. |
 | `CONTENT-QUERIES.md` | What needs Carine's or compliance's sign-off. |

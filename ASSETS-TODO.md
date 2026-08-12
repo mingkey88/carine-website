@@ -73,15 +73,47 @@ Also set `og:url` to the real domain once hosting is decided.
 
 ## 3. Favicon (optional)
 
-`favicon.svg` plus `apple-touch-icon.png` at 180 x 180. A monogram in EB
-Garamond on the forest green (`#1e4635`) would match the page.
+`favicon.svg` plus `apple-touch-icon.png` at 180 x 180. A "C" monogram in IBM
+Plex Serif, warm off-white (`#f7f7f2`) on the near-black (`#191818`), would match
+the nav button.
+
+---
+
+## 4. Photography, beyond the portrait
+
+The design follows the [Halden Miller
+template](https://halden-miller.webflow.io/), which is roughly **70%
+photography**: 34 images, with every section carried by warm, natural-light
+shots. This page currently has none.
+
+It reads as clean and sparse right now. It is not going to reach the reference's
+warmth on typography alone. If the budget allows one thing, make it a proper
+shoot rather than more design work.
+
+What a session should produce, in priority order:
+
+| Priority | Shot | Where it would go |
+|---|---|---|
+| 1 | Portrait, 4:5, plain or softly blurred background | Hero, section 1 above |
+| 2 | Carine mid-conversation with a client, landscape | Beside "How working together looks" |
+| 3 | Working detail: hands, documents, laptop, desk | Between the topic grid and the process |
+| 4 | Environmental, wider, in the office | Contact section |
+
+Direction that matches the reference: **natural window light, warm tones, no
+harsh flash, no grey studio backdrop, no posed arms-folded corporate stance.**
+Candid over formal.
+
+**Do not substitute stock photography.** Lifestyle stock of strangers on an
+adviser's site implies they are her clients, which is misleading. The reference
+can use it because it openly says "Halden Miller is a fictional consulting
+firm". Carine is real.
 
 ---
 
 ## Already handled
 
-- **Fonts.** EB Garamond and Instrument Sans are self-hosted in
-  `assets/fonts/` as latin-subset variable woff2, about 122KB total. No requests
-  leave the page, so nothing breaks offline or behind a corporate proxy.
+- **Fonts.** IBM Plex Serif, Sans and Mono are self-hosted in `assets/fonts/`
+  as latin-subset woff2, about 81KB total. No requests leave the page, so
+  nothing breaks offline or behind a corporate proxy.
 - **Icons.** None used. Contact details are set typographically, so there is no
   icon library to license or maintain.
