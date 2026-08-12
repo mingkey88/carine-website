@@ -42,6 +42,21 @@ Netlify, Cloudflare Pages, Vercel or plain S3 all work with no configuration.
 
 Also outstanding: her portrait, see [ASSETS-TODO.md](ASSETS-TODO.md).
 
+### Search engines are blocked
+
+Because of the above, the site is held back from search in two places:
+
+- `robots.txt` carries `Disallow: /`
+- `index.html` carries `<meta name="robots" content="noindex, nofollow">`
+
+Both are needed. `robots.txt` stops well-behaved crawlers fetching the page; the
+meta tag is what actually keeps it out of the index if the URL is discovered
+some other way, such as a shared link.
+
+**At sign-off:** change `robots.txt` to `Allow: /` and delete the noindex meta
+from `index.html`. Until then, the page is safe to share as a link for review
+without it turning up in a search for her name.
+
 ---
 
 ## Files

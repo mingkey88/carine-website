@@ -1,2 +1,6 @@
 User-agent: *
-Allow: /
+Disallow: /
+
+# Pre-launch. Not approved by Financial Alliance compliance, and the copy has
+# not been signed off by Carine. See CONTENT-QUERIES.md.
+# At sign-off: replace with "Allow: /" and remove the noindex meta from index.html.
