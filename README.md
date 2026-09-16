@@ -34,13 +34,10 @@ Netlify, Cloudflare Pages, Vercel or plain S3 all work with no configuration.
 1. **Financial Alliance compliance has not signed off.** Carine is a licensed
    representative and MAS rules govern how she advertises. The footer disclaimer
    is placeholder wording written by us, not approved text.
-2. **Carine has not approved the copy.** Everything on the page is either taken
-   from her public Financial Alliance profile or listed in CONTENT-QUERIES.md as
-   needing her confirmation. Three claims from the original brief (mother of
-   three, fifteen years' experience, family-protection positioning) were left
-   off the page because they could not be verified.
-
-Also outstanding: her portrait, see [ASSETS-TODO.md](ASSETS-TODO.md).
+2. **The video section is unfinished.** The copy is Rebecca's v1 (applied
+   16 Sep 2026), but the "Making sense of financial planning" section needs
+   video links and social profile URLs from Carine before it looks like
+   anything. Listed in CONTENT-QUERIES.md section 4.
 
 ### Search engines are blocked
 
@@ -67,7 +64,7 @@ without it turning up in a search for her name.
 | `css/styles.css` | Tokens, layout, motion, print styles. |
 | `js/main.js` | Scroll reveal and nav state. Nothing else. |
 | `assets/fonts/` | IBM Plex Serif, Sans and Mono, self-hosted. |
-| `assets/img/` | Empty. Portrait goes here. |
+| `assets/img/` | Hero portrait. |
 | `DESIGN.md` | Why the page looks the way it does. |
 | `CONTENT-QUERIES.md` | What needs Carine's or compliance's sign-off. |
 | `ASSETS-TODO.md` | What images are missing and how to drop them in. |
@@ -77,6 +74,7 @@ without it turning up in a search for her name.
 - Light mode only. The page stays light even when the reader's system is set to
   dark, and there is no toggle.
 - Fonts are self-hosted, so nothing leaves the page at runtime. No analytics, no
-  trackers, no CDN calls.
+  trackers, no CDN calls. That changes once the YouTube embeds go in: each one
+  loads from youtube-nocookie.com.
 - Contrast was measured against WCAG AA, buttons against 1.4.11 as well. See
   DESIGN.md.

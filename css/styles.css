@@ -347,6 +347,10 @@ li {
   margin-top: 1.5rem;
 }
 
+.hero__lead p + p {
+  margin-top: 1rem;
+}
+
 .hero__actions {
   margin-top: 2.25rem;
   display: flex;
@@ -407,42 +411,98 @@ li {
   }
 }
 
-/* --- Statement block (the page's one inverted surface) -------------------- */
+/* --- Channel block (the page's one inverted surface) --------------------- */
+/* Videos and social links. Dark ground so YouTube thumbnails, which are mostly
+   saturated, sit inside a frame rather than fighting the greige. */
 
-.statement {
+.channel {
   background: var(--dark);
   color: var(--on-dark);
   border-radius: var(--r-lg);
 }
 
-.statement__inner {
+.channel__inner {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
-  gap: clamp(1.5rem, 5vw, 4rem);
-  align-items: start;
+  gap: clamp(2rem, 4vw, 3rem);
   padding: clamp(2.5rem, 6vw, 4.5rem);
 }
 
-/* Wide enough for "Who I work with" to break after "Who", not after "work". */
-.statement__title {
+.channel__title {
   color: var(--on-dark);
-  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  max-width: 18ch;
   text-wrap: balance;
 }
 
-.statement__body {
-  font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2.2vw, 1.625rem);
-  line-height: 1.45;
-  color: var(--on-dark);
-  max-width: 46ch;
+/* Horizontal scroll-snap track. No script: the browser does the carousel work,
+   and it degrades to a plain scrolling row. Each slide is 16:9 and sized so a
+   sliver of the next one shows at every width, which is the affordance. */
+.carousel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 0;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--on-dark-soft) transparent;
+  -webkit-overflow-scrolling: touch;
 }
 
-@media (max-width: 800px) {
-  .statement__inner {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
+.carousel__item {
+  flex: 0 0 min(560px, 86%);
+  scroll-snap-align: start;
+}
+
+.carousel__item iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: var(--r-sm);
+  background: #000;
+}
+
+.follow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem 1.25rem;
+  padding-top: clamp(1.5rem, 3vw, 2rem);
+  border-top: 1px solid rgba(247, 247, 242, 0.16);
+}
+
+.follow__label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--on-dark-soft);
+}
+
+.follow__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0;
+}
+
+.follow__list li + li::before {
+  content: '\00b7';
+  margin-inline: 0.75rem;
+  color: var(--on-dark-soft);
+}
+
+.follow__list a {
+  color: var(--on-dark);
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  letter-spacing: -0.01em;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: color 0.2s var(--ease);
+}
+
+.follow__list a:hover {
+  color: var(--on-dark-soft);
 }
 
 /* --- Topics (asymmetric four-cell grid) ---------------------------------- */
@@ -561,12 +621,22 @@ li {
   }
 }
 
-/* --- Credentials --------------------------------------------------------- */
+/* --- Regulatory and professional information ---------------------------- */
 
-.creds__inner {
+.creds {
   background: var(--surface);
   border-radius: var(--r-lg);
   padding: clamp(2rem, 4vw, 2.75rem);
+}
+
+.creds__title {
+  font-size: 1.125rem;
+  letter-spacing: -0.02em;
+  color: var(--ink-soft);
+  margin-bottom: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.creds__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: clamp(1.5rem, 4vw, 3rem);
@@ -586,16 +656,6 @@ li {
   font-size: 1.1875rem;
   letter-spacing: -0.02em;
   line-height: 1.35;
-}
-
-.creds a {
-  color: var(--ink);
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
-}
-
-.creds a:hover {
-  color: var(--ink-soft);
 }
 
 /* --- Contact ------------------------------------------------------------- */
@@ -764,14 +824,19 @@ li {
     color: #000;
   }
 
-  .statement {
+  .channel {
     background: #fff;
     color: #000;
     border: 1px solid #000;
   }
 
-  .statement__title,
-  .statement__body {
+  .channel__title,
+  .follow__label,
+  .follow__list a {
     color: #000;
+  }
+
+  .carousel {
+    display: none;
   }
 }

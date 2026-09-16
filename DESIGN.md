@@ -87,7 +87,7 @@ authority in a way blush would not.
 
 One scale, three steps, no exceptions:
 
-- **16px** on large surfaces: portrait, topic panels, statement block, credentials
+- **16px** on large surfaces: portrait, topic panels, video panel, credentials
 - **8px** on small elements and focus rings
 - **pill** on buttons
 
@@ -96,11 +96,16 @@ One scale, three steps, no exceptions:
 | Section | Structure |
 |---|---|
 | Hero | Asymmetric split, 1.15fr text against 0.85fr portrait |
-| Who I work with | Inverted dark panel, the page's one tonal inversion |
-| What I talk about | Four-cell grid, 7fr/5fr reversing to 5fr/7fr on row two |
-| How working together looks | Vertical stack, hanging rules |
-| Credentials | Greige panel, auto-fit definition list |
-| Contact | Split, actions against a detail list |
+| What I can help you with | Four-cell grid, 7fr/5fr reversing to 5fr/7fr on row two |
+| Making sense of financial planning | Inverted dark panel, the page's one tonal inversion. Video carousel (CSS scroll-snap, no script) over a follow row |
+| What working together looks like | Vertical stack, hanging rules |
+| Let's talk | Split, actions against a detail list |
+| Regulatory and professional information | Greige panel, auto-fit definition list |
+
+Section order and copy follow Rebecca's "Carine's website - v1" document. The
+dark panel moved from the old "Who I work with" statement to the video section,
+because saturated YouTube thumbnails sit better inside a dark frame than on
+greige.
 
 No two sections share a layout family, and there is no left-image/right-text
 zigzag anywhere. The four topic cells are not four identical cards: the grid is
@@ -175,7 +180,7 @@ index.html            the page
 css/styles.css        tokens, layout, motion, print
 js/main.js            reveal observer, nav state
 assets/fonts/         4 self-hosted woff2, ~81KB
-assets/img/           empty, see ASSETS-TODO.md
+assets/img/           hero portrait
 ```
 
 No build step, no dependencies, no package.json. Open `index.html` and it runs.
@@ -191,8 +196,8 @@ Deploys to any static host as-is.
    photo. The remaining three sections would each benefit from one. Shot list
    and art direction are in ASSETS-TODO.md.
 2. **No `og:image`.** Links currently unfurl as text.
-3. **Positioning conflict unresolved.** The four content pillars are
-   family-themed; the verified hero copy addresses young working adults. See
-   CONTENT-QUERIES.md section 3.
+3. **Video section is empty.** The carousel is built but has no videos and the
+   follow row has only LinkedIn. It will read as a sparse dark block until
+   Carine supplies links. See CONTENT-QUERIES.md section 4.
 4. **Compliance not obtained.** The footer disclaimer is our wording standing in
    for whatever FAPL requires. This blocks launch.
