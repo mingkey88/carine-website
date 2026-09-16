@@ -56,12 +56,13 @@ Small connective pieces the v1 doc does not cover. Approve or replace.
 
 ## 4. Needed to finish the "Making sense of financial planning" section
 
-The section is built and styled but currently shows the heading and a
-"Follow me on" row with LinkedIn only. Rebecca's doc specifies:
+The section is on the page as a **mock-up**: four placeholder video tiles in
+the carousel, and all five follow links, of which only LinkedIn goes anywhere.
+To finish it, Rebecca's doc needs:
 
 | # | Needed | Notes |
 |---|---|---|
-| 4.1 | Video links | "Carousel of her latest or most popular vids". Which platform, and which videos? YouTube links are easiest to embed. Three to six is the right number. The markup is ready in `index.html`, commented out with instructions. |
+| 4.1 | Video links | "Carousel of her latest or most popular vids". Which platform, and which videos? YouTube links are easiest to embed. Three to six is the right number. Each placeholder tile in `index.html` is swapped for the embed shown in the comment above it. |
 | 4.2 | YouTube profile URL | For the follow row. |
 | 4.3 | Instagram profile URL | For the follow row. |
 | 4.4 | TikTok profile URL | For the follow row. |

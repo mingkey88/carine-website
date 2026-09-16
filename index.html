@@ -125,33 +125,63 @@
   <!-- Making sense of financial planning: the page's one inverted surface ---- -->
   <section class="section" id="videos">
     <div class="wrap">
-      <div class="channel channel--empty reveal">
+      <div class="channel reveal">
         <div class="channel__inner">
           <div class="channel__head">
             <h2 class="h2 channel__title">Making sense of financial planning</h2>
           </div>
 
-          <!-- Video carousel. Waiting on Carine's video links; see
-               CONTENT-QUERIES.md section 4. When they arrive, drop this in
-               here, one <li> per video:
+          <!-- MOCK-UP. Placeholder tiles until Carine's video links arrive; see
+               CONTENT-QUERIES.md section 4. Replace each tile's inner <div>
+               with the real embed:
 
-          <ul class="carousel" aria-label="Videos">
-            <li class="carousel__item">
               <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID"
                       title="Video title"
                       loading="lazy" allowfullscreen
                       allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
                       referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          -->
+          <ul class="carousel" aria-label="Videos">
+            <li class="carousel__item">
+              <div class="carousel__placeholder">
+                <span class="carousel__label">Video 01</span>
+                <svg class="carousel__play" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="30.5"/><path d="M26 21.5v21l17-10.5z"/></svg>
+                <span class="visually-hidden">placeholder</span>
+              </div>
+            </li>
+            <li class="carousel__item">
+              <div class="carousel__placeholder">
+                <span class="carousel__label">Video 02</span>
+                <svg class="carousel__play" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="30.5"/><path d="M26 21.5v21l17-10.5z"/></svg>
+                <span class="visually-hidden">placeholder</span>
+              </div>
+            </li>
+            <li class="carousel__item">
+              <div class="carousel__placeholder">
+                <span class="carousel__label">Video 03</span>
+                <svg class="carousel__play" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="30.5"/><path d="M26 21.5v21l17-10.5z"/></svg>
+                <span class="visually-hidden">placeholder</span>
+              </div>
+            </li>
+            <li class="carousel__item">
+              <div class="carousel__placeholder">
+                <span class="carousel__label">Video 04</span>
+                <svg class="carousel__play" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="30.5"/><path d="M26 21.5v21l17-10.5z"/></svg>
+                <span class="visually-hidden">placeholder</span>
+              </div>
             </li>
           </ul>
-          -->
 
           <div class="follow">
             <p class="follow__label">Follow me on</p>
+            <!-- MOCK-UP. Empty hrefs until Carine's profile URLs arrive; see
+                 CONTENT-QUERIES.md section 4. Real ones get
+                 rel="me noopener" target="_blank" like LinkedIn. -->
             <ul class="follow__list">
-              <!-- YouTube, Instagram, TikTok and Facebook profile URLs still
-                   needed from Carine. Add each as:
-                   <li><a href="URL" rel="me noopener" target="_blank">YouTube</a></li> -->
+              <li><a href="#">YouTube</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">TikTok</a></li>
+              <li><a href="#">Facebook</a></li>
               <li><a href="https://www.linkedin.com/in/carinezheng/" rel="me noopener" target="_blank">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></li>
             </ul>
           </div>

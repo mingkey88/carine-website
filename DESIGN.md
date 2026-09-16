@@ -112,10 +112,9 @@ dark panel moved from the old "Who I work with" statement to the video section,
 because saturated YouTube thumbnails sit better inside a dark frame than on
 greige.
 
-Until the videos arrive the dark panel carries a `.channel--empty` modifier
-that sets the heading and the follow row as two columns on wide screens, so the
-block reads as composed rather than as an empty stage. It comes off in the same
-edit that adds the carousel.
+Until the videos arrive the carousel holds four placeholder tiles, numbered in
+the mono label style and carrying the page's only drawn icon, a play mark. It
+is a stand-in for YouTube's own player chrome and goes with the tiles.
 
 No two sections share a layout family, and there is no left-image/right-text
 zigzag anywhere. The four topic cells are not four identical cards: the grid is
