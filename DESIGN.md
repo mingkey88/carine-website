@@ -128,12 +128,14 @@ Breakpoints are content-driven, not device-driven:
 | Point | What changes |
 |---|---|
 | ≤400px | The two hero and contact buttons go full width, one under the other |
-| ≤720px | The nav stops being sticky and lays out as a two-row grid: brand and button, then the two section links. Nothing is hidden behind a menu |
-| ≤760px | Hero stacks, portrait centred at 400px. Steps and footer stack |
-| ≤800px | Contact grid stacks. Dark panel loses its two-column empty layout |
+| ≤720px | The nav stops being sticky and lays out as a two-row grid: brand and button, then the two centred section links. Nothing is hidden behind a menu |
+| ≤860px | Everything becomes one column and is **centred**: hero, help cells, dark panel, steps, contact, credentials, footer. Portrait centred at 400px. Measures keep their max-width and sit on the axis |
 | ≤900px | Contact detail rows stack their label over the value |
-| ≥861px | The four help cells take the asymmetric 7/5 grid |
+| ≥861px | Desktop composition: asymmetric hero, 7/5 help grid, two-column steps and contact, left-aligned text |
 | Landscape phones | Nav height drops from 74px to 56px |
+
+One stack point rather than four. Phones and tablets in portrait get the
+centred column; tablets in landscape and up get the desktop composition.
 
 The sticky nav height is a token (`--nav-h`) and `scroll-padding-top` is set
 from it, so in-page jumps land below the bar rather than under it. Text links

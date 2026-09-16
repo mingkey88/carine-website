@@ -465,7 +465,7 @@ main:focus {
   color: var(--ink-soft);
 }
 
-@media (max-width: 760px) {
+@media (max-width: 860px) {
   .hero__grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -516,7 +516,7 @@ main:focus {
    them as two columns so the block reads as composed rather than as a stage
    with nothing on it. Remove .channel--empty in the same edit that adds the
    carousel. */
-@media (min-width: 800px) {
+@media (min-width: 861px) {
   .channel--empty .channel__inner {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: end;
@@ -717,7 +717,7 @@ main:focus {
   align-self: center;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 860px) {
   .step {
     grid-template-columns: 1fr;
     gap: 0.75rem;
@@ -833,7 +833,7 @@ main:focus {
   color: var(--ink-soft);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 860px) {
   .contact__grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -889,9 +889,61 @@ main:focus {
   margin-top: 0.75rem;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 860px) {
   .footer__grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* --- Stacked layout: centred --------------------------------------------- */
+/* Below 860px every section is a single column. Centre it: text, buttons,
+   panels and the portrait all sit on the page's vertical axis, so a phone or a
+   tablet in portrait reads as one composed column rather than a desktop page
+   pushed left. Anything with a measure gets margin-inline: auto so the
+   max-width still holds. */
+
+@media (max-width: 860px) {
+  .hero__grid,
+  .topics__head,
+  .topic,
+  .how__head,
+  .channel,
+  .step,
+  .contact__grid,
+  .creds,
+  .footer__grid {
+    text-align: center;
+  }
+
+  .lead,
+  .prose,
+  .topic__desc,
+  .step__desc,
+  .contact__lead,
+  .channel__title,
+  .footer__disclaimer,
+  .topics__head,
+  .how__head {
+    margin-inline: auto;
+  }
+
+  .topic {
+    align-items: center;
+  }
+
+  .hero__actions,
+  .contact__actions,
+  .follow,
+  .follow__list {
+    justify-content: center;
+  }
+
+  .detail {
+    justify-items: center;
+  }
+
+  .nav__links {
+    justify-content: center;
   }
 }
 
