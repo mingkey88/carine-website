@@ -57,8 +57,13 @@ labels in the credentials and contact lists. That is the reference's texture,
 and it comes from labelling actual data rather than from pill eyebrows stacked
 above every section heading.
 
-Emphasis inside a display line uses the same family's italic (`.display em`),
-never a second typeface.
+Emphasis inside a display line uses the same family's italic (`.hero__title em`,
+`.h2 em`), never a second typeface.
+
+Tracking has two values, held as tokens: `--tracking-display` (-0.03em) on
+every heading, `--tracking-label` (-0.02em) on the brand marks and credential
+values. Body copy on the page is never below 16px; the footer disclaimer is the
+one exception at 14px.
 
 All four files are self-hosted in `assets/fonts/` as latin-subset woff2, about
 81KB total. No external requests, so the page cannot break because a font CDN is
@@ -107,9 +112,34 @@ dark panel moved from the old "Who I work with" statement to the video section,
 because saturated YouTube thumbnails sit better inside a dark frame than on
 greige.
 
+Until the videos arrive the dark panel carries a `.channel--empty` modifier
+that sets the heading and the follow row as two columns on wide screens, so the
+block reads as composed rather than as an empty stage. It comes off in the same
+edit that adds the carousel.
+
 No two sections share a layout family, and there is no left-image/right-text
 zigzag anywhere. The four topic cells are not four identical cards: the grid is
 asymmetric and two of the four sit a step deeper in tone, on the diagonal.
+
+### Responsive behaviour
+
+Breakpoints are content-driven, not device-driven:
+
+| Point | What changes |
+|---|---|
+| ≤400px | The two hero and contact buttons go full width, one under the other |
+| ≤720px | The nav stops being sticky and lays out as a two-row grid: brand and button, then the two section links. Nothing is hidden behind a menu |
+| ≤760px | Hero stacks, portrait centred at 400px. Steps and footer stack |
+| ≤800px | Contact grid stacks. Dark panel loses its two-column empty layout |
+| ≤900px | Contact detail rows stack their label over the value |
+| ≥861px | The four help cells take the asymmetric 7/5 grid |
+| Landscape phones | Nav height drops from 74px to 56px |
+
+The sticky nav height is a token (`--nav-h`) and `scroll-padding-top` is set
+from it, so in-page jumps land below the bar rather than under it. Text links
+that are one line tall carry an invisible `::after` that extends their hit
+area to 44px without moving the row. Safe-area insets are folded into the
+gutter for notched phones.
 
 ### Motion
 
@@ -167,9 +197,12 @@ identifies a control.
 Buttons are measured against the *fill* as well as the text. A CTA that nobody
 recognises as a CTA is a conversion bug before it is an accessibility one.
 
-Also: skip link, `:focus-visible` rings, semantic landmarks, labelled nav,
-`<address>` for the office, and a print stylesheet that drops the nav and
-buttons and converts the dark panel to outlined black on white.
+Also: skip link (fixed, so it never yanks the page to the top), `<main
+tabindex="-1">` so the skip actually moves focus in Safari and Firefox,
+`:focus-visible` rings that switch to off-white inside the dark panel, semantic
+landmarks, labelled nav, `<address>` for the office, a visually hidden "(opens
+in a new tab)" on every external link, and a print stylesheet that drops the
+nav and buttons and converts the dark panel to outlined black on white.
 
 ---
 

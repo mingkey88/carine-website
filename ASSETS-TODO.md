@@ -69,11 +69,12 @@ Also set `og:url` to the real domain once hosting is decided.
 
 ---
 
-## 3. Favicon (optional)
+## 3. Favicon (interim in place)
 
-`favicon.svg` plus `apple-touch-icon.png` at 180 x 180. A "C" monogram in IBM
-Plex Serif, warm off-white (`#f7f7f2`) on the near-black (`#191818`), would match
-the nav button.
+An inline SVG data URI in `<head>` draws a "C" monogram, warm off-white
+(`#f7f7f2`) on the near-black (`#191818`), in the system serif. It stops the
+404 and matches the nav button. For a proper one: `favicon.svg` set in IBM Plex
+Serif, plus `apple-touch-icon.png` at 180 x 180.
 
 ---
 
