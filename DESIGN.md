@@ -33,10 +33,10 @@ dark block.
 What was **not** taken: its "Trusted by 500+ clients (4.9/5)" row. That is
 fabricated social proof, and there is nothing real to put in its place.
 
-**Colour is under review.** Rebecca's v2 notes propose a two-colour pairing in
-place of the current white / black / greige, leaning towards espresso brown,
-navy or beige, and Carine has been asked to choose. The tokens below are the
-current state, not a settled decision. See CONTENT-QUERIES.md 0.1.
+**Colour follows Rebecca's v2 note**, applied 21 September 2026 as a trial
+ahead of Carine's answer: espresso brown, navy blue and beige, "for
+professionalism and approachability". See CONTENT-QUERIES.md 0.1 for where the
+decision stands.
 
 The page is **light only, by request**. `color-scheme: light` is declared so
 that form controls, scrollbars and browser chrome also stay light for readers
@@ -74,24 +74,43 @@ All four files are self-hosted in `assets/fonts/` as latin-subset woff2, about
 81KB total. No external requests, so the page cannot break because a font CDN is
 slow, blocked, or gone.
 
-### Colour: warm neutral, no accent
+### Colour: beige, espresso, navy
+
+Three colours, three roles. Each colour does one job and the jobs do not
+overlap.
 
 ```
---ground        #f7f7f2   warm off-white   page
---surface       #efede7   warm greige      panels
---surface-deep  #e1dcd5   deeper greige    alternating panels
---ink           #191818   warm near-black  text
---dark          #191818                    the one inverted block
+--ground        #f6f1e8   beige       canvas
+--surface       #ece4d6   beige       panels
+--surface-deep  #dfd3c0   sand        icon discs, deeper panels
+--ink           #2b1c14   espresso    text
+--ink-soft      #5e4a3e   espresso    secondary text
+--accent        #1e2a44   navy        everything that acts
+--dark          = accent              the one inverted panel
 ```
 
-There is **no chromatic accent anywhere**. That is the point of the reference and
-it is what makes it work: the warmth comes from the greige tints and, once it
-exists, from the photography. Adding a colour accent would fight both.
+**Beige and espresso carry the warmth.** They are the reading pair: espresso on
+beige is 14.6:1 and still feels like paper rather than a screen.
 
-This also answers the "more feminine" brief without reaching for pink. The
-softness comes from warm greige, 16px corners, and a delicate serif. For someone
-asking clients to trust her with protection and retirement decisions, that holds
-authority in a way blush would not.
+**Navy is the one accent, and it only ever means "act" or "watch".** It owns
+the buttons, the anchored WhatsApp button, the three step numbers, the four
+icon strokes, and the video panel. It appears nowhere as decoration, so when
+the eye lands on navy it has landed on something to do. The hero portrait's
+navy blazer sits inside the same family, which is a happy accident worth
+keeping in mind if the photo is ever reshot.
+
+Secondary text on the navy panel is tinted from navy (`--on-dark-soft`
+#b7bccb), not a generic grey, so it reads as the same material. Anything
+translucent on the panel (the carousel scrollbar, the tile edges) is beige at
+low alpha for the same reason: a tinted grey there reads as a fourth hue.
+
+The anchored WhatsApp button rides over the navy panel on phones and tablets,
+so it carries a 2px beige keyline and a two-tone focus ring, either half of
+which shows against whichever ground is behind it.
+
+This answers the "more feminine" brief without reaching for pink. The softness
+comes from beige, 16px corners and a delicate serif; navy keeps the authority
+a financial planner needs.
 
 ### Shape
 
@@ -201,22 +220,25 @@ Contrast is measured against the *rendered* page, not against the token values,
 by walking every text node, resolving its true background through transparent
 ancestors, and applying the correct threshold for its size and weight.
 
-Latest run: **50 text nodes checked, 0 failures.**
+Token pairs, measured at the palette change on 21 September 2026:
 
 | | Ratio | Required |
 |---|---|---|
-| Body on ground | 16.49:1 | 4.5:1 |
-| Secondary text on ground | 6.56:1 | 4.5:1 |
-| Mono labels on deep greige | 4.71:1 | 4.5:1 |
-| Text on the dark panel | 16.49:1 | 4.5:1 |
-| Primary button label | 16.49:1 | 4.5:1 |
-| Primary button as a shape | 16.49:1 | 3:1 |
-| Ghost button border | 3.51:1 | 3:1 |
+| Espresso on beige canvas | 14.60:1 | 4.5:1 |
+| Secondary espresso on canvas / panel / sand | 7.39 / 6.59 / 5.63 | 4.5:1 |
+| Mono labels on sand | 4.57:1 | 4.5:1 |
+| Beige text on the navy panel | 12.70:1 | 4.5:1 |
+| Tinted secondary text on navy | 7.53:1 | 4.5:1 |
+| Tile labels on the placeholder tiles | 5.64:1 | 4.5:1 |
+| Button label on navy | 12.70:1 | 4.5:1 |
+| Navy button as a shape on beige | 12.70:1 | 3:1 |
+| Navy icon strokes on the sand disc | 9.67:1 | 3:1 |
+| Step rule (`--rule-control`) on beige | 3.68:1 | 3:1 |
 
 Two divider tokens exist for a reason. `--rule` draws decorative hairlines and
 sits below 3:1 on purpose, which WCAG 1.4.11 permits for decoration.
-`--rule-control` draws the ghost button border at 3.51:1, because that boundary
-identifies a control.
+`--rule-control` draws the steps rule at 3.68:1, because that line is part of
+the step sequence the reader is meant to follow.
 
 Buttons are measured against the *fill* as well as the text. A CTA that nobody
 recognises as a CTA is a conversion bug before it is an accessibility one.

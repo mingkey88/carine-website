@@ -102,6 +102,11 @@ Direction that matches the reference: **natural window light, warm tones, no
 harsh flash, no grey studio backdrop, no posed arms-folded corporate stance.**
 Candid over formal.
 
+**Wardrobe and props: navy, charcoal, neutrals.** The page's accent is navy and
+the hero portrait's navy blazer is already doing work for it. Keep new shots in
+that range and avoid warm reds or burgundies, which would fight both the
+espresso text and the navy.
+
 **Do not substitute stock photography.** Lifestyle stock of strangers on an
 adviser's site implies they are her clients, which is misleading. The reference
 can use it because it openly says "Halden Miller is a fictional consulting

@@ -13,7 +13,7 @@ Alliance compliance has signed off.**
 
 | # | Decision | Where it stands |
 |---|---|---|
-| 0.1 | **Colour palette.** Rebecca proposes moving off the current white / black / greige to a two-colour pairing and is leaning towards espresso brown, navy blue or beige. She has asked Carine to pick. | Not applied. The palette is held in tokens at the top of `css/styles.css`, so it is a small change once there is an answer. Whatever is chosen gets re-measured for contrast (see DESIGN.md). |
+| 0.1 | **Colour palette.** Rebecca proposes moving off white / black / greige and is leaning towards espresso brown, navy blue and beige. She has asked Carine to pick. | **Applied as a trial, 21 Sep 2026:** beige canvas, espresso text, navy for buttons, step numbers, icon strokes and the video panel. Every pair measured against WCAG AA (see DESIGN.md). If Carine prefers one of Rebecca's other pairings, it is a change to the tokens at the top of `css/styles.css` plus a contrast re-check. |
 | 0.2 | **Office email, phone and address.** Rebecca asks whether these need to be on the page at all. | Still shown, pending an answer. If they go, the contact section becomes copy plus the one WhatsApp button. Compliance may have a view (1.1). |
 
 ## 1. Blocking: compliance sign-off
