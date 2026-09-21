@@ -142,6 +142,7 @@ p {
 }
 
 ul,
+ol,
 dl,
 dd {
   margin: 0;
@@ -222,6 +223,7 @@ main:focus {
 
 .h2 {
   font-size: clamp(1.85rem, 3.6vw, 2.75rem);
+  text-wrap: balance;
 }
 
 /* Emphasis inside a display line uses the same family's italic, never a
@@ -698,10 +700,17 @@ main:focus {
   max-width: 34ch;
 }
 
+/* Stacked: the shared rule would leave steps two and three floating, so each
+   step draws its own and the number sits centred on it. */
 @media (max-width: 860px) {
   .steps {
     grid-template-columns: 1fr;
     gap: 3rem;
+    border-top: 0;
+  }
+
+  .step {
+    border-top: 1px solid var(--rule-control);
   }
 
   .step__num {
