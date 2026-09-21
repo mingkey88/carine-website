@@ -1,6 +1,5 @@
 /* Carine Zheng - landing page behaviour.
-   Two jobs only: reveal sections as they enter view, and mark the nav once the
-   page has scrolled so it separates from the content beneath it. */
+   One job: reveal sections as they enter view. */
 
 (function () {
   'use strict';
@@ -40,29 +39,10 @@
     });
   }
 
-  /* --- Nav separation ---------------------------------------------------- */
-
-  function setupNav() {
-    var nav = document.getElementById('nav');
-    if (!nav || !('IntersectionObserver' in window)) return;
-
-    // A zero-height sentinel at the top of the page. While it is visible we are
-    // at the top; once it leaves, the nav has content behind it.
-    var sentinel = document.createElement('div');
-    sentinel.setAttribute('aria-hidden', 'true');
-    sentinel.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;pointer-events:none;';
-    document.body.prepend(sentinel);
-
-    new IntersectionObserver(function (entries) {
-      nav.dataset.scrolled = String(!entries[0].isIntersecting);
-    }).observe(sentinel);
-  }
-
   /* --- Init -------------------------------------------------------------- */
 
   function init() {
     setupReveal();
-    setupNav();
   }
 
   if (document.readyState === 'loading') {

@@ -1,12 +1,20 @@
 # Content queries for Carine
 
-The page copy is now Rebecca's **"Carine's website - v1"** (Notion, Achates 360 /
-Website), applied on 16 September 2026. Everything below is what is still open.
+The page copy is Rebecca's **"Carine's website - v1"** (Notion, Achates 360 /
+Website), applied 16 September 2026. Her **v2** layout notes were applied
+21 September 2026. Everything below is what is still open.
 
 **Nothing here should go live before these are answered and before Financial
 Alliance compliance has signed off.**
 
 ---
+
+## 0. Decisions waiting on Carine (from Rebecca's v2)
+
+| # | Decision | Where it stands |
+|---|---|---|
+| 0.1 | **Colour palette.** Rebecca proposes moving off the current white / black / greige to a two-colour pairing and is leaning towards espresso brown, navy blue or beige. She has asked Carine to pick. | Not applied. The palette is held in tokens at the top of `css/styles.css`, so it is a small change once there is an answer. Whatever is chosen gets re-measured for contrast (see DESIGN.md). |
+| 0.2 | **Office email, phone and address.** Rebecca asks whether these need to be on the page at all. | Still shown, pending an answer. If they go, the contact section becomes copy plus the one WhatsApp button. Compliance may have a view (1.1). |
 
 ## 1. Blocking: compliance sign-off
 
@@ -45,19 +53,18 @@ Small connective pieces the v1 doc does not cover. Approve or replace.
 
 | # | Location | Copy |
 |---|---|---|
-| 3.1 | Nav links | "How I can help", "Working together", "Let's talk". Shortened from the section headings so they fit the bar. |
-| 3.2 | Hero, second button | "See how I work". V1 gives the hero one CTA (WhatsApp); the ghost button just scrolls to the process section. Drop it if she prefers a single CTA. |
-| 3.3 | Contact, second button | "Send an email". V1 gives the CTA section only WhatsApp. Email is a verified contact channel so it stays as the secondary action unless she says otherwise. |
-| 3.4 | Contact details list | WhatsApp, email, office line, address. Not in v1; carried over from her FA profile. See 5.2. |
-| 3.5 | `<title>` and meta description | "Carine Zheng \| Financial Planner, Singapore" plus a one-line description built from the v1 hero. Never visible on the page, but it is what search results and link previews show. |
-| 3.6 | Footer disclaimer | Placeholder pending 1.2. |
+| 3.1 | Contact details list | Email, office line, address. Not in v1; carried over from her FA profile. See 0.2. |
+| 3.2 | `<title>` and meta description | "Carine Zheng \| Financial Planner, Singapore" plus a one-line description built from the v1 hero. Never visible on the page, but it is what search results and link previews show. |
+| 3.3 | Footer disclaimer | Placeholder pending 1.2. |
+| 3.4 | Step numbers 1, 2, 3 | Added with the horizontal layout Rebecca asked for. Not in v1. |
+| 3.5 | Four help-cell icons | Shield, rising line, flag, sunrise. Drawn to Rebecca's "with icons" note; happy to swap any of them. |
 
 ---
 
 ## 4. Needed to finish the "Making sense of financial planning" section
 
 The section is on the page as a **mock-up**: four placeholder video tiles in
-the carousel, and all five follow links, of which only LinkedIn goes anywhere.
+the carousel, and all five social icons, of which only LinkedIn goes anywhere.
 To finish it, Rebecca's doc needs:
 
 | # | Needed | Notes |
@@ -79,6 +86,5 @@ requests to YouTube. It currently makes none.
 | # | Question |
 |---|---|
 | 5.1 | Preferred public name: "Carine Zheng" (used throughout) or "Zheng Kaixin Carine" (as on her FAPL profile)? The footer uses the full form. |
-| 5.2 | Should the office landline and address be published, or WhatsApp and email only? V1 lists only WhatsApp. |
 | 5.3 | Is there a booking link (Calendly or similar) to use instead of WhatsApp as the primary call to action? |
 | 5.4 | Any client testimonials cleared for use? None are on the page; FAPL compliance may restrict them. |

@@ -62,7 +62,7 @@ without it turning up in a search for her name.
 |---|---|
 | `index.html` | The page. Six sections plus nav and footer. |
 | `css/styles.css` | Tokens, layout, motion, print styles. |
-| `js/main.js` | Scroll reveal and nav state. Nothing else. |
+| `js/main.js` | Scroll reveal. Nothing else. |
 | `assets/fonts/` | IBM Plex Serif, Sans and Mono, self-hosted. |
 | `assets/img/` | Hero portrait. |
 | `DESIGN.md` | Why the page looks the way it does. |

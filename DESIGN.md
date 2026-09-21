@@ -33,6 +33,11 @@ dark block.
 What was **not** taken: its "Trusted by 500+ clients (4.9/5)" row. That is
 fabricated social proof, and there is nothing real to put in its place.
 
+**Colour is under review.** Rebecca's v2 notes propose a two-colour pairing in
+place of the current white / black / greige, leaning towards espresso brown,
+navy or beige, and Carine has been asked to choose. The tokens below are the
+current state, not a settled decision. See CONTENT-QUERIES.md 0.1.
+
 The page is **light only, by request**. `color-scheme: light` is declared so
 that form controls, scrollbars and browser chrome also stay light for readers
 whose system is set to dark, rather than framing the page in a theme it was not
@@ -100,12 +105,18 @@ One scale, three steps, no exceptions:
 
 | Section | Structure |
 |---|---|
-| Hero | Asymmetric split, 1.15fr text against 0.85fr portrait |
-| What I can help you with | Four-cell grid, 7fr/5fr reversing to 5fr/7fr on row two |
-| Making sense of financial planning | Inverted dark panel, the page's one tonal inversion. Video carousel (CSS scroll-snap, no script) over a follow row |
-| What working together looks like | Vertical stack, hanging rules |
-| Let's talk | Split, actions against a detail list |
+| Hero | Asymmetric split, 1.15fr text against 0.85fr portrait, one button |
+| What I can help you with | Four equal columns, each an icon disc over a heading over text |
+| Making sense of financial planning | Inverted dark panel, the page's one tonal inversion. Centred heading, video carousel (CSS scroll-snap, no script), centred row of social icons |
+| What working together looks like | Three numbered steps in a row on one rule, reading left to right |
+| Let's talk | Split, one button against a detail list |
 | Regulatory and professional information | Greige panel, auto-fit definition list |
+
+Rebecca's v2 notes (21 Sep 2026) set the help cells and the steps horizontal,
+asked for icons on both the cells and the socials, centred the video heading,
+cut the nav links and secondary buttons, and added an anchored WhatsApp
+button. The header is now the brand mark alone and no longer sticky, because
+the anchored button carries the call to action on every scroll position.
 
 Section order and copy follow Rebecca's "Carine's website - v1" document. The
 dark panel moved from the old "Who I work with" statement to the video section,
@@ -117,8 +128,20 @@ the mono label style and carrying the page's only drawn icon, a play mark. It
 is a stand-in for YouTube's own player chrome and goes with the tiles.
 
 No two sections share a layout family, and there is no left-image/right-text
-zigzag anywhere. The four topic cells are not four identical cards: the grid is
-asymmetric and two of the four sit a step deeper in tone, on the diagonal.
+zigzag anywhere.
+
+### Icons
+
+Two kinds, both inline SVG in a sprite at the top of the body, so nothing is
+fetched:
+
+- **Four line icons** for the help cells: shield with a tick, rising line, flag,
+  sunrise. Drawn on a 24-unit grid at a 1.5 stroke with round joins, so they
+  read as one set. They sit in a deeper-greige disc.
+- **Brand marks** for WhatsApp and the five social platforms, from Simple Icons
+  (CC0), filled in the panel's off-white at 22px inside a 44px hit area.
+
+The play mark on the placeholder video tiles goes with the tiles.
 
 ### Responsive behaviour
 
@@ -127,20 +150,18 @@ Breakpoints are content-driven, not device-driven:
 | Point | What changes |
 |---|---|
 | ≤400px | The two hero and contact buttons go full width, one under the other |
-| ≤720px | The nav stops being sticky and lays out as a two-row grid: brand and button, then the two centred section links. Nothing is hidden behind a menu |
-| ≤860px | Everything becomes one column and is **centred**: hero, help cells, dark panel, steps, contact, credentials, footer. Portrait centred at 400px. Measures keep their max-width and sit on the axis |
+| ≤860px | Everything becomes one column and is **centred**: hero, help cells (two across from 600px), dark panel, steps with their numbers on the axis, contact, credentials, footer. Portrait centred at 400px. Measures keep their max-width and sit on the axis |
 | ≤900px | Contact detail rows stack their label over the value |
-| ≥861px | Desktop composition: asymmetric hero, 7/5 help grid, two-column steps and contact, left-aligned text |
-| Landscape phones | Nav height drops from 74px to 56px |
+| ≥861px | Desktop composition: asymmetric hero, four help columns, three steps in a row, two-column contact, left-aligned text |
 
 One stack point rather than four. Phones and tablets in portrait get the
-centred column; tablets in landscape and up get the desktop composition.
+centred column; tablets in landscape and up get the desktop composition. The
+anchored WhatsApp button sits bottom-right at every width, inset from the
+safe area on notched phones.
 
-The sticky nav height is a token (`--nav-h`) and `scroll-padding-top` is set
-from it, so in-page jumps land below the bar rather than under it. Text links
-that are one line tall carry an invisible `::after` that extends their hit
-area to 44px without moving the row. Safe-area insets are folded into the
-gutter for notched phones.
+Text links that are one line tall carry an invisible `::after` that extends
+their hit area to 44px without moving the row. Safe-area insets are folded
+into the gutter for notched phones.
 
 ### Motion
 
@@ -160,15 +181,17 @@ removed.
 
 ### What is deliberately absent
 
-- **Icons.** Contact details are set typographically. Nothing to license.
+- **Icons on the contact details.** Those stay typographic; the icon set is
+  reserved for the help cells and the social row.
 - **Stock photography.** A real adviser's page should not be decorated with
   strangers. See the gap below.
 - **A contact form.** No backend, and a form that silently fails is worse than
   no form. WhatsApp and mailto links land in a place she already checks.
 - **Testimonials and trust metrics.** None are real, and compliance may
   prohibit them.
-- **Scroll cues, pill eyebrows, section numbering, version stamps.** All
-  decoration that would work against a trust-first read.
+- **Scroll cues, pill eyebrows, version stamps.** All decoration that would
+  work against a trust-first read. The step numbers are the one exception:
+  they are a sequence, and the number tells the reader where they are in it.
 
 ---
 
@@ -212,7 +235,7 @@ nav and buttons and converts the dark panel to outlined black on white.
 ```
 index.html            the page
 css/styles.css        tokens, layout, motion, print
-js/main.js            reveal observer, nav state
+js/main.js            reveal observer
 assets/fonts/         4 self-hosted woff2, ~81KB
 assets/img/           hero portrait
 ```
