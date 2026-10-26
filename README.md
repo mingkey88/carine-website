@@ -68,6 +68,7 @@ without it turning up in a search for her name.
 | `DESIGN.md` | Why the page looks the way it does. |
 | `CONTENT-QUERIES.md` | What needs Carine's or compliance's sign-off. |
 | `ASSETS-TODO.md` | What images are missing and how to drop them in. |
+| `previews/` | Three design directions for Carine to choose from, after the SaleUnion, Fernvale and Astrixo templates. Standalone files; delete once a direction is picked. |
 
 ## Notes
 
