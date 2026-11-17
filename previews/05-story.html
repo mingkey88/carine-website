@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carine Zheng | Financial Planner, Singapore</title>
+<meta name="description" content="Design preview 05 · Story, a scroll-told version of the watercolour design. Mock-up for Carine Zheng.">
+<meta name="robots" content="noindex, nofollow">
+<script>
+  // Motion is opt-in: only with a script running and no request for reduced motion.
+  // Without it, every section renders as a finished, still layout.
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Kalam:wght@400;700&display=swap">
+<style>
+@property --lx { syntax: '<length>'; inherits: true; initial-value: 0px; }
+@property --ly { syntax: '<length>'; inherits: true; initial-value: 0px; }
+@property --lr { syntax: '<length>'; inherits: true; initial-value: 0px; }
+
+:root {
+  color-scheme: light;
+  --paper: #f4ead6;
+  --paper-2: #ebdcc0;
+  --card: #fffaf0;
+  --ink: #3a271a;
+  --ink-soft: #6e5642;
+  --seal: #b8321f;
+  --seal-deep: #962614;
+  --river: #18213d;
+  --moon: #f3e7cf;
+  --moon-soft: #cfc6b4;
+  --f-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --f-hand: "Kalam", "Segoe Print", "Comic Sans MS", cursive;
+  --f-body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --gutter: max(20px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(20px, env(safe-area-inset-right, 0px));
+  --hud: 56px;
+  --shadow-card: 0 1px 2px #28190a2e, 0 14px 30px -14px #28190a73;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background-color: var(--paper);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .36 0 0 0 0 .25 0 0 0 0 .14 0 0 0 -2.2 1.2'/%3E%3C/filter%3E%3Crect width='320' height='320' filter='url(%23g)' opacity='.22'/%3E%3C/svg%3E");
+  color: var(--ink);
+  font: 400 clamp(1rem, .95rem + .25vw, 1.125rem)/1.6 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+p, h1, h2, h3, ol, ul, dl, dd, figure { margin: 0; }
+h1, h2, h3 { font-weight: 400; }
+:focus-visible { outline: 2.5px solid var(--seal); outline-offset: 4px; border-radius: 6px; }
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: fixed; left: 16px; top: -80px; z-index: 100; background: var(--ink); color: var(--card); padding: 10px 16px; border-radius: 999px; text-decoration: none; transition: top .2s; }
+.skip:focus { top: 16px; }
+.wrap { width: 100%; max-width: 1240px; margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter-r); }
+
+/* Shared pieces, from design 04 --------------------------------------------------- */
+.note { font-family: var(--f-hand); color: var(--ink-soft); font-size: 1.15rem; line-height: 1.35; }
+.title { font-family: var(--f-display); font-size: clamp(2.3rem, 1.5rem + 3.2vw, 4.4rem); line-height: 1.02; letter-spacing: -.01em; text-wrap: balance; }
+.title em { font-style: italic; }
+.lede { font-family: var(--f-display); font-size: clamp(1.7rem, 1.15rem + 2.1vw, 3rem); line-height: 1.16; text-wrap: pretty; }
+.desc { color: var(--ink-soft); max-width: 40ch; }
+.kick { font-family: var(--f-hand); color: var(--seal); font-size: 1.15rem; margin-bottom: 10px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--seal); color: #fff7ea; font: 600 1rem/1.2 var(--f-body); text-decoration: none;
+  box-shadow: 0 6px 18px -8px #50140a99; transition: transform .2s ease, background-color .2s ease;
+}
+.btn svg { width: 20px; height: 20px; fill: currentColor; flex: none; }
+.btn:hover { transform: translateY(-2px); background: var(--seal-deep); }
+.card { position: relative; background: var(--card); padding: 10px 10px 40px; box-shadow: var(--shadow-card); }
+.card figcaption { position: absolute; left: 14px; right: 14px; bottom: 8px; font-family: var(--f-hand); font-size: 1.05rem; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tape { position: absolute; width: 120px; left: 50%; top: -18px; translate: -50% 0; rotate: -4deg; pointer-events: none; }
+.seal {
+  display: inline-grid; place-items: center; width: 2.4rem; height: 2.4rem; flex: none;
+  background: var(--seal); color: #fff2e2; font: 400 1.4rem/1 var(--f-display); border-radius: 6px; rotate: -6deg;
+  box-shadow: inset 0 0 0 3px var(--seal), inset 0 0 0 4.5px #fff2e2aa;
+}
+
+/* Words that brighten as you read, one at a time (Oryzo's scroll-paced copy) ------- */
+.motion .words .w { opacity: clamp(.16, calc(var(--k, 0) * (var(--n) + 3) - var(--i)), 1); }
+
+/* HUD: brand, chapter, progress ------------------------------------------------------ */
+.hud {
+  position: fixed; inset: 0 0 auto 0; z-index: 40; height: var(--hud);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 0 var(--gutter-r) 0 var(--gutter);
+  background: rgba(244, 234, 214, .84); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  transition: background-color .6s ease, color .6s ease;
+}
+.brand { font: 400 1.55rem/1 var(--f-display); text-decoration: none; letter-spacing: -.01em; }
+.brand em { font-style: italic; }
+.hud__chapter { font-family: var(--f-hand); color: var(--ink-soft); font-size: 1.08rem; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: color .6s ease; }
+.hud__bar { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: rgba(58, 39, 26, .1); }
+.hud__fill { display: block; height: 100%; background: var(--seal); transform-origin: 0 50%; transform: scaleX(0); }
+.is-night .hud { background: rgba(24, 33, 61, .86); color: var(--moon); }
+.is-night .hud__chapter { color: var(--moon-soft); }
+.is-night .hud__bar { background: rgba(243, 231, 207, .14); }
+
+/* Held sections: a tall block with a sticky stage that the scroll plays ------------ */
+.beat { position: relative; }
+.stage { position: relative; padding: calc(var(--hud) + 56px) var(--gutter-r) 72px var(--gutter); }
+.stage__in { position: relative; z-index: 1; width: 100%; max-width: 1240px; margin: 0 auto; }
+.cue { display: none; }
+.motion .beat { height: calc(var(--len) * 100vh); height: calc(var(--len) * 100svh); }
+.motion .stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; padding-top: calc(var(--hud) + 28px); padding-bottom: 48px; display: flex; }
+.motion .stage__in { height: 100%; }
+.motion .cue { display: block; position: absolute; z-index: 3; left: 50%; bottom: 14px; translate: -50% 0; font-size: 1rem; opacity: clamp(0, calc(1 - var(--p, 0) * 5), 1); pointer-events: none; }
+
+/* 1. Hero ----------------------------------------------------------------------------- */
+.hero { position: relative; overflow-x: clip; padding: calc(var(--hud) + clamp(36px, 7vw, 96px)) 0 clamp(64px, 9vw, 120px); }
+.hero__grid { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: clamp(32px, 6vw, 96px); }
+.hero__eyebrow { font-size: 1.35rem; margin-bottom: 18px; }
+.h1 { font-family: var(--f-display); font-size: clamp(3.1rem, 1.9rem + 5vw, 6.6rem); line-height: .98; letter-spacing: -.015em; text-wrap: balance; }
+.h1 em { font-style: italic; color: var(--seal); }
+.hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: 40px; }
+.hero__hint { text-decoration: none; }
+.hero__art { position: relative; justify-self: center; width: min(400px, 100%); }
+.hero__bloom { position: absolute; width: 230%; max-width: none; left: 50%; top: 52%; translate: -52% -50%; pointer-events: none; z-index: -1; }
+.polaroid { rotate: 2.5deg; }
+.polaroid__img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 22%; }
+.sticker { position: absolute; pointer-events: none; filter: drop-shadow(0 4px 6px rgba(40, 20, 0, .22)); }
+.polaroid .sticker { width: clamp(70px, 9vw, 104px); right: -34px; top: -40px; rotate: 8deg; }
+/* On arrival the headline resolves out of a blur, word by word; the polaroid drops in and gets taped. */
+.motion .h1 .w { display: inline-block; animation: resolve 1s var(--ease) both; animation-delay: calc(140ms + var(--i) * 80ms); }
+.motion .polaroid { animation: drop 1s var(--ease) .5s both; }
+.motion .polaroid .tape { animation: stick .5s ease 1.3s both; }
+.motion .hero__bloom { animation: bloom 1.6s ease .2s both; }
+@keyframes resolve { from { opacity: 0; filter: blur(14px); transform: translateY(12px); } }
+@keyframes drop { from { opacity: 0; transform: translateY(-40px) rotate(-8deg); } }
+@keyframes stick { from { opacity: 0; transform: scale(1.3); } }
+@keyframes bloom { from { opacity: 0; transform: scale(.7); } }
+
+/* 2. As life changes: one frame, many lives (frame as window) -------------------------- */
+.changes .stage__in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 340px) minmax(180px, 230px); gap: clamp(28px, 4vw, 64px); align-items: center; }
+.s2 { margin-top: 26px; }
+.motion .s2 { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s var(--ease); }
+.motion .s2.is-in { opacity: 1; transform: none; }
+.frame { rotate: var(--tilt, 2.5deg); transition: rotate .8s var(--ease); justify-self: center; width: 100%; }
+.frame__win { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: radial-gradient(120% 90% at 50% 40%, #f8efdf 0%, #eedcc0 100%); }
+.frame__win > img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.frame__portrait { object-fit: cover; object-position: 50% 22%; }
+.frame__item { object-fit: contain; padding: 14%; display: none; }
+.motion .frame__item { display: block; }
+.motion .frame__win > img { opacity: 0; transform: scale(.9) rotate(-4deg); transition: opacity .5s ease, transform .7s cubic-bezier(.3, 1.5, .5, 1); }
+.motion .frame__win > img.is-on { opacity: 1; transform: none; }
+.strip { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; list-style: none; padding: 0; }
+.strip img { width: 64px; }
+.motion .strip { display: none; }
+.prio { list-style: none; padding: 0; display: grid; gap: 12px; }
+.prio li { display: grid; grid-template-columns: 74px 1fr; align-items: center; gap: 12px; }
+.prio img { width: 74px; transform: scale(var(--s, .85)); transition: transform .7s cubic-bezier(.3, 1.5, .5, 1); }
+.prio span { font-family: var(--f-hand); color: var(--ink-soft); font-size: .98rem; line-height: 1.2; }
+
+/* 3. Clarity: a lens over the muddle ---------------------------------------------------- */
+.clarity .stage__in { display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
+.panel-wrap { display: grid; gap: 12px; }
+.panel { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-radius: 4px; background: #f2e8d4; box-shadow: var(--shadow-card); touch-action: pan-y; cursor: crosshair; outline: 10px solid var(--card); }
+.panel__messy { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.clear { position: absolute; inset: 0; background: #f6eedf; }
+.clear__wash { position: absolute; width: 150%; max-width: none; left: -25%; top: 22%; }
+.clear__path { position: absolute; inset: 0; width: 100%; height: 100%; }
+.clear__path path { fill: none; stroke: var(--ink-soft); stroke-width: 2.4; stroke-linecap: round; stroke-dasharray: 1 9; vector-effect: non-scaling-stroke; }
+.clear__st { position: absolute; width: 16%; translate: -50% -62%; }
+.clear__pin { position: absolute; width: 14px; height: 14px; border-radius: 50%; translate: -50% -50%; background: var(--seal); box-shadow: 0 0 0 3px #fff2e2cc; }
+.motion .clear {
+  -webkit-mask-image: radial-gradient(circle var(--lr) at var(--lx) var(--ly), #000 calc(100% - 26px), transparent 100%);
+  mask-image: radial-gradient(circle var(--lr) at var(--lx) var(--ly), #000 calc(100% - 26px), transparent 100%);
+}
+.motion .panel { transition: --lx .2s ease-out, --ly .2s ease-out, --lr .2s ease-out; }
+.lens { display: none; }
+.motion .lens { display: block; position: absolute; left: var(--lx); top: var(--ly); width: calc(var(--lr) * 2); height: calc(var(--lr) * 2); translate: -50% -50%; border-radius: 50%; border: 2px dashed rgba(58, 39, 26, .5); pointer-events: none; opacity: var(--lo, 1); }
+.panel-hint { display: none; text-align: center; }
+.motion .panel-hint { display: block; opacity: var(--lo, 1); }
+
+/* What I can help you with: a headline that crosses the screen ------------------------- */
+.help .stage__in { display: flex; flex-direction: column; justify-content: center; text-align: center; }
+.big { font-family: var(--f-display); font-size: clamp(2.6rem, 1.6rem + 4vw, 5rem); line-height: 1; text-wrap: balance; }
+.motion .big { font-size: clamp(4.2rem, 1.6rem + 12vw, 14rem); white-space: nowrap; text-align: left; transform-origin: 0 50%; will-change: transform; width: max-content; }
+.help__sub { font-size: 1.5rem; margin-top: 18px; }
+.help__row { display: flex; justify-content: center; flex-wrap: wrap; gap: clamp(14px, 3vw, 36px); margin-top: 26px; list-style: none; padding: 0; }
+.help__row img { width: clamp(64px, 8vw, 104px); }
+.motion .help__sub, .motion .help__row li { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s var(--ease); }
+.motion .help.is-late .help__sub, .motion .help.is-late .help__row li { opacity: 1; transform: none; }
+.motion .help.is-late .help__row li:nth-child(2) { transition-delay: .08s; }
+.motion .help.is-late .help__row li:nth-child(3) { transition-delay: .16s; }
+.motion .help.is-late .help__row li:nth-child(4) { transition-delay: .24s; }
+
+/* Topic sections share one layout: words left, a scene right -------------------------- */
+.topic .stage__in { display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
+.topic__title { margin-bottom: 16px; }
+.scene { position: relative; width: 100%; max-width: 560px; aspect-ratio: 1 / 1; justify-self: center; }
+.motion .scene { width: min(100%, 560px, calc(100vh - var(--hud) - 150px)); width: min(100%, 560px, calc(100svh - var(--hud) - 150px)); }
+
+/* 4. Protecting what matters: rain, and the umbrella that holds ----------------------- */
+.protect .house { position: absolute; width: 44%; left: 28%; bottom: 6%; }
+.protect .umb { position: absolute; width: 64%; left: 18%; top: 10%; transform-origin: 50% 22%; }
+.motion .protect .umb { transform: translateY(calc((1 - var(--open, 1)) * -10%)) scaleX(calc(.26 + .74 * var(--open, 1))) rotate(calc((1 - var(--open, 1)) * -14deg)); }
+.rain { display: none; }
+.motion .rain { display: block; position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
+.tint { position: absolute; inset: 0; background: #8ea3b6; mix-blend-mode: multiply; opacity: 0; pointer-events: none; z-index: 0; }
+.motion .tint { opacity: calc(var(--wet, 0) * .42); }
+.pour { display: none; }
+.motion .pour {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 26px; padding: 10px 18px; border-radius: 999px;
+  border: 1.5px dashed var(--ink-soft); background: #fffaf0b3; color: var(--ink); font: 400 1.1rem/1 var(--f-hand); cursor: pointer;
+}
+.motion .pour:hover { background: var(--card); }
+.motion .protect .scene { cursor: pointer; }
+
+/* 5. Growing your wealth: the tangle that becomes one line ------------------------------ */
+.grow .scene svg { width: 100%; height: 100%; overflow: visible; }
+.tangle { display: none; }
+.motion .tangle { display: inline; }
+.tangle path { fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-dasharray: 1 1; stroke-dashoffset: calc(var(--e, 1) * -1); }
+.stem { fill: none; stroke: #5d7f45; stroke-width: 7; stroke-linecap: round; stroke-dasharray: 1 1; stroke-dashoffset: 0; }
+.motion .stem { stroke-dashoffset: calc(1 - var(--d, 0)); }
+.leaf { transform-box: fill-box; }
+.leaf--l { transform-origin: 100% 100%; }
+.leaf--r { transform-origin: 0% 100%; }
+.motion .leaf { transform: scale(var(--l, 0)); }
+.plant { transform-box: view-box; transform-origin: 200px 392px; }
+.motion .plant { transform: scale(calc(.8 + .34 * var(--g, 0))); }
+.season { opacity: 0; }
+.motion .season { opacity: calc(var(--g, 0) * .55); }
+
+/* 6. Life's milestones: polaroids on a sideways strip ---------------------------------- */
+.milestones .stage__in { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; gap: clamp(16px, 3vh, 40px); }
+.ms-text { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px clamp(28px, 4vw, 64px); align-items: end; }
+.ms-text .topic__title { margin: 0; }
+.track-wrap { position: relative; min-width: 0; }
+.motion .track-wrap { align-self: center; }
+.track { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(26px, 4vw, 56px); list-style: none; padding: 24px 0; }
+.motion .track { flex-wrap: nowrap; justify-content: flex-start; width: max-content; will-change: transform; }
+.ms-card { width: clamp(200px, 21vw, 290px); transition: transform .6s var(--ease), rotate .6s var(--ease); }
+.ms-card:nth-child(odd) { rotate: -2.4deg; }
+.ms-card:nth-child(even) { rotate: 2deg; }
+.ms-card .win { aspect-ratio: 1 / 1; display: grid; place-items: center; background: radial-gradient(120% 90% at 50% 40%, #f8efdf 0%, #eedcc0 100%); }
+.ms-card .win img { width: 70%; }
+.motion .ms-card { transform: scale(.9); }
+.motion .ms-card.is-center { transform: scale(1.06); rotate: 0deg; }
+
+/* 7. Later life: the paper warms to golden hour ----------------------------------------- */
+.later { --k: 1; }
+.later .sky { position: absolute; inset: 0; background: linear-gradient(180deg, #f6d6a4 0%, #f2c690 48%, #f4e3c4 100%); opacity: calc(var(--k) * .95); z-index: 0; }
+.later .sun { position: absolute; width: clamp(220px, 28vw, 400px); left: 66%; bottom: 12%; translate: -50% 0; transform: translateY(calc((1 - var(--k)) * 70%)); z-index: 0; }
+.later .hills { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; max-width: none; z-index: 0; }
+.later .stage__in { display: grid; align-content: start; }
+.later__text { max-width: 560px; padding-top: clamp(0px, 4vh, 40px); }
+html:not(.motion) .later .stage { min-height: clamp(560px, 70vh, 720px); overflow: hidden; }
+
+/* 8. Videos: a frame in the middle, the rest either side -------------------------------- */
+.videos { padding: clamp(80px, 10vw, 130px) 0 clamp(64px, 9vw, 110px); overflow-x: clip; }
+.videos__top { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px 32px; }
+.reel { display: flex; gap: clamp(16px, 3vw, 40px); list-style: none; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 36px calc(50vw - clamp(240px, 36vw, 480px) / 2) 40px; margin: 0 calc(50% - 50vw); }
+.reel::-webkit-scrollbar { display: none; }
+.reel li { flex: 0 0 clamp(240px, 36vw, 480px); scroll-snap-align: center; }
+.reel .card { padding-bottom: 46px; transition: transform .5s var(--ease), rotate .5s var(--ease), opacity .5s ease; transform: scale(.86); opacity: .75; }
+.reel li:nth-child(odd) .card { rotate: -2deg; }
+.reel li:nth-child(even) .card { rotate: 2deg; }
+.reel li.is-center .card { transform: none; rotate: 0deg; opacity: 1; }
+.thumb { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--paper-2); }
+.thumb img { width: 100%; height: 100%; object-fit: cover; }
+.thumb__play { position: absolute; inset: 0; margin: auto; width: 60px; height: 60px; border-radius: 50%; background: #fffaf0e6; display: grid; place-items: center; box-shadow: 0 4px 14px -6px #28190a88; }
+.thumb__play svg { width: 22px; height: 22px; fill: var(--seal); translate: 2px 0; }
+.reel-nav { display: flex; gap: 10px; }
+.reel-nav button { width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid var(--ink-soft); background: #fffaf080; color: var(--ink); font-size: 1.2rem; cursor: pointer; }
+.reel-nav button:hover { background: var(--ink); color: var(--card); }
+.follow { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 18px; }
+.follow__list { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; }
+.follow__list a { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid var(--ink-soft); color: var(--ink); background: #fffaf080; transition: background-color .2s, color .2s; }
+.follow__list a:hover { background: var(--ink); color: var(--card); }
+.follow__list svg { width: 20px; height: 20px; fill: currentColor; }
+
+/* 9. What working together looks like: it arrives as a conversation ------------------- */
+.together .stage__in { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
+.chat { width: 100%; max-width: 520px; justify-self: center; padding: 0; display: flex; flex-direction: column; rotate: -.8deg; }
+.motion .chat { min-height: 300px; max-height: 100%; }
+.chat__head { display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1.5px dashed #3a271a33; }
+.chat__ava { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; object-position: 50% 18%; }
+.chat__name { font: 400 1.35rem/1 var(--f-display); }
+.chat__list { list-style: none; padding: 16px 18px 20px; display: flex; flex-direction: column; justify-content: flex-end; gap: 12px; flex: 1 1 auto; min-height: 0; overflow: hidden; }
+.bub { display: flex; gap: 12px; align-items: flex-start; max-width: 92%; padding: 12px 16px; background: #f6eddc; border: 1.5px solid #3a271a40; border-radius: 18px 18px 18px 4px; overflow: hidden; }
+.bub p { font-size: .98rem; line-height: 1.45; color: var(--ink-soft); }
+.bub .bub__name { font: 400 1.3rem/1.15 var(--f-display); color: var(--ink); margin-bottom: 2px; }
+.bub--quote { font: italic 400 1.35rem/1.25 var(--f-display); color: var(--ink); background: #fffaf0; }
+.bub .seal { width: 2rem; height: 2rem; font-size: 1.15rem; margin-top: 2px; }
+.loop { width: 52px; height: 52px; flex: none; align-self: center; margin-left: auto; }
+.loop path { fill: none; stroke: var(--seal); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 1 1; stroke-dashoffset: 0; }
+.motion .loop path { stroke-dashoffset: calc(1 - var(--q, 0)); }
+.typing { display: none; }
+.motion .bub:not(.is-in) { max-height: 0; opacity: 0; padding-block: 0; margin-block: -6px; border-width: 0; }
+.motion .bub { max-height: 440px; transition: max-height .5s var(--ease), opacity .4s ease .1s, padding .4s ease; }
+.motion .typing.is-on { display: flex; gap: 5px; align-self: flex-start; padding: 14px 16px; background: #f6eddc; border-radius: 18px 18px 18px 4px; border: 1.5px solid #3a271a40; }
+.typing i { width: 7px; height: 7px; border-radius: 50%; background: var(--ink-soft); animation: dot 1s infinite ease-in-out; }
+.typing i:nth-child(2) { animation-delay: .15s; }
+.typing i:nth-child(3) { animation-delay: .3s; }
+@keyframes dot { 0%, 60%, 100% { opacity: .3; transform: none; } 30% { opacity: 1; transform: translateY(-3px); } }
+
+/* 10. Let's talk: night falls ----------------------------------------------------------- */
+.talk { position: relative; color: var(--moon); background: linear-gradient(180deg, var(--paper) 0, #c9b9a8 8vh, #4c4f6a 22vh, var(--river) 36vh); padding: 42vh 0 clamp(64px, 8vw, 110px); }
+.talk__grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
+.talk__art { position: relative; justify-self: center; width: min(460px, 100%); }
+.talk__moon { position: absolute; width: 34%; right: 2%; top: -64%; filter: drop-shadow(0 0 40px rgba(243, 231, 207, .3)); }
+.talk .title { color: var(--moon); }
+.talk__lead { margin-top: 16px; color: var(--moon-soft); max-width: 44ch; }
+.toy { display: grid; gap: 10px; margin-top: 28px; max-width: 480px; }
+.toy label { color: var(--moon-soft); }
+.toy textarea { width: 100%; min-height: 96px; resize: vertical; padding: 14px 16px; border-radius: 14px; border: 1.5px dashed #f3e7cf66; background: #f3e7cf14; color: var(--moon); font: 400 1.15rem/1.45 var(--f-hand); }
+.toy textarea::placeholder { color: #cfc6b4aa; }
+.toy textarea:focus-visible { outline: 2.5px solid var(--moon); outline-offset: 2px; }
+.toy .btn { justify-self: start; margin-top: 6px; }
+.toy__fine { font-size: .98rem; color: var(--moon-soft); }
+.details { margin-top: 36px; padding: 26px 26px 22px; display: grid; gap: 14px; max-width: 470px; rotate: -.8deg; color: var(--ink); }
+.details .tape { left: 18%; rotate: 5deg; }
+.details dt { font-family: var(--f-hand); color: var(--ink-soft); font-size: 1.02rem; line-height: 1.2; }
+.details dd { margin: 2px 0 0; }
+.details a { text-decoration-color: #3a271a55; text-underline-offset: 3px; }
+address { font-style: normal; }
+
+/* Footer: regulatory information and the disclaimer --------------------------------------- */
+.night { background: var(--river); color: var(--moon); }
+.night__inner { padding-top: clamp(40px, 5vw, 64px); padding-bottom: clamp(110px, 12vw, 120px); display: grid; gap: 32px; border-top: 1px solid #f3e7cf2e; }
+.night__top { display: grid; grid-template-columns: 1fr 1fr; gap: 28px clamp(32px, 6vw, 96px); }
+.night__brand { font: 400 clamp(2rem, 1.5rem + 2vw, 3rem)/1 var(--f-display); }
+.night__brand em { font-style: italic; }
+.creds h2 { font: 400 1.5rem/1.15 var(--f-display); }
+.creds dl { margin-top: 14px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px 28px; }
+.creds dt { font-family: var(--f-hand); color: var(--moon-soft); }
+.creds dd { margin: 2px 0 0; }
+.disclaimer { display: grid; gap: 12px; max-width: 92ch; font-size: .9rem; color: var(--moon-soft); }
+.copyright { font-size: .9rem; color: var(--moon-soft); }
+
+/* Anchored WhatsApp button and preview tags ------------------------------------------------ */
+.fab { position: fixed; z-index: 50; right: max(18px, env(safe-area-inset-right, 0px) + 14px); bottom: max(18px, env(safe-area-inset-bottom, 0px) + 14px); width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; background: var(--seal); color: #fff7ea; box-shadow: 0 10px 24px -10px #50140acc, inset 0 0 0 2.5px #fff2e2; transition: transform .2s, background-color .2s; }
+.fab:hover { transform: translateY(-2px) rotate(-6deg); background: var(--seal-deep); }
+.fab svg { width: 28px; height: 28px; fill: currentColor; }
+.tags { position: fixed; z-index: 60; display: flex; gap: 6px; left: max(14px, env(safe-area-inset-left, 0px) + 12px); bottom: max(14px, env(safe-area-inset-bottom, 0px) + 12px); }
+.tag { display: inline-flex; align-items: center; min-height: 30px; padding: 0 11px; border-radius: 999px; font: 600 10.5px/1 var(--f-body); letter-spacing: .06em; text-transform: uppercase; text-decoration: none; white-space: nowrap; color: var(--ink); background: #fffaf0e6; border: 1px solid #3a271a2e; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.tag--back:hover { background: var(--ink); color: var(--card); }
+
+/* Tablet and phone ------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .hero__grid, .talk__grid, .night__top { grid-template-columns: 1fr; }
+  .hero__art { width: min(330px, 78%); margin-top: 18px; }
+  .clarity .stage__in, .topic .stage__in, .together .stage__in { grid-template-columns: 1fr; align-content: start; }
+  .ms-text { grid-template-columns: 1fr; }
+  .talk__art { width: min(360px, 84%); order: 2; }
+  .talk__moon { top: -40%; }
+}
+@media (max-width: 760px) {
+  .hud__chapter { font-size: .98rem; max-width: 52vw; }
+  .brand { font-size: 1.3rem; }
+  .changes .stage__in { grid-template-columns: 1fr; align-content: start; justify-items: center; gap: 16px; }
+  .changes .stage__in > :first-child { justify-self: stretch; }
+  .lede { font-size: clamp(1.45rem, 1.1rem + 2.2vw, 1.9rem); }
+  .frame { width: min(52vw, 230px); }
+  .prio { grid-template-columns: repeat(4, 1fr); gap: 6px; width: 100%; }
+  .prio li { grid-template-columns: 1fr; justify-items: center; }
+  .prio img { width: 60px; }
+  .prio span { display: none; }
+  .motion .scene { width: min(100%, 40vh); width: min(100%, 40svh); }
+  .topic .stage__in { gap: 14px; }
+  .topic__title { margin-bottom: 8px; }
+  .motion .pour { margin-top: 14px; }
+  .ms-card { width: clamp(170px, 52vw, 230px); }
+  .motion .chat { min-height: 220px; }
+  .together .stage__in { grid-template-rows: auto minmax(0, 1fr); }
+  .bub--quote { font-size: 1.15rem; }
+  .loop { width: 34px; height: 34px; }
+  .talk { padding-top: 34vh; }
+  .tags { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .tag { min-height: 26px; padding: 0 9px; font-size: 9.5px; }
+}
+@media (max-width: 400px) {
+  .hero__actions .btn, .toy .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+  <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></symbol>
+  <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 3.8v16.4c0 .8.9 1.3 1.6.9l13-8.2c.6-.4.6-1.3 0-1.7l-13-8.2C6.9 2.5 6 3 6 3.8Z"/></symbol>
+  <!-- Live watercolour edge for the small painted bits drawn in the page itself. -->
+  <filter id="wcl" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="3" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<header class="hud">
+  <a class="brand" href="#main">Carine <em>Zheng</em></a>
+  <p class="hud__chapter" aria-hidden="true"><span class="hud__name">Every stage of life</span></p>
+  <span class="hud__bar" aria-hidden="true"><span class="hud__fill"></span></span>
+</header>
+
+<main id="main" tabindex="-1">
+
+  <!-- 1. Hero: the headline resolves, the polaroid drops in and is taped down -->
+  <section class="hero" data-chapter="Every stage of life">
+    <div class="wrap hero__grid">
+      <div>
+        <p class="note hero__eyebrow">financial planner · Singapore</p>
+        <h1 class="h1 split">Financial planning for <em>every stage of life.</em></h1>
+        <div class="hero__actions">
+          <a class="btn" href="https://wa.me/6583893356" rel="noopener" target="_blank"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Chat with me on WhatsApp<span class="vh"> (opens in a new tab)</span></a>
+          <a class="note hero__hint" href="#changes">or scroll to begin ↓</a>
+        </div>
+      </div>
+      <div class="hero__art">
+        <img class="hero__bloom" src="kit/wc/bloom.webp" alt="" width="1400" height="1000">
+        <figure class="card polaroid">
+          <img class="polaroid__img" src="kit/carine.webp" alt="Carine Zheng, financial planner with Financial Alliance" width="1200" height="1500" fetchpriority="high">
+          <figcaption>Carine Zheng · Financial Alliance</figcaption>
+          <img class="tape" src="kit/wc/tape-gold.webp" alt="" width="280" height="78">
+          <img class="sticker" src="kit/wc/sparkle.webp" alt="" width="220" height="240">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. As life changes: one frame stays, the life inside it changes, priorities shift beside it -->
+  <section class="beat changes" id="changes" data-beat="changes" style="--len: 4.2" data-chapter="As life changes">
+    <div class="stage">
+      <div class="stage__in">
+        <div>
+          <p class="lede words s1">As life changes, so do the roles and responsibilities we carry.</p>
+          <p class="lede words s2">And with them can come different financial priorities.</p>
+          <ul class="strip" aria-hidden="true">
+            <li><img loading="lazy" decoding="async" src="kit/wc/cap.webp" alt="" width="340" height="340"></li>
+            <li><img loading="lazy" decoding="async" src="kit/wc/rings.webp" alt="" width="340" height="340"></li>
+            <li><img loading="lazy" decoding="async" src="kit/wc/key.webp" alt="" width="340" height="340"></li>
+            <li><img loading="lazy" decoding="async" src="kit/wc/shoes.webp" alt="" width="340" height="340"></li>
+            <li><img loading="lazy" decoding="async" src="kit/wc/glasses.webp" alt="" width="340" height="340"></li>
+          </ul>
+        </div>
+        <figure class="card frame" aria-hidden="true">
+          <div class="frame__win">
+            <img decoding="async" class="frame__portrait is-on" src="kit/carine.webp" alt="" width="1200" height="1500">
+            <img decoding="async" class="frame__item" src="kit/wc/cap.webp" alt="" width="340" height="340">
+            <img decoding="async" class="frame__item" src="kit/wc/rings.webp" alt="" width="340" height="340">
+            <img decoding="async" class="frame__item" src="kit/wc/key.webp" alt="" width="340" height="340">
+            <img decoding="async" class="frame__item" src="kit/wc/shoes.webp" alt="" width="340" height="340">
+            <img decoding="async" class="frame__item" src="kit/wc/glasses.webp" alt="" width="340" height="340">
+          </div>
+          <img loading="lazy" decoding="async" class="tape" src="kit/wc/tape-blue.webp" alt="" width="280" height="78">
+        </figure>
+        <ul class="prio" aria-hidden="true">
+          <li><img loading="lazy" decoding="async" src="kit/wc/umbrella.webp" alt="" width="340" height="340"><span>Protecting what matters</span></li>
+          <li><img loading="lazy" decoding="async" src="kit/wc/sprout.webp" alt="" width="340" height="340"><span>Growing your wealth</span></li>
+          <li><img loading="lazy" decoding="async" src="kit/wc/house.webp" alt="" width="340" height="340"><span>Planning around life’s milestones</span></li>
+          <li><img loading="lazy" decoding="async" src="kit/wc/sunrise.webp" alt="" width="340" height="340"><span>Planning for later life</span></li>
+        </ul>
+      </div>
+      <p class="cue note" aria-hidden="true">keep scrolling ↓</p>
+    </div>
+  </section>
+
+  <!-- 3. Clarity: a lens brings the muddle into focus -->
+  <section class="beat clarity" id="clarity" data-beat="clarity" style="--len: 3" data-chapter="Greater clarity">
+    <div class="stage">
+      <div class="stage__in">
+        <p class="lede words s1">I help you make sense of these changes, so you can plan with greater clarity for yourself and the people who matter to you.</p>
+        <div class="panel-wrap">
+          <div class="panel" aria-hidden="true">
+            <img loading="lazy" decoding="async" class="panel__messy" src="kit/wc/messy.webp" alt="" width="1200" height="750">
+            <div class="clear">
+              <img loading="lazy" decoding="async" class="clear__wash" src="kit/wc/route.webp" alt="" width="1600" height="520">
+              <svg class="clear__path" viewBox="0 0 100 62.5" preserveAspectRatio="none"><path d="M2,44 C7,42 9,38 13,38 C22,38 27,26 37,26 C47,26 52,37 62,37 C72,37 77,25 87,25 C92,25 95,22 98,20"/></svg>
+              <span class="clear__pin" style="left: 13%; top: 60.8%;"></span>
+              <span class="clear__pin" style="left: 37%; top: 41.6%;"></span>
+              <span class="clear__pin" style="left: 62%; top: 59.2%;"></span>
+              <span class="clear__pin" style="left: 87%; top: 40%;"></span>
+              <img loading="lazy" decoding="async" class="clear__st" src="kit/wc/umbrella.webp" alt="" style="left: 13%; top: 60.8%;" width="340" height="340">
+              <img loading="lazy" decoding="async" class="clear__st" src="kit/wc/sprout.webp" alt="" style="left: 37%; top: 41.6%;" width="340" height="340">
+              <img loading="lazy" decoding="async" class="clear__st" src="kit/wc/house.webp" alt="" style="left: 62%; top: 59.2%;" width="340" height="340">
+              <img loading="lazy" decoding="async" class="clear__st" src="kit/wc/sunrise.webp" alt="" style="left: 87%; top: 40%;" width="340" height="340">
+            </div>
+            <span class="lens"></span>
+          </div>
+          <p class="note panel-hint" aria-hidden="true">move the lens over the painting</p>
+        </div>
+      </div>
+      <p class="cue note" aria-hidden="true">keep scrolling ↓</p>
+    </div>
+  </section>
+
+  <!-- What I can help you with: the headline crosses the screen, then settles -->
+  <section class="beat help" id="help" data-beat="help" style="--len: 1.8" data-chapter="What I can help you with">
+    <div class="stage">
+      <div class="stage__in">
+        <h2 class="big">What I can help you with</h2>
+        <p class="note help__sub">Planning for what matters at every stage.</p>
+        <ul class="help__row" aria-hidden="true">
+          <li><img loading="lazy" decoding="async" src="kit/wc/umbrella.webp" alt="" width="340" height="340"></li>
+          <li><img loading="lazy" decoding="async" src="kit/wc/sprout.webp" alt="" width="340" height="340"></li>
+          <li><img loading="lazy" decoding="async" src="kit/wc/house.webp" alt="" width="340" height="340"></li>
+          <li><img loading="lazy" decoding="async" src="kit/wc/sunrise.webp" alt="" width="340" height="340"></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Protecting what matters: rain falls, the umbrella opens, the house stays dry -->
+  <section class="beat topic protect" id="protect" data-beat="protect" style="--len: 2.8" data-chapter="Protecting what matters">
+    <div class="stage">
+      <span class="tint"></span>
+      <canvas class="rain" aria-hidden="true"></canvas>
+      <div class="stage__in">
+        <div>
+          <h3 class="title topic__title">Protecting what matters</h3>
+          <p class="desc">Understanding your insurance, critical illness and income protection needs, including whether your existing coverage still fits your circumstances.</p>
+          <button class="pour" type="button">tap to make it pour ☂</button>
+        </div>
+        <div class="scene" aria-hidden="true">
+          <img loading="lazy" decoding="async" class="house" src="kit/wc/house.webp" alt="" width="340" height="340">
+          <img loading="lazy" decoding="async" class="umb" src="kit/wc/umbrella.webp" alt="" width="340" height="340">
+        </div>
+      </div>
+      <p class="cue note" aria-hidden="true">keep scrolling ↓</p>
+    </div>
+  </section>
+
+  <!-- 5. Growing your wealth: a tangle undoes itself into one clean line, which grows -->
+  <section class="beat topic grow" id="grow" data-beat="grow" style="--len: 2.8" data-chapter="Growing your wealth">
+    <div class="stage">
+      <div class="stage__in">
+        <div>
+          <h3 class="title topic__title">Growing your wealth</h3>
+          <p class="desc">Making sense of investing and long-term wealth accumulation without unnecessary complexity.</p>
+        </div>
+        <div class="scene" aria-hidden="true">
+          <svg viewBox="0 0 400 420">
+            <ellipse class="season" cx="200" cy="250" rx="185" ry="165" fill="#f6e3a8" filter="url(#wcl)"/>
+            <ellipse cx="200" cy="396" rx="130" ry="20" fill="#c8a57d" opacity=".55" filter="url(#wcl)"/>
+            <g class="tangle"></g>
+            <g class="plant">
+              <path class="stem" pathLength="1" d="M200,394 C194,350 208,312 200,268 C194,236 204,206 200,176"/>
+              <path class="leaf leaf--l" d="M200,190 C162,192 128,166 120,124 C162,120 196,148 200,190 Z" fill="#8cb96a" filter="url(#wcl)"/>
+              <path class="leaf leaf--r" d="M200,178 C236,172 266,142 272,100 C228,98 202,134 200,178 Z" fill="#6f9f53" filter="url(#wcl)"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <p class="cue note" aria-hidden="true">keep scrolling ↓</p>
+    </div>
+  </section>
+
+  <!-- 6. Life's milestones: a sideways strip of polaroids, in her words -->
+  <section class="beat topic milestones" id="milestones" data-beat="milestones" style="--len: 3" data-chapter="Life’s milestones">
+    <div class="stage">
+      <div class="stage__in">
+        <div class="ms-text">
+          <h3 class="title topic__title">Planning around life’s milestones</h3>
+          <p class="desc">Preparing financially for marriage, a home, children and other major changes in responsibility.</p>
+        </div>
+        <div class="track-wrap" aria-hidden="true">
+          <ol class="track">
+            <li class="card ms-card"><div class="win"><img loading="lazy" decoding="async" src="kit/wc/rings.webp" alt="" width="340" height="340"></div><p class="note" style="position:absolute;left:14px;bottom:8px;">marriage</p></li>
+            <li class="card ms-card"><div class="win"><img loading="lazy" decoding="async" src="kit/wc/house.webp" alt="" width="340" height="340"></div><p class="note" style="position:absolute;left:14px;bottom:8px;">a home</p></li>
+            <li class="card ms-card"><div class="win"><img loading="lazy" decoding="async" src="kit/wc/shoes.webp" alt="" width="340" height="340"></div><p class="note" style="position:absolute;left:14px;bottom:8px;">children</p></li>
+            <li class="card ms-card"><div class="win"><img loading="lazy" decoding="async" src="kit/wc/briefcase.webp" alt="" width="340" height="340"></div><p class="note" style="position:absolute;left:14px;bottom:8px;">other major changes</p></li>
+          </ol>
+        </div>
+      </div>
+      <p class="cue note" aria-hidden="true">keep scrolling ↓</p>
+    </div>
+  </section>
+
+  <!-- 7. Later life: the paper warms to golden hour as the sun comes up -->
+  <section class="beat topic later" id="later" data-beat="later" style="--len: 2.2" data-chapter="Planning for later life">
+    <div class="stage">
+      <span class="sky" aria-hidden="true"></span>
+      <img loading="lazy" decoding="async" class="sun" src="kit/wc/sun.webp" alt="" width="420" height="420" aria-hidden="true">
+      <img loading="lazy" decoding="async" class="hills" src="kit/wc/hills.webp" alt="" width="1600" height="420" aria-hidden="true">
+      <div class="stage__in">
+        <div class="later__text">
+          <h3 class="title topic__title">Planning for later life</h3>
+          <p class="desc">Building towards financial independence, retirement and the future you want.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Making sense of financial planning: one frame in the middle, the rest either side -->
+  <section class="videos" id="videos" aria-labelledby="videos-title" data-chapter="Making sense of financial planning">
+    <div class="wrap">
+      <div class="videos__top">
+        <h2 class="title" id="videos-title">Making sense of <em>financial planning</em></h2>
+        <div class="reel-nav">
+          <button type="button" data-dir="-1" aria-label="Previous video">←</button>
+          <button type="button" data-dir="1" aria-label="Next video">→</button>
+        </div>
+      </div>
+      <!-- MOCK-UP. Placeholder polaroids until Carine's video links arrive. -->
+      <ul class="reel" aria-label="Videos">
+        <li class="is-center"><figure class="card"><div class="thumb"><img loading="lazy" decoding="async" src="kit/wc/v1.webp" alt="" width="640" height="400"><span class="thumb__play"><svg aria-hidden="true"><use href="#i-play"/></svg></span></div><figcaption>Video 01 · coming soon</figcaption></figure></li>
+        <li><figure class="card"><div class="thumb"><img loading="lazy" decoding="async" src="kit/wc/v2.webp" alt="" width="640" height="400"><span class="thumb__play"><svg aria-hidden="true"><use href="#i-play"/></svg></span></div><figcaption>Video 02 · coming soon</figcaption></figure></li>
+        <li><figure class="card"><div class="thumb"><img loading="lazy" decoding="async" src="kit/wc/v3.webp" alt="" width="640" height="400"><span class="thumb__play"><svg aria-hidden="true"><use href="#i-play"/></svg></span></div><figcaption>Video 03 · coming soon</figcaption></figure></li>
+        <li><figure class="card"><div class="thumb"><img loading="lazy" decoding="async" src="kit/wc/v4.webp" alt="" width="640" height="400"><span class="thumb__play"><svg aria-hidden="true"><use href="#i-play"/></svg></span></div><figcaption>Video 04 · coming soon</figcaption></figure></li>
+      </ul>
+      <div class="follow">
+        <p class="note">Follow me on</p>
+        <ul class="follow__list">
+          <li><a href="#" aria-label="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a></li>
+          <li><a href="#" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
+          <li><a href="#" aria-label="TikTok"><svg aria-hidden="true"><use href="#i-tiktok"/></svg></a></li>
+          <li><a href="#" aria-label="Facebook"><svg aria-hidden="true"><use href="#i-facebook"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/in/carinezheng/" rel="me noopener" target="_blank" aria-label="LinkedIn (opens in a new tab)"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. What working together looks like: it arrives as a conversation -->
+  <section class="beat together" id="together" data-beat="together" style="--len: 3" data-chapter="What working together looks like">
+    <div class="stage">
+      <div class="stage__in">
+        <h2 class="title">What working together looks like</h2>
+        <div class="card chat">
+          <div class="chat__head">
+            <img loading="lazy" decoding="async" class="chat__ava" src="kit/carine.webp" alt="" width="1200" height="1500">
+            <p class="chat__name">Carine Zheng</p>
+          </div>
+          <ol class="chat__list">
+            <li class="bub bub--quote">I believe good financial planning starts with a conversation, not a sales pitch.</li>
+            <li class="bub"><span class="seal" aria-hidden="true">1</span><div><p class="bub__name">We talk</p><p>A first conversation about what you already have, what you’re concerned about and what you’re working towards.</p></div></li>
+            <li class="bub"><span class="seal" aria-hidden="true">2</span><div><p class="bub__name">I map it out</p><p>From there, I’ll help you make sense of your options and decide what works for you.</p></div></li>
+            <li class="bub"><span class="seal" aria-hidden="true">3</span><div><p class="bub__name">We review it, regularly</p><p>Your circumstances change. Your priorities change. Your financial plan should be reviewed as they do.</p></div>
+              <svg class="loop" viewBox="0 0 52 52" aria-hidden="true"><path pathLength="1" d="M40,14 A17,17 0 1 0 43,28 M43,28 l-1,-9 M43,28 l-8,-3"/></svg></li>
+            <li class="typing" aria-hidden="true"><i></i><i></i><i></i></li>
+          </ol>
+        </div>
+      </div>
+      <p class="cue note" aria-hidden="true">keep scrolling ↓</p>
+    </div>
+  </section>
+
+  <!-- 10. Let's talk: night falls; a note you can send straight to WhatsApp -->
+  <section class="talk" id="talk" aria-labelledby="talk-title" data-chapter="Let’s talk" data-ground="night">
+    <div class="wrap talk__grid">
+      <div class="talk__art">
+        <img loading="lazy" decoding="async" class="talk__moon" src="kit/wc/moon.webp" alt="" width="360" height="360">
+        <img loading="lazy" decoding="async" src="kit/wc/teacups.webp" alt="" width="680" height="453">
+      </div>
+      <div>
+        <h2 class="title" id="talk-title">Let’s talk</h2>
+        <p class="talk__lead">Tell me where you are today and what you’re working towards. We can start with a conversation and take it from there.</p>
+        <form class="toy" id="toy" action="https://wa.me/6583893356" method="get" target="_blank">
+          <label class="note" for="toyText">Your note (optional)</label>
+          <textarea id="toyText" name="text" rows="3" placeholder="Hi Carine,"></textarea>
+          <button class="btn" type="submit"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Chat with me on WhatsApp<span class="vh"> (opens in a new tab)</span></button>
+          <p class="note toy__fine">Opens WhatsApp with your note. Nothing is saved on this page.</p>
+        </form>
+        <dl class="card details">
+          <img loading="lazy" decoding="async" class="tape" src="kit/wc/tape-gold.webp" alt="" width="280" height="78">
+          <div><dt>Email</dt><dd><a href="mailto:carinezheng@fapl.sg">carinezheng@fapl.sg</a></dd></div>
+          <div><dt>Office</dt><dd><a href="tel:+6562221889">+65 6222 1889</a></dd></div>
+          <div><dt>Address</dt><dd><address>150 Beach Road, #12-01/08<br>Gateway West, Singapore 189720</address></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="night" data-chapter="Let’s talk" data-ground="night">
+  <div class="wrap night__inner">
+    <div class="night__top">
+      <p class="night__brand">Carine <em>Zheng</em></p>
+      <section class="creds" aria-labelledby="creds-title">
+        <h2 id="creds-title">Regulatory and professional information</h2>
+        <dl>
+          <div><dt>Practice</dt><dd>Financial Alliance Pte Ltd</dd></div>
+          <div><dt>Representative No.</dt><dd>ZKC300055466</dd></div>
+        </dl>
+      </section>
+    </div>
+    <div class="disclaimer">
+      <p>Zheng Kaixin Carine is a representative of Financial Alliance Pte Ltd, a licensed financial adviser regulated by the Monetary Authority of Singapore. Representative No. ZKC300055466.</p>
+      <p>This website is for general information only. It does not constitute financial advice and does not take into account your specific objectives, financial situation or needs. Buying a life insurance policy is a long term commitment. Please seek advice before making any decision.</p>
+    </div>
+    <p class="copyright">© 2026 Carine Zheng</p>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/6583893356" rel="noopener" target="_blank" title="Chat with me on WhatsApp">
+  <svg aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>
+  <span class="vh">Chat with me on WhatsApp (opens in a new tab)</span>
+</a>
+
+<div class="tags">
+  <a class="tag tag--back" href="index.html">← All designs</a>
+  <div class="tag tag--mock">Design preview 05 · not live</div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  var motion = root.classList.contains('motion');
+  var $ = function (s, el) { return (el || document).querySelector(s); };
+  var $$ = function (s, el) { return Array.prototype.slice.call((el || document).querySelectorAll(s)); };
+  var clamp = function (v, a, b) { return Math.min(b, Math.max(a, v)); };
+  var ramp = function (p, a, b) { return clamp((p - a) / (b - a), 0, 1); };
+  var lerp = function (a, b, t) { return a + (b - a) * t; };
+
+  // Split copy into word spans so it can resolve or brighten one word at a time.
+  $$('.split, .words').forEach(function (el) {
+    var i = 0;
+    (function walk(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+            var s = document.createElement('span');
+            s.className = 'w'; s.style.setProperty('--i', i++); s.textContent = part;
+            frag.appendChild(s);
+          });
+          n.parentNode.replaceChild(frag, n);
+        } else if (n.nodeType === 1) { walk(n); }
+      });
+    })(el);
+    el.style.setProperty('--n', i);
+  });
+
+  var beats = $$('[data-beat]');
+  var chapters = $$('[data-chapter]');
+  var hudName = $('.hud__name'), hudFill = $('.hud__fill');
+  var handlers = {};
+
+  function progressOf(el) {
+    var r = el.getBoundingClientRect(), len = r.height - innerHeight;
+    return len > 1 ? clamp(-r.top / len, 0, 1) : clamp((innerHeight - r.top) / (innerHeight + r.height), 0, 1);
+  }
+
+  /* 2. As life changes ------------------------------------------------------------ */
+  (function () {
+    var b = $('#changes'), frame = $('.frame', b), imgs = $$('.frame__win > img', b), prio = $$('.prio img', b);
+    var s1 = $('.s1', b), s2 = $('.s2', b);
+    // Sizes of the four topic stickers per stage: protecting, growing, milestones, later life.
+    var sizes = [[.85, .85, .85, .85], [.7, 1.15, .62, .55], [.9, .9, 1.12, .6], [1.02, .75, 1.25, .6], [1.25, .9, .9, .7], [.8, .7, .62, 1.25]];
+    var tilts = [2.5, -1.5, 1.2, -.8, 1.5, -1.2];
+    handlers.changes = function (p) {
+      s1.style.setProperty('--k', ramp(p, 0, .34));
+      s2.style.setProperty('--k', ramp(p, .5, .78));
+      s2.classList.toggle('is-in', p > .44);
+      var idx = p < .1 ? 0 : Math.min(5, 1 + Math.floor((p - .1) / .16));
+      if (idx === b._idx) return;
+      b._idx = idx;
+      imgs.forEach(function (im, i) { im.classList.toggle('is-on', i === idx); });
+      frame.style.setProperty('--tilt', tilts[idx] + 'deg');
+      prio.forEach(function (im, j) { im.style.setProperty('--s', sizes[idx][j]); });
+    };
+  })();
+
+  /* 3. Clarity: the lens ----------------------------------------------------------- */
+  (function () {
+    var b = $('#clarity'), panel = $('.panel', b), s1 = $('.s1', b);
+    var pointer = { x: 0, y: 0, t: -1e9 };
+    function setLens() {
+      var w = panel.clientWidth, h = panel.clientHeight, p = b._p || 0;
+      var live = performance.now() - pointer.t < 1800;
+      var x = live ? pointer.x : (.5 + .3 * Math.sin(p * Math.PI * 2.4)) * w;
+      var y = live ? pointer.y : (.5 + .2 * Math.sin(p * Math.PI * 3.4 + .6)) * h;
+      var grow = ramp(p, .62, .92);
+      panel.style.setProperty('--lx', x.toFixed(1) + 'px');
+      panel.style.setProperty('--ly', y.toFixed(1) + 'px');
+      panel.style.setProperty('--lr', (Math.min(w, h) * .2 + grow * Math.hypot(w, h)).toFixed(1) + 'px');
+      b.style.setProperty('--lo', (1 - ramp(grow, .2, .5)).toFixed(2));
+    }
+    function track(e) {
+      var r = panel.getBoundingClientRect();
+      pointer.x = e.clientX - r.left; pointer.y = e.clientY - r.top; pointer.t = performance.now();
+      setLens();
+    }
+    if (motion) {
+      panel.addEventListener('pointermove', track);
+      panel.addEventListener('pointerdown', track);
+      panel.addEventListener('pointerleave', function () { pointer.t = -1e9; setLens(); });
+    }
+    handlers.clarity = function (p) { s1.style.setProperty('--k', ramp(p, 0, .55)); setLens(); };
+    handlers.clarity.layout = setLens;
+  })();
+
+  /* What I can help you with: the crossing headline ----------------------------------- */
+  (function () {
+    var b = $('#help'), big = $('.big', b), inner = $('.stage__in', b);
+    handlers.help = function (p) {
+      var vw = inner.clientWidth, w = big.scrollWidth;
+      var fit = Math.min(1, (vw * .96) / w);
+      var x0 = vw * .55, x1 = Math.min(0, vw - w), x2 = (vw - w * fit) / 2;
+      var a = ramp(p, 0, .55), c = ramp(p, .55, .82);
+      var x = c > 0 ? lerp(x1, x2, c) : lerp(x0, x1, a);
+      big.style.transform = 'translateX(' + x.toFixed(1) + 'px) scale(' + lerp(1, fit, c).toFixed(3) + ')';
+      b.classList.toggle('is-late', p > .7);
+    };
+  })();
+
+  /* 4. Protecting what matters: rain ----------------------------------------------------- */
+  (function () {
+    var b = $('#protect'), stage = $('.stage', b), canvas = $('canvas.rain', b), ctx = canvas.getContext('2d');
+    var umb = $('.umb', b), house = $('.house', b), scene = $('.scene', b);
+    var drops = [], splashes = [], wet = 0, target = 0, open = 1, pourUntil = 0, running = false, last = 0;
+    var dpr = Math.min(1.5, window.devicePixelRatio || 1);
+    function size() { canvas.width = stage.clientWidth * dpr; canvas.height = stage.clientHeight * dpr; }
+    function spawn(d, anywhere) {
+      d = d || {};
+      d.x = Math.random() * canvas.width * 1.15 - canvas.width * .1;
+      d.y = anywhere ? Math.random() * canvas.height : -Math.random() * 60 * dpr;
+      d.v = (900 + Math.random() * 700) * dpr; d.l = (12 + Math.random() * 16) * dpr;
+      return d;
+    }
+    function loop(t) {
+      if (!running) return;
+      var dt = Math.min(.05, (t - last) / 1000 || .016); last = t;
+      var pour = t < pourUntil;
+      var aim = clamp(target * (pour ? 2.4 : 1) + (pour ? .5 : 0), 0, 2.4);
+      wet += (aim - wet) * Math.min(1, dt * 3);
+      b.style.setProperty('--wet', Math.min(1, wet).toFixed(3));
+      var sr = stage.getBoundingClientRect(), ur = umb.getBoundingClientRect(), hr = house.getBoundingClientRect();
+      var ux0 = (ur.left - sr.left + ur.width * .05) * dpr, ux1 = (ur.right - sr.left - ur.width * .05) * dpr;
+      var ucx = (ux0 + ux1) / 2, uhw = (ux1 - ux0) / 2;
+      var uTop = (ur.top - sr.top + ur.height * .19) * dpr, uRim = (ur.top - sr.top + ur.height * .5) * dpr;
+      var ground = (hr.bottom - sr.top - hr.height * .1) * dpr;
+      var want = Math.round(240 * wet);
+      while (drops.length < want) drops.push(spawn(null, true));
+      if (drops.length > want) drops.length = want;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.strokeStyle = 'rgba(74, 100, 128, .5)'; ctx.lineWidth = 1.3 * dpr; ctx.lineCap = 'round';
+      ctx.beginPath();
+      for (var i = 0; i < drops.length; i++) {
+        var d = drops[i];
+        d.y += d.v * dt; d.x += d.v * .1 * dt;
+        var stop = canvas.height + 20;
+        if (open > .7 && d.x > ux0 && d.x < ux1) { var nx = (d.x - ucx) / uhw; stop = uTop + (uRim - uTop) * nx * nx; }
+        else if (d.x > (hr.left - sr.left) * dpr && d.x < (hr.right - sr.left) * dpr) { stop = ground; }
+        if (d.y > stop) { if (stop < canvas.height && splashes.length < 80) splashes.push({ x: d.x, y: stop, a: 1 }); spawn(d); continue; }
+        ctx.moveTo(d.x, d.y); ctx.lineTo(d.x - d.l * .1, d.y - d.l);
+      }
+      ctx.stroke();
+      ctx.fillStyle = 'rgba(74, 100, 128, .45)';
+      for (var j = splashes.length - 1; j >= 0; j--) {
+        var s = splashes[j]; s.a -= dt * 4;
+        if (s.a <= 0) { splashes.splice(j, 1); continue; }
+        ctx.globalAlpha = s.a;
+        ctx.fillRect(s.x - 3 * dpr, s.y - (1 - s.a) * 6 * dpr, 1.6 * dpr, 1.6 * dpr);
+        ctx.fillRect(s.x + 2 * dpr, s.y - (1 - s.a) * 5 * dpr, 1.6 * dpr, 1.6 * dpr);
+      }
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(loop);
+    }
+    function pour() { pourUntil = performance.now() + 2800; }
+    if (motion) {
+      $('.pour', b).addEventListener('click', pour);
+      scene.addEventListener('pointerdown', pour);
+      new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (e.isIntersecting && !running) { running = true; size(); last = performance.now(); requestAnimationFrame(loop); }
+          else if (!e.isIntersecting) { running = false; }
+        });
+      }).observe(b);
+    }
+    handlers.protect = function (p) {
+      target = ramp(p, .06, .3) * (1 - ramp(p, .84, 1));
+      open = ramp(p, .24, .44);
+      b.style.setProperty('--open', open.toFixed(3));
+    };
+    handlers.protect.layout = size;
+  })();
+
+  /* 5. Growing your wealth: build the tangle once, then let scroll undo it --------------- */
+  (function () {
+    var b = $('#grow'), g = $('.tangle', b);
+    var seed = 11, rnd = function () { return (seed = (seed * 16807) % 2147483647) / 2147483647; };
+    var inks = ['#5a4636', '#6e5642', '#3f5670', '#8a5a3c'];
+    for (var k = 0; k < 4; k++) {
+      var x = 200 + (rnd() - .5) * 60, y = 300 + (rnd() - .5) * 60, d = 'M' + x.toFixed(1) + ',' + y.toFixed(1);
+      for (var i = 0; i < 16; i++) {
+        var nx = clamp(x + (rnd() - .5) * 200, 70, 330), ny = clamp(y + (rnd() - .5) * 160, 180, 392);
+        d += ' C' + (x + (rnd() - .5) * 150).toFixed(1) + ',' + (y + (rnd() - .5) * 150).toFixed(1) + ' ' + (nx + (rnd() - .5) * 150).toFixed(1) + ',' + (ny + (rnd() - .5) * 150).toFixed(1) + ' ' + nx.toFixed(1) + ',' + ny.toFixed(1);
+        x = nx; y = ny;
+      }
+      var p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      p.setAttribute('d', d); p.setAttribute('pathLength', '1'); p.setAttribute('stroke', inks[k]); p.setAttribute('opacity', (.45 + rnd() * .3).toFixed(2));
+      g.appendChild(p);
+    }
+    handlers.grow = function (p) {
+      b.style.setProperty('--e', ramp(p, .04, .4).toFixed(3));
+      b.style.setProperty('--d', ramp(p, .3, .58).toFixed(3));
+      b.style.setProperty('--l', ramp(p, .54, .72).toFixed(3));
+      b.style.setProperty('--g', ramp(p, .7, 1).toFixed(3));
+    };
+  })();
+
+  /* 6. Life's milestones: the sideways strip ------------------------------------------- */
+  (function () {
+    var b = $('#milestones'), wrap = $('.track-wrap', b), track = $('.track', b), cards = $$('.ms-card', b), centres = [];
+    function layout() { centres = cards.map(function (c) { return c.offsetLeft + c.offsetWidth / 2; }); }
+    handlers.milestones = function (p) {
+      if (!centres.length) layout();
+      var t = ramp(p, .06, .9), at = lerp(centres[0], centres[centres.length - 1], t);
+      track.style.transform = 'translateX(' + (wrap.clientWidth / 2 - at).toFixed(1) + 'px)';
+      var best = 0;
+      centres.forEach(function (c, i) { if (Math.abs(c - at) < Math.abs(centres[best] - at)) best = i; });
+      cards.forEach(function (c, i) { c.classList.toggle('is-center', i === best); });
+    };
+    handlers.milestones.layout = layout;
+  })();
+
+  /* 7. Later life ----------------------------------------------------------------------- */
+  handlers.later = function (p) { $('#later').style.setProperty('--k', ramp(p, .02, .78).toFixed(3)); };
+
+  /* 9. Working together: the conversation arrives ----------------------------------------- */
+  (function () {
+    var b = $('#together'), bubs = $$('.bub', b), typing = $('.typing', b), at = [.04, .26, .48, .7];
+    handlers.together = function (p) {
+      bubs.forEach(function (el, i) { el.classList.toggle('is-in', p >= at[i]); });
+      var next = at.findIndex(function (t) { return p < t; });
+      typing.classList.toggle('is-on', next > 0 && at[next] - p < .1);
+      b.style.setProperty('--q', ramp(p, .76, .94).toFixed(3));
+    };
+  })();
+
+  /* 8. Videos: mark the polaroid in the middle; arrows step through ------------------------- */
+  (function () {
+    var reel = $('.reel'), items = $$('.reel li');
+    function centre() {
+      var mid = reel.scrollLeft + reel.clientWidth / 2, best = 0;
+      items.forEach(function (li, i) { if (Math.abs(li.offsetLeft + li.offsetWidth / 2 - mid) < Math.abs(items[best].offsetLeft + items[best].offsetWidth / 2 - mid)) best = i; });
+      items.forEach(function (li, i) { li.classList.toggle('is-center', i === best); });
+      return best;
+    }
+    reel.addEventListener('scroll', function () { requestAnimationFrame(centre); }, { passive: true });
+    $$('.reel-nav button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var i = clamp(centre() + Number(btn.dataset.dir), 0, items.length - 1), li = items[i];
+        reel.scrollTo({ left: li.offsetLeft + li.offsetWidth / 2 - reel.clientWidth / 2, behavior: motion ? 'smooth' : 'auto' });
+      });
+    });
+  })();
+
+  /* 10. The note toy: open WhatsApp with the visitor's words already typed ---------------- */
+  $('#toy').addEventListener('submit', function (e) {
+    var text = $('#toyText').value.trim();
+    var url = 'https://wa.me/6583893356' + (text ? '?text=' + encodeURIComponent(text) : '');
+    e.preventDefault();
+    window.open(url, '_blank', 'noopener');
+  });
+
+  /* The frame loop: one progress value per held section, plus the HUD -------------------- */
+  var ticking = false, current = null;
+  function update() {
+    ticking = false;
+    if (motion) {
+      beats.forEach(function (b) {
+        var p = progressOf(b);
+        if (b._p !== undefined && Math.abs(p - b._p) < .0004) return;
+        b._p = p;
+        b.style.setProperty('--p', p.toFixed(4));
+        var h = handlers[b.dataset.beat];
+        if (h) h(p);
+      });
+    }
+    var max = root.scrollHeight - innerHeight;
+    hudFill.style.transform = 'scaleX(' + (max > 0 ? clamp(scrollY / max, 0, 1) : 0).toFixed(4) + ')';
+    var cur = chapters[0];
+    chapters.forEach(function (c) { if (c.getBoundingClientRect().top <= innerHeight * .45) cur = c; });
+    if (cur !== current) {
+      current = cur;
+      hudName.textContent = cur.dataset.chapter;
+      root.classList.toggle('is-night', cur.dataset.ground === 'night');
+    }
+  }
+  function request() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  function relayout() {
+    Object.keys(handlers).forEach(function (k) { if (handlers[k].layout) handlers[k].layout(); });
+    beats.forEach(function (b) { b._p = undefined; });
+    request();
+  }
+  addEventListener('scroll', request, { passive: true });
+  addEventListener('resize', relayout);
+  addEventListener('load', relayout);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
+  relayout();
+})();
+</script>
+</body>
+</html>

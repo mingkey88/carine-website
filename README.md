@@ -68,7 +68,8 @@ without it turning up in a search for her name.
 | `DESIGN.md` | Why the page looks the way it does. |
 | `CONTENT-QUERIES.md` | What needs Carine's or compliance's sign-off. |
 | `ASSETS-TODO.md` | What images are missing and how to drop them in. |
-| `previews/` | Design directions for Carine to choose from: three after the SaleUnion, Fernvale and Astrixo templates, and a simpler hand-painted watercolour one. Standalone files; delete once a direction is picked. |
+| `previews/` | Design directions for Carine to choose from: three after the SaleUnion, Fernvale and Astrixo templates, a simpler hand-painted watercolour one, and that same look told as a scroll story (05). 01 to 04 are standalone files; 05 uses `previews/kit/`, and its artwork sources are in `previews/art/`. Delete once a direction is picked. |
+| `STORYBOARD.md` | What design 05 takes from oryzo.ai, its beat sheet, and the new wording that needs sign-off. |
 
 ## Notes
 
