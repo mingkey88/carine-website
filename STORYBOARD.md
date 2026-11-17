@@ -101,10 +101,13 @@ For Carine and compliance to approve or replace. Everything else is Rebecca's v1
 
 ## Budgets, measured
 
+Measured on the live GitHub Pages link on 17 Nov 2026, desktop Chromium.
+
+
 | | Phone target | Measured |
 |---|---|---|
-| Before the first screen is usable | 1.5 MB | 292 KB (page and four images), plus fonts |
-| Whole page | 8 MB | 834 KB: a 69 KB page and 25 images loaded once each, the ones below the hero lazily |
+| Before the first screen is usable | 1.5 MB | 511 KB on the live link, fonts included (the page and its first images are 292 KB of that) |
+| Whole page | 8 MB | 1.5 MB after a full scroll on the live link, fonts included: a 69 KB page and 25 images loaded once each, the ones below the hero lazily |
 | Script | 350 KB | 14 KB inline, no libraries |
 
 The rain is drawn on a canvas only while that section is on screen.
