@@ -133,8 +133,7 @@ h1, h2, h3 { font-weight: 400; }
 .hero__bloom { position: absolute; width: 230%; max-width: none; left: 50%; top: 52%; translate: -52% -50%; pointer-events: none; z-index: -1; }
 .polaroid { rotate: 2.5deg; }
 .polaroid__img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
-.sticker { position: absolute; pointer-events: none; filter: drop-shadow(0 4px 6px rgba(40, 20, 0, .22)); }
-.polaroid .sticker { width: clamp(70px, 9vw, 104px); right: -34px; top: -40px; rotate: 8deg; }
+.polaroid .tape { width: 92px; top: -13px; rotate: -2deg; opacity: .8; }
 /* On arrival the headline resolves out of a blur, word by word; the polaroid drops in and gets taped. */
 .motion .h1 .w { display: inline-block; animation: resolve 1s var(--ease) both; animation-delay: calc(140ms + var(--i) * 80ms); }
 .motion .polaroid { animation: drop 1s var(--ease) .5s both; }
@@ -154,16 +153,16 @@ h1, h2, h3 { font-weight: 400; }
 .frame__win { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: radial-gradient(120% 90% at 50% 40%, #f8efdf 0%, #eedcc0 100%); }
 .frame__win > img { position: absolute; inset: 0; width: 100%; height: 100%; }
 .frame__portrait { object-fit: cover; }
-.frame__item { object-fit: contain; padding: 14%; display: none; }
+.frame__item { object-fit: contain; padding: 9%; display: none; }
 .motion .frame__item { display: block; }
 .motion .frame__win > img { opacity: 0; transform: scale(.9) rotate(-4deg); transition: opacity .5s ease, transform .7s cubic-bezier(.3, 1.5, .5, 1); }
 .motion .frame__win > img.is-on { opacity: 1; transform: none; }
 .strip { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; list-style: none; padding: 0; }
-.strip img { width: 64px; }
+.strip img { width: 64px; height: 52px; object-fit: contain; }
 .motion .strip { display: none; }
 .prio { list-style: none; padding: 0; display: grid; gap: 12px; }
 .prio li { display: grid; grid-template-columns: 74px 1fr; align-items: center; gap: 12px; }
-.prio img { width: 74px; transform: scale(var(--s, .85)); transition: transform .7s cubic-bezier(.3, 1.5, .5, 1); }
+.prio img { width: 74px; height: 64px; object-fit: contain; transform: scale(var(--s, .85)); transition: transform .7s cubic-bezier(.3, 1.5, .5, 1); }
 .prio span { font-family: var(--f-hand); color: var(--ink-soft); font-size: .98rem; line-height: 1.2; }
 
 /* 3. Clarity: a lens over the muddle ---------------------------------------------------- */
@@ -171,19 +170,16 @@ h1, h2, h3 { font-weight: 400; }
 .panel-wrap { display: grid; gap: 12px; }
 .panel { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-radius: 4px; background: #f2e8d4; box-shadow: var(--shadow-card); touch-action: pan-y; cursor: crosshair; outline: 10px solid var(--card); }
 .panel__messy { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* The clear picture and the muddle are the same painting, so what the lens shows lines up with what is around it. */
 .clear { position: absolute; inset: 0; background: #f6eedf; }
-.clear__wash { position: absolute; width: 150%; max-width: none; left: -25%; top: 22%; }
-.clear__path { position: absolute; inset: 0; width: 100%; height: 100%; }
-.clear__path path { fill: none; stroke: var(--ink-soft); stroke-width: 2.4; stroke-linecap: round; stroke-dasharray: 1 9; vector-effect: non-scaling-stroke; }
-.clear__st { position: absolute; width: 16%; translate: -50% -62%; }
-.clear__pin { position: absolute; width: 14px; height: 14px; border-radius: 50%; translate: -50% -50%; background: var(--seal); box-shadow: 0 0 0 3px #fff2e2cc; }
+.clear__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .motion .clear {
   -webkit-mask-image: radial-gradient(circle var(--lr) at var(--lx) var(--ly), #000 calc(100% - 26px), transparent 100%);
   mask-image: radial-gradient(circle var(--lr) at var(--lx) var(--ly), #000 calc(100% - 26px), transparent 100%);
 }
 .motion .panel { transition: --lx .2s ease-out, --ly .2s ease-out, --lr .2s ease-out; }
 .lens { display: none; }
-.motion .lens { display: block; position: absolute; left: var(--lx); top: var(--ly); width: calc(var(--lr) * 2); height: calc(var(--lr) * 2); translate: -50% -50%; border-radius: 50%; border: 2px dashed rgba(58, 39, 26, .5); pointer-events: none; opacity: var(--lo, 1); }
+.motion .lens { display: block; position: absolute; left: var(--lx); top: var(--ly); width: calc(var(--lr) * 2); height: calc(var(--lr) * 2); translate: -50% -50%; border-radius: 50%; border: 2px dashed rgba(58, 39, 26, .6); box-shadow: 0 0 0 3px #fffaf099, 0 8px 22px -10px #28190a99; pointer-events: none; opacity: var(--lo, 1); }
 .panel-hint { display: none; text-align: center; }
 .motion .panel-hint { display: block; opacity: var(--lo, 1); }
 
@@ -193,7 +189,7 @@ h1, h2, h3 { font-weight: 400; }
 .motion .big { font-size: clamp(4.2rem, 1.6rem + 12vw, 14rem); white-space: nowrap; text-align: left; transform-origin: 0 50%; will-change: transform; width: max-content; }
 .help__sub { font-size: 1.5rem; margin-top: 18px; }
 .help__row { display: flex; justify-content: center; flex-wrap: wrap; gap: clamp(14px, 3vw, 36px); margin-top: 26px; list-style: none; padding: 0; }
-.help__row img { width: clamp(64px, 8vw, 104px); }
+.help__row img { width: clamp(72px, 9vw, 124px); aspect-ratio: 1 / 1; object-fit: contain; }
 .motion .help__sub, .motion .help__row li { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s var(--ease); }
 .motion .help.is-late .help__sub, .motion .help.is-late .help__row li { opacity: 1; transform: none; }
 .motion .help.is-late .help__row li:nth-child(2) { transition-delay: .08s; }
@@ -203,13 +199,14 @@ h1, h2, h3 { font-weight: 400; }
 /* Topic sections share one layout: words left, a scene right -------------------------- */
 .topic .stage__in { display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
 .topic__title { margin-bottom: 16px; }
-.scene { position: relative; width: 100%; max-width: 560px; aspect-ratio: 1 / 1; justify-self: center; }
-.motion .scene { width: min(100%, 560px, calc(100vh - var(--hud) - 150px)); width: min(100%, 560px, calc(100svh - var(--hud) - 150px)); }
+.scene { position: relative; width: 100%; max-width: 620px; aspect-ratio: 1 / 1; justify-self: center; }
+.motion .scene { width: min(100%, 620px, calc(100vh - var(--hud) - 150px)); width: min(100%, 620px, calc(100svh - var(--hud) - 150px)); }
 
 /* 4. Protecting what matters: rain, and the umbrella that holds ----------------------- */
-.protect .house { position: absolute; width: 44%; left: 28%; bottom: 6%; }
-.protect .umb { position: absolute; width: 64%; left: 18%; top: 10%; transform-origin: 50% 22%; }
-.motion .protect .umb { transform: translateY(calc((1 - var(--open, 1)) * -10%)) scaleX(calc(.26 + .74 * var(--open, 1))) rotate(calc((1 - var(--open, 1)) * -14deg)); }
+.protect .house { position: absolute; z-index: 1; width: 56%; left: 38%; bottom: 0; }
+.protect .umb { position: absolute; width: 96%; left: 0; top: 0; transform-origin: 85% 96%; }
+/* The umbrella swings up from its handle and opens out over the home. */
+.motion .protect .umb { opacity: clamp(0, calc(var(--open, 1) * 4), 1); transform: rotate(calc((1 - var(--open, 1)) * 26deg)) scale(calc(.5 + .5 * var(--open, 1))); }
 .rain { display: none; }
 .motion .rain { display: block; position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
 .tint { position: absolute; inset: 0; background: #8ea3b6; mix-blend-mode: multiply; opacity: 0; pointer-events: none; z-index: 0; }
@@ -222,21 +219,15 @@ h1, h2, h3 { font-weight: 400; }
 .motion .pour:hover { background: var(--card); }
 .motion .protect .scene { cursor: pointer; }
 
-/* 5. Growing your wealth: the tangle that becomes one line ------------------------------ */
-.grow .scene svg { width: 100%; height: 100%; overflow: visible; }
-.tangle { display: none; }
-.motion .tangle { display: inline; }
-.tangle path { fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-dasharray: 1 1; stroke-dashoffset: calc(var(--e, 1) * -1); }
-.stem { fill: none; stroke: #5d7f45; stroke-width: 7; stroke-linecap: round; stroke-dasharray: 1 1; stroke-dashoffset: 0; }
-.motion .stem { stroke-dashoffset: calc(1 - var(--d, 0)); }
-.leaf { transform-box: fill-box; }
-.leaf--l { transform-origin: 100% 100%; }
-.leaf--r { transform-origin: 0% 100%; }
-.motion .leaf { transform: scale(var(--l, 0)); }
-.plant { transform-box: view-box; transform-origin: 200px 392px; }
-.motion .plant { transform: scale(calc(.8 + .34 * var(--g, 0))); }
-.season { opacity: 0; }
-.motion .season { opacity: calc(var(--g, 0) * .55); }
+/* 5. Growing your wealth: a seedling grows into a rain tree ------------------------------ */
+/* Five paintings share one ground point. Each is sized by its height (--h, in % of the scene) and placed so
+   its trunk (--gx, across the picture) stands on the same spot; the scroll scales one up and fades in the next.
+   Still page: the finished tree only. */
+.growth .g { position: absolute; left: 50%; bottom: 7%; height: calc(var(--h) * 1%); width: auto; max-width: none; translate: calc(var(--gx) * -100%) 0; transform-origin: calc(var(--gx) * 100%) 97%; display: none; }
+.growth .g5 { display: block; }
+.motion .growth .g { display: block; opacity: 0; will-change: transform, opacity; }
+.season { position: absolute; inset: 2% 0 12%; border-radius: 50%; background: radial-gradient(closest-side, #f6e3a8d9 0%, #f6e3a800 100%); opacity: 0; }
+.motion .season { opacity: calc(var(--g, 0) * .7); }
 
 /* 6. Life's milestones: polaroids on a sideways strip ---------------------------------- */
 .milestones .stage__in { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; gap: clamp(16px, 3vh, 40px); }
@@ -250,18 +241,18 @@ h1, h2, h3 { font-weight: 400; }
 .ms-card:nth-child(odd) { rotate: -2.4deg; }
 .ms-card:nth-child(even) { rotate: 2deg; }
 .ms-card .win { aspect-ratio: 1 / 1; display: grid; place-items: center; background: radial-gradient(120% 90% at 50% 40%, #f8efdf 0%, #eedcc0 100%); }
-.ms-card .win img { width: 70%; }
+.ms-card .win img { width: 80%; height: 80%; object-fit: contain; }
 .motion .ms-card { transform: scale(.9); }
 .motion .ms-card.is-center { transform: scale(1.06); rotate: 0deg; }
 
 /* 7. Later life: the paper warms to golden hour ----------------------------------------- */
 .later { --k: 1; }
-.later .sky { position: absolute; inset: 0; background: linear-gradient(180deg, #f6d6a4 0%, #f2c690 48%, #f4e3c4 100%); opacity: calc(var(--k) * .95); z-index: 0; }
-.later .sun { position: absolute; width: clamp(220px, 28vw, 400px); left: 66%; bottom: 12%; translate: -50% 0; transform: translateY(calc((1 - var(--k)) * 70%)); z-index: 0; }
-.later .hills { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; max-width: none; z-index: 0; }
-.later .stage__in { display: grid; align-content: start; }
-.later__text { max-width: 560px; padding-top: clamp(0px, 4vh, 40px); }
-html:not(.motion) .later .stage { min-height: clamp(560px, 70vh, 720px); overflow: hidden; }
+.later .sky { position: absolute; inset: 0; background: linear-gradient(180deg, #f6d6a400 0%, #f6d6a4 16%, #f2c690 52%, #f4ead600 100%); opacity: calc(var(--k) * .95); z-index: 0; }
+.later .stage__in { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: clamp(14px, 3vh, 30px); }
+.later__text { max-width: 560px; }
+/* One wide painting, sized from the viewport (never from its row), its soft edge melting into the warming paper. */
+.later__art { justify-self: center; width: min(100%, 1040px); height: auto; aspect-ratio: 1400 / 903; }
+.motion .later__art { width: min(100%, 1040px, calc((100vh - var(--hud) - 290px) * 1.55)); width: min(100%, 1040px, calc((100svh - var(--hud) - 290px) * 1.55)); opacity: clamp(0, calc(.22 + var(--k) * .95), 1); transform: translateY(calc((1 - var(--k)) * 5%)) scale(calc(.95 + .05 * var(--k))); }
 
 /* 8. Videos: a frame in the middle, the rest either side -------------------------------- */
 .videos { padding: clamp(80px, 10vw, 130px) 0 clamp(64px, 9vw, 110px); overflow-x: clip; }
@@ -314,8 +305,10 @@ html:not(.motion) .later .stage { min-height: clamp(560px, 70vh, 720px); overflo
 /* 10. Let's talk: night falls ----------------------------------------------------------- */
 .talk { position: relative; color: var(--moon); background: linear-gradient(180deg, var(--paper) 0, #c9b9a8 8vh, #4c4f6a 22vh, var(--river) 36vh); padding: 42vh 0 clamp(64px, 8vw, 110px); }
 .talk__grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
-.talk__art { position: relative; justify-self: center; width: min(460px, 100%); }
-.talk__moon { position: absolute; width: 34%; right: 2%; top: -64%; filter: drop-shadow(0 0 40px rgba(243, 231, 207, .3)); }
+.talk__art { position: relative; justify-self: center; width: min(500px, 100%); }
+/* The café painting sits on a cream card: its soft edge needs light paper behind it, not the night ground. */
+.talk__card { padding: 14px; rotate: -1.6deg; }
+.talk__card img { width: 100%; }
 .talk .title { color: var(--moon); }
 .talk__lead { margin-top: 16px; color: var(--moon-soft); max-width: 44ch; }
 .toy { display: grid; gap: 10px; margin-top: 28px; max-width: 480px; }
@@ -359,8 +352,8 @@ address { font-style: normal; }
   .hero__art { width: min(330px, 78%); margin-top: 18px; }
   .clarity .stage__in, .topic .stage__in, .together .stage__in { grid-template-columns: 1fr; align-content: start; }
   .ms-text { grid-template-columns: 1fr; }
-  .talk__art { width: min(360px, 84%); order: 2; }
-  .talk__moon { top: -40%; }
+  .talk__art { width: min(420px, 92%); order: 2; }
+  .later .stage__in { align-content: center; }
 }
 @media (max-width: 760px) {
   .hud__chapter { font-size: .98rem; max-width: 52vw; }
@@ -403,11 +396,6 @@ address { font-style: normal; }
   <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></symbol>
   <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
   <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 3.8v16.4c0 .8.9 1.3 1.6.9l13-8.2c.6-.4.6-1.3 0-1.7l-13-8.2C6.9 2.5 6 3 6 3.8Z"/></symbol>
-  <!-- Live watercolour edge for the small painted bits drawn in the page itself. -->
-  <filter id="wcl" x="-20%" y="-20%" width="140%" height="140%">
-    <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="3" result="n"/>
-    <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/>
-  </filter>
 </svg>
 
 <header class="hud">
@@ -435,7 +423,6 @@ address { font-style: normal; }
           <img class="polaroid__img" src="kit/carine.webp" alt="Carine Zheng, financial planner with Financial Alliance, in a watercolour portrait" width="960" height="1200" fetchpriority="high">
           <figcaption>Carine Zheng · Financial Alliance</figcaption>
           <img class="tape" src="kit/wc/tape-gold.webp" alt="" width="280" height="78">
-          <img class="sticker" src="kit/wc/sparkle.webp" alt="" width="220" height="240">
         </figure>
       </div>
     </div>
@@ -449,29 +436,29 @@ address { font-style: normal; }
           <p class="lede words s1">As life changes, so do the roles and responsibilities we carry.</p>
           <p class="lede words s2">And with them can come different financial priorities.</p>
           <ul class="strip" aria-hidden="true">
-            <li><img loading="lazy" decoding="async" src="kit/wc/cap.webp" alt="" width="340" height="340"></li>
-            <li><img loading="lazy" decoding="async" src="kit/wc/rings.webp" alt="" width="340" height="340"></li>
-            <li><img loading="lazy" decoding="async" src="kit/wc/key.webp" alt="" width="340" height="340"></li>
-            <li><img loading="lazy" decoding="async" src="kit/wc/shoes.webp" alt="" width="340" height="340"></li>
-            <li><img loading="lazy" decoding="async" src="kit/wc/glasses.webp" alt="" width="340" height="340"></li>
+            <li><img loading="lazy" decoding="async" src="kit/wc2/cap.webp" alt="" width="380" height="287"></li>
+            <li><img loading="lazy" decoding="async" src="kit/wc2/rings.webp" alt="" width="380" height="224"></li>
+            <li><img loading="lazy" decoding="async" src="kit/wc2/key.webp" alt="" width="380" height="272"></li>
+            <li><img loading="lazy" decoding="async" src="kit/wc2/shoes.webp" alt="" width="380" height="279"></li>
+            <li><img loading="lazy" decoding="async" src="kit/wc2/glasses.webp" alt="" width="380" height="205"></li>
           </ul>
         </div>
         <figure class="card frame" aria-hidden="true">
           <div class="frame__win">
             <img decoding="async" class="frame__portrait is-on" src="kit/carine.webp" alt="" width="960" height="1200">
-            <img decoding="async" class="frame__item" src="kit/wc/cap.webp" alt="" width="340" height="340">
-            <img decoding="async" class="frame__item" src="kit/wc/rings.webp" alt="" width="340" height="340">
-            <img decoding="async" class="frame__item" src="kit/wc/key.webp" alt="" width="340" height="340">
-            <img decoding="async" class="frame__item" src="kit/wc/shoes.webp" alt="" width="340" height="340">
-            <img decoding="async" class="frame__item" src="kit/wc/glasses.webp" alt="" width="340" height="340">
+            <img decoding="async" class="frame__item" src="kit/wc2/cap.webp" alt="" width="380" height="287">
+            <img decoding="async" class="frame__item" src="kit/wc2/rings.webp" alt="" width="380" height="224">
+            <img decoding="async" class="frame__item" src="kit/wc2/key.webp" alt="" width="380" height="272">
+            <img decoding="async" class="frame__item" src="kit/wc2/shoes.webp" alt="" width="380" height="279">
+            <img decoding="async" class="frame__item" src="kit/wc2/glasses.webp" alt="" width="380" height="205">
           </div>
           <img loading="lazy" decoding="async" class="tape" src="kit/wc/tape-blue.webp" alt="" width="280" height="78">
         </figure>
         <ul class="prio" aria-hidden="true">
-          <li><img loading="lazy" decoding="async" src="kit/wc/umbrella.webp" alt="" width="340" height="340"><span>Protecting what matters</span></li>
-          <li><img loading="lazy" decoding="async" src="kit/wc/sprout.webp" alt="" width="340" height="340"><span>Growing your wealth</span></li>
-          <li><img loading="lazy" decoding="async" src="kit/wc/house.webp" alt="" width="340" height="340"><span>Planning around life’s milestones</span></li>
-          <li><img loading="lazy" decoding="async" src="kit/wc/sunrise.webp" alt="" width="340" height="340"><span>Planning for later life</span></li>
+          <li><img loading="lazy" decoding="async" src="kit/wc2/umbrella.webp" alt="" width="260" height="244"><span>Protecting what matters</span></li>
+          <li><img loading="lazy" decoding="async" src="kit/wc2/sprout.webp" alt="" width="306" height="320"><span>Growing your wealth</span></li>
+          <li><img loading="lazy" decoding="async" src="kit/wc2/house.webp" alt="" width="560" height="492"><span>Planning around life’s milestones</span></li>
+          <li><img loading="lazy" decoding="async" src="kit/wc2/sunset.webp" alt="" width="320" height="262"><span>Planning for later life</span></li>
         </ul>
       </div>
       <p class="cue note" aria-hidden="true">keep scrolling ↓</p>
@@ -485,18 +472,9 @@ address { font-style: normal; }
         <p class="lede words s1">I help you make sense of these changes, so you can plan with greater clarity for yourself and the people who matter to you.</p>
         <div class="panel-wrap">
           <div class="panel" aria-hidden="true">
-            <img loading="lazy" decoding="async" class="panel__messy" src="kit/wc/messy.webp" alt="" width="1200" height="750">
+            <img loading="lazy" decoding="async" class="panel__messy" src="kit/wc2/clarity-muddle.webp" alt="" width="480" height="300">
             <div class="clear">
-              <img loading="lazy" decoding="async" class="clear__wash" src="kit/wc/route.webp" alt="" width="1600" height="520">
-              <svg class="clear__path" viewBox="0 0 100 62.5" preserveAspectRatio="none"><path d="M2,44 C7,42 9,38 13,38 C22,38 27,26 37,26 C47,26 52,37 62,37 C72,37 77,25 87,25 C92,25 95,22 98,20"/></svg>
-              <span class="clear__pin" style="left: 13%; top: 60.8%;"></span>
-              <span class="clear__pin" style="left: 37%; top: 41.6%;"></span>
-              <span class="clear__pin" style="left: 62%; top: 59.2%;"></span>
-              <span class="clear__pin" style="left: 87%; top: 40%;"></span>
-              <img loading="lazy" decoding="async" class="clear__st" src="kit/wc/umbrella.webp" alt="" style="left: 13%; top: 60.8%;" width="340" height="340">
-              <img loading="lazy" decoding="async" class="clear__st" src="kit/wc/sprout.webp" alt="" style="left: 37%; top: 41.6%;" width="340" height="340">
-              <img loading="lazy" decoding="async" class="clear__st" src="kit/wc/house.webp" alt="" style="left: 62%; top: 59.2%;" width="340" height="340">
-              <img loading="lazy" decoding="async" class="clear__st" src="kit/wc/sunrise.webp" alt="" style="left: 87%; top: 40%;" width="340" height="340">
+              <img loading="lazy" decoding="async" class="clear__img" src="kit/wc2/clarity.webp" srcset="kit/wc2/clarity-760.webp 760w, kit/wc2/clarity.webp 1200w" sizes="(max-width: 900px) 92vw, 680px" alt="" width="1200" height="750">
             </div>
             <span class="lens"></span>
           </div>
@@ -514,10 +492,10 @@ address { font-style: normal; }
         <h2 class="big">What I can help you with</h2>
         <p class="note help__sub">Planning for what matters at every stage.</p>
         <ul class="help__row" aria-hidden="true">
-          <li><img loading="lazy" decoding="async" src="kit/wc/umbrella.webp" alt="" width="340" height="340"></li>
-          <li><img loading="lazy" decoding="async" src="kit/wc/sprout.webp" alt="" width="340" height="340"></li>
-          <li><img loading="lazy" decoding="async" src="kit/wc/house.webp" alt="" width="340" height="340"></li>
-          <li><img loading="lazy" decoding="async" src="kit/wc/sunrise.webp" alt="" width="340" height="340"></li>
+          <li><img loading="lazy" decoding="async" src="kit/wc2/umbrella.webp" alt="" width="260" height="244"></li>
+          <li><img loading="lazy" decoding="async" src="kit/wc2/sprout.webp" alt="" width="306" height="320"></li>
+          <li><img loading="lazy" decoding="async" src="kit/wc2/house.webp" alt="" width="560" height="492"></li>
+          <li><img loading="lazy" decoding="async" src="kit/wc2/sunset.webp" alt="" width="320" height="262"></li>
         </ul>
       </div>
     </div>
@@ -535,15 +513,15 @@ address { font-style: normal; }
           <button class="pour" type="button">tap to make it pour ☂</button>
         </div>
         <div class="scene" aria-hidden="true">
-          <img loading="lazy" decoding="async" class="house" src="kit/wc/house.webp" alt="" width="340" height="340">
-          <img loading="lazy" decoding="async" class="umb" src="kit/wc/umbrella.webp" alt="" width="340" height="340">
+          <img loading="lazy" decoding="async" class="house" src="kit/wc2/house.webp" alt="" width="560" height="492">
+          <img loading="lazy" decoding="async" class="umb" src="kit/wc2/umbrella-air.webp" alt="" width="509" height="462">
         </div>
       </div>
       <p class="cue note" aria-hidden="true">keep scrolling ↓</p>
     </div>
   </section>
 
-  <!-- 5. Growing your wealth: a tangle undoes itself into one clean line, which grows -->
+  <!-- 5. Growing your wealth: a seedling grows, stage by stage, into a rain tree -->
   <section class="beat topic grow" id="grow" data-beat="grow" style="--len: 2.8" data-chapter="Growing your wealth">
     <div class="stage">
       <div class="stage__in">
@@ -551,17 +529,13 @@ address { font-style: normal; }
           <h3 class="title topic__title">Growing your wealth</h3>
           <p class="desc">Making sense of investing and long-term wealth accumulation without unnecessary complexity.</p>
         </div>
-        <div class="scene" aria-hidden="true">
-          <svg viewBox="0 0 400 420">
-            <ellipse class="season" cx="200" cy="250" rx="185" ry="165" fill="#f6e3a8" filter="url(#wcl)"/>
-            <ellipse cx="200" cy="396" rx="130" ry="20" fill="#c8a57d" opacity=".55" filter="url(#wcl)"/>
-            <g class="tangle"></g>
-            <g class="plant">
-              <path class="stem" pathLength="1" d="M200,394 C194,350 208,312 200,268 C194,236 204,206 200,176"/>
-              <path class="leaf leaf--l" d="M200,190 C162,192 128,166 120,124 C162,120 196,148 200,190 Z" fill="#8cb96a" filter="url(#wcl)"/>
-              <path class="leaf leaf--r" d="M200,178 C236,172 266,142 272,100 C228,98 202,134 200,178 Z" fill="#6f9f53" filter="url(#wcl)"/>
-            </g>
-          </svg>
+        <div class="scene growth" aria-hidden="true">
+          <span class="season"></span>
+          <img loading="lazy" decoding="async" class="g g1" style="--h: 20; --gx: .498" src="kit/wc2/g1-seedling.webp" alt="" width="388" height="159">
+          <img loading="lazy" decoding="async" class="g g2" style="--h: 32; --gx: .494" src="kit/wc2/g2-sapling.webp" alt="" width="196" height="177">
+          <img loading="lazy" decoding="async" class="g g3" style="--h: 56; --gx: .512" src="kit/wc2/g3-young.webp" alt="" width="394" height="451">
+          <img loading="lazy" decoding="async" class="g g4" style="--h: 68; --gx: .482" src="kit/wc2/g4-half.webp" alt="" width="640" height="539">
+          <img loading="lazy" decoding="async" class="g g5" style="--h: 68; --gx: .491" src="kit/wc2/g5-tree.webp" alt="" width="880" height="609">
         </div>
       </div>
       <p class="cue note" aria-hidden="true">keep scrolling ↓</p>
@@ -578,10 +552,10 @@ address { font-style: normal; }
         </div>
         <div class="track-wrap" aria-hidden="true">
           <ol class="track">
-            <li class="card ms-card"><div class="win"><img loading="lazy" decoding="async" src="kit/wc/rings.webp" alt="" width="340" height="340"></div><p class="note" style="position:absolute;left:14px;bottom:8px;">marriage</p></li>
-            <li class="card ms-card"><div class="win"><img loading="lazy" decoding="async" src="kit/wc/house.webp" alt="" width="340" height="340"></div><p class="note" style="position:absolute;left:14px;bottom:8px;">a home</p></li>
-            <li class="card ms-card"><div class="win"><img loading="lazy" decoding="async" src="kit/wc/shoes.webp" alt="" width="340" height="340"></div><p class="note" style="position:absolute;left:14px;bottom:8px;">children</p></li>
-            <li class="card ms-card"><div class="win"><img loading="lazy" decoding="async" src="kit/wc/briefcase.webp" alt="" width="340" height="340"></div><p class="note" style="position:absolute;left:14px;bottom:8px;">other major changes</p></li>
+            <li class="card ms-card"><div class="win"><img loading="lazy" decoding="async" src="kit/wc2/rings.webp" alt="" width="380" height="224"></div><p class="note" style="position:absolute;left:14px;bottom:8px;">marriage</p></li>
+            <li class="card ms-card"><div class="win"><img loading="lazy" decoding="async" src="kit/wc2/house.webp" alt="" width="560" height="492"></div><p class="note" style="position:absolute;left:14px;bottom:8px;">a home</p></li>
+            <li class="card ms-card"><div class="win"><img loading="lazy" decoding="async" src="kit/wc2/shoes.webp" alt="" width="380" height="279"></div><p class="note" style="position:absolute;left:14px;bottom:8px;">children</p></li>
+            <li class="card ms-card"><div class="win"><img loading="lazy" decoding="async" src="kit/wc2/briefcase.webp" alt="" width="380" height="300"></div><p class="note" style="position:absolute;left:14px;bottom:8px;">other major changes</p></li>
           </ol>
         </div>
       </div>
@@ -589,17 +563,16 @@ address { font-style: normal; }
     </div>
   </section>
 
-  <!-- 7. Later life: the paper warms to golden hour as the sun comes up -->
+  <!-- 7. Later life: the paper warms to golden hour around one wide painting -->
   <section class="beat topic later" id="later" data-beat="later" style="--len: 2.2" data-chapter="Planning for later life">
     <div class="stage">
       <span class="sky" aria-hidden="true"></span>
-      <img loading="lazy" decoding="async" class="sun" src="kit/wc/sun.webp" alt="" width="420" height="420" aria-hidden="true">
-      <img loading="lazy" decoding="async" class="hills" src="kit/wc/hills.webp" alt="" width="1600" height="420" aria-hidden="true">
       <div class="stage__in">
         <div class="later__text">
           <h3 class="title topic__title">Planning for later life</h3>
           <p class="desc">Building towards financial independence, retirement and the future you want.</p>
         </div>
+        <img loading="lazy" decoding="async" class="later__art" src="kit/wc2/later.webp" srcset="kit/wc2/later-800.webp 800w, kit/wc2/later.webp 1400w" sizes="(max-width: 900px) 94vw, 1040px" alt="" width="1400" height="903" aria-hidden="true">
       </div>
     </div>
   </section>
@@ -616,10 +589,10 @@ address { font-style: normal; }
       </div>
       <!-- MOCK-UP. Placeholder polaroids until Carine's video links arrive. -->
       <ul class="reel" aria-label="Videos">
-        <li class="is-center"><figure class="card"><div class="thumb"><img loading="lazy" decoding="async" src="kit/wc/v1.webp" alt="" width="640" height="400"><span class="thumb__play"><svg aria-hidden="true"><use href="#i-play"/></svg></span></div><figcaption>Video 01 · coming soon</figcaption></figure></li>
-        <li><figure class="card"><div class="thumb"><img loading="lazy" decoding="async" src="kit/wc/v2.webp" alt="" width="640" height="400"><span class="thumb__play"><svg aria-hidden="true"><use href="#i-play"/></svg></span></div><figcaption>Video 02 · coming soon</figcaption></figure></li>
-        <li><figure class="card"><div class="thumb"><img loading="lazy" decoding="async" src="kit/wc/v3.webp" alt="" width="640" height="400"><span class="thumb__play"><svg aria-hidden="true"><use href="#i-play"/></svg></span></div><figcaption>Video 03 · coming soon</figcaption></figure></li>
-        <li><figure class="card"><div class="thumb"><img loading="lazy" decoding="async" src="kit/wc/v4.webp" alt="" width="640" height="400"><span class="thumb__play"><svg aria-hidden="true"><use href="#i-play"/></svg></span></div><figcaption>Video 04 · coming soon</figcaption></figure></li>
+        <li class="is-center"><figure class="card"><div class="thumb"><img loading="lazy" decoding="async" src="kit/wc2/v1.webp" alt="" width="640" height="400"><span class="thumb__play"><svg aria-hidden="true"><use href="#i-play"/></svg></span></div><figcaption>Video 01 · coming soon</figcaption></figure></li>
+        <li><figure class="card"><div class="thumb"><img loading="lazy" decoding="async" src="kit/wc2/v2.webp" alt="" width="640" height="400"><span class="thumb__play"><svg aria-hidden="true"><use href="#i-play"/></svg></span></div><figcaption>Video 02 · coming soon</figcaption></figure></li>
+        <li><figure class="card"><div class="thumb"><img loading="lazy" decoding="async" src="kit/wc2/v3.webp" alt="" width="640" height="400"><span class="thumb__play"><svg aria-hidden="true"><use href="#i-play"/></svg></span></div><figcaption>Video 03 · coming soon</figcaption></figure></li>
+        <li><figure class="card"><div class="thumb"><img loading="lazy" decoding="async" src="kit/wc2/v4.webp" alt="" width="640" height="400"><span class="thumb__play"><svg aria-hidden="true"><use href="#i-play"/></svg></span></div><figcaption>Video 04 · coming soon</figcaption></figure></li>
       </ul>
       <div class="follow">
         <p class="note">Follow me on</p>
@@ -662,8 +635,9 @@ address { font-style: normal; }
   <section class="talk" id="talk" aria-labelledby="talk-title" data-chapter="Let’s talk" data-ground="night">
     <div class="wrap talk__grid">
       <div class="talk__art">
-        <img loading="lazy" decoding="async" class="talk__moon" src="kit/wc/moon.webp" alt="" width="360" height="360">
-        <img loading="lazy" decoding="async" src="kit/wc/teacups.webp" alt="" width="680" height="453">
+        <figure class="card talk__card">
+          <img loading="lazy" decoding="async" src="kit/wc2/cafe.webp" srcset="kit/wc2/cafe-640.webp 640w, kit/wc2/cafe.webp 1000w" sizes="(max-width: 900px) 84vw, 480px" alt="Carine in conversation with a client over coffee, in a watercolour painting" width="1000" height="664">
+        </figure>
       </div>
       <div>
         <h2 class="title" id="talk-title">Let’s talk</h2>
@@ -801,7 +775,8 @@ address { font-style: normal; }
     if (motion) {
       panel.addEventListener('pointermove', track);
       panel.addEventListener('pointerdown', track);
-      panel.addEventListener('pointerleave', function () { pointer.t = -1e9; setLens(); });
+      // A mouse leaving hands the lens back to the scroll at once; a finger lifting leaves it where it was for a moment.
+      panel.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') { pointer.t = -1e9; setLens(); } });
     }
     handlers.clarity = function (p) { s1.style.setProperty('--k', ramp(p, 0, .55)); setLens(); };
     handlers.clarity.layout = setLens;
@@ -827,6 +802,15 @@ address { font-style: normal; }
     var umb = $('.umb', b), house = $('.house', b), scene = $('.scene', b);
     var drops = [], splashes = [], wet = 0, target = 0, open = 1, pourUntil = 0, running = false, last = 0;
     var dpr = Math.min(1.5, window.devicePixelRatio || 1);
+    // The top edge of the painted umbrella: [how far across the picture, how far down], measured from the artwork.
+    var CANOPY = [[.03, .6], [.06, .485], [.1, .396], [.18, .277], [.26, .201], [.34, .13], [.42, .08], [.5, .045], [.58, .019], [.66, .015], [.74, .024], [.82, .048], [.9, .08], [.95, .115], [.975, .15]];
+    function canopyTop(fx) {
+      if (fx < CANOPY[0][0] || fx > CANOPY[CANOPY.length - 1][0]) return -1;
+      for (var k = 1; k < CANOPY.length; k++) {
+        if (fx <= CANOPY[k][0]) return lerp(CANOPY[k - 1][1], CANOPY[k][1], (fx - CANOPY[k - 1][0]) / (CANOPY[k][0] - CANOPY[k - 1][0]));
+      }
+      return -1;
+    }
     function size() { canvas.width = stage.clientWidth * dpr; canvas.height = stage.clientHeight * dpr; }
     function spawn(d, anywhere) {
       d = d || {};
@@ -843,10 +827,8 @@ address { font-style: normal; }
       wet += (aim - wet) * Math.min(1, dt * 3);
       b.style.setProperty('--wet', Math.min(1, wet).toFixed(3));
       var sr = stage.getBoundingClientRect(), ur = umb.getBoundingClientRect(), hr = house.getBoundingClientRect();
-      var ux0 = (ur.left - sr.left + ur.width * .05) * dpr, ux1 = (ur.right - sr.left - ur.width * .05) * dpr;
-      var ucx = (ux0 + ux1) / 2, uhw = (ux1 - ux0) / 2;
-      var uTop = (ur.top - sr.top + ur.height * .19) * dpr, uRim = (ur.top - sr.top + ur.height * .5) * dpr;
-      var ground = (hr.bottom - sr.top - hr.height * .1) * dpr;
+      var ux = (ur.left - sr.left) * dpr, uw = ur.width * dpr, uy = (ur.top - sr.top) * dpr, uh = ur.height * dpr;
+      var ground = (hr.bottom - sr.top - hr.height * .05) * dpr;
       var want = Math.round(240 * wet);
       while (drops.length < want) drops.push(spawn(null, true));
       if (drops.length > want) drops.length = want;
@@ -856,8 +838,8 @@ address { font-style: normal; }
       for (var i = 0; i < drops.length; i++) {
         var d = drops[i];
         d.y += d.v * dt; d.x += d.v * .1 * dt;
-        var stop = canvas.height + 20;
-        if (open > .7 && d.x > ux0 && d.x < ux1) { var nx = (d.x - ucx) / uhw; stop = uTop + (uRim - uTop) * nx * nx; }
+        var stop = canvas.height + 20, top = open > .85 ? canopyTop((d.x - ux) / uw) : -1;
+        if (top >= 0) { stop = uy + top * uh; }
         else if (d.x > (hr.left - sr.left) * dpr && d.x < (hr.right - sr.left) * dpr) { stop = ground; }
         if (d.y > stop) { if (stop < canvas.height && splashes.length < 80) splashes.push({ x: d.x, y: stop, a: 1 }); spawn(d); continue; }
         ctx.moveTo(d.x, d.y); ctx.lineTo(d.x - d.l * .1, d.y - d.l);
@@ -893,26 +875,19 @@ address { font-style: normal; }
     handlers.protect.layout = size;
   })();
 
-  /* 5. Growing your wealth: build the tangle once, then let scroll undo it --------------- */
+  /* 5. Growing your wealth: five paintings of one tree, standing on one spot -------------- */
   (function () {
-    var b = $('#grow'), g = $('.tangle', b);
-    var seed = 11, rnd = function () { return (seed = (seed * 16807) % 2147483647) / 2147483647; };
-    var inks = ['#5a4636', '#6e5642', '#3f5670', '#8a5a3c'];
-    for (var k = 0; k < 4; k++) {
-      var x = 200 + (rnd() - .5) * 60, y = 300 + (rnd() - .5) * 60, d = 'M' + x.toFixed(1) + ',' + y.toFixed(1);
-      for (var i = 0; i < 16; i++) {
-        var nx = clamp(x + (rnd() - .5) * 200, 70, 330), ny = clamp(y + (rnd() - .5) * 160, 180, 392);
-        d += ' C' + (x + (rnd() - .5) * 150).toFixed(1) + ',' + (y + (rnd() - .5) * 150).toFixed(1) + ' ' + (nx + (rnd() - .5) * 150).toFixed(1) + ',' + (ny + (rnd() - .5) * 150).toFixed(1) + ' ' + nx.toFixed(1) + ',' + ny.toFixed(1);
-        x = nx; y = ny;
-      }
-      var p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-      p.setAttribute('d', d); p.setAttribute('pathLength', '1'); p.setAttribute('stroke', inks[k]); p.setAttribute('opacity', (.45 + rnd() * .3).toFixed(2));
-      g.appendChild(p);
-    }
+    var b = $('#grow'), imgs = $$('.growth .g', b);
+    // Each stage: the stretch of the section it owns, and how much it grows while it is on (1 = its own full size).
+    var plan = [[0, .2, .62, 1], [.2, .4, .66, 1], [.4, .6, .62, 1], [.6, .8, .84, 1], [.8, 1, .92, 1]], fade = .035;
     handlers.grow = function (p) {
-      b.style.setProperty('--e', ramp(p, .04, .4).toFixed(3));
-      b.style.setProperty('--d', ramp(p, .3, .58).toFixed(3));
-      b.style.setProperty('--l', ramp(p, .54, .72).toFixed(3));
+      var t = ramp(p, .05, .92);
+      imgs.forEach(function (im, i) {
+        var s = plan[i];
+        var o = (i === 0 ? 1 : ramp(t, s[0] - fade, s[0] + fade)) * (i === imgs.length - 1 ? 1 : 1 - ramp(t, s[1] - fade, s[1] + fade));
+        im.style.opacity = o.toFixed(3);
+        im.style.transform = 'scale(' + lerp(s[2], s[3], ramp(t, s[0] - fade, s[1] + fade)).toFixed(4) + ')';
+      });
       b.style.setProperty('--g', ramp(p, .7, 1).toFixed(3));
     };
   })();

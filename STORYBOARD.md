@@ -92,6 +92,15 @@ For Carine and compliance to approve or replace. Everything else is Rebecca's v1
 ## Compliance notes
 
 - **No figures anywhere.** Growth is a plant, not a chart, coins or a percentage, so nothing reads as a promise of returns.
+- **The tree in "Growing your wealth" (second art pass, 19 Nov 2026).** A seedling grows through three stages into a
+  rain tree beside the line "Making sense of investing and long-term wealth accumulation without unnecessary
+  complexity." It is a picture of growth over time, not a promise of returns: nothing is on the tree but leaves (no
+  coins, currency, fruit or rising line) and no figure appears near it. For Carine's compliance team to clear with
+  that wording beside it. Not yet cleared.
+- **The café painting in "Let's talk" (second art pass).** It is an AI-made painting of Carine, drawn from her own
+  portrait, talking with a client who is seen only from behind (no face). **Her likeness needs her say-so before this
+  goes live.** The same painting is cropped for the second video placeholder. Not yet approved.
+- **The couple in "Planning for later life"** are seen from behind, with no faces, and stand for no real client.
 - **The priority stickers in section 2** resize per life stage to show "different financial priorities". They illustrate the sentence; they are not advice. Compliance should confirm they are comfortable with it.
 - **The chat bubbles** are hand-drawn, not WhatsApp's branding, and every bubble is Carine's own copy.
 - **The note field** sends nothing anywhere itself; it only opens WhatsApp.
