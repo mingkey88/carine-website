@@ -124,6 +124,10 @@ the art pass is in the last column.
 | Whole page, laptop (1440 × 900) | 20 MB | 1.6 MB (1,646 KB) | 920 KB |
 | Script | 350 KB | about 15 KB inline, no libraries | 14 KB |
 
+On the staging link (GitHub Pages) on 19 Nov 2026, in Chrome at 1654 × 928 on a 2x screen, as transferred and with
+fonts: 683 KB before the first screen is usable (a 20 KB page, 589 KB of pictures, 74 KB of fonts) and 1.9 MB after a
+full scroll (84 requests, none failed). A 2x screen takes the larger copy of each painting, so this is the heavy case.
+
 The growth clip is 56 frames (391 KB in all), fetched when "Growing your wealth" is one screen away. The rain is
 drawn on a canvas only while that section is on screen. With JavaScript off, browsers ignore lazy loading, so every
 picture loads up front (about 1.3 MB); the page still reads from the first screen.
@@ -174,7 +178,9 @@ Tested on 19 Nov 2026 in headless Chromium against a local copy: a frame-by-fram
 interactions at laptop and phone size (the lens with a mouse, a tap and a finger drag; pour, with nothing landing
 under the umbrella; the video row by arrows and by swipe; the note, with and without text, opening the right
 WhatsApp link); the reduced-motion page and the page with JavaScript off; and every line of the v1 copy, link,
-phone number and address unchanged from before the art pass.
+phone number and address unchanged from before the art pass. After the push, the staging link was opened in Chrome
+(1654 × 928) and scrolled end to end: no failed requests, no broken pictures, no console errors, no sideways scroll,
+and the growth clip played; it was also opened at 500 px wide in a second browser.
 
 Known: at 320 px wide the chat bubbles in "What working together looks like" are clipped in the held stage (as
 before the art pass).
