@@ -52,7 +52,7 @@ Carine's portrait, replacing the stickers that were painted in code; see "Second
 
 | # | Section | Her words | Device | What the scroll does | Play | Length |
 |---|---|---|---|---|---|---|
-| 1 | Hero | Financial planning for every stage of life. | Words that resolve | The headline sharpens word by word; the polaroid drops in and is taped | – | 1 screen |
+| 1 | Hero | Financial planning for every stage of life. | Words that resolve, then the stages gather | The headline sharpens word by word; the polaroid drops in and is taped; a graduation cap, rings, a key, baby shoes and reading glasses land round her portrait one by one, drift a little with the pointer, and tuck into the polaroid as you scroll on, where section 2's frame shows them one at a time | – | 1 screen |
 | 2 | As life changes | Hero paragraph 1 | Frame as window | One polaroid frame holds her portrait, then a graduation cap, rings, a key, baby shoes, reading glasses; the four topic pictures grow and shrink as priorities shift | – | 4.2 |
 | 3 | Greater clarity | Hero paragraph 2 | A lens | A landscape with one path through it starts as a blur; a clear patch shows the same painting in focus, then the whole of it clears | Move the lens | 3 |
 | 4 | What I can help you with | Heading and line | Kinetic headline, then a contents row | The heading crosses the screen huge, then settles small over four cards, one per topic (picture and her heading); each card jumps to its section | – (the cards are links) | 2.4 |
@@ -121,9 +121,9 @@ the art pass is in the last column.
 
 | | Phone target | Measured | Before the art pass |
 |---|---|---|---|
-| Before the first screen is usable | 1.5 MB | 701 KB | 548 KB |
-| Whole page, phone (390 × 844) | 8 MB | 1.5 MB (1,523 KB) | 920 KB |
-| Whole page, laptop (1440 × 900) | 20 MB | 1.7 MB (1,681 KB) | 920 KB |
+| Before the first screen is usable | 1.5 MB | 705 KB | 548 KB |
+| Whole page, phone (390 × 844) | 8 MB | 1.5 MB (1,527 KB) | 920 KB |
+| Whole page, laptop (1440 × 900) | 20 MB | 1.7 MB (1,685 KB) | 920 KB |
 | Script | 350 KB | about 15 KB inline, no libraries | 14 KB |
 
 On the staging link (GitHub Pages) on 19 Nov 2026, in Chrome at 1654 × 928 on a 2x screen, as transferred and with
@@ -148,6 +148,9 @@ picture loads up front (about 1.3 MB); the page still reads from the first scree
 - Each held section is a tall block with a sticky stage. Its scroll position
   becomes one progress value from 0 to 1, written as a CSS variable, and a small
   handler per section maps that to what moves.
+- The hero's objects stack three motions on separate CSS properties so they never fight: the arrival animates
+  `transform`, the pointer drift and the tuck-away on scroll move `translate` and `scale`, and the resting tilt is
+  `rotate`. With reduced motion or no JavaScript they rest in place.
 - "Growing your wealth" draws the clip's frames to a canvas by scroll progress. The frames are opaque on white and
   are multiplied onto the paper. A pinned stage is its own layer, so multiply cannot reach the page's paper behind
   it: the scene carries the same paper itself (`--grain`).
@@ -167,7 +170,8 @@ as the end frame). The prompts are in `previews/art/ART-BRIEF-05.md`.
   object and topic grids apart on their white gaps; keeps the scenes solid in the middle and soft at the edge; makes
   the blurred copy of the landscape for the lens; and cuts the growing part of the clip (its first 3.3 seconds)
   into 56 square frames.
-- **Changed sections:** hero (sparkle sticker removed, tape calmed), 2 to 8 and 11 in the table above, and the
+- **Changed sections:** hero (sparkle sticker removed, tape calmed, the five life-stage objects added round the
+  portrait), 2 to 8 and 11 in the table above, and the
   video placeholders (crops of the later-life, café and landscape paintings, and the rain tree).
 - **Not used:** the three in-between tree stages (`3-stages`) and the seedling still (`2-seedling`), which were
   for building the growth from stills; the clip does that job.

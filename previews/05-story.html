@@ -140,6 +140,22 @@ h1, h2, h3 { font-weight: 400; }
 .motion .polaroid { animation: drop 1s var(--ease) .5s both; }
 .motion .polaroid .tape { animation: stick .5s ease 1.3s both; }
 .motion .hero__bloom { animation: bloom 1.6s ease .2s both; }
+/* The five life stages gather round her portrait, like things laid on a desk. Three motions stack without fighting,
+   because each uses its own property: the arrival animates `transform`; the pointer drift and the tuck-away on
+   scroll move `translate` and `scale`; the resting tilt is `rotate`. Still page: they simply rest in place. */
+.hero__obj { position: absolute; z-index: 2; width: calc(var(--w) * 1%); height: auto; rotate: var(--r, 0deg); pointer-events: none; }
+.hero__obj--cap { --w: 44; --r: -11deg; --d: 16; --n: 0; left: -27%; top: -11%; }
+.hero__obj--glasses { --w: 41; --r: 13deg; --d: 24; --n: 4; right: -29%; top: 18%; }
+.hero__obj--rings { --w: 32; --r: -6deg; --d: 30; --n: 1; left: -24%; top: 50%; }
+.hero__obj--shoes { --w: 39; --r: 7deg; --d: 20; --n: 3; right: -25%; bottom: -11%; }
+.hero__obj--key { --w: 34; --r: -9deg; --d: 12; --n: 2; left: 4%; bottom: -22%; }
+.motion .hero__obj {
+  translate: calc(var(--mx, 0) * var(--d) * 1px + var(--t, 0) * var(--tx, 0px)) calc(var(--my, 0) * var(--d) * 1px + var(--t, 0) * var(--ty, 0px));
+  scale: calc(1 - var(--t, 0) * .6); opacity: calc(1 - var(--t, 0) * 1.25);
+  transition: translate .35s ease-out;
+  animation: lay .9s cubic-bezier(.3, 1.4, .5, 1) both; animation-delay: calc(1.25s + var(--n) * .14s);
+}
+@keyframes lay { from { opacity: 0; transform: translateY(-46px) scale(.7) rotate(-14deg); } }
 @keyframes resolve { from { opacity: 0; filter: blur(14px); transform: translateY(12px); } }
 @keyframes drop { from { opacity: 0; transform: translateY(-40px) rotate(-8deg); } }
 @keyframes stick { from { opacity: 0; transform: scale(1.3); } }
@@ -368,6 +384,12 @@ address { font-style: normal; }
 @media (max-width: 900px) {
   .hero__grid, .talk__grid, .night__top { grid-template-columns: 1fr; }
   .hero__art { width: min(330px, 78%); margin-top: 18px; }
+  .hero__obj--cap { --w: 38; left: -16%; top: -9%; }
+  .hero__obj--glasses { --w: 36; right: -17%; top: 19%; }
+  .hero__obj--rings { --w: 28; left: -15%; top: 51%; }
+  .hero__obj--shoes { --w: 34; right: -14%; bottom: -10%; }
+  .hero__obj--key { --w: 30; left: 5%; bottom: -20%; }
+  .hero { padding-bottom: clamp(96px, 16vw, 130px); }
   .clarity .stage__in, .topic .stage__in, .together .stage__in { grid-template-columns: 1fr; align-content: start; }
   .ms-text { grid-template-columns: 1fr; }
   .talk__art { width: min(420px, 92%); order: 2; }
@@ -429,7 +451,7 @@ address { font-style: normal; }
 
 <main id="main" tabindex="-1">
 
-  <!-- 1. Hero: the headline resolves, the polaroid drops in and is taped down -->
+  <!-- 1. Hero: the headline resolves, the polaroid drops in, and the five life stages gather round it -->
   <section class="hero" data-chapter="Every stage of life">
     <div class="wrap hero__grid">
       <div>
@@ -447,6 +469,11 @@ address { font-style: normal; }
           <figcaption>Carine Zheng · Financial Alliance</figcaption>
           <img class="tape" src="kit/wc/tape-gold.webp" alt="" width="280" height="78">
         </figure>
+        <img decoding="async" class="hero__obj hero__obj--cap" src="kit/wc2/cap.webp" alt="" width="380" height="287" aria-hidden="true">
+        <img decoding="async" class="hero__obj hero__obj--rings" src="kit/wc2/rings.webp" alt="" width="380" height="224" aria-hidden="true">
+        <img decoding="async" class="hero__obj hero__obj--key" src="kit/wc2/key.webp" alt="" width="380" height="272" aria-hidden="true">
+        <img decoding="async" class="hero__obj hero__obj--shoes" src="kit/wc2/shoes.webp" alt="" width="380" height="279" aria-hidden="true">
+        <img decoding="async" class="hero__obj hero__obj--glasses" src="kit/wc2/glasses.webp" alt="" width="380" height="205" aria-hidden="true">
       </div>
     </div>
   </section>
@@ -753,6 +780,36 @@ address { font-style: normal; }
     return len > 1 ? clamp(-r.top / len, 0, 1) : clamp((innerHeight - r.top) / (innerHeight + r.height), 0, 1);
   }
 
+  /* 1. Hero: the life-stage objects drift with the pointer, and tuck into the polaroid as you scroll away ---- */
+  var heroTuck = function () {};
+  (function () {
+    var hero = $('.hero'), art = $('.hero__art'), pol = $('.polaroid', art), objs = $$('.hero__obj', art), last = -1;
+    if (!motion) return;
+    function layout() {
+      // How far each object has to travel to reach the middle of the picture.
+      var cx = pol.offsetLeft + pol.offsetWidth / 2, cy = pol.offsetTop + pol.offsetHeight * .45;
+      objs.forEach(function (o) {
+        o.style.setProperty('--tx', (cx - (o.offsetLeft + o.offsetWidth / 2)).toFixed(1) + 'px');
+        o.style.setProperty('--ty', (cy - (o.offsetTop + o.offsetHeight / 2)).toFixed(1) + 'px');
+      });
+      last = -1;
+    }
+    heroTuck = function () {
+      var t = clamp(scrollY / (hero.offsetHeight * .62), 0, 1);
+      t = t * t * (3 - 2 * t);
+      if (Math.abs(t - last) < .002) return;
+      last = t;
+      art.style.setProperty('--t', t.toFixed(3));
+    };
+    heroTuck.layout = layout;
+    hero.addEventListener('pointermove', function (e) {
+      if (e.pointerType !== 'mouse') return;
+      art.style.setProperty('--mx', ((e.clientX / innerWidth - .5) * -2).toFixed(3));
+      art.style.setProperty('--my', ((e.clientY / innerHeight - .5) * -2).toFixed(3));
+    });
+    hero.addEventListener('pointerleave', function () { art.style.setProperty('--mx', 0); art.style.setProperty('--my', 0); });
+  })();
+
   /* 2. As life changes ------------------------------------------------------------ */
   (function () {
     var b = $('#changes'), frame = $('.frame', b), imgs = $$('.frame__win > img', b), prio = $$('.prio img', b);
@@ -999,6 +1056,7 @@ address { font-style: normal; }
   function update() {
     ticking = false;
     if (motion) {
+      heroTuck();
       beats.forEach(function (b) {
         var p = progressOf(b);
         if (b._p !== undefined && Math.abs(p - b._p) < .0004) return;
@@ -1020,6 +1078,7 @@ address { font-style: normal; }
   }
   function request() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
   function relayout() {
+    if (heroTuck.layout) heroTuck.layout();
     Object.keys(handlers).forEach(function (k) { if (handlers[k].layout) handlers[k].layout(); });
     beats.forEach(function (b) { b._p = undefined; });
     request();
