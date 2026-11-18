@@ -42,13 +42,14 @@
   --hud: 56px;
   --shadow-card: 0 1px 2px #28190a2e, 0 14px 30px -14px #28190a73;
   --ease: cubic-bezier(.2, .8, .2, 1);
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .36 0 0 0 0 .25 0 0 0 0 .14 0 0 0 -2.2 1.2'/%3E%3C/filter%3E%3Crect width='320' height='320' filter='url(%23g)' opacity='.22'/%3E%3C/svg%3E");
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   background-color: var(--paper);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .36 0 0 0 0 .25 0 0 0 0 .14 0 0 0 -2.2 1.2'/%3E%3C/filter%3E%3Crect width='320' height='320' filter='url(%23g)' opacity='.22'/%3E%3C/svg%3E");
+  background-image: var(--grain);
   color: var(--ink);
   font: 400 clamp(1rem, .95rem + .25vw, 1.125rem)/1.6 var(--f-body);
   -webkit-font-smoothing: antialiased;
@@ -219,14 +220,20 @@ h1, h2, h3 { font-weight: 400; }
 .motion .pour:hover { background: var(--card); }
 .motion .protect .scene { cursor: pointer; }
 
-/* 5. Growing your wealth: a seedling grows into a rain tree ------------------------------ */
-/* Five paintings share one ground point. Each is sized by its height (--h, in % of the scene) and placed so
-   its trunk (--gx, across the picture) stands on the same spot; the scroll scales one up and fades in the next.
-   Still page: the finished tree only. */
-.growth .g { position: absolute; left: 50%; bottom: 7%; height: calc(var(--h) * 1%); width: auto; max-width: none; translate: calc(var(--gx) * -100%) 0; transform-origin: calc(var(--gx) * 100%) 97%; display: none; }
-.growth .g5 { display: block; }
-.motion .growth .g { display: block; opacity: 0; will-change: transform, opacity; }
-.season { position: absolute; inset: 2% 0 12%; border-radius: 50%; background: radial-gradient(closest-side, #f6e3a8d9 0%, #f6e3a800 100%); opacity: 0; }
+/* 5. Growing your wealth: a seedling grows into a full-grown plant ------------------------ */
+/* Still page: the finished plant, as a cut-out. Motion: the growth clip as an image sequence on a canvas, one
+   frame per step of scroll. The frames are opaque on white and are multiplied onto the paper. A pinned stage
+   and its contents are their own layers, so multiply cannot reach the page's paper behind them: the scene
+   carries the same paper itself, and the frames blend with that. */
+.growth__still { position: absolute; left: 50%; bottom: 3.5%; height: 86%; width: auto; max-width: none; translate: -50% 0; }
+.growth__film, .growth__poster { display: none; }
+.motion .growth { background-color: var(--paper); background-image: var(--grain); }
+.motion .growth__still { display: none; }
+.motion .growth__film, .motion .growth__poster { display: block; position: absolute; inset: 0; width: 100%; height: 100%; mix-blend-mode: multiply; }
+.motion .growth__film { opacity: 0; }
+.motion .growth.is-film .growth__film { opacity: 1; }
+.motion .growth.is-film .growth__poster { display: none; }
+.season { position: absolute; inset: 4% 6% 10%; border-radius: 50%; background: radial-gradient(closest-side, #f6e3a8d9 0%, #f6e3a800 100%); opacity: 0; }
 .motion .season { opacity: calc(var(--g, 0) * .7); }
 
 /* 6. Life's milestones: polaroids on a sideways strip ---------------------------------- */
@@ -521,7 +528,7 @@ address { font-style: normal; }
     </div>
   </section>
 
-  <!-- 5. Growing your wealth: a seedling grows, stage by stage, into a rain tree -->
+  <!-- 5. Growing your wealth: a seedling grows into a full-grown plant as you scroll -->
   <section class="beat topic grow" id="grow" data-beat="grow" style="--len: 2.8" data-chapter="Growing your wealth">
     <div class="stage">
       <div class="stage__in">
@@ -531,11 +538,9 @@ address { font-style: normal; }
         </div>
         <div class="scene growth" aria-hidden="true">
           <span class="season"></span>
-          <img loading="lazy" decoding="async" class="g g1" style="--h: 20; --gx: .498" src="kit/wc2/g1-seedling.webp" alt="" width="388" height="159">
-          <img loading="lazy" decoding="async" class="g g2" style="--h: 32; --gx: .494" src="kit/wc2/g2-sapling.webp" alt="" width="196" height="177">
-          <img loading="lazy" decoding="async" class="g g3" style="--h: 56; --gx: .512" src="kit/wc2/g3-young.webp" alt="" width="394" height="451">
-          <img loading="lazy" decoding="async" class="g g4" style="--h: 68; --gx: .482" src="kit/wc2/g4-half.webp" alt="" width="640" height="539">
-          <img loading="lazy" decoding="async" class="g g5" style="--h: 68; --gx: .491" src="kit/wc2/g5-tree.webp" alt="" width="880" height="609">
+          <img loading="lazy" decoding="async" class="growth__still" src="kit/wc2/plant.webp" alt="" width="469" height="639">
+          <img loading="lazy" decoding="async" class="growth__poster" src="kit/wc2/grow/f00.webp" alt="" width="600" height="600">
+          <canvas class="growth__film" width="600" height="600"></canvas>
         </div>
       </div>
       <p class="cue note" aria-hidden="true">keep scrolling ↓</p>
@@ -875,19 +880,42 @@ address { font-style: normal; }
     handlers.protect.layout = size;
   })();
 
-  /* 5. Growing your wealth: five paintings of one tree, standing on one spot -------------- */
+  /* 5. Growing your wealth: the growth clip, one frame per step of scroll ----------------- */
   (function () {
-    var b = $('#grow'), imgs = $$('.growth .g', b);
-    // Each stage: the stretch of the section it owns, and how much it grows while it is on (1 = its own full size).
-    var plan = [[0, .2, .62, 1], [.2, .4, .66, 1], [.4, .6, .62, 1], [.6, .8, .84, 1], [.8, 1, .92, 1]], fade = .035;
+    var b = $('#grow'), scene = $('.growth', b), canvas = $('.growth__film', b), ctx = canvas.getContext('2d');
+    var N = 56, frames = [], want = 0, shown = -1, started = false;
+    function draw() {
+      // The frame for this scroll position, or the nearest one that has arrived.
+      var i = -1;
+      for (var d = 0; d < N && i < 0; d++) {
+        if (frames[want - d] && frames[want - d].ok) i = want - d;
+        else if (frames[want + d] && frames[want + d].ok) i = want + d;
+      }
+      if (i < 0 || i === shown) return;
+      shown = i;
+      ctx.drawImage(frames[i], 0, 0, canvas.width, canvas.height);
+      scene.classList.add('is-film');
+    }
+    function load(i) {
+      if (frames[i]) return;
+      var im = frames[i] = new Image();
+      im.onload = function () { im.ok = true; draw(); };
+      im.src = 'kit/wc2/grow/f' + (i < 10 ? '0' : '') + i + '.webp';
+    }
+    function start() {
+      if (started) return;
+      started = true;
+      // Every fourth frame first, so scrubbing works early; then the ones between.
+      var i;
+      load(want);
+      for (i = 0; i < N; i += 4) load(i);
+      for (i = 0; i < N; i++) load(i);
+    }
+    // Fetch the frames when the section is one screen away, not before.
+    if (motion) new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) start(); }); }, { rootMargin: '100% 0px' }).observe(b);
     handlers.grow = function (p) {
-      var t = ramp(p, .05, .92);
-      imgs.forEach(function (im, i) {
-        var s = plan[i];
-        var o = (i === 0 ? 1 : ramp(t, s[0] - fade, s[0] + fade)) * (i === imgs.length - 1 ? 1 : 1 - ramp(t, s[1] - fade, s[1] + fade));
-        im.style.opacity = o.toFixed(3);
-        im.style.transform = 'scale(' + lerp(s[2], s[3], ramp(t, s[0] - fade, s[1] + fade)).toFixed(4) + ')';
-      });
+      want = Math.round(ramp(p, .06, .88) * (N - 1));
+      if (started) draw();
       b.style.setProperty('--g', ramp(p, .7, 1).toFixed(3));
     };
   })();

@@ -46,29 +46,30 @@ about 29 MB).
 happening as you scroll, with four you can play with.
 
 **Voice:** warm and plain, as in Rebecca's copy. **Ground:** cream paper, seal red
-for anything that acts (WhatsApp buttons wear WhatsApp green), ending on night navy. **Build:** 2D on design 04's
-watercolour artwork; no 3D, no libraries.
+for anything that acts (WhatsApp buttons wear WhatsApp green), ending on night navy. **Build:** 2D, no 3D, no
+libraries. Since the second art pass (19 Nov 2026) the pictures are ink-and-watercolour paintings in the style of
+Carine's portrait, replacing the stickers that were painted in code; see "Second art pass" below.
 
 | # | Section | Her words | Device | What the scroll does | Play | Length |
 |---|---|---|---|---|---|---|
 | 1 | Hero | Financial planning for every stage of life. | Words that resolve | The headline sharpens word by word; the polaroid drops in and is taped | – | 1 screen |
-| 2 | As life changes | Hero paragraph 1 | Frame as window | One polaroid frame holds her portrait, then a graduation cap, rings, a key, baby shoes, reading glasses; the four topic stickers grow and shrink as priorities shift | – | 4.2 |
-| 3 | Greater clarity | Hero paragraph 2 | A lens | A clear patch over a muddled painting shows the neat path beneath, then the whole painting comes into focus | Move the lens | 3 |
-| 4 | What I can help you with | Heading and line | Kinetic headline | The heading crosses the screen huge, then settles with the line and four stickers | – | 1.8 |
-| 5 | Protecting what matters | Topic 1 | Whole-screen mood | The paper greys, rain falls, the umbrella opens; the house stays dry | Tap to make it pour | 2.8 |
-| 6 | Growing your wealth | Topic 2 | Transformation | A scribbled tangle undoes itself; one clean line grows into a sprout | – | 2.8 |
+| 2 | As life changes | Hero paragraph 1 | Frame as window | One polaroid frame holds her portrait, then a graduation cap, rings, a key, baby shoes, reading glasses; the four topic pictures grow and shrink as priorities shift | – | 4.2 |
+| 3 | Greater clarity | Hero paragraph 2 | A lens | A landscape with one path through it starts as a blur; a clear patch shows the same painting in focus, then the whole of it clears | Move the lens | 3 |
+| 4 | What I can help you with | Heading and line | Kinetic headline | The heading crosses the screen huge, then settles with the line and the four topic pictures | – | 1.8 |
+| 5 | Protecting what matters | Topic 1 | Whole-screen mood | The paper greys, rain falls, the umbrella swings up over the home; the home stays dry | Tap to make it pour | 2.8 |
+| 6 | Growing your wealth | Topic 2 | Transformation | A seedling grows into a full-grown leafy plant, one frame of a painted clip per step of scroll | – | 2.8 |
 | 7 | Life's milestones | Topic 3 | Sideways filmstrip | Polaroids slide past: marriage, a home, children, other major changes | – | 3 |
-| 8 | Later life | Topic 4 | Whole-screen mood | The paper warms to golden hour as the sun rises over the hills | – | 2.2 |
+| 8 | Later life | Topic 4 | Whole-screen mood | The paper warms to golden hour around one wide painting: a couple, seen from behind, watching the sun set over a bay | – | 2.2 |
 | 9 | Making sense of financial planning | Heading, follow row | Frame and filmstrip | The centre polaroid is the one to watch | Swipe or arrows | – |
 | 10 | What working together looks like | Quote and three steps | A conversation | Her belief, then the steps, arrive as chat bubbles with typing dots; "regularly" draws a loop | – | 3 |
-| 11 | Let's talk | Contact copy, details, footer | Picture becomes place | Night falls; a note field opens WhatsApp with the visitor's words | Type and send | – |
+| 11 | Let's talk | Contact copy, details, footer | Picture becomes place | Night falls; a painting of Carine in conversation sits on a cream card; a note field opens WhatsApp with the visitor's words | Type and send | – |
 
 Lengths are in screens of scrolling while the section holds. A HUD at the top
 names the chapter and fills a progress line; held sections say "keep scrolling".
 
 ## The four interactions
 
-1. **The lens** follows the pointer or a finger over the painting, and drifts on its own otherwise.
+1. **The lens** follows the pointer or a finger over the painting, and drifts on its own otherwise. A finger lifting leaves it in place for about two seconds.
 2. **Pour** (button or a tap on the scene) makes it rain harder for a few seconds; the umbrella holds.
 3. **Videos** swipe sideways, or step with the arrows.
 4. **The note** opens `wa.me/6583893356` with the visitor's text already typed.
@@ -92,16 +93,18 @@ For Carine and compliance to approve or replace. Everything else is Rebecca's v1
 ## Compliance notes
 
 - **No figures anywhere.** Growth is a plant, not a chart, coins or a percentage, so nothing reads as a promise of returns.
-- **The tree in "Growing your wealth" (second art pass, 19 Nov 2026).** A seedling grows through three stages into a
-  rain tree beside the line "Making sense of investing and long-term wealth accumulation without unnecessary
-  complexity." It is a picture of growth over time, not a promise of returns: nothing is on the tree but leaves (no
-  coins, currency, fruit or rising line) and no figure appears near it. For Carine's compliance team to clear with
-  that wording beside it. Not yet cleared.
+- **The plant in "Growing your wealth" (second art pass, 19 Nov 2026).** A seedling grows into a full-grown leafy
+  plant beside the line "Making sense of investing and long-term wealth accumulation without unnecessary
+  complexity." It is a picture of growth over time, not a promise of returns: nothing is on the plant but leaves (no
+  coins, currency, fruit, flowers or rising line) and no figure appears near it. The rain tree painted in the same
+  pass appears only as the fourth video placeholder. For Carine's compliance team to clear with that wording beside
+  it. Not yet cleared by compliance.
 - **The café painting in "Let's talk" (second art pass).** It is an AI-made painting of Carine, drawn from her own
-  portrait, talking with a client who is seen only from behind (no face). **Her likeness needs her say-so before this
-  goes live.** The same painting is cropped for the second video placeholder. Not yet approved.
+  portrait, talking with a client who is seen only from behind (no face). The same painting is cropped for the
+  second video placeholder. **Carine is fine with her likeness being used here** (confirmed by MJ, 19 Nov 2026).
+  This link is a staging site, not production; raise it again with her compliance team before production.
 - **The couple in "Planning for later life"** are seen from behind, with no faces, and stand for no real client.
-- **The priority stickers in section 2** resize per life stage to show "different financial priorities". They illustrate the sentence; they are not advice. Compliance should confirm they are comfortable with it.
+- **The priority pictures in section 2** resize per life stage to show "different financial priorities". They illustrate the sentence; they are not advice. Compliance should confirm they are comfortable with it.
 - **The chat bubbles** are hand-drawn, not WhatsApp's branding, and every bubble is Carine's own copy.
 - **The note field** sends nothing anywhere itself; it only opens WhatsApp.
 - **Search:** `noindex` on the page, plus the site-wide `Disallow` in `robots.txt`.
@@ -110,16 +113,20 @@ For Carine and compliance to approve or replace. Everything else is Rebecca's v1
 
 ## Budgets, measured
 
-Measured on the live GitHub Pages link on 17 Nov 2026, desktop Chromium.
+Measured on 19 Nov 2026 after the second art pass, in headless Chromium against a local copy of the repo: page and
+images as stored (not compressed in transit), the three web fonts not counted. The same measure on the page before
+the art pass is in the last column.
 
+| | Phone target | Measured | Before the art pass |
+|---|---|---|---|
+| Before the first screen is usable | 1.5 MB | 658 KB | 548 KB |
+| Whole page, phone (390 × 844) | 8 MB | 1.5 MB (1,488 KB) | 920 KB |
+| Whole page, laptop (1440 × 900) | 20 MB | 1.6 MB (1,646 KB) | 920 KB |
+| Script | 350 KB | about 15 KB inline, no libraries | 14 KB |
 
-| | Phone target | Measured |
-|---|---|---|
-| Before the first screen is usable | 1.5 MB | 511 KB on the live link, fonts included (the page and its first images are 292 KB of that) |
-| Whole page | 8 MB | 1.5 MB after a full scroll on the live link, fonts included: a 69 KB page and 25 images loaded once each, the ones below the hero lazily |
-| Script | 350 KB | 14 KB inline, no libraries |
-
-The rain is drawn on a canvas only while that section is on screen.
+The growth clip is 56 frames (391 KB in all), fetched when "Growing your wealth" is one screen away. The rain is
+drawn on a canvas only while that section is on screen. With JavaScript off, browsers ignore lazy loading, so every
+picture loads up front (about 1.3 MB); the page still reads from the first screen.
 
 ## Fallbacks
 
@@ -130,20 +137,47 @@ The rain is drawn on a canvas only while that section is on screen.
 
 ## How it is built
 
-- One file, `previews/05-story.html`, with images in `previews/kit/`.
+- One file, `previews/05-story.html`, with images in `previews/kit/` (`kit/wc2/` for the second art pass; the
+  colour wash behind the hero portrait and the two tapes are still from `kit/wc/`).
 - Each held section is a tall block with a sticky stage. Its scroll position
   becomes one progress value from 0 to 1, written as a CSS variable, and a small
   handler per section maps that to what moves.
-- The artwork is painted in code: SVG shapes through watercolour filters, captured
-  in Chromium and saved as WebP. Sources are in `previews/art/`:
-  `node paint.js paint.html <png-dir>`, then
-  `python3 towebp.py <png-dir> <webp-dir> <sheet.jpg>` (Playwright and Pillow).
+- "Growing your wealth" draws the clip's frames to a canvas by scroll progress. The frames are opaque on white and
+  are multiplied onto the paper. A pinned stage is its own layer, so multiply cannot reach the page's paper behind
+  it: the scene carries the same paper itself (`--grain`).
+
+## Second art pass (19 Nov 2026)
+
+The first set of pictures was painted in code and read as child-like beside Carine's portrait. They were replaced
+with eight paintings made in ChatGPT (one chat, her portrait as the style reference) and one 8-second clip made in
+Google Flow (Frames to Video, 16:9, 720p, **Omni 1.2 Flash**, seedling as the start frame and the full-grown plant
+as the end frame). The prompts are in `previews/art/ART-BRIEF-05.md`.
+
+- **Originals:** `previews/art/gen/` (`1-tree` to `8-clarity`, `9-growth.mp4`, `9-plant-endframe.png`). Never
+  overwritten; a correction gets `-v2`.
+- **Export:** from `previews/art`, `python3 -I prep.py gen ../kit/wc2 gen-sheet.jpg` (Pillow, NumPy, SciPy and
+  ffmpeg). It turns white into transparency without a threshold, so soft edges and shadows survive; cuts the
+  object and topic grids apart on their white gaps; keeps the scenes solid in the middle and soft at the edge; makes
+  the blurred copy of the landscape for the lens; and cuts the growing part of the clip (its first 3.3 seconds)
+  into 56 square frames.
+- **Changed sections:** hero (sparkle sticker removed, tape calmed), 2 to 8 and 11 in the table above, and the
+  video placeholders (crops of the later-life, café and landscape paintings, and the rain tree).
+- **Not used:** the three in-between tree stages (`3-stages`) and the seedling still (`2-seedling`), which were
+  for building the growth from stills; the clip does that job.
+- The earlier art sources (`paint.html`, `paint.js`, `towebp.py`) made the `kit/wc/` pictures; only the hero wash
+  and the tapes from that set are still on the page.
 
 ## Tested, and not
 
-Tested in headless Chromium at 1440 × 900 and 390 × 844: a frame-by-frame scroll
-through every section, no horizontal scrolling, no script errors, all four
-interactions, the reduced-motion still page, and every line of the v1 copy present.
+Tested on 19 Nov 2026 in headless Chromium against a local copy: a frame-by-frame scroll through every section at
+1440 × 900, 390 × 844 and 320 × 640 with no horizontal scrolling, no script errors and no failed requests; all four
+interactions at laptop and phone size (the lens with a mouse, a tap and a finger drag; pour, with nothing landing
+under the umbrella; the video row by arrows and by swipe; the note, with and without text, opening the right
+WhatsApp link); the reduced-motion page and the page with JavaScript off; and every line of the v1 copy, link,
+phone number and address unchanged from before the art pass.
 
-Not yet tested: real phones (iPhone Safari and an older Android), a keyboard-only
-pass, and a screen reader.
+Known: at 320 px wide the chat bubbles in "What working together looks like" are clipped in the held stage (as
+before the art pass).
+
+Not yet tested: real phones (iPhone Safari and an older Android), the in-app browsers of Instagram, Facebook and
+WhatsApp, a throttled connection, frame rate, a keyboard-only pass, and a screen reader.

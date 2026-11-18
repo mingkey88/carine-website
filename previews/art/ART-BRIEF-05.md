@@ -144,6 +144,32 @@ appears on the tree but leaves. No text. No sound.
 If the clip wobbles, adds coins or fruit, or the background turns grey, try once more; if it still
 fails, skip it. Image 3 lets me build the growth from stills instead.
 
+**What was made (18 to 19 Nov 2026).** Two takes of seedling to rain tree on Veo 3.1 Fast failed (a bare trunk and a
+stump appeared, leaves swirled). MJ changed the end to a full-grown leafy plant and the model to **Omni 1.2 Flash**,
+which passed on the first take (24 credits). Use Omni 1.2 Flash for Flow from now on; the Veo 3.1 Fast and Quality
+models are marked in Flow as leaving on 5 Dec 2026. The end frame was made in the same ChatGPT chat:
+
+```
+Landscape, 3:2, same image size as the seedling picture, same pure white background, and the same small patch of
+grass in exactly the same place at the bottom centre. This time the seedling has grown into a full-grown, healthy
+leafy plant: the same plant, now mature, with one sturdy green stem, a few side shoots and many fresh green leaves
+in the same leaf shape and colours as the seedling. It stands about 40% of the image height. It is a plant, not a
+tree: no woody trunk, no bark. Nothing on it but leaves: no flowers, buds or fruit. Everything else stays white.
+```
+
+The Flow prompt that passed:
+
+```
+A hand-painted ink-and-watercolour time-lapse on pure white paper. The seedling grows steadily into the full-grown
+leafy plant: the green stem lengthens and thickens, side shoots appear, and new leaves unfurl one after another.
+The plant keeps its leaves the whole time and stays rooted in the same patch of grass. The camera is locked off: no
+zoom, no pan, no cuts. The background stays pure white throughout. Nothing appears but the plant and its leaves: no
+stump, no trunk, no bare branches, no falling leaves, no soil flying. No text. No sound.
+```
+
+Both frames were cropped to 16:9 with the grass patch at the same spot before upload. Flow added a sound track
+anyway; `9-growth.mp4` is the muted copy.
+
 ## Part 3: Send them back
 
 Attach the eight images to our chat (PNG if ChatGPT offers it). For the clip, attach it if the chat

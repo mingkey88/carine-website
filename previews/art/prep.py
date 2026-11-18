@@ -106,18 +106,6 @@ def cells(rgb, cols, rows):
     return out_
 
 
-def ground(rgba):
-    """Where a plant meets the ground: x of the trunk at its base, as fractions of the trimmed picture."""
-    a = rgba[..., 3] > 40
-    h, w = a.shape
-    band = a[int(h * 0.80):int(h * 0.90)]  # just above the grass, where only the stem or trunk is
-    xs = np.where(band.any(axis=0))[0]
-    # the trunk is the densest run of columns in that band
-    col = band.sum(axis=0)
-    cx = float((col * np.arange(w)).sum() / max(col.sum(), 1))
-    return round(cx / w, 4)
-
-
 # 6: six life-stage objects, three across and two down
 for name, cell in zip(['cap', 'rings', 'key', 'shoes', 'glasses', 'briefcase'], cells(load('6-objects.png'), 3, 2)):
     save(trim(unmultiply(cell)), name, cap=380)
@@ -147,17 +135,33 @@ faint = np.where(rows > 0.74, cloth, 1.0)  # below here only the cloth and the h
 u[..., 3] *= np.maximum(fade * np.clip(faint * 1.4, 0, 1), wood)
 save(trim(u.round().astype(np.uint8), pad=6), 'umbrella-air')
 
-# 1, 2, 3: the tree's life, for "Growing your wealth"
-grow = {}
-for name, cell in zip(['g2-sapling', 'g3-young', 'g4-half'], cells(load('3-stages.png'), 3, 1)):
-    t = trim(unmultiply(cell))
-    save(t, name, cap=640)
-    grow[name] = {'gx': ground(t), 'h': t.shape[0], 'w': t.shape[1]}
-for name, file in (('g1-seedling', '2-seedling.png'), ('g5-tree', '1-tree.png')):
-    t = trim(unmultiply(load(file)))
-    save(t, name, cap=880)
-    grow[name] = {'gx': ground(t), 'h': t.shape[0], 'w': t.shape[1]}
-report['_grow'] = grow
+# 9: "Growing your wealth" plays the Flow clip (seedling to full-grown plant) as a short image sequence.
+# Only the growing part is kept (the first 3.3 seconds; the clip then holds still), cut to a square around the
+# plant. Frames stay opaque on pure white: the page lays them over the paper with mix-blend-mode: multiply, which
+# keeps them about a third of the size of see-through frames.
+import glob
+import shutil
+import subprocess
+import tempfile
+
+FRAMES, LAST, BOX9, SIDE = 56, 80, (330, 100, 930, 700), 600
+tmp = tempfile.mkdtemp()
+subprocess.run(['ffmpeg', '-hide_banner', '-loglevel', 'error', '-i', os.path.join(src, '9-growth.mp4'),
+                '-frames:v', str(LAST + 1), os.path.join(tmp, 'f%03d.png')], check=True)
+shots = sorted(glob.glob(os.path.join(tmp, '*.png')))
+os.makedirs(os.path.join(out, 'grow'), exist_ok=True)
+film_kb = 0
+for n in range(FRAMES):
+    f = np.asarray(Image.open(shots[round(n * LAST / (FRAMES - 1))]).convert('RGB')).astype(np.float32)
+    f = f[BOX9[1]:BOX9[3], BOX9[0]:BOX9[2]]
+    f = np.clip(f * (255.0 / 246.0), 0, 255)  # the clip's white is about 251 with a little noise; make it pure white
+    dst = os.path.join(out, 'grow', 'f%02d.webp' % n)
+    Image.fromarray(f.round().astype(np.uint8), 'RGB').resize((SIDE, SIDE), Image.LANCZOS).save(dst, 'WEBP', quality=72, method=6)
+    film_kb += os.path.getsize(dst) / 1024
+shutil.rmtree(tmp)
+report['grow/ (%d frames)' % FRAMES] = {'w': SIDE, 'h': SIDE, 'kb': round(film_kb, 1)}
+# The still page (reduced motion, no JavaScript) shows the finished plant, cut from the clip's end-frame painting.
+save(trim(unmultiply(load('9-plant-endframe.png'))), 'plant', cap=640)
 
 # 4, 5: scenes keep their own soft edge; white becomes paper
 later, cafe = trim(scene(load('4-later-life.png')), pad=4), trim(scene(load('5-cafe.png')), pad=4)
