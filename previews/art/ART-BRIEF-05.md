@@ -167,6 +167,20 @@ zoom, no pan, no cuts. The background stays pure white throughout. Nothing appea
 stump, no trunk, no bare branches, no falling leaves, no soil flying. No text. No sound.
 ```
 
+**Image 5 again (`5-cafe-v2`, 19 Nov 2026).** In the first painting she looked out at the viewer, so it did not read as
+a conversation. The correction, sent in the same chat:
+
+```
+Go back to the café painting (the woman from the reference portrait at the round wooden table with a client). Same
+picture, same café, same style and soft watercolour edges, landscape 3:2, but make it clearly a conversation between
+the two of them: she is turned towards the client and looking at the client, not at us, mid-conversation with a warm,
+attentive expression, one hand open in a small natural gesture as she explains something, the other resting by her
+coffee cup and the open notebook. The client sits nearer the middle-left, still seen only from behind (back of the
+head and shoulders, no face, no profile), leaning in slightly, one hand around their own cup. Nobody looks out of the
+picture. She is still recognisably the same person: same face, shoulder-length dark wavy hair, navy blazer over a
+cream knit top, small gold clover necklace. No screens, no signage, no writing.
+```
+
 Both frames were cropped to 16:9 with the grass patch at the same spot before upload. Flow added a sound track
 anyway; `9-growth.mp4` is the muted copy.
 

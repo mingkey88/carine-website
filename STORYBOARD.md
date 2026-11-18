@@ -55,7 +55,7 @@ Carine's portrait, replacing the stickers that were painted in code; see "Second
 | 1 | Hero | Financial planning for every stage of life. | Words that resolve | The headline sharpens word by word; the polaroid drops in and is taped | – | 1 screen |
 | 2 | As life changes | Hero paragraph 1 | Frame as window | One polaroid frame holds her portrait, then a graduation cap, rings, a key, baby shoes, reading glasses; the four topic pictures grow and shrink as priorities shift | – | 4.2 |
 | 3 | Greater clarity | Hero paragraph 2 | A lens | A landscape with one path through it starts as a blur; a clear patch shows the same painting in focus, then the whole of it clears | Move the lens | 3 |
-| 4 | What I can help you with | Heading and line | Kinetic headline | The heading crosses the screen huge, then settles with the line and the four topic pictures | – | 1.8 |
+| 4 | What I can help you with | Heading and line | Kinetic headline, then a contents row | The heading crosses the screen huge, then settles small over four cards, one per topic (picture and her heading); each card jumps to its section | – (the cards are links) | 2.4 |
 | 5 | Protecting what matters | Topic 1 | Whole-screen mood | The paper greys, rain falls, the umbrella swings up over the home; the home stays dry | Tap to make it pour | 2.8 |
 | 6 | Growing your wealth | Topic 2 | Transformation | A seedling grows into a full-grown leafy plant, one frame of a painted clip per step of scroll | – | 2.8 |
 | 7 | Life's milestones | Topic 3 | Sideways filmstrip | Polaroids slide past: marriage, a home, children, other major changes | – | 3 |
@@ -102,6 +102,8 @@ For Carine and compliance to approve or replace. Everything else is Rebecca's v1
 - **The café painting in "Let's talk" (second art pass).** It is an AI-made painting of Carine, drawn from her own
   portrait, talking with a client who is seen only from behind (no face). The same painting is cropped for the
   second video placeholder. **Carine is fine with her likeness being used here** (confirmed by MJ, 19 Nov 2026).
+  The painting was redrawn later that day (`5-cafe-v2`) so that she faces the client and is plainly in conversation;
+  show her the new one.
   This link is a staging site, not production; raise it again with her compliance team before production.
 - **The couple in "Planning for later life"** are seen from behind, with no faces, and stand for no real client.
 - **The priority pictures in section 2** resize per life stage to show "different financial priorities". They illustrate the sentence; they are not advice. Compliance should confirm they are comfortable with it.
@@ -119,9 +121,9 @@ the art pass is in the last column.
 
 | | Phone target | Measured | Before the art pass |
 |---|---|---|---|
-| Before the first screen is usable | 1.5 MB | 658 KB | 548 KB |
-| Whole page, phone (390 × 844) | 8 MB | 1.5 MB (1,488 KB) | 920 KB |
-| Whole page, laptop (1440 × 900) | 20 MB | 1.6 MB (1,646 KB) | 920 KB |
+| Before the first screen is usable | 1.5 MB | 701 KB | 548 KB |
+| Whole page, phone (390 × 844) | 8 MB | 1.5 MB (1,523 KB) | 920 KB |
+| Whole page, laptop (1440 × 900) | 20 MB | 1.7 MB (1,681 KB) | 920 KB |
 | Script | 350 KB | about 15 KB inline, no libraries | 14 KB |
 
 On the staging link (GitHub Pages) on 19 Nov 2026, in Chrome at 1654 × 928 on a 2x screen, as transferred and with
@@ -158,7 +160,8 @@ Google Flow (Frames to Video, 16:9, 720p, **Omni 1.2 Flash**, seedling as the st
 as the end frame). The prompts are in `previews/art/ART-BRIEF-05.md`.
 
 - **Originals:** `previews/art/gen/` (`1-tree` to `8-clarity`, `9-growth.mp4`, `9-plant-endframe.png`). Never
-  overwritten; a correction gets `-v2`.
+  overwritten; a correction gets `-v2` (`5-cafe-v2` is the café painting on the page). `10-money-tree.png` is a
+  proposed new end for the growth clip (a braided money tree, leaves only); not on the page yet.
 - **Export:** from `previews/art`, `python3 -I prep.py gen ../kit/wc2 gen-sheet.jpg` (Pillow, NumPy, SciPy and
   ffmpeg). It turns white into transparency without a threshold, so soft edges and shadows survive; cuts the
   object and topic grids apart on their white gaps; keeps the scenes solid in the middle and soft at the edge; makes
@@ -177,7 +180,7 @@ Tested on 19 Nov 2026 in headless Chromium against a local copy: a frame-by-fram
 1440 × 900, 390 × 844 and 320 × 640 with no horizontal scrolling, no script errors and no failed requests; all four
 interactions at laptop and phone size (the lens with a mouse, a tap and a finger drag; pour, with nothing landing
 under the umbrella; the video row by arrows and by swipe; the note, with and without text, opening the right
-WhatsApp link); the reduced-motion page and the page with JavaScript off; and every line of the v1 copy, link,
+WhatsApp link); each of the four topic cards jumping to its section; the reduced-motion page and the page with JavaScript off; and every line of the v1 copy, link,
 phone number and address unchanged from before the art pass. After the push, the staging link was opened in Chrome
 (1654 × 928) and scrolled end to end: no failed requests, no broken pictures, no console errors, no sideways scroll,
 and the growth clip played; it was also opened at 500 px wide in a second browser.

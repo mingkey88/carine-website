@@ -116,7 +116,7 @@ for name, cell in zip(['umbrella', 'sprout', 'house', 'sunset'], cells(load('7-i
     t = trim(scene(cell, feather=10, holes=120) if name == 'house' else unmultiply(cell))
     if name == 'umbrella':
         save(t, 'umbrella-full', cap=560)  # the source for umbrella-air below; not used by the page
-    save(t, name, cap={'house': 560, 'umbrella': 260}.get(name, 320))
+    save(t, name, cap={'house': 560}.get(name, 400))
 
 # The umbrella again without its ground shadow, for where it is held up over the home
 u = np.asarray(Image.open(os.path.join(out, 'umbrella-full.webp')).convert('RGBA')).astype(np.float32)
@@ -164,7 +164,7 @@ report['grow/ (%d frames)' % FRAMES] = {'w': SIDE, 'h': SIDE, 'kb': round(film_k
 save(trim(unmultiply(load('9-plant-endframe.png'))), 'plant', cap=640)
 
 # 4, 5: scenes keep their own soft edge; white becomes paper
-later, cafe = trim(scene(load('4-later-life.png')), pad=4), trim(scene(load('5-cafe.png')), pad=4)
+later, cafe = trim(scene(load('4-later-life.png')), pad=4), trim(scene(load('5-cafe-v2.png')), pad=4)
 save(later, 'later', cap=1400, q=74)
 save(later, 'later-800', cap=800, q=74)
 save(cafe, 'cafe', cap=1000, q=76)
@@ -194,7 +194,7 @@ crop_to(clarity, BOX8, (480, 300), q=60, name='clarity-muddle', blur=9, fog=0.34
 
 # Video placeholders: 16:10 crops of 4, 5, 8 and the tree (on paper)
 crop_to(load('4-later-life.png'), json.loads(os.environ.get('BOXV1', '[330, 190, 1290, 790]')), (640, 400), name='v1', q=76)
-crop_to(load('5-cafe.png'), json.loads(os.environ.get('BOXV2', '[520, 75, 1450, 656]')), (640, 400), name='v2', q=76)
+crop_to(load('5-cafe-v2.png'), json.loads(os.environ.get('BOXV2', '[230, 80, 1430, 830]')), (640, 400), name='v2', q=76)
 crop_to(clarity, json.loads(os.environ.get('BOXV3', '[330, 300, 1290, 900]')), (640, 400), name='v3', q=76)
 tree = Image.fromarray(trim(unmultiply(load('1-tree.png')), pad=40), 'RGBA')
 bg = Image.new('RGB', (1120, 700), (246, 236, 216))

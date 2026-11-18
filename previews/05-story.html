@@ -184,18 +184,29 @@ h1, h2, h3 { font-weight: 400; }
 .panel-hint { display: none; text-align: center; }
 .motion .panel-hint { display: block; opacity: var(--lo, 1); }
 
-/* What I can help you with: a headline that crosses the screen ------------------------- */
+/* What I can help you with: a headline that crosses the screen, then four cards that lead to her four topics */
 .help .stage__in { display: flex; flex-direction: column; justify-content: center; text-align: center; }
 .big { font-family: var(--f-display); font-size: clamp(2.6rem, 1.6rem + 4vw, 5rem); line-height: 1; text-wrap: balance; }
-.motion .big { font-size: clamp(4.2rem, 1.6rem + 12vw, 14rem); white-space: nowrap; text-align: left; transform-origin: 0 50%; will-change: transform; width: max-content; }
+/* --pull is the empty space the scaled-down headline would leave above and below itself; negative margins take it back. */
+.motion .big { font-size: clamp(4.2rem, 1.6rem + 12vw, 14rem); white-space: nowrap; text-align: left; transform-origin: 0 50%; will-change: transform; width: max-content; margin-block: calc(var(--pull, 0px) * -1); }
 .help__sub { font-size: 1.5rem; margin-top: 18px; }
-.help__row { display: flex; justify-content: center; flex-wrap: wrap; gap: clamp(14px, 3vw, 36px); margin-top: 26px; list-style: none; padding: 0; }
-.help__row img { width: clamp(72px, 9vw, 124px); aspect-ratio: 1 / 1; object-fit: contain; }
-.motion .help__sub, .motion .help__row li { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s var(--ease); }
-.motion .help.is-late .help__sub, .motion .help.is-late .help__row li { opacity: 1; transform: none; }
-.motion .help.is-late .help__row li:nth-child(2) { transition-delay: .08s; }
-.motion .help.is-late .help__row li:nth-child(3) { transition-delay: .16s; }
-.motion .help.is-late .help__row li:nth-child(4) { transition-delay: .24s; }
+.help__cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(12px, 2vw, 26px); width: 100%; max-width: 1060px; margin: clamp(22px, 4.5vh, 44px) auto 0; padding: 0; list-style: none; }
+.help__card { display: flex; flex-direction: column; height: 100%; padding: 10px 10px 16px; background: var(--card); box-shadow: var(--shadow-card); color: inherit; text-decoration: none; text-align: left; transition: transform .5s var(--ease), rotate .5s var(--ease), box-shadow .5s ease; }
+.help__cards li:nth-child(odd) .help__card { rotate: -1.3deg; }
+.help__cards li:nth-child(even) .help__card { rotate: 1.1deg; }
+.help__card:hover, .help__card:focus-visible { transform: translateY(-8px); rotate: 0deg; box-shadow: 0 2px 3px #28190a2e, 0 26px 40px -18px #28190a8c; }
+.help__win { display: grid; place-items: center; aspect-ratio: 5 / 4; overflow: hidden; background: radial-gradient(120% 90% at 50% 40%, #f8efdf 0%, #eedcc0 100%); }
+.help__win img { width: 76%; height: 80%; object-fit: contain; transition: transform .7s var(--ease); }
+.help__card:hover .help__win img, .help__card:focus-visible .help__win img { transform: scale(1.07); }
+.help__name { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; flex: 1; margin-top: 14px; padding: 0 4px; font: 400 clamp(1.2rem, .9rem + .75vw, 1.6rem)/1.1 var(--f-display); text-wrap: balance; }
+.help__name::after { content: "↓"; flex: none; font: 400 1rem/1.3 var(--f-body); color: var(--seal); transition: transform .4s var(--ease); }
+.help__card:hover .help__name::after { transform: translateY(4px); }
+.motion .help__sub, .motion .help__cards li { opacity: 0; transform: translateY(26px); transition: opacity .6s ease, transform .7s var(--ease); }
+.motion .help.is-late .help__sub, .motion .help.is-late .help__cards li { opacity: 1; transform: none; }
+.motion .help.is-late .help__cards li:nth-child(1) { transition-delay: .1s; }
+.motion .help.is-late .help__cards li:nth-child(2) { transition-delay: .18s; }
+.motion .help.is-late .help__cards li:nth-child(3) { transition-delay: .26s; }
+.motion .help.is-late .help__cards li:nth-child(4) { transition-delay: .34s; }
 
 /* Topic sections share one layout: words left, a scene right -------------------------- */
 .topic .stage__in { display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
@@ -374,6 +385,11 @@ address { font-style: normal; }
   .prio img { width: 60px; }
   .prio span { display: none; }
   .motion .scene { width: min(100%, 40vh); width: min(100%, 40svh); }
+  .help__sub { font-size: 1.2rem; margin-top: 12px; }
+  .help__cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+  .help__card { padding: 8px 8px 12px; }
+  .help__win { aspect-ratio: 3 / 2; }
+  .help__name { margin-top: 10px; font-size: 1.08rem; }
   .topic .stage__in { gap: 14px; }
   .topic__title { margin-bottom: 8px; }
   .motion .pour { margin-top: 14px; }
@@ -462,10 +478,10 @@ address { font-style: normal; }
           <img loading="lazy" decoding="async" class="tape" src="kit/wc/tape-blue.webp" alt="" width="280" height="78">
         </figure>
         <ul class="prio" aria-hidden="true">
-          <li><img loading="lazy" decoding="async" src="kit/wc2/umbrella.webp" alt="" width="260" height="244"><span>Protecting what matters</span></li>
-          <li><img loading="lazy" decoding="async" src="kit/wc2/sprout.webp" alt="" width="306" height="320"><span>Growing your wealth</span></li>
+          <li><img loading="lazy" decoding="async" src="kit/wc2/umbrella.webp" alt="" width="400" height="375"><span>Protecting what matters</span></li>
+          <li><img loading="lazy" decoding="async" src="kit/wc2/sprout.webp" alt="" width="383" height="400"><span>Growing your wealth</span></li>
           <li><img loading="lazy" decoding="async" src="kit/wc2/house.webp" alt="" width="560" height="492"><span>Planning around life’s milestones</span></li>
-          <li><img loading="lazy" decoding="async" src="kit/wc2/sunset.webp" alt="" width="320" height="262"><span>Planning for later life</span></li>
+          <li><img loading="lazy" decoding="async" src="kit/wc2/sunset.webp" alt="" width="400" height="328"><span>Planning for later life</span></li>
         </ul>
       </div>
       <p class="cue note" aria-hidden="true">keep scrolling ↓</p>
@@ -492,17 +508,17 @@ address { font-style: normal; }
     </div>
   </section>
 
-  <!-- What I can help you with: the headline crosses the screen, then settles -->
-  <section class="beat help" id="help" data-beat="help" style="--len: 1.8" data-chapter="What I can help you with">
+  <!-- What I can help you with: the headline crosses the screen, then settles over four cards that link to her four topics -->
+  <section class="beat help" id="help" data-beat="help" style="--len: 2.4" data-chapter="What I can help you with">
     <div class="stage">
       <div class="stage__in">
         <h2 class="big">What I can help you with</h2>
         <p class="note help__sub">Planning for what matters at every stage.</p>
-        <ul class="help__row" aria-hidden="true">
-          <li><img loading="lazy" decoding="async" src="kit/wc2/umbrella.webp" alt="" width="260" height="244"></li>
-          <li><img loading="lazy" decoding="async" src="kit/wc2/sprout.webp" alt="" width="306" height="320"></li>
-          <li><img loading="lazy" decoding="async" src="kit/wc2/house.webp" alt="" width="560" height="492"></li>
-          <li><img loading="lazy" decoding="async" src="kit/wc2/sunset.webp" alt="" width="320" height="262"></li>
+        <ul class="help__cards">
+          <li><a class="help__card" href="#protect"><span class="help__win"><img loading="lazy" decoding="async" src="kit/wc2/umbrella.webp" alt="" width="400" height="375"></span><span class="help__name">Protecting what matters</span></a></li>
+          <li><a class="help__card" href="#grow"><span class="help__win"><img loading="lazy" decoding="async" src="kit/wc2/sprout.webp" alt="" width="383" height="400"></span><span class="help__name">Growing your wealth</span></a></li>
+          <li><a class="help__card" href="#milestones"><span class="help__win"><img loading="lazy" decoding="async" src="kit/wc2/house.webp" alt="" width="560" height="492"></span><span class="help__name">Planning around life’s milestones</span></a></li>
+          <li><a class="help__card" href="#later"><span class="help__win"><img loading="lazy" decoding="async" src="kit/wc2/sunset.webp" alt="" width="400" height="328"></span><span class="help__name">Planning for later life</span></a></li>
         </ul>
       </div>
     </div>
@@ -641,7 +657,7 @@ address { font-style: normal; }
     <div class="wrap talk__grid">
       <div class="talk__art">
         <figure class="card talk__card">
-          <img loading="lazy" decoding="async" src="kit/wc2/cafe.webp" srcset="kit/wc2/cafe-640.webp 640w, kit/wc2/cafe.webp 1000w" sizes="(max-width: 900px) 84vw, 480px" alt="Carine in conversation with a client over coffee, in a watercolour painting" width="1000" height="664">
+          <img loading="lazy" decoding="async" src="kit/wc2/cafe.webp" srcset="kit/wc2/cafe-640.webp 640w, kit/wc2/cafe.webp 1000w" sizes="(max-width: 900px) 84vw, 480px" alt="Carine in conversation with a client over coffee, in a watercolour painting" width="1000" height="666">
         </figure>
       </div>
       <div>
@@ -787,17 +803,20 @@ address { font-style: normal; }
     handlers.clarity.layout = setLens;
   })();
 
-  /* What I can help you with: the crossing headline ----------------------------------- */
+  /* What I can help you with: the headline crosses, settles small, and the four cards rise ---- */
   (function () {
     var b = $('#help'), big = $('.big', b), inner = $('.stage__in', b);
     handlers.help = function (p) {
-      var vw = inner.clientWidth, w = big.scrollWidth;
-      var fit = Math.min(1, (vw * .96) / w);
+      var vw = inner.clientWidth, w = big.scrollWidth, h = big.offsetHeight;
+      var fit = Math.min(1, Math.min(vw * .96, 820) / w);
+      b.style.setProperty('--pull', ((1 - fit) * h / 2).toFixed(1) + 'px');
+      // While it crosses, the headline rides in the middle of the screen; then it settles into its place above the cards.
+      var mid = inner.clientHeight / 2 - (big.offsetTop + h / 2);
       var x0 = vw * .55, x1 = Math.min(0, vw - w), x2 = (vw - w * fit) / 2;
-      var a = ramp(p, 0, .55), c = ramp(p, .55, .82);
+      var a = ramp(p, 0, .42), c = ramp(p, .42, .6);
       var x = c > 0 ? lerp(x1, x2, c) : lerp(x0, x1, a);
-      big.style.transform = 'translateX(' + x.toFixed(1) + 'px) scale(' + lerp(1, fit, c).toFixed(3) + ')';
-      b.classList.toggle('is-late', p > .7);
+      big.style.transform = 'translate(' + x.toFixed(1) + 'px,' + lerp(mid, 0, c).toFixed(1) + 'px) scale(' + lerp(1, fit, c).toFixed(3) + ')';
+      b.classList.toggle('is-late', p > .56);
     };
   })();
 
