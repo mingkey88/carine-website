@@ -46,7 +46,7 @@ about 29 MB).
 happening as you scroll, with four you can play with.
 
 **Voice:** warm and plain, as in Rebecca's copy. **Ground:** cream paper, seal red
-for anything that acts, ending on night navy. **Build:** 2D on design 04's
+for anything that acts (WhatsApp buttons wear WhatsApp green), ending on night navy. **Build:** 2D on design 04's
 watercolour artwork; no 3D, no libraries.
 
 | # | Section | Her words | Device | What the scroll does | Play | Length |

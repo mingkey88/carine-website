@@ -28,6 +28,9 @@
   --ink-soft: #6e5642;
   --seal: #b8321f;
   --seal-deep: #962614;
+  --wa: #25d366;
+  --wa-deep: #1fb959;
+  --wa-ink: #0b2a1a;
   --river: #18213d;
   --moon: #f3e7cf;
   --moon-soft: #cfc6b4;
@@ -76,6 +79,9 @@ h1, h2, h3 { font-weight: 400; }
 }
 .btn svg { width: 20px; height: 20px; fill: currentColor; flex: none; }
 .btn:hover { transform: translateY(-2px); background: var(--seal-deep); }
+/* WhatsApp actions wear WhatsApp green. Dark text on it keeps contrast at 7.6:1 (white would be 2:1). */
+.btn--wa { background: var(--wa); color: var(--wa-ink); box-shadow: 0 6px 18px -8px #0b5a3299; }
+.btn--wa:hover { background: var(--wa-deep); }
 .card { position: relative; background: var(--card); padding: 10px 10px 40px; box-shadow: var(--shadow-card); }
 .card figcaption { position: absolute; left: 14px; right: 14px; bottom: 8px; font-family: var(--f-hand); font-size: 1.05rem; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .tape { position: absolute; width: 120px; left: 50%; top: -18px; translate: -50% 0; rotate: -4deg; pointer-events: none; }
@@ -126,7 +132,7 @@ h1, h2, h3 { font-weight: 400; }
 .hero__art { position: relative; justify-self: center; width: min(400px, 100%); }
 .hero__bloom { position: absolute; width: 230%; max-width: none; left: 50%; top: 52%; translate: -52% -50%; pointer-events: none; z-index: -1; }
 .polaroid { rotate: 2.5deg; }
-.polaroid__img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 22%; }
+.polaroid__img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 .sticker { position: absolute; pointer-events: none; filter: drop-shadow(0 4px 6px rgba(40, 20, 0, .22)); }
 .polaroid .sticker { width: clamp(70px, 9vw, 104px); right: -34px; top: -40px; rotate: 8deg; }
 /* On arrival the headline resolves out of a blur, word by word; the polaroid drops in and gets taped. */
@@ -147,7 +153,7 @@ h1, h2, h3 { font-weight: 400; }
 .frame { rotate: var(--tilt, 2.5deg); transition: rotate .8s var(--ease); justify-self: center; width: 100%; }
 .frame__win { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: radial-gradient(120% 90% at 50% 40%, #f8efdf 0%, #eedcc0 100%); }
 .frame__win > img { position: absolute; inset: 0; width: 100%; height: 100%; }
-.frame__portrait { object-fit: cover; object-position: 50% 22%; }
+.frame__portrait { object-fit: cover; }
 .frame__item { object-fit: contain; padding: 14%; display: none; }
 .motion .frame__item { display: block; }
 .motion .frame__win > img { opacity: 0; transform: scale(.9) rotate(-4deg); transition: opacity .5s ease, transform .7s cubic-bezier(.3, 1.5, .5, 1); }
@@ -285,7 +291,7 @@ html:not(.motion) .later .stage { min-height: clamp(560px, 70vh, 720px); overflo
 .chat { width: 100%; max-width: 520px; justify-self: center; padding: 0; display: flex; flex-direction: column; rotate: -.8deg; }
 .motion .chat { min-height: 300px; max-height: 100%; }
 .chat__head { display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1.5px dashed #3a271a33; }
-.chat__ava { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; object-position: 50% 18%; }
+.chat__ava { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; }
 .chat__name { font: 400 1.35rem/1 var(--f-display); }
 .chat__list { list-style: none; padding: 16px 18px 20px; display: flex; flex-direction: column; justify-content: flex-end; gap: 12px; flex: 1 1 auto; min-height: 0; overflow: hidden; }
 .bub { display: flex; gap: 12px; align-items: flex-start; max-width: 92%; padding: 12px 16px; background: #f6eddc; border: 1.5px solid #3a271a40; border-radius: 18px 18px 18px 4px; overflow: hidden; }
@@ -340,8 +346,8 @@ address { font-style: normal; }
 .copyright { font-size: .9rem; color: var(--moon-soft); }
 
 /* Anchored WhatsApp button and preview tags ------------------------------------------------ */
-.fab { position: fixed; z-index: 50; right: max(18px, env(safe-area-inset-right, 0px) + 14px); bottom: max(18px, env(safe-area-inset-bottom, 0px) + 14px); width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; background: var(--seal); color: #fff7ea; box-shadow: 0 10px 24px -10px #50140acc, inset 0 0 0 2.5px #fff2e2; transition: transform .2s, background-color .2s; }
-.fab:hover { transform: translateY(-2px) rotate(-6deg); background: var(--seal-deep); }
+.fab { position: fixed; z-index: 50; right: max(18px, env(safe-area-inset-right, 0px) + 14px); bottom: max(18px, env(safe-area-inset-bottom, 0px) + 14px); width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; background: var(--wa); color: var(--wa-ink); box-shadow: 0 10px 24px -10px #50140acc, inset 0 0 0 2.5px #fff2e2; transition: transform .2s, background-color .2s; }
+.fab:hover { transform: translateY(-2px) rotate(-6deg); background: var(--wa-deep); }
 .fab svg { width: 28px; height: 28px; fill: currentColor; }
 .tags { position: fixed; z-index: 60; display: flex; gap: 6px; left: max(14px, env(safe-area-inset-left, 0px) + 12px); bottom: max(14px, env(safe-area-inset-bottom, 0px) + 12px); }
 .tag { display: inline-flex; align-items: center; min-height: 30px; padding: 0 11px; border-radius: 999px; font: 600 10.5px/1 var(--f-body); letter-spacing: .06em; text-transform: uppercase; text-decoration: none; white-space: nowrap; color: var(--ink); background: #fffaf0e6; border: 1px solid #3a271a2e; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
@@ -419,14 +425,14 @@ address { font-style: normal; }
         <p class="note hero__eyebrow">financial planner · Singapore</p>
         <h1 class="h1 split">Financial planning for <em>every stage of life.</em></h1>
         <div class="hero__actions">
-          <a class="btn" href="https://wa.me/6583893356" rel="noopener" target="_blank"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Chat with me on WhatsApp<span class="vh"> (opens in a new tab)</span></a>
+          <a class="btn btn--wa" href="https://wa.me/6583893356" rel="noopener" target="_blank"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Chat with me on WhatsApp<span class="vh"> (opens in a new tab)</span></a>
           <a class="note hero__hint" href="#changes">or scroll to begin ↓</a>
         </div>
       </div>
       <div class="hero__art">
         <img class="hero__bloom" src="kit/wc/bloom.webp" alt="" width="1400" height="1000">
         <figure class="card polaroid">
-          <img class="polaroid__img" src="kit/carine.webp" alt="Carine Zheng, financial planner with Financial Alliance" width="1200" height="1500" fetchpriority="high">
+          <img class="polaroid__img" src="kit/carine.webp" alt="Carine Zheng, financial planner with Financial Alliance, in a watercolour portrait" width="960" height="1200" fetchpriority="high">
           <figcaption>Carine Zheng · Financial Alliance</figcaption>
           <img class="tape" src="kit/wc/tape-gold.webp" alt="" width="280" height="78">
           <img class="sticker" src="kit/wc/sparkle.webp" alt="" width="220" height="240">
@@ -452,7 +458,7 @@ address { font-style: normal; }
         </div>
         <figure class="card frame" aria-hidden="true">
           <div class="frame__win">
-            <img decoding="async" class="frame__portrait is-on" src="kit/carine.webp" alt="" width="1200" height="1500">
+            <img decoding="async" class="frame__portrait is-on" src="kit/carine.webp" alt="" width="960" height="1200">
             <img decoding="async" class="frame__item" src="kit/wc/cap.webp" alt="" width="340" height="340">
             <img decoding="async" class="frame__item" src="kit/wc/rings.webp" alt="" width="340" height="340">
             <img decoding="async" class="frame__item" src="kit/wc/key.webp" alt="" width="340" height="340">
@@ -635,7 +641,7 @@ address { font-style: normal; }
         <h2 class="title">What working together looks like</h2>
         <div class="card chat">
           <div class="chat__head">
-            <img loading="lazy" decoding="async" class="chat__ava" src="kit/carine.webp" alt="" width="1200" height="1500">
+            <img loading="lazy" decoding="async" class="chat__ava" src="kit/carine-avatar.webp" alt="" width="208" height="208">
             <p class="chat__name">Carine Zheng</p>
           </div>
           <ol class="chat__list">
@@ -665,7 +671,7 @@ address { font-style: normal; }
         <form class="toy" id="toy" action="https://wa.me/6583893356" method="get" target="_blank">
           <label class="note" for="toyText">Your note (optional)</label>
           <textarea id="toyText" name="text" rows="3" placeholder="Hi Carine,"></textarea>
-          <button class="btn" type="submit"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Chat with me on WhatsApp<span class="vh"> (opens in a new tab)</span></button>
+          <button class="btn btn--wa" type="submit"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Chat with me on WhatsApp<span class="vh"> (opens in a new tab)</span></button>
           <p class="note toy__fine">Opens WhatsApp with your note. Nothing is saved on this page.</p>
         </form>
         <dl class="card details">
