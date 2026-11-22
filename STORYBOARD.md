@@ -61,7 +61,7 @@ Carine's portrait, replacing the stickers that were painted in code; see "Second
 | 7 | Life's milestones | Topic 3 | Sideways filmstrip | Polaroids slide past: marriage, a home, children, other major changes | – | 3 |
 | 8 | Later life | Topic 4 | Whole-screen mood | The paper warms to golden hour around one wide painting: a couple, seen from behind, watching the sun set over a bay | – | 2.2 |
 | 9 | Making sense of financial planning | Heading, follow row | Frame and filmstrip | The centre polaroid is the one to watch | Swipe or arrows | – |
-| 10 | What working together looks like | Quote and three steps | A conversation | Her belief, then the steps, arrive as chat bubbles with typing dots; "regularly" draws a loop | – | 3 |
+| 10 | What working together looks like | Quote and three steps | A message, then a loop | Typing dots, then her belief arrives as one message from her; the three steps follow, joined by a dashed line; at the end the line runs back from step 3 to step 1, which is what "regularly" means | – | 3 |
 | 11 | Let's talk | Contact copy, details, footer | Picture becomes place | Night falls; a painting of Carine in conversation sits on a cream card; a note field opens WhatsApp with the visitor's words | Type and send | – |
 
 Lengths are in screens of scrolling while the section holds. A HUD at the top
@@ -189,8 +189,14 @@ phone number and address unchanged from before the art pass. After the push, the
 (1654 × 928) and scrolled end to end: no failed requests, no broken pictures, no console errors, no sideways scroll,
 and the growth clip played; it was also opened at 500 px wide in a second browser.
 
-Known: at 320 px wide the chat bubbles in "What working together looks like" are clipped in the held stage (as
-before the art pass).
+"What working together looks like" was redrawn on 22 Nov 2026 (the stray repeat mark became a loop through the three
+steps; her belief is the only chat bubble; no wording changed). Checked at 1440 × 900, 1280 × 720, 1024 × 768,
+820 × 1180, 412 × 780, 390 × 844 and 390 × 664, where the whole card fits, and with reduced motion and JavaScript off.
+The old version squeezed its bubbles and cut their last lines at 390 px as well as 320 px; that is fixed.
+
+Known: on screens about 640 px tall or less (375 × 548, 360 × 640, 320 × 568) the finished card is taller than the
+space under the heading, so by step 3 her opening line, and on the smallest part of step 1, has slid up out of the
+top of the card, the way older messages do in a chat. Nothing is cut mid-line; scrolling back brings it down again.
 
 Not yet tested: real phones (iPhone Safari and an older Android), the in-app browsers of Instagram, Facebook and
 WhatsApp, a throttled connection, frame rate, a keyboard-only pass, and a screen reader.
