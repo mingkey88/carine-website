@@ -8,6 +8,8 @@ what still needs Carine's or compliance's sign-off.
 
 It is a preview: not live, and kept out of search like the rest of the site.
 
+Design 06, "Album", is built from this design and has its own file: `STORYBOARD-06.md`.
+
 ---
 
 ## What we took from Oryzo
