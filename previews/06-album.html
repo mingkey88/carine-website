@@ -172,39 +172,80 @@ h1, h2, h3 { font-weight: 400; }
 @keyframes drop { from { opacity: 0; transform: translateY(-40px) rotate(-8deg); } }
 @keyframes bloom { from { opacity: 0; transform: scale(.7); } }
 
-/* 2. The pages still to fill: an album page of five empty frames; paint blooms into each as you scroll ---- */
-.pages .stage__in { display: grid; grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
+/* 2. The pages still to fill: a photo album opens and five prints are placed on its pages as you scroll ---- */
+.pages .stage__in { display: grid; grid-template-columns: minmax(0, .74fr) minmax(0, 1.26fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
 .s2 { margin-top: 26px; }
 .motion .s2 { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s var(--ease); }
 .motion .s2.is-in { opacity: 1; transform: none; }
-/* A sheet of album card: cream, with the shadow of the binding down its left edge. */
-.album { justify-self: center; width: 100%; max-width: 680px; padding: clamp(20px, 2.6vw, 38px) clamp(18px, 2.4vw, 34px) clamp(16px, 2vw, 28px) clamp(26px, 3vw, 44px); background: linear-gradient(90deg, #3a271a24 0, #3a271a00 26px), var(--card); box-shadow: var(--shadow-card); border-radius: 2px 7px 7px 2px; rotate: 1deg; }
-.motion .album { width: min(100%, 680px, calc((100vh - var(--hud) - 130px) * 1.12)); width: min(100%, 680px, calc((100svh - var(--hud) - 130px) * 1.12)); }
-.album__list { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(14px, 2vw, 26px) clamp(12px, 1.8vw, 24px); list-style: none; margin: 0; padding: 0; }
-.album__list li { grid-column: span 2; }
-.album__list li:nth-child(4) { grid-column: 2 / span 2; }
-.album__list li:nth-child(odd) { rotate: -1.6deg; }
-.album__list li:nth-child(even) { rotate: 1.5deg; }
-/* --b is how far the photograph has developed: 0 is an empty pencil outline, 1 is the finished print. */
-.mem { --b: 1; }
-.motion .mem { --b: 0; }
-.mem__win { --cs: 15px; aspect-ratio: 5 / 4; outline: 1.5px dashed rgb(58 39 26 / calc((1 - var(--b)) * .55)); outline-offset: -1px; box-shadow: 0 10px 18px -12px rgb(40 25 10 / calc(var(--b) * .5)); }
-.mem__win.cornered::before { opacity: clamp(0, calc(var(--b) * 5 - 4), 1); }
-.mem__fill { position: absolute; inset: 0; display: grid; place-items: center; background: radial-gradient(120% 90% at 50% 40%, #f8efdf 0%, #eedcc0 100%); }
-.mem__fill img { width: 78%; height: 78%; object-fit: contain; }
-.motion .mem__fill {
-  -webkit-mask-image: radial-gradient(circle at 44% 60%, #000 calc(var(--b) * 140% - 40%), #0000 calc(var(--b) * 140%));
-  mask-image: radial-gradient(circle at 44% 60%, #000 calc(var(--b) * 140% - 40%), #0000 calc(var(--b) * 140%));
+/* A photo album in real 3D. .book is the camera; .book__base is the back board and the right-hand pages;
+   .book__leaf is the front cover, hinged on the spine, whose inside becomes the left-hand page. --o is how far the
+   cover has opened and --c how far the camera has come round; both are 1 (open, flat) unless the scroll says otherwise. */
+.album { justify-self: center; width: 100%; max-width: 800px; }
+.motion .album { width: min(100%, 800px, calc((100vh - var(--hud) - 170px) * 1.5)); width: min(100%, 800px, calc((100svh - var(--hud) - 170px) * 1.5)); perspective: 1500px; perspective-origin: 50% 30%; }
+.book { --o: 1; --c: 1; --navy: #232b47; position: relative; aspect-ratio: 3 / 2; transform-style: preserve-3d; }
+.motion .book { --o: 0; --c: 0; transform: translateX(calc((1 - var(--c)) * -25%)) rotateX(calc(52deg - var(--c) * 36deg)) rotateZ(calc(var(--c) * 9deg - 10deg)); will-change: transform; }
+.book__base, .book__leaf { position: absolute; top: 0; bottom: 0; left: 50%; width: 50%; transform-style: preserve-3d; }
+/* The back board, a little larger than the pages, and its shadow on the table */
+.book__base::before { content: ""; position: absolute; inset: -7px -8px -7px 0; border-radius: 0 9px 9px 0; background: var(--navy); box-shadow: 0 2px 3px #28190a40, 14px 22px 36px -8px #28190a80; }
+/* Three sheets, each a hair above the last, so the tilted book shows the thickness of its pages */
+.book__base i { position: absolute; inset: 0; border: 1px solid #d8c8a8; border-left: 0; border-radius: 0 3px 3px 0; background: linear-gradient(90deg, #3a271a30 0, #3a271a00 34px), var(--card); }
+.book__base i:nth-child(1) { transform: translateZ(2px); inset: 0 -2px -2px 0; }
+.book__base i:nth-child(2) { transform: translateZ(4px); inset: 0 -1px -1px 0; }
+.book__base i:nth-child(3) { transform: translateZ(6px); }
+.book__leaf { transform-origin: 0 50%; transform: translateZ(5px) rotateY(calc(var(--o) * -180deg)) translateZ(5px); }
+.book__front, .book__inside { position: absolute; inset: -7px -8px -7px 0; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+/* Outside of the cover: navy cloth, a stitched spine, a foil line and a paper label */
+.book__front {
+  border-radius: 0 9px 9px 0; display: grid; place-items: center;
+  background: linear-gradient(90deg, #0000 0 9%, #ffffff12 9% calc(9% + 1px), #0000 calc(9% + 1px)), linear-gradient(90deg, #161c33 0, #1d2440 9%, #0000 9%), var(--grain), radial-gradient(120% 90% at 30% 20%, #2f3a61 0, var(--navy) 60%, #1b2239 100%);
+  box-shadow: inset 0 0 0 1px #ffffff14, inset -2px -2px 3px #0000004d, inset 2px 2px 2px #ffffff1a;
 }
-.motion .mem__fill img { scale: calc(.9 + var(--b) * .1); }
-.mem figcaption { margin-top: 9px; font: 400 1rem/1.2 var(--f-hand); color: var(--ink-soft); text-align: center; opacity: calc(.55 + var(--b) * .45); }
+.book__front::before { content: ""; position: absolute; inset: 7% 6% 7% 14.5%; border: 1.5px solid #e9c27a8c; border-radius: 3px; }
+.book__front::after { content: ""; position: absolute; left: 4.2%; top: 5%; bottom: 5%; border-left: 2px dashed #e9c27a66; }
+.book__label { position: relative; margin: 0 4% 6% 12%; padding: .55em 1.1em .5em; max-width: 72%; background: linear-gradient(#fffaf0, #f4e8d0); border-radius: 2px; box-shadow: 0 0 0 1px #c9a45c, 0 0 0 4px #fffaf0, 0 0 0 5px #c9a45c80, 0 3px 5px #00000059; font: 400 clamp(.95rem, .6rem + 1vw, 1.3rem)/1.2 var(--f-hand); color: var(--ink); text-align: center; rotate: -1.2deg; }
+/* Inside of the cover: once it has swung open it is the left-hand page, with the board showing round it */
+.book__inside { transform: rotateY(180deg); border-radius: 9px 0 0 9px; background: var(--navy); box-shadow: -10px 20px 30px -12px #28190a66; }
+.book__inside::before { content: ""; position: absolute; inset: 7px 0 7px 8px; border: 1px solid #d8c8a8; border-right: 0; border-radius: 3px 0 0 3px; background: linear-gradient(270deg, #3a271a30 0, #3a271a00 34px), var(--card); }
+/* The prints sit on the open pages: two on the left, three on the right. Positions are shares of the open spread. */
+.album__list { position: absolute; inset: 0; list-style: none; margin: 0; padding: 0; transform: translateZ(7px); transform-style: preserve-3d; }
+.album__list li { position: absolute; left: var(--x); top: var(--y); width: var(--w); transform-style: preserve-3d; }
+.album__list li:nth-child(1) { --x: 6.5%; --y: 8%; --w: 25%; rotate: -2.2deg; }
+.album__list li:nth-child(2) { --x: 17%; --y: 51%; --w: 26.5%; rotate: 1.8deg; }
+.album__list li:nth-child(3) { --x: 54.5%; --y: 7%; --w: 20%; rotate: -1.6deg; }
+.album__list li:nth-child(4) { --x: 76.5%; --y: 17%; --w: 19.5%; rotate: 2.4deg; }
+.album__list li:nth-child(5) { --x: 60%; --y: 52%; --w: 29%; rotate: -1.2deg; }
+.album__list li:nth-child(-n+2) { transform: translateZ(-6px); }
+.motion .album__list li:nth-child(-n+2) .mem { opacity: clamp(0, calc((var(--o) - .92) * 14), 1); }
+/* --b is how far a print has come down onto the page (0 is an empty mount, 1 is placed); --e is the same, eased. */
+.mem { --b: 1; --e: 1; margin: 0; transform-style: preserve-3d; }
+.motion .mem { --b: 0; --e: 0; }
+.mem__win { --cs: 15px; aspect-ratio: 5 / 4; transform-style: preserve-3d; outline: 1.5px dashed rgb(58 39 26 / calc((1 - var(--b)) * .5)); outline-offset: -2px; }
+/* The print's shadow on the page: wide and soft while it is in the air, tight once it lands */
+.mem__win::after { content: ""; position: absolute; inset: 7%; z-index: 0; border-radius: 6px; background: #28190a; opacity: calc(clamp(0, var(--b) * 4, 1) * .36); filter: blur(calc(4px + (1 - var(--e)) * 16px)); transform: translate(calc((1 - var(--e)) * 10px), calc(5px + (1 - var(--e)) * 10px)); }
+.mem__fill { position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; border: 4px solid #fffdf6; background: radial-gradient(120% 90% at 50% 40%, #f8efdf 0%, #eedcc0 100%); }
+.mem__fill img { width: 80%; height: 80%; object-fit: contain; }
+.motion .mem__fill { opacity: clamp(0, calc(var(--b) * 6), 1); transform: translate3d(calc((1 - var(--e)) * var(--fx, 30px)), calc((1 - var(--e)) * var(--fy, -50px)), calc((1 - var(--e)) * 240px)) rotate(calc((1 - var(--e)) * var(--fr, 12deg))); }
+.album__list li:nth-child(even) .mem { --fx: -34px; --fr: -14deg; }
+/* The caption is pencilled in, left to right, once the print is down */
+.mem figcaption { margin-top: 8px; font: 400 clamp(.78rem, .5rem + .62vw, 1rem)/1.2 var(--f-hand); color: var(--ink-soft); text-align: center; }
+.motion .mem figcaption { clip-path: inset(-4px calc((1 - clamp(0, (var(--b) - .78) * 4.6, 1)) * 100%) -4px 0); }
 
-/* 3. Clarity: a lens over the muddle ---------------------------------------------------- */
+/* 3. Into focus: one picture in three states, lined up to the pixel. The plan lies on the desk, stands up as it
+   becomes a white model, and the painted scene arrives through a lens that then opens over all of it.
+   --c is how far the sheet has stood up, --m how far the model has risen, --f how far the frame has appeared. */
 .clarity .stage__in { display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
 .panel-wrap { display: grid; gap: 12px; }
+.motion .panel-wrap { perspective: 1400px; perspective-origin: 50% 35%; }
 .panel { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-radius: 4px; background: #f2e8d4; box-shadow: var(--shadow-card); touch-action: pan-y; cursor: crosshair; outline: 10px solid var(--card); }
-.panel__messy { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-/* The clear picture and the muddle are the same painting, so what the lens shows lines up with what is around it. */
+.motion .panel { --c: 0; --m: 0; --f: 0; background: #123f7c; outline-color: rgb(255 250 240 / var(--f)); transform-origin: 50% 62%; transform: rotateX(calc((1 - var(--c)) * 56deg)) rotateZ(calc((1 - var(--c)) * -9deg)) scale(calc(.86 + var(--c) * .14)); box-shadow: 0 1px 2px #28190a2e, calc((1 - var(--c)) * 16px) calc(14px + (1 - var(--c)) * 16px) 30px -14px #28190a8c; will-change: transform; }
+/* The plan and the model are only fetched when the page moves; the still page shows the finished painting. */
+.panel__plan, .panel__model { display: none; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.motion .panel__plan, .motion .panel__model { display: block; }
+.motion .panel__model {
+  -webkit-mask-image: linear-gradient(to top, #000 calc(var(--m) * 170% - 70%), #0000 calc(var(--m) * 170%));
+  mask-image: linear-gradient(to top, #000 calc(var(--m) * 170% - 70%), #0000 calc(var(--m) * 170%));
+}
+/* The three pictures are the same view, so what the lens shows lines up with what is around it. */
 .clear { position: absolute; inset: 0; background: #f6eedf; }
 .clear__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .motion .clear {
@@ -463,6 +504,17 @@ address { font-style: normal; }
   .blank--a { left: -15%; }
   .blank--b { right: -13%; }
   .pages .stage__in, .clarity .stage__in, .topic .stage__in, .together .stage__in { grid-template-columns: 1fr; align-content: start; }
+  .album { max-width: 620px; }
+  .motion .album { width: min(100%, 620px); perspective: 1700px; }
+  .book { aspect-ratio: auto; }
+  .motion .book { transform: rotateX(calc(38deg - var(--c) * 30deg)) rotateZ(calc(var(--c) * 5.4deg - 6deg)) scale(calc(.9 + var(--c) * .1)); }
+  .book__base, .book__leaf { left: 0; width: 100%; }
+  .book__leaf { display: none; }
+  .motion .book__leaf { display: block; }
+  .album__list { position: relative; inset: auto; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(14px, 2vw, 26px) clamp(12px, 1.8vw, 24px); padding: clamp(20px, 2.6vw, 38px) clamp(18px, 2.4vw, 34px) clamp(16px, 2vw, 28px) clamp(26px, 3vw, 44px); }
+  .album__list li, .album__list li:nth-child(-n+2) { position: static; width: auto; grid-column: span 2; transform: none; }
+  .album__list li:nth-child(4) { grid-column: 2 / span 2; }
+  .motion .album__list li:nth-child(-n+2) .mem { opacity: 1; }
   .ms-text { grid-template-columns: 1fr; }
   .flips { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 640px; }
   .talk__art { width: min(420px, 92%); order: 2; }
@@ -476,9 +528,9 @@ address { font-style: normal; }
   .kick { font-size: 1.05rem; margin-bottom: 6px; }
   .pages .stage__in { gap: 18px; }
   .s2 { margin-top: 16px; }
-  .album { padding: 16px 12px 12px 20px; }
-  .album__list { gap: 12px 10px; }
+  .album__list { gap: 12px 10px; padding: 16px 12px 12px 20px; }
   .mem__win { --cs: 11px; }
+  .mem__fill { border-width: 3px; }
   .mem figcaption { margin-top: 6px; font-size: .84rem; }
   .motion .scene { width: min(100%, 40vh); width: min(100%, 40svh); }
   .behind .title { font-size: 2.1rem; }
@@ -583,7 +635,7 @@ address { font-style: normal; }
     </div>
   </section>
 
-  <!-- 2. The pages still to fill: her words beside an album page; its five frames start empty and fill with paint -->
+  <!-- 2. The pages still to fill: her words beside a photo album that opens; five prints are placed on its pages -->
   <section class="beat pages" id="pages" data-beat="pages" style="--len: 4.2" data-chapter="The pages still to fill">
     <div class="stage">
       <div class="stage__in">
@@ -593,6 +645,12 @@ address { font-style: normal; }
           <p class="lede words s2">And with them can come different financial priorities.</p>
         </div>
         <div class="album">
+          <div class="book">
+            <div class="book__base" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="book__leaf" aria-hidden="true">
+              <div class="book__front"><p class="book__label">the pages still to fill</p></div>
+              <div class="book__inside"></div>
+            </div>
           <ul class="album__list">
             <li><figure class="mem"><div class="mem__win cornered"><div class="mem__fill"><img loading="lazy" decoding="async" src="kit/wc2/key.webp" alt="" width="380" height="272"></div></div><figcaption>the keys</figcaption></figure></li>
             <li><figure class="mem"><div class="mem__win cornered"><div class="mem__fill"><img loading="lazy" decoding="async" src="kit/wc2/rings.webp" alt="" width="380" height="224"></div></div><figcaption>the day you said yes</figcaption></figure></li>
@@ -600,14 +658,15 @@ address { font-style: normal; }
             <li><figure class="mem"><div class="mem__win cornered"><div class="mem__fill"><img loading="lazy" decoding="async" src="kit/wc2/cap.webp" alt="" width="380" height="287"></div></div><figcaption>graduation day</figcaption></figure></li>
             <li><figure class="mem"><div class="mem__win cornered"><div class="mem__fill"><img loading="lazy" decoding="async" src="kit/wc2/glasses.webp" alt="" width="380" height="205"></div></div><figcaption>a slow Tuesday, much later</figcaption></figure></li>
           </ul>
+          </div>
         </div>
       </div>
       <p class="cue note" aria-hidden="true">keep scrolling ↓</p>
     </div>
   </section>
 
-  <!-- 3. Into focus: a lens brings the blurred picture into focus -->
-  <section class="beat clarity" id="clarity" data-beat="clarity" style="--len: 3" data-chapter="Into focus">
+  <!-- 3. Into focus: a blueprint on the desk stands up, becomes a white model, then the painted scene -->
+  <section class="beat clarity" id="clarity" data-beat="clarity" style="--len: 3.6" data-chapter="Into focus">
     <div class="stage">
       <div class="stage__in">
         <div>
@@ -616,13 +675,14 @@ address { font-style: normal; }
         </div>
         <div class="panel-wrap">
           <div class="panel" aria-hidden="true">
-            <img loading="lazy" decoding="async" class="panel__messy" src="kit/wc2/clarity-muddle.webp" alt="" width="480" height="300">
+            <img loading="lazy" decoding="async" class="panel__plan" src="kit/wc2/plan.webp" srcset="kit/wc2/plan-760.webp 760w, kit/wc2/plan.webp 1200w" sizes="(max-width: 900px) 92vw, 680px" alt="" width="1200" height="750">
+            <img loading="lazy" decoding="async" class="panel__model" src="kit/wc2/model.webp" srcset="kit/wc2/model-760.webp 760w, kit/wc2/model.webp 1200w" sizes="(max-width: 900px) 92vw, 680px" alt="" width="1200" height="750">
             <div class="clear">
               <img loading="lazy" decoding="async" class="clear__img" src="kit/wc2/clarity.webp" srcset="kit/wc2/clarity-760.webp 760w, kit/wc2/clarity.webp 1200w" sizes="(max-width: 900px) 92vw, 680px" alt="" width="1200" height="750">
             </div>
             <span class="lens"></span>
           </div>
-          <p class="note panel-hint" aria-hidden="true">move the lens over the painting</p>
+          <p class="note panel-hint" aria-hidden="true">move the lens over the picture</p>
         </div>
       </div>
       <p class="cue note" aria-hidden="true">keep scrolling ↓</p>
@@ -933,32 +993,47 @@ address { font-style: normal; }
     hero.addEventListener('pointerleave', function () { art.style.setProperty('--mx', 0); art.style.setProperty('--my', 0); });
   })();
 
-  /* 2. The pages still to fill: her two lines brighten; paint blooms into the five frames, one after another ---- */
+  /* 2. The pages still to fill: her two lines brighten; the album opens; five prints are placed, one after another ---- */
   (function () {
-    var b = $('#pages'), s1 = $('.s1', b), s2 = $('.s2', b), mems = $$('.mem', b);
+    var b = $('#pages'), s1 = $('.s1', b), s2 = $('.s2', b), mems = $$('.mem', b), book = $('.book', b);
+    function ease(t) { return t * t * (3 - 2 * t); }
     handlers.pages = function (p) {
-      s1.style.setProperty('--k', ramp(p, 0, .3));
-      s2.style.setProperty('--k', ramp(p, .5, .76));
-      s2.classList.toggle('is-in', p > .44);
-      mems.forEach(function (m, i) { m.style.setProperty('--b', ramp(p, .12 + i * .15, .27 + i * .15).toFixed(3)); });
+      // Her first line brightens once the cover is out of the way (on a phone it swings up past the words).
+      s1.style.setProperty('--k', ramp(p, .16, .42));
+      s2.style.setProperty('--k', ramp(p, .54, .78));
+      s2.classList.toggle('is-in', p > .5);
+      // The cover swings open first; the camera comes round to look down on the open pages just behind it.
+      book.style.setProperty('--o', ease(ramp(p, .04, .26)).toFixed(4));
+      book.style.setProperty('--c', ease(ramp(p, .08, .31)).toFixed(4));
+      // Then the five prints come down one at a time, each easing onto its mount.
+      mems.forEach(function (m, i) {
+        var t = ramp(p, .3 + i * .125, .45 + i * .125);
+        m.style.setProperty('--b', t.toFixed(3));
+        m.style.setProperty('--e', (1 - Math.pow(1 - t, 3)).toFixed(4));
+      });
     };
   })();
 
-  /* 3. Clarity: the lens ----------------------------------------------------------- */
+  /* 3. Into focus: the plan stands up and becomes a model; the lens then brings in the painted scene ------- */
   (function () {
     var b = $('#clarity'), panel = $('.panel', b), s1 = $('.s1', b);
     var pointer = { x: 0, y: 0, t: -1e9 };
     function setLens() {
       var w = panel.clientWidth, h = panel.clientHeight, p = b._p || 0;
-      var live = performance.now() - pointer.t < 1800;
+      // The sheet stands up while the model rises out of the drawing; only then does the lens come out.
+      var up = ease(ramp(p, .07, .36)), out = ease(ramp(p, .4, .5)), grow = ramp(p, .64, .93);
+      var live = up >= 1 && performance.now() - pointer.t < 1800;
       var x = live ? pointer.x : (.5 + .3 * Math.sin(p * Math.PI * 2.4)) * w;
       var y = live ? pointer.y : (.5 + .2 * Math.sin(p * Math.PI * 3.4 + .6)) * h;
-      var grow = ramp(p, .62, .92);
+      panel.style.setProperty('--c', up.toFixed(4));
+      panel.style.setProperty('--m', ramp(p, .15, .42).toFixed(4));
+      panel.style.setProperty('--f', ramp(p, .26, .4).toFixed(3));
       panel.style.setProperty('--lx', x.toFixed(1) + 'px');
       panel.style.setProperty('--ly', y.toFixed(1) + 'px');
-      panel.style.setProperty('--lr', (Math.min(w, h) * .2 + grow * Math.hypot(w, h)).toFixed(1) + 'px');
-      b.style.setProperty('--lo', (1 - ramp(grow, .2, .5)).toFixed(2));
+      panel.style.setProperty('--lr', (Math.min(w, h) * .2 * out + grow * Math.hypot(w, h)).toFixed(1) + 'px');
+      b.style.setProperty('--lo', (out * (1 - ramp(grow, .2, .5))).toFixed(2));
     }
+    function ease(t) { return t * t * (3 - 2 * t); }
     function track(e) {
       var r = panel.getBoundingClientRect();
       pointer.x = e.clientX - r.left; pointer.y = e.clientY - r.top; pointer.t = performance.now();

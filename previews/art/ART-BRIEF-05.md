@@ -181,6 +181,33 @@ picture. She is still recognisably the same person: same face, shoulder-length d
 cream knit top, small gold clover necklace. No screens, no signage, no writing.
 ```
 
+**Images 11 and 12 (`11-blueprint`, `12-model`, 23 Nov 2026), for design 06.** The cottage painting (image 8) in two
+more states, so the page can turn a plan into a model into the picture. Sent one after the other in the same chat;
+both passed first time, with no letters or numbers, and both sit exactly over the painting:
+
+```
+Go back to the landscape painting of the cottage: the house with the terracotta roof under the big tree on the left,
+the winding path, the stone bridge over the stream, the hills and the low sun on the right. Same picture, landscape
+3:2, same image size, same composition and framing, with every object in exactly the same place and the same size.
+But redraw it as an architect's blueprint: fine white and pale-blue ink lines on deep Prussian-blue paper, drawn by
+hand with pen and ruler, slightly uneven like real drafting. Outlines only: the house, roof, windows and veranda, the
+tree trunk and canopy as contour lines, the path edges, the bridge arch, the stream banks, the hill ridges and a plain
+circle for the sun. Add a faint drafting grid and a few construction lines and dimension lines with small tick marks
+and arrowheads. No colour, no shading, no fills, no paint. Absolutely no letters, numbers, words, labels, title block,
+stamps or logos anywhere.
+```
+
+```
+Same picture again, landscape 3:2, same image size, same composition and framing as the blueprint you just made, with
+every object in exactly the same place and the same size. But now the drawing has been built: it is a small white
+architectural model standing on that same blueprint. The house with its roof and veranda, the big tree on the left,
+the bushes, the stone bridge and the hills are all three-dimensional, made of plain white card and pale balsa wood
+like an architect's maquette, with soft natural shadows falling towards the lower left, away from the sun. The sun is
+a small white disc. The ground, the path, the stream and the sky are still the deep Prussian-blue blueprint paper,
+with its fine white lines and faint grid still showing between the model pieces. Only white, pale wood and the blue
+paper: no other colour, no paint. No people. Absolutely no letters, numbers, words, labels, stamps or logos anywhere.
+```
+
 Both frames were cropped to 16:9 with the grass patch at the same spot before upload. Flow added a sound track
 anyway; `9-growth.mp4` is the muted copy.
 

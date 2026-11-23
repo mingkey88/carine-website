@@ -192,6 +192,14 @@ crop_to(clarity, BOX8, (1200, 750), name='clarity', q=74)
 crop_to(clarity, BOX8, (760, 475), name='clarity-760', q=74)
 crop_to(clarity, BOX8, (480, 300), q=60, name='clarity-muddle', blur=9, fog=0.34)
 
+# Design 06: the same cottage as a blueprint and as a white model. ChatGPT redrew them over the painting, so the
+# same crop keeps all three lined up to the pixel and one can turn into the next.
+for original, stage in (('11-blueprint.png', 'plan'), ('12-model.png', 'model')):
+    if os.path.exists(os.path.join(src, original)):
+        picture = load(original)
+        crop_to(picture, BOX8, (1200, 750), name=stage, q=70)
+        crop_to(picture, BOX8, (760, 475), name=stage + '-760', q=70)
+
 # Video placeholders: 16:10 crops of 4, 5, 8 and the tree (on paper)
 crop_to(load('4-later-life.png'), json.loads(os.environ.get('BOXV1', '[330, 190, 1290, 790]')), (640, 400), name='v1', q=76)
 crop_to(load('5-cafe-v2.png'), json.loads(os.environ.get('BOXV2', '[230, 80, 1430, 830]')), (640, 400), name='v2', q=76)
