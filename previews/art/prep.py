@@ -192,6 +192,23 @@ crop_to(clarity, BOX8, (1200, 750), name='clarity', q=74)
 crop_to(clarity, BOX8, (760, 475), name='clarity-760', q=74)
 crop_to(clarity, BOX8, (480, 300), q=60, name='clarity-muddle', blur=9, fog=0.34)
 
+# Design 07: the growth clip again, this time cut out so it can stand in the cottage scene. Multiply (used on the
+# paper in designs 05 and 06) would let the meadow show through the leaves, so each frame gets a real matte:
+# anything with colour in it is solid, and only the soft edge and the ground wash are see-through.
+def matte(rgb, soft=46.0):
+    a = np.clip((255.0 - rgb.min(axis=2)) / soft, 0, 1)
+    aa = np.maximum(a, 1e-3)[..., None]
+    colour = np.clip((rgb - (1 - a[..., None]) * 255.0) / aa, 0, 255)
+    return np.dstack([colour, a * 255.0]).round().astype(np.uint8)
+
+grow_dir = os.path.join(out, 'grow')
+if os.path.isdir(grow_dir):
+    os.makedirs(os.path.join(out, 'grow-a'), exist_ok=True)
+    for n, i in enumerate(range(1, 56, 2)):
+        frame = np.asarray(Image.open(os.path.join(grow_dir, 'f%02d.webp' % i)).convert('RGB')).astype(np.float32)
+        cut = Image.fromarray(matte(frame), 'RGBA').resize((340, 340), Image.LANCZOS)
+        cut.save(os.path.join(out, 'grow-a', 'g%02d.webp' % n), 'WEBP', quality=74, alpha_quality=70, method=6)
+
 # Design 06: the same cottage as a blueprint and as a white model. ChatGPT redrew them over the painting, so the
 # same crop keeps all three lined up to the pixel and one can turn into the next.
 for original, stage in (('11-blueprint.png', 'plan'), ('12-model.png', 'model')):

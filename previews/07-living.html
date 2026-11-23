@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carine Zheng | Financial Planner, Singapore</title>
+<meta name="description" content="Design preview 07 · The living picture: design 06 with her four areas told inside one painting. Mock-up for Carine Zheng.">
+<meta name="robots" content="noindex, nofollow">
+<script>
+  // Motion is opt-in: only with a script running and no request for reduced motion.
+  // Without it, every section renders as a finished, still layout.
+  document.documentElement.classList.add('js');
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Kalam:wght@400;700&display=swap">
+<style>
+@property --lx { syntax: '<length>'; inherits: true; initial-value: 0px; }
+@property --ly { syntax: '<length>'; inherits: true; initial-value: 0px; }
+@property --lr { syntax: '<length>'; inherits: true; initial-value: 0px; }
+
+:root {
+  color-scheme: light;
+  --paper: #f4ead6;
+  --paper-2: #ebdcc0;
+  --card: #fffaf0;
+  --ink: #3a271a;
+  --ink-soft: #6e5642;
+  --seal: #b8321f;
+  --seal-deep: #962614;
+  --wa: #25d366;
+  --wa-deep: #1fb959;
+  --wa-ink: #0b2a1a;
+  --river: #18213d;
+  --moon: #f3e7cf;
+  --moon-soft: #cfc6b4;
+  --corner: #27304d;
+  --gold: #e9c27a;
+  --f-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --f-hand: "Kalam", "Segoe Print", "Comic Sans MS", cursive;
+  --f-body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --gutter: max(20px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(20px, env(safe-area-inset-right, 0px));
+  --hud: 56px;
+  --shadow-card: 0 1px 2px #28190a2e, 0 14px 30px -14px #28190a73;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .36 0 0 0 0 .25 0 0 0 0 .14 0 0 0 -2.2 1.2'/%3E%3C/filter%3E%3Crect width='320' height='320' filter='url(%23g)' opacity='.22'/%3E%3C/svg%3E");
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background-color: var(--paper);
+  background-image: var(--grain);
+  color: var(--ink);
+  font: 400 clamp(1rem, .95rem + .25vw, 1.125rem)/1.6 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+p, h1, h2, h3, ol, ul, dl, dd, figure { margin: 0; }
+h1, h2, h3 { font-weight: 400; }
+:focus-visible { outline: 2.5px solid var(--seal); outline-offset: 4px; border-radius: 6px; }
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: fixed; left: 16px; top: -80px; z-index: 100; background: var(--ink); color: var(--card); padding: 10px 16px; border-radius: 999px; text-decoration: none; transition: top .2s; }
+.skip:focus { top: 16px; }
+.wrap { width: 100%; max-width: 1240px; margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter-r); }
+
+/* Shared pieces, from design 04 --------------------------------------------------- */
+.note { font-family: var(--f-hand); color: var(--ink-soft); font-size: 1.15rem; line-height: 1.35; }
+.title { font-family: var(--f-display); font-size: clamp(2.3rem, 1.5rem + 3.2vw, 4.4rem); line-height: 1.02; letter-spacing: -.01em; text-wrap: balance; }
+.title em { font-style: italic; }
+.lede { font-family: var(--f-display); font-size: clamp(1.7rem, 1.15rem + 2.1vw, 3rem); line-height: 1.16; text-wrap: pretty; }
+.desc { color: var(--ink-soft); max-width: 40ch; }
+.kick { font-family: var(--f-hand); color: var(--seal); font-size: 1.15rem; margin-bottom: 10px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--seal); color: #fff7ea; font: 600 1rem/1.2 var(--f-body); text-decoration: none;
+  box-shadow: 0 6px 18px -8px #50140a99; transition: transform .2s ease, background-color .2s ease;
+}
+.btn svg { width: 20px; height: 20px; fill: currentColor; flex: none; }
+.btn:hover { transform: translateY(-2px); background: var(--seal-deep); }
+/* WhatsApp actions wear WhatsApp green. Dark text on it keeps contrast at 7.6:1 (white would be 2:1). */
+.btn--wa { background: var(--wa); color: var(--wa-ink); box-shadow: 0 6px 18px -8px #0b5a3299; }
+.btn--wa:hover { background: var(--wa-deep); }
+.card { position: relative; background: var(--card); padding: 10px 10px 40px; box-shadow: var(--shadow-card); }
+.card figcaption { position: absolute; left: 14px; right: 14px; bottom: 8px; font-family: var(--f-hand); font-size: 1.05rem; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tape { position: absolute; width: 120px; left: 50%; top: -18px; translate: -50% 0; rotate: -4deg; pointer-events: none; }
+.seal {
+  display: inline-grid; place-items: center; width: 2.4rem; height: 2.4rem; flex: none;
+  background: var(--seal); color: #fff2e2; font: 400 1.4rem/1 var(--f-display); border-radius: 6px; rotate: -6deg;
+  box-shadow: inset 0 0 0 3px var(--seal), inset 0 0 0 4.5px #fff2e2aa;
+}
+
+/* Words that brighten as you read, one at a time (Oryzo's scroll-paced copy) ------- */
+.motion .words .w { opacity: clamp(.16, calc(var(--k, 0) * (var(--n) + 3) - var(--i)), 1); }
+
+/* HUD: brand, chapter, progress ------------------------------------------------------ */
+.hud {
+  position: fixed; inset: 0 0 auto 0; z-index: 40; height: var(--hud);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 0 var(--gutter-r) 0 var(--gutter);
+  background: rgba(244, 234, 214, .84); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  transition: background-color .6s ease, color .6s ease;
+}
+.brand { font: 400 1.55rem/1 var(--f-display); text-decoration: none; letter-spacing: -.01em; }
+.brand em { font-style: italic; }
+.hud__chapter { font-family: var(--f-hand); color: var(--ink-soft); font-size: 1.08rem; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: color .6s ease; }
+.hud__bar { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: rgba(58, 39, 26, .1); }
+.hud__fill { display: block; height: 100%; background: var(--seal); transform-origin: 0 50%; transform: scaleX(0); }
+.is-night .hud { background: rgba(24, 33, 61, .86); color: var(--moon); }
+.is-night .hud__chapter { color: var(--moon-soft); }
+.is-night .hud__bar { background: rgba(243, 231, 207, .14); }
+
+/* Held sections: a tall block with a sticky stage that the scroll plays ------------ */
+.beat { position: relative; }
+.stage { position: relative; padding: calc(var(--hud) + 56px) var(--gutter-r) 72px var(--gutter); }
+.stage__in { position: relative; z-index: 1; width: 100%; max-width: 1240px; margin: 0 auto; }
+.cue { display: none; }
+.motion .beat { height: calc(var(--len) * 100vh); height: calc(var(--len) * 100svh); }
+.motion .stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; padding-top: calc(var(--hud) + 28px); padding-bottom: 48px; display: flex; }
+.motion .stage__in { height: 100%; }
+.motion .cue { display: block; position: absolute; z-index: 3; left: 50%; bottom: 14px; translate: -50% 0; font-size: 1rem; opacity: clamp(0, calc(1 - var(--p, 0) * 5), 1); pointer-events: none; }
+
+.hud__page { margin-right: 12px; color: var(--seal); font: italic 400 1.12rem/1 var(--f-display); }
+.is-night .hud__page { color: var(--gold); }
+
+/* Photo corners: how a print is mounted on an album page. One pseudo-element paints all four. */
+.cornered { --cs: 24px; position: relative; }
+.cornered::before {
+  content: ""; position: absolute; inset: calc(var(--cs) * -.2); z-index: 3; pointer-events: none;
+  background:
+    linear-gradient(135deg, var(--corner) 50%, #0000 51%) 0 0 / var(--cs) var(--cs) no-repeat,
+    linear-gradient(225deg, var(--corner) 50%, #0000 51%) 100% 0 / var(--cs) var(--cs) no-repeat,
+    linear-gradient(45deg, var(--corner) 50%, #0000 51%) 0 100% / var(--cs) var(--cs) no-repeat,
+    linear-gradient(315deg, var(--corner) 50%, #0000 51%) 100% 100% / var(--cs) var(--cs) no-repeat;
+  filter: drop-shadow(0 1px 1px #28190a59);
+}
+
+/* 1. Cover: the album opens on her portrait; two prints that have not been taken yet wait behind it ---- */
+.hero { position: relative; overflow-x: clip; padding: calc(var(--hud) + clamp(36px, 7vw, 96px)) 0 clamp(64px, 9vw, 120px); }
+.hero__grid { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: clamp(32px, 6vw, 96px); }
+.hero__eyebrow { font-size: 1.35rem; margin-bottom: 18px; }
+.h1 { font-family: var(--f-display); font-size: clamp(2.7rem, 1.6rem + 4.2vw, 5.6rem); line-height: 1; letter-spacing: -.015em; text-wrap: balance; }
+.h1 em { font-style: italic; color: var(--seal); }
+.hero__sub { margin-top: 22px; font: 400 clamp(1.3rem, 1.05rem + 1vw, 1.85rem)/1.2 var(--f-display); color: var(--ink-soft); }
+.hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: 36px; }
+.hero__hint { text-decoration: none; }
+.hero__art { position: relative; justify-self: center; width: min(400px, 100%); }
+.hero__bloom { position: absolute; width: 230%; max-width: none; left: 50%; top: 52%; translate: -52% -50%; pointer-events: none; z-index: -1; }
+.polaroid { --cs: 34px; rotate: 2.5deg; }
+.polaroid__img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.blank { position: absolute; z-index: -1; display: flex; align-items: flex-end; aspect-ratio: 4 / 5; padding: 0 12px 10px; border: 1.5px dashed #3a271a70; border-radius: 2px; background: #fffaf099; rotate: var(--r); font-family: var(--f-hand); font-size: 1rem; color: var(--ink-soft); pointer-events: none; }
+.blank--a { --r: -9deg; --d: 14; --n: 0; width: 62%; left: -24%; top: 12%; }
+.blank--b { --r: 8deg; --d: 24; --n: 1; width: 56%; right: -22%; bottom: -9%; justify-content: flex-end; padding-bottom: 6px; }
+/* On arrival the headline resolves out of a blur, word by word; the portrait drops onto the page; the waiting
+   prints slide out from behind it. The arrival animates `transform`, the pointer drift moves `translate`, and
+   the resting tilt is `rotate`, so the three never fight. */
+.motion .h1 .w { display: inline-block; animation: resolve 1s var(--ease) both; animation-delay: calc(140ms + var(--i) * 80ms); }
+.motion .polaroid { animation: drop 1s var(--ease) .5s both; }
+.motion .hero__bloom { animation: bloom 1.6s ease .2s both; }
+.motion .blank {
+  translate: calc(var(--mx, 0) * var(--d) * 1px) calc(var(--my, 0) * var(--d) * 1px);
+  transition: translate .35s ease-out;
+  animation: lay .9s var(--ease) both; animation-delay: calc(1.2s + var(--n) * .18s);
+}
+@keyframes lay { from { opacity: 0; transform: translate(calc(var(--r) * -3px), 20px) scale(.9); } }
+@keyframes resolve { from { opacity: 0; filter: blur(14px); transform: translateY(12px); } }
+@keyframes drop { from { opacity: 0; transform: translateY(-40px) rotate(-8deg); } }
+@keyframes bloom { from { opacity: 0; transform: scale(.7); } }
+
+/* 2. The pages still to fill: a photo album opens and five prints are placed on its pages as you scroll ---- */
+.pages .stage__in { display: grid; grid-template-columns: minmax(0, .74fr) minmax(0, 1.26fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
+.s2 { margin-top: 26px; }
+.motion .s2 { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s var(--ease); }
+.motion .s2.is-in { opacity: 1; transform: none; }
+/* A photo album in real 3D. .book is the camera; .book__base is the back board and the right-hand pages;
+   .book__leaf is the front cover, hinged on the spine, whose inside becomes the left-hand page. --o is how far the
+   cover has opened and --c how far the camera has come round; both are 1 (open, flat) unless the scroll says otherwise. */
+.album { justify-self: center; width: 100%; max-width: 800px; }
+.motion .album { width: min(100%, 800px, calc((100vh - var(--hud) - 170px) * 1.5)); width: min(100%, 800px, calc((100svh - var(--hud) - 170px) * 1.5)); perspective: 1500px; perspective-origin: 50% 30%; }
+.book { --o: 1; --c: 1; --navy: #232b47; position: relative; aspect-ratio: 3 / 2; transform-style: preserve-3d; }
+.motion .book { --o: 0; --c: 0; transform: translateX(calc((1 - var(--c)) * -25%)) rotateX(calc(52deg - var(--c) * 36deg)) rotateZ(calc(var(--c) * 9deg - 10deg)); will-change: transform; }
+.book__base, .book__leaf { position: absolute; top: 0; bottom: 0; left: 50%; width: 50%; transform-style: preserve-3d; }
+/* The back board, a little larger than the pages, and its shadow on the table */
+.book__base::before { content: ""; position: absolute; inset: -7px -8px -7px 0; border-radius: 0 9px 9px 0; background: var(--navy); box-shadow: 0 2px 3px #28190a40, 14px 22px 36px -8px #28190a80; }
+/* Three sheets, each a hair above the last, so the tilted book shows the thickness of its pages */
+.book__base i { position: absolute; inset: 0; border: 1px solid #d8c8a8; border-left: 0; border-radius: 0 3px 3px 0; background: linear-gradient(90deg, #3a271a30 0, #3a271a00 34px), var(--card); }
+.book__base i:nth-child(1) { transform: translateZ(2px); inset: 0 -2px -2px 0; }
+.book__base i:nth-child(2) { transform: translateZ(4px); inset: 0 -1px -1px 0; }
+.book__base i:nth-child(3) { transform: translateZ(6px); }
+.book__leaf { transform-origin: 0 50%; transform: translateZ(5px) rotateY(calc(var(--o) * -180deg)) translateZ(5px); }
+.book__front, .book__inside { position: absolute; inset: -7px -8px -7px 0; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+/* Outside of the cover: navy cloth, a stitched spine, a foil line and a paper label */
+.book__front {
+  border-radius: 0 9px 9px 0; display: grid; place-items: center;
+  background: linear-gradient(90deg, #0000 0 9%, #ffffff12 9% calc(9% + 1px), #0000 calc(9% + 1px)), linear-gradient(90deg, #161c33 0, #1d2440 9%, #0000 9%), var(--grain), radial-gradient(120% 90% at 30% 20%, #2f3a61 0, var(--navy) 60%, #1b2239 100%);
+  box-shadow: inset 0 0 0 1px #ffffff14, inset -2px -2px 3px #0000004d, inset 2px 2px 2px #ffffff1a;
+}
+.book__front::before { content: ""; position: absolute; inset: 7% 6% 7% 14.5%; border: 1.5px solid #e9c27a8c; border-radius: 3px; }
+.book__front::after { content: ""; position: absolute; left: 4.2%; top: 5%; bottom: 5%; border-left: 2px dashed #e9c27a66; }
+.book__label { position: relative; margin: 0 4% 6% 12%; padding: .55em 1.1em .5em; max-width: 72%; background: linear-gradient(#fffaf0, #f4e8d0); border-radius: 2px; box-shadow: 0 0 0 1px #c9a45c, 0 0 0 4px #fffaf0, 0 0 0 5px #c9a45c80, 0 3px 5px #00000059; font: 400 clamp(.95rem, .6rem + 1vw, 1.3rem)/1.2 var(--f-hand); color: var(--ink); text-align: center; rotate: -1.2deg; }
+/* Inside of the cover: once it has swung open it is the left-hand page, with the board showing round it */
+.book__inside { transform: rotateY(180deg); border-radius: 9px 0 0 9px; background: var(--navy); box-shadow: -10px 20px 30px -12px #28190a66; }
+.book__inside::before { content: ""; position: absolute; inset: 7px 0 7px 8px; border: 1px solid #d8c8a8; border-right: 0; border-radius: 3px 0 0 3px; background: linear-gradient(270deg, #3a271a30 0, #3a271a00 34px), var(--card); }
+/* The prints sit on the open pages: two on the left, three on the right. Positions are shares of the open spread. */
+.album__list { position: absolute; inset: 0; list-style: none; margin: 0; padding: 0; transform: translateZ(7px); transform-style: preserve-3d; }
+.album__list li { position: absolute; left: var(--x); top: var(--y); width: var(--w); transform-style: preserve-3d; }
+.album__list li:nth-child(1) { --x: 6.5%; --y: 8%; --w: 25%; rotate: -2.2deg; }
+.album__list li:nth-child(2) { --x: 17%; --y: 51%; --w: 26.5%; rotate: 1.8deg; }
+.album__list li:nth-child(3) { --x: 54.5%; --y: 7%; --w: 20%; rotate: -1.6deg; }
+.album__list li:nth-child(4) { --x: 76.5%; --y: 17%; --w: 19.5%; rotate: 2.4deg; }
+.album__list li:nth-child(5) { --x: 60%; --y: 52%; --w: 29%; rotate: -1.2deg; }
+.album__list li:nth-child(-n+2) { transform: translateZ(-6px); }
+.motion .album__list li:nth-child(-n+2) .mem { opacity: clamp(0, calc((var(--o) - .92) * 14), 1); }
+/* --b is how far a print has come down onto the page (0 is an empty mount, 1 is placed); --e is the same, eased. */
+.mem { --b: 1; --e: 1; margin: 0; transform-style: preserve-3d; }
+.motion .mem { --b: 0; --e: 0; }
+.mem__win { --cs: 15px; aspect-ratio: 5 / 4; transform-style: preserve-3d; outline: 1.5px dashed rgb(58 39 26 / calc((1 - var(--b)) * .5)); outline-offset: -2px; }
+/* The print's shadow on the page: wide and soft while it is in the air, tight once it lands */
+.mem__win::after { content: ""; position: absolute; inset: 7%; z-index: 0; border-radius: 6px; background: #28190a; opacity: calc(clamp(0, var(--b) * 4, 1) * .36); filter: blur(calc(4px + (1 - var(--e)) * 16px)); transform: translate(calc((1 - var(--e)) * 10px), calc(5px + (1 - var(--e)) * 10px)); }
+.mem__fill { position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; border: 4px solid #fffdf6; background: radial-gradient(120% 90% at 50% 40%, #f8efdf 0%, #eedcc0 100%); }
+.mem__fill img { width: 80%; height: 80%; object-fit: contain; }
+.motion .mem__fill { opacity: clamp(0, calc(var(--b) * 6), 1); transform: translate3d(calc((1 - var(--e)) * var(--fx, 30px)), calc((1 - var(--e)) * var(--fy, -50px)), calc((1 - var(--e)) * 240px)) rotate(calc((1 - var(--e)) * var(--fr, 12deg))); }
+.album__list li:nth-child(even) .mem { --fx: -34px; --fr: -14deg; }
+/* The caption is pencilled in, left to right, once the print is down */
+.mem figcaption { margin-top: 8px; font: 400 clamp(.78rem, .5rem + .62vw, 1rem)/1.2 var(--f-hand); color: var(--ink-soft); text-align: center; }
+.motion .mem figcaption { clip-path: inset(-4px calc((1 - clamp(0, (var(--b) - .78) * 4.6, 1)) * 100%) -4px 0); }
+
+/* 3. Into focus: one picture in three states, lined up to the pixel. The plan lies on the desk, stands up as it
+   becomes a white model, and the painted scene arrives through a lens that then opens over all of it.
+   --c is how far the sheet has stood up, --m how far the model has risen, --f how far the frame has appeared. */
+.clarity .stage__in { display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
+.panel-wrap { display: grid; gap: 12px; }
+.motion .panel-wrap { perspective: 1400px; perspective-origin: 50% 35%; }
+.panel { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-radius: 4px; background: #f2e8d4; box-shadow: var(--shadow-card); touch-action: pan-y; cursor: crosshair; outline: 10px solid var(--card); }
+.motion .panel { --c: 0; --m: 0; --f: 0; background: #123f7c; outline-color: rgb(255 250 240 / var(--f)); transform-origin: 50% 62%; transform: rotateX(calc((1 - var(--c)) * 56deg)) rotateZ(calc((1 - var(--c)) * -9deg)) scale(calc(.86 + var(--c) * .14)); box-shadow: 0 1px 2px #28190a2e, calc((1 - var(--c)) * 16px) calc(14px + (1 - var(--c)) * 16px) 30px -14px #28190a8c; will-change: transform; }
+/* The plan and the model are only fetched when the page moves; the still page shows the finished painting. */
+.panel__plan, .panel__model { display: none; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.motion .panel__plan, .motion .panel__model { display: block; }
+.motion .panel__model {
+  -webkit-mask-image: linear-gradient(to top, #000 calc(var(--m) * 170% - 70%), #0000 calc(var(--m) * 170%));
+  mask-image: linear-gradient(to top, #000 calc(var(--m) * 170% - 70%), #0000 calc(var(--m) * 170%));
+}
+/* The three pictures are the same view, so what the lens shows lines up with what is around it. */
+.clear { position: absolute; inset: 0; background: #f6eedf; }
+.clear__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.motion .clear {
+  -webkit-mask-image: radial-gradient(circle var(--lr) at var(--lx) var(--ly), #000 calc(100% - 26px), transparent 100%);
+  mask-image: radial-gradient(circle var(--lr) at var(--lx) var(--ly), #000 calc(100% - 26px), transparent 100%);
+}
+.motion .panel { transition: --lx .2s ease-out, --ly .2s ease-out, --lr .2s ease-out; }
+.lens { display: none; }
+.motion .lens { display: block; position: absolute; left: var(--lx); top: var(--ly); width: calc(var(--lr) * 2); height: calc(var(--lr) * 2); translate: -50% -50%; border-radius: 50%; border: 2px dashed rgba(58, 39, 26, .6); box-shadow: 0 0 0 3px #fffaf099, 0 8px 22px -10px #28190a99; pointer-events: none; opacity: var(--lo, 1); }
+.panel-hint { display: none; text-align: center; }
+.motion .panel-hint { display: block; opacity: var(--lo, 1); }
+
+/* 4 to 8. One picture, lived in ---------------------------------------------------------------------------
+   Still page (no script, or reduced motion): her heading, then each area as a print with her words beside it.
+   The live scene (.world) is not shown and none of its pictures are fetched. */
+.life .stage__in { display: grid; grid-template-columns: minmax(0, 250px) minmax(0, 1fr); gap: clamp(26px, 5vh, 46px) clamp(20px, 4vw, 44px); align-items: center; max-width: 880px; }
+.life__words, .roll { display: contents; }
+.roll { list-style: none; }
+.chap--intro { grid-column: 1 / -1; grid-row: 1; text-align: center; }
+.behind__sub { font-size: 1.4rem; margin-top: 10px; }
+.life .chap:not(.chap--intro) { grid-column: 2; }
+.life .chap:nth-child(2), .snap:nth-child(1) { grid-row: 2; }
+.life .chap:nth-child(3), .snap:nth-child(2) { grid-row: 3; }
+.life .chap:nth-child(4), .snap:nth-child(3) { grid-row: 4; }
+.life .chap:nth-child(5), .snap:nth-child(4) { grid-row: 5; }
+.life .topic__title { margin-bottom: 14px; font-size: clamp(2rem, 1.25rem + 2.1vw, 3.3rem); }
+.snap { grid-column: 1; display: block; padding: 8px 8px 0; background: var(--card); box-shadow: var(--shadow-card); }
+.snap:nth-child(odd) { --r: -1.6deg; rotate: -1.6deg; }
+.snap:nth-child(even) { --r: 1.4deg; rotate: 1.4deg; }
+.snap__win { --cs: 14px; display: block; aspect-ratio: 16 / 10; background: #eedcc0; }
+.snap__win img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.snap__cap { display: block; padding: 7px 2px 9px; font: 400 1rem/1.15 var(--f-hand); color: var(--ink-soft); text-align: center; }
+.world, .mark, .pour { display: none; }
+
+/* Motion: the words sit in one place and change with the chapter; the picture is held beside them; the prints
+   taken so far collect in a row underneath. Everything below is driven by numbers the scroll writes on the
+   section: --storm --open --gold --lit --planted --a1 to --a4 (the four arrivals) --flash, and --s/--e per print. */
+.motion .life { --storm: 0; --open: 0; --gold: 0; --lit: 0; --planted: 0; --a1: 0; --a2: 0; --a3: 0; --a4: 0; --a5: 0; --flash: 0; --in: 0; --drift: 0; }
+.motion .life .sky { position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg, #f6d6a400 0%, #f6d6a4 16%, #f2c690 52%, #f4ead600 100%); opacity: calc(var(--gold) * .9); }
+.motion .mark { display: block; position: absolute; left: 0; width: 1px; height: 1px; pointer-events: none; top: calc((var(--at) * (var(--len) - 1) + .45) * 100vh); top: calc((var(--at) * (var(--len) - 1) + .45) * 100svh); }
+.motion .life .stage__in { max-width: 1240px; grid-template-columns: minmax(0, .44fr) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; gap: 18px clamp(24px, 3.4vw, 54px); align-items: stretch; }
+.motion .life__words { display: grid; grid-column: 1; grid-row: 1; align-content: center; min-height: 0; }
+.motion .life .chap { grid-area: 1 / 1; align-self: center; text-align: left; opacity: 0; transform: translateY(16px); transition: opacity .4s ease, transform .5s var(--ease); pointer-events: none; }
+.motion .life .chap.is-on { opacity: 1; transform: none; pointer-events: auto; transition-delay: .12s; }
+.motion .chap--intro .title { font-size: clamp(2.3rem, 1.4rem + 2.6vw, 3.9rem); }
+.motion .pour { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; padding: 10px 18px; border-radius: 999px; border: 1.5px dashed var(--ink-soft); background: #fffaf0b3; color: var(--ink); font: 400 1.1rem/1 var(--f-hand); cursor: pointer; }
+.motion .pour:hover { background: var(--card); }
+.motion .life .chap:not(.is-on) .pour { visibility: hidden; }
+.motion .roll { display: grid; grid-column: 1; grid-row: 2; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; align-self: end; margin: 0; padding: 0 0 4px; }
+.motion .snap { grid-column: auto; grid-row: auto; padding: 5px 5px 0; rotate: none; transform-origin: 0 0; opacity: clamp(0, calc(var(--s, 0) * 9), 1); transform: translate(calc((1 - var(--e, 0)) * var(--dx, 0px)), calc((1 - var(--e, 0)) * var(--dy, 0px))) scale(calc(1 + (1 - var(--e, 0)) * (var(--k, 1) - 1))) rotate(calc(var(--e, 0) * var(--r))); z-index: 6; position: relative; will-change: transform; }
+.motion .snap__win { --cs: 9px; }
+/* While a print is in the air it is the picture itself: its caption and corners arrive once it has landed. */
+.motion .snap__cap, .motion .snap__win.cornered::before { opacity: clamp(0, calc((var(--e, 0) - .9) * 12), 1); }
+.motion .snap { background: rgb(255 250 240 / clamp(0, calc((var(--e, 0) - .5) * 3), 1)); box-shadow: 0 14px 30px -14px rgb(40 25 10 / calc(clamp(0, (var(--e, 0) - .5) * 3, 1) * .45)); }
+.motion .snap__win { box-shadow: 0 calc((1 - var(--e, 0)) * 30px) calc((1 - var(--e, 0)) * 50px) -18px rgb(40 25 10 / calc((1 - var(--e, 0)) * .6)); }
+.motion .snap__cap { padding: 5px 0 6px; font-size: clamp(.68rem, .4rem + .5vw, .86rem); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.motion .world { display: block; grid-column: 2; grid-row: 1 / span 2; align-self: center; justify-self: center; --cs: 30px; position: relative; width: min(100%, calc((100vh - var(--hud) - 120px) * 1.6)); width: min(100%, calc((100svh - var(--hud) - 120px) * 1.6)); aspect-ratio: 16 / 10; border: 10px solid var(--card); border-radius: 4px; background: #f2e8d4; box-shadow: var(--shadow-card); scale: calc(.86 + var(--in) * .14); opacity: calc(.35 + var(--in) * .65); cursor: pointer; }
+.world__view { position: absolute; inset: 0; overflow: hidden; }
+.world__cam { position: absolute; inset: 0; transform-origin: 0 0; will-change: transform; }
+.world__cam > * { position: absolute; }
+.world__base { inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(calc(1 - var(--storm) * .45)) brightness(calc(1 - var(--storm) * .1)); }
+/* The growth clip, cut out, standing in the foreground grass */
+.world__plant { left: 60.5%; top: 97.5%; width: 22%; height: auto; aspect-ratio: 1; translate: -50% -96.5%; opacity: var(--planted); }
+/* The four arrivals, drawn in the picture's own pixels */
+.world__life { inset: 0; width: 100%; height: 100%; overflow: visible; }
+.lf--1 { opacity: var(--a1); } .lf--2 { opacity: var(--a2); } .lf--3 { opacity: var(--a3); } .lf--4 { opacity: var(--a4); } .lf--5 { opacity: var(--a5); }
+.lf--5 { transform-box: fill-box; transform-origin: 50% 100%; transform: translate(-24px, -3px) scale(1.4); }
+.lf__arch { transform-box: fill-box; transform-origin: 50% 100%; transform: scale(1.18, calc((.4 + var(--a1) * .6) * 1.18)); }
+.lf__kite { transform: translate(calc((1 - var(--a3)) * 90px), calc((1 - var(--a3)) * 40px)); }
+.lf__balloon { transform-box: view-box; transform-origin: 905px 160px; transform: translateY(calc((1 - var(--a4)) * 70px)) scale(1.45); }
+.lf__smoke { opacity: .62; }
+.lf__swing { transform-box: view-box; transform-origin: 512px 66px; animation: sway 3.4s ease-in-out infinite alternate; }
+.lf__kite > * { transform-box: view-box; transform-origin: 760px 120px; animation: bob 4.4s ease-in-out infinite alternate; }
+.lf__balloon > * { animation: drift 11s ease-in-out infinite alternate; }
+.lf__smoke circle { animation: puff 4.5s ease-out infinite; }
+.lf__smoke circle:nth-child(2) { animation-delay: -1.5s; } .lf__smoke circle:nth-child(3) { animation-delay: -3s; }
+@keyframes sway { from { transform: rotate(-2deg); } to { transform: rotate(2deg); } }
+@keyframes bob { from { transform: translate(-4px, 3px) rotate(-5deg); } to { transform: translate(5px, -4px) rotate(4deg); } }
+@keyframes drift { from { transform: translate(-8px, 4px); } to { transform: translate(12px, -6px); } }
+@keyframes puff { from { transform: translate(0, 10px) scale(.6); opacity: 0; } 25% { opacity: 1; } to { transform: translate(14px, -26px) scale(1.5); opacity: 0; } }
+/* Weather and light are laid over the one painting, so nothing can drift out of line and nothing extra is fetched. */
+.world__storm { inset: 0; background: linear-gradient(180deg, #232d49 0%, #36435a 55%, #485260 100%); mix-blend-mode: multiply; opacity: calc(var(--storm) * .86);
+  -webkit-mask-image: radial-gradient(ellipse 30% 34% at 21.5% 53%, #0000 0, #0000 calc(var(--open) * 52%), #000 calc(var(--open) * 100% + .4%));
+  mask-image: radial-gradient(ellipse 30% 34% at 21.5% 53%, #0000 0, #0000 calc(var(--open) * 52%), #000 calc(var(--open) * 100% + .4%)); }
+.world__clouds { left: -12%; right: -12%; top: 0; height: 64%; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='320'%3E%3Cfilter id='c' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.011 .028' numOctaves='4' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .13 0 0 0 0 .17 0 0 0 0 .27 0 0 0 2.6 -.95'/%3E%3C/filter%3E%3Crect width='640' height='320' filter='url(%23c)'/%3E%3C/svg%3E") 0 0 / 55% 100% repeat-x; opacity: var(--storm); transform: translateX(calc(var(--drift) * -7%)); -webkit-mask-image: linear-gradient(#000 35%, #0000); mask-image: linear-gradient(#000 35%, #0000); }
+.world__dusk { inset: 0; background: radial-gradient(95% 85% at 90% 40%, #ffd493 0%, #ffa466 38%, #b0627a 78%, #6d4a78 100%); mix-blend-mode: multiply; opacity: calc(var(--gold) * .78); }
+.world__sun { left: 90%; top: 40.5%; width: 46%; aspect-ratio: 1; translate: -50% -50%; background: radial-gradient(closest-side, #fff6cf 0%, #ffd27e99 26%, #ff9d5c33 58%, #ff9d5c00 100%); mix-blend-mode: screen; opacity: calc(var(--gold) * .9); }
+.world__lit { left: var(--x); top: var(--y); width: 5.4%; aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; background: radial-gradient(closest-side, #ffe2a0 0%, #ffbf5cb3 38%, #ffb04d00 100%); mix-blend-mode: screen; opacity: var(--lit); }
+/* The umbrella swings up from its handle and opens over the home; under it the storm is kept off. */
+.world__umb { left: 3%; top: 12.5%; width: 37.5%; height: auto; transform-origin: 85% 96%; opacity: clamp(0, calc(var(--open) * 4), 1); transform: rotate(calc((1 - var(--open)) * 26deg)) scale(calc(.5 + .5 * var(--open))); }
+.world__rain { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.world__tag { position: absolute; left: 14px; bottom: 12px; padding: 5px 13px 4px; border-radius: 3px; background: var(--card); box-shadow: 0 2px 6px #28190a40; font: 400 1.1rem/1.2 var(--f-hand); color: var(--ink); rotate: -1.5deg; opacity: 0; translate: 0 8px; transition: opacity .3s ease, translate .4s var(--ease); }
+.world__tag.is-on { opacity: 1; translate: none; }
+.world__flash { position: absolute; inset: 0; background: #fffdf5; opacity: var(--flash); pointer-events: none; }
+
+/* 8. Videos: a frame in the middle, the rest either side -------------------------------- */
+.videos { padding: clamp(80px, 10vw, 130px) 0 clamp(64px, 9vw, 110px); overflow-x: clip; }
+.videos__top { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px 32px; }
+.reel { display: flex; gap: clamp(16px, 3vw, 40px); list-style: none; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 36px calc(50vw - clamp(240px, 36vw, 480px) / 2) 40px; margin: 0 calc(50% - 50vw); }
+.reel::-webkit-scrollbar { display: none; }
+.reel li { flex: 0 0 clamp(240px, 36vw, 480px); scroll-snap-align: center; }
+.reel .card { padding-bottom: 46px; transition: transform .5s var(--ease), rotate .5s var(--ease), opacity .5s ease; transform: scale(.86); opacity: .75; }
+.reel li:nth-child(odd) .card { rotate: -2deg; }
+.reel li:nth-child(even) .card { rotate: 2deg; }
+.reel li.is-center .card { transform: none; rotate: 0deg; opacity: 1; }
+.thumb { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--paper-2); }
+.thumb img { width: 100%; height: 100%; object-fit: cover; }
+.thumb__play { position: absolute; inset: 0; margin: auto; width: 60px; height: 60px; border-radius: 50%; background: #fffaf0e6; display: grid; place-items: center; box-shadow: 0 4px 14px -6px #28190a88; }
+.thumb__play svg { width: 22px; height: 22px; fill: var(--seal); translate: 2px 0; }
+.reel-nav { display: flex; gap: 10px; }
+.reel-nav button { width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid var(--ink-soft); background: #fffaf080; color: var(--ink); font-size: 1.2rem; cursor: pointer; }
+.reel-nav button:hover { background: var(--ink); color: var(--card); }
+.follow { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 18px; }
+.follow__list { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; }
+.follow__list a { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid var(--ink-soft); color: var(--ink); background: #fffaf080; transition: background-color .2s, color .2s; }
+.follow__list a:hover { background: var(--ink); color: var(--card); }
+.follow__list svg { width: 20px; height: 20px; fill: currentColor; }
+
+/* 9. What working together looks like: her belief as a message, then three steps on a loop ---- */
+.together .stage__in { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
+.chat { width: 100%; max-width: 520px; justify-self: center; padding: 0; display: flex; flex-direction: column; rotate: -.8deg; }
+.chat .tape { width: 96px; top: -14px; rotate: 3deg; opacity: .85; }
+.motion .chat { max-height: 100%; }
+.motion .chat__body { -webkit-mask-image: linear-gradient(#0000, #000 16px); mask-image: linear-gradient(#0000, #000 16px); }
+.chat__head { display: flex; align-items: center; gap: 12px; padding: 22px 22px 0; flex: none; }
+.chat__ava { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2px var(--card), 0 0 0 3.5px #3a271a2b; }
+.chat__name { font: 400 1.4rem/1 var(--f-display); }
+/* If the card is ever taller than the screen, the oldest lines slide up out of the top, as in a chat */
+.chat__body { display: flex; flex-direction: column; justify-content: flex-end; flex: 1 1 auto; min-height: 0; overflow: hidden; padding: 14px 22px 24px; }
+.chat__body > * { flex: none; }
+.chat__quote { align-self: flex-start; overflow: hidden; padding: 13px 18px 14px; background: #f5ead6; border-radius: 4px 20px 20px 20px; font: italic 400 1.42rem/1.24 var(--f-display); color: var(--ink); }
+.steps { --g: 26px; --s: 2rem; --c: calc(2px + var(--s) / 2); position: relative; list-style: none; margin: 22px 0 0; padding: 0; }
+.step { position: relative; display: flex; gap: 12px; align-items: flex-start; padding: 0 0 18px var(--g); overflow: hidden; }
+.step:last-child { padding-bottom: 0; }
+.step p { font-size: .98rem; line-height: 1.45; color: var(--ink-soft); }
+.step .step__name { font: 400 1.3rem/1.15 var(--f-display); color: var(--ink); margin-bottom: 2px; }
+.step .seal { position: relative; z-index: 1; width: var(--s); height: var(--s); font-size: 1.15rem; margin-top: 2px; }
+/* One dashed loop: down through the three seals (::after), then back up the margin to step 1 (::before) */
+.step::before, .step::after, .steps::before { content: ""; position: absolute; pointer-events: none; }
+.step::before, .step::after { border: 0 dashed var(--seal); opacity: .75; }
+.step::after { left: calc(var(--g) + var(--s) / 2 - 1px); top: calc(var(--c) + var(--s) / 2 + 6px); bottom: 2px; border-left-width: 2px; }
+.step:last-child::after { display: none; }
+.step::before { left: 5px; top: 0; bottom: 0; width: calc(var(--g) - 8px); border-left-width: 2px; }
+.step:first-child::before { top: var(--c); width: calc(var(--g) - 13px); border-top-width: 2px; border-top-left-radius: 12px; }
+.step:last-child::before { bottom: auto; height: calc(var(--c) + 2px); border-bottom-width: 2px; border-bottom-left-radius: 12px; }
+.steps::before { left: calc(var(--g) - 13px); top: calc(var(--c) - 3px); width: 8px; height: 8px; border: solid var(--seal); border-width: 2px 2px 0 0; rotate: 45deg; opacity: .9; }
+.typing { display: none; }
+.motion .chat__quote:not(.is-in) { max-height: 0; opacity: 0; padding-block: 0; }
+.motion .chat__quote { max-height: 260px; transition: max-height .5s var(--ease), opacity .4s ease .1s, padding .4s ease; }
+.motion .steps { transition: margin .4s ease; }
+.motion .steps:not(:has(.is-in)) { margin-top: 0; }
+.motion .step:not(.is-in) { max-height: 0; opacity: 0; padding-bottom: 0; }
+.motion .step { max-height: 320px; transition: max-height .5s var(--ease), opacity .4s ease .1s, padding .4s ease; }
+.motion .step::after { clip-path: inset(0); transition: clip-path .5s var(--ease) .2s; }
+.motion .step:not(:has(+ .step.is-in))::after { clip-path: inset(0 0 100% 0); }
+.motion .step:last-child::before { opacity: calc(.75 * clamp(0, var(--q, 0) * 6, 1)); }
+.motion .step:nth-child(2)::before { clip-path: inset(calc((1 - clamp(0, (var(--q, 0) - .12) / .38, 1)) * 100%) 0 0 0); }
+.motion .step:first-child::before { clip-path: inset(calc((1 - clamp(0, (var(--q, 0) - .5) / .36, 1)) * 100%) 0 0 0); }
+.motion .steps::before { opacity: calc(.9 * clamp(0, (var(--q, 0) - .86) / .1, 1)); translate: calc((1 - clamp(0, (var(--q, 0) - .86) / .1, 1)) * -7px) 0; }
+.motion .typing.is-on { display: flex; gap: 5px; align-self: flex-start; padding: 15px 17px; background: #f5ead6; border-radius: 4px 20px 20px 20px; }
+.typing i { width: 7px; height: 7px; border-radius: 50%; background: var(--ink-soft); animation: dot 1s infinite ease-in-out; }
+.typing i:nth-child(2) { animation-delay: .15s; }
+.typing i:nth-child(3) { animation-delay: .3s; }
+@keyframes dot { 0%, 60%, 100% { opacity: .3; transform: none; } 30% { opacity: 1; transform: translateY(-3px); } }
+
+/* 10. Let's talk: night falls ----------------------------------------------------------- */
+.talk { position: relative; color: var(--moon); background: linear-gradient(180deg, var(--paper) 0, #c9b9a8 8vh, #4c4f6a 22vh, var(--river) 36vh); padding: 42vh 0 clamp(64px, 8vw, 110px); }
+.talk__grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
+.talk__art { position: relative; justify-self: center; width: min(500px, 100%); }
+/* The café painting sits on a cream card: its soft edge needs light paper behind it, not the night ground. */
+.talk__card { --cs: 30px; --corner: #c9a45a; padding: 14px; rotate: -1.6deg; }
+.talk__card img { width: 100%; }
+.talk .title { color: var(--moon); }
+.talk__lead { margin-top: 16px; color: var(--moon-soft); max-width: 44ch; }
+.toy { display: grid; gap: 10px; margin-top: 30px; max-width: 540px; }
+.toy label { color: var(--moon-soft); }
+.toy textarea { width: 100%; min-height: 96px; resize: vertical; padding: 14px 16px; border-radius: 14px; border: 1.5px dashed #f3e7cf66; background: #f3e7cf14; color: var(--moon); font: 400 1.15rem/1.45 var(--f-hand); }
+.toy textarea::placeholder { color: #cfc6b4aa; }
+.toy textarea:focus-visible { outline: 2.5px solid var(--moon); outline-offset: 2px; }
+.toy .btn { justify-self: start; margin-top: 6px; }
+.toy__fine { font-size: .98rem; color: var(--moon-soft); }
+.details { margin-top: 36px; padding: 26px 26px 22px; display: grid; gap: 14px; max-width: 470px; rotate: -.8deg; color: var(--ink); }
+.details .tape { left: 18%; rotate: 5deg; }
+.details dt { font-family: var(--f-hand); color: var(--ink-soft); font-size: 1.02rem; line-height: 1.2; }
+.details dd { margin: 2px 0 0; }
+.details a { text-decoration-color: #3a271a55; text-underline-offset: 3px; }
+address { font-style: normal; }
+@media (min-width: 901px) { .talk__grid { align-items: start; } .talk__art { position: sticky; top: calc(var(--hud) + 44px); } }
+/* Start your album: the visitor picks the pages they are working towards; each is pasted onto a page of their own */
+.talk .kick { color: var(--gold); }
+.toy .chips { display: none; }
+.js .toy .chips { display: block; min-width: 0; margin: 0 0 4px; padding: 0; border: 0; }
+.chips legend { padding: 0; margin-bottom: 14px; font: 400 clamp(1.55rem, 1.2rem + 1.3vw, 2.15rem)/1.12 var(--f-display); color: var(--moon); }
+.chips__list { display: flex; flex-wrap: wrap; gap: 10px; }
+.toy .chip { position: relative; display: inline-flex; align-items: center; min-height: 44px; padding: 8px 17px 7px; border-radius: 999px; border: 1.5px dashed #f3e7cf85; color: var(--moon); font: 400 1.12rem/1.1 var(--f-hand); cursor: pointer; transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
+.chip input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.toy .chip:hover { background: #f3e7cf1f; }
+.toy .chip.is-on { background: var(--moon); border-color: var(--moon); border-style: solid; color: var(--ink); }
+.toy .chip:has(input:focus-visible) { outline: 2.5px solid var(--moon); outline-offset: 3px; }
+.mypage { display: none; }
+.js .mypage { display: block; min-height: 132px; margin: 6px 0 8px; padding: 16px 18px 18px 26px; background: linear-gradient(90deg, #3a271a24 0, #3a271a00 22px), var(--card); color: var(--ink); box-shadow: var(--shadow-card); border-radius: 2px 7px 7px 2px; rotate: .7deg; }
+.mypage__title { color: var(--seal); }
+.mypage__empty { margin-top: 6px; }
+.mypage__list { display: flex; flex-wrap: wrap; gap: 14px 16px; list-style: none; margin: 12px 0 0; padding: 0; }
+.mypage__list:empty { display: none; }
+/* The four prints taken on the way down the page are already mounted here; the visitor's own are pasted in after them. */
+.mypage__kept { display: flex; flex-wrap: wrap; gap: 14px 16px; list-style: none; margin: 12px 0 0; padding: 0; }
+.mypage__kept .stamp { animation: none; }
+.mypage__kept .stamp__win { aspect-ratio: 16 / 10; }
+.stamp { width: 88px; }
+.stamp:nth-child(odd) { rotate: -2deg; }
+.stamp:nth-child(even) { rotate: 1.6deg; }
+.stamp__win { --cs: 12px; display: grid; place-items: center; aspect-ratio: 5 / 4; background: radial-gradient(120% 90% at 50% 40%, #f8efdf 0%, #eedcc0 100%); box-shadow: 0 8px 14px -10px #28190a80; }
+.stamp__win img { width: 80%; height: 80%; object-fit: contain; }
+.stamp__win img.is-photo { width: 100%; height: 100%; object-fit: cover; }
+.stamp p { margin-top: 7px; font: 400 .88rem/1.15 var(--f-hand); color: var(--ink-soft); text-align: center; }
+.motion .stamp { animation: paste .55s cubic-bezier(.3, 1.4, .5, 1) both; }
+@keyframes paste { from { opacity: 0; transform: translateY(-16px) scale(1.18) rotate(-7deg); } }
+
+/* Footer: regulatory information and the disclaimer --------------------------------------- */
+.night { background: var(--river); color: var(--moon); }
+.night__inner { padding-top: clamp(40px, 5vw, 64px); padding-bottom: clamp(110px, 12vw, 120px); display: grid; gap: 32px; border-top: 1px solid #f3e7cf2e; }
+.night__top { display: grid; grid-template-columns: 1fr 1fr; gap: 28px clamp(32px, 6vw, 96px); }
+.night__brand { font: 400 clamp(2rem, 1.5rem + 2vw, 3rem)/1 var(--f-display); }
+.night__brand em { font-style: italic; }
+.creds h2 { font: 400 1.5rem/1.15 var(--f-display); }
+.creds dl { margin-top: 14px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px 28px; }
+.creds dt { font-family: var(--f-hand); color: var(--moon-soft); }
+.creds dd { margin: 2px 0 0; }
+.disclaimer { display: grid; gap: 12px; max-width: 92ch; font-size: .9rem; color: var(--moon-soft); }
+.copyright { font-size: .9rem; color: var(--moon-soft); }
+
+/* Anchored WhatsApp button and preview tags ------------------------------------------------ */
+.fab { position: fixed; z-index: 50; right: max(18px, env(safe-area-inset-right, 0px) + 14px); bottom: max(18px, env(safe-area-inset-bottom, 0px) + 14px); width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; background: var(--wa); color: var(--wa-ink); box-shadow: 0 10px 24px -10px #50140acc, inset 0 0 0 2.5px #fff2e2; transition: transform .2s, background-color .2s; }
+.fab:hover { transform: translateY(-2px) rotate(-6deg); background: var(--wa-deep); }
+.fab svg { width: 28px; height: 28px; fill: currentColor; }
+.tags { position: fixed; z-index: 60; display: flex; gap: 6px; left: max(14px, env(safe-area-inset-left, 0px) + 12px); bottom: max(14px, env(safe-area-inset-bottom, 0px) + 12px); }
+.tag { display: inline-flex; align-items: center; min-height: 30px; padding: 0 11px; border-radius: 999px; font: 600 10.5px/1 var(--f-body); letter-spacing: .06em; text-transform: uppercase; text-decoration: none; white-space: nowrap; color: var(--ink); background: #fffaf0e6; border: 1px solid #3a271a2e; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.tag--back:hover { background: var(--ink); color: var(--card); }
+
+/* Small laptops and wide tablets: less room beside the portrait, so the waiting prints sit closer in. */
+@media (min-width: 901px) and (max-width: 1380px) {
+  .blank--a { left: -15%; }
+  .blank--b { right: -11%; }
+}
+
+/* Tablet and phone ------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .hero__grid, .talk__grid, .night__top { grid-template-columns: 1fr; }
+  .hero__art { width: min(330px, 78%); margin-top: 18px; }
+  .blank--a { left: -15%; }
+  .blank--b { right: -13%; }
+  .pages .stage__in, .clarity .stage__in, .together .stage__in { grid-template-columns: 1fr; align-content: start; }
+  .album { max-width: 620px; }
+  .motion .album { width: min(100%, 620px); perspective: 1700px; }
+  .book { aspect-ratio: auto; }
+  .motion .book { transform: rotateX(calc(38deg - var(--c) * 30deg)) rotateZ(calc(var(--c) * 5.4deg - 6deg)) scale(calc(.9 + var(--c) * .1)); }
+  .book__base, .book__leaf { left: 0; width: 100%; }
+  .book__leaf { display: none; }
+  .motion .book__leaf { display: block; }
+  .album__list { position: relative; inset: auto; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(14px, 2vw, 26px) clamp(12px, 1.8vw, 24px); padding: clamp(20px, 2.6vw, 38px) clamp(18px, 2.4vw, 34px) clamp(16px, 2vw, 28px) clamp(26px, 3vw, 44px); }
+  .album__list li, .album__list li:nth-child(-n+2) { position: static; width: auto; grid-column: span 2; transform: none; }
+  .album__list li:nth-child(4) { grid-column: 2 / span 2; }
+  .motion .album__list li:nth-child(-n+2) .mem { opacity: 1; }
+  .talk__art { width: min(420px, 92%); order: 2; }
+  /* The living picture: the painting on top, her words under it, the prints along the bottom */
+  .motion .life .stage__in { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr) auto; gap: 14px; }
+  .motion .world { grid-column: 1; grid-row: 1; width: min(100%, 640px, calc((100vh - var(--hud) - 350px) * 1.6)); width: min(100%, 640px, calc((100svh - var(--hud) - 350px) * 1.6)); }
+  .motion .life__words { grid-row: 2; align-content: start; }
+  .motion .life .chap { align-self: start; }
+  .motion .roll { grid-row: 3; max-width: 520px; }
+}
+@media (max-width: 760px) {
+  .hud__chapter { font-size: .98rem; max-width: 52vw; }
+  .hud__page { display: none; }
+  .brand { font-size: 1.3rem; }
+  .lede { font-size: clamp(1.45rem, 1.1rem + 2.2vw, 1.9rem); }
+  .kick { font-size: 1.05rem; margin-bottom: 6px; }
+  .pages .stage__in { gap: 18px; }
+  .s2 { margin-top: 16px; }
+  .album__list { gap: 12px 10px; padding: 16px 12px 12px 20px; }
+  .mem__win { --cs: 11px; }
+  .mem__fill { border-width: 3px; }
+  .mem figcaption { margin-top: 6px; font-size: .84rem; }
+  .life .stage__in { grid-template-columns: minmax(0, 118px) minmax(0, 1fr); gap: 26px 16px; }
+  .life .topic__title { margin-bottom: 8px; font-size: 1.75rem; }
+  .life .desc { font-size: .95rem; line-height: 1.45; }
+  .behind__sub { font-size: 1.15rem; margin-top: 6px; }
+  .snap__cap { font-size: .82rem; }
+  .motion .chap--intro .title { font-size: 2.1rem; }
+  .motion .world { --cs: 18px; border-width: 6px; }
+  .motion .pour { margin-top: 10px; padding: 8px 14px; font-size: 1rem; }
+  .motion .roll { gap: 8px; margin-right: 72px; }
+  .motion .life .stage { padding-bottom: 84px; }
+  .motion .snap { padding: 4px 4px 0; }
+  .world__tag { left: 8px; bottom: 8px; font-size: .95rem; }
+  .together .stage__in { grid-template-rows: auto minmax(0, 1fr); gap: 20px; }
+  .chat .tape { width: 72px; top: -10px; left: 80%; }
+  .chat__head { padding: 16px 18px 0; gap: 10px; }
+  .chat__ava { width: 38px; height: 38px; }
+  .chat__name { font-size: 1.25rem; }
+  .chat__body { padding: 14px 18px 18px; }
+  .chat__quote { padding: 10px 14px 11px; font-size: 1.16rem; }
+  .steps { --g: 22px; --s: 1.8rem; margin-top: 16px; }
+  .step { gap: 10px; padding-bottom: 12px; }
+  .step p { font-size: .92rem; line-height: 1.4; }
+  .step .step__name { font-size: 1.2rem; }
+  .step .seal { font-size: 1.05rem; }
+  .talk { padding-top: 34vh; }
+  .stamp { width: 76px; }
+  .tags { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .tag { min-height: 26px; padding: 0 9px; font-size: 9.5px; }
+}
+/* Short phone screens (a phone browser with its toolbars showing): the held sections have less height to work with. */
+@media (max-width: 760px) and (max-height: 720px) {
+  .together .title { font-size: 2rem; }
+  .motion .together .stage { padding-bottom: 64px; }
+  .together .stage__in { gap: 14px; }
+  .chat__head { padding-top: 14px; }
+  .chat__ava { width: 34px; height: 34px; }
+  .chat__body { padding: 12px 16px 14px; }
+  .chat__quote { padding: 8px 13px 9px; font-size: 1.1rem; }
+  .steps { margin-top: 12px; }
+  .step { padding-bottom: 8px; }
+  .step p { line-height: 1.36; }
+}
+@media (max-width: 400px) {
+  .hero__actions .btn, .toy .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+  <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></symbol>
+  <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 3.8v16.4c0 .8.9 1.3 1.6.9l13-8.2c.6-.4.6-1.3 0-1.7l-13-8.2C6.9 2.5 6 3 6 3.8Z"/></symbol>
+</svg>
+
+<header class="hud">
+  <a class="brand" href="#main">Carine <em>Zheng</em></a>
+  <p class="hud__chapter" aria-hidden="true"><span class="hud__page">page 1</span><span class="hud__name">Not finished yet</span></p>
+  <span class="hud__bar" aria-hidden="true"><span class="hud__fill"></span></span>
+</header>
+
+<main id="main" tabindex="-1">
+
+  <!-- 1. Cover: a new headline over her own line; her portrait is the first print in the album, and two prints
+       that have not been taken yet wait behind it -->
+  <section class="hero" data-chapter="Not finished yet">
+    <div class="wrap hero__grid">
+      <div>
+        <p class="note hero__eyebrow">financial planner · Singapore</p>
+        <h1 class="h1 split">Some of your best memories <em>haven’t happened yet.</em></h1>
+        <p class="hero__sub">Financial planning for every stage of life.</p>
+        <div class="hero__actions">
+          <a class="btn btn--wa" href="https://wa.me/6583893356" rel="noopener" target="_blank"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Chat with me on WhatsApp<span class="vh"> (opens in a new tab)</span></a>
+          <a class="note hero__hint" href="#pages">or turn the page ↓</a>
+        </div>
+      </div>
+      <div class="hero__art">
+        <img class="hero__bloom" src="kit/wc/bloom.webp" alt="" width="1400" height="1000">
+        <span class="blank blank--a" aria-hidden="true"></span>
+        <span class="blank blank--b" aria-hidden="true">still to come</span>
+        <figure class="card polaroid cornered">
+          <img class="polaroid__img" src="kit/carine.webp" alt="Carine Zheng, financial planner with Financial Alliance, in a watercolour portrait" width="960" height="1200" fetchpriority="high">
+          <figcaption>Carine Zheng · Financial Alliance</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. The pages still to fill: her words beside a photo album that opens; five prints are placed on its pages -->
+  <section class="beat pages" id="pages" data-beat="pages" style="--len: 4.2" data-chapter="The pages still to fill">
+    <div class="stage">
+      <div class="stage__in">
+        <div>
+          <p class="kick">the pages still to fill</p>
+          <p class="lede words s1">As life changes, so do the roles and responsibilities we carry.</p>
+          <p class="lede words s2">And with them can come different financial priorities.</p>
+        </div>
+        <div class="album">
+          <div class="book">
+            <div class="book__base" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="book__leaf" aria-hidden="true">
+              <div class="book__front"><p class="book__label">the pages still to fill</p></div>
+              <div class="book__inside"></div>
+            </div>
+          <ul class="album__list">
+            <li><figure class="mem"><div class="mem__win cornered"><div class="mem__fill"><img loading="lazy" decoding="async" src="kit/wc2/key.webp" alt="" width="380" height="272"></div></div><figcaption>the keys</figcaption></figure></li>
+            <li><figure class="mem"><div class="mem__win cornered"><div class="mem__fill"><img loading="lazy" decoding="async" src="kit/wc2/rings.webp" alt="" width="380" height="224"></div></div><figcaption>the day you said yes</figcaption></figure></li>
+            <li><figure class="mem"><div class="mem__win cornered"><div class="mem__fill"><img loading="lazy" decoding="async" src="kit/wc2/shoes.webp" alt="" width="380" height="279"></div></div><figcaption>first steps</figcaption></figure></li>
+            <li><figure class="mem"><div class="mem__win cornered"><div class="mem__fill"><img loading="lazy" decoding="async" src="kit/wc2/cap.webp" alt="" width="380" height="287"></div></div><figcaption>graduation day</figcaption></figure></li>
+            <li><figure class="mem"><div class="mem__win cornered"><div class="mem__fill"><img loading="lazy" decoding="async" src="kit/wc2/glasses.webp" alt="" width="380" height="205"></div></div><figcaption>a slow Tuesday, much later</figcaption></figure></li>
+          </ul>
+          </div>
+        </div>
+      </div>
+      <p class="cue note" aria-hidden="true">keep scrolling ↓</p>
+    </div>
+  </section>
+
+  <!-- 3. Into focus: a blueprint on the desk stands up, becomes a white model, then the painted scene -->
+  <section class="beat clarity" id="clarity" data-beat="clarity" style="--len: 3.6" data-chapter="Into focus">
+    <div class="stage">
+      <div class="stage__in">
+        <div>
+          <p class="kick">planning is how the picture comes into focus</p>
+          <p class="lede words s1">I help you make sense of these changes, so you can plan with greater clarity for yourself and the people who matter to you.</p>
+        </div>
+        <div class="panel-wrap">
+          <div class="panel" aria-hidden="true">
+            <img loading="lazy" decoding="async" class="panel__plan" src="kit/wc2/plan.webp" srcset="kit/wc2/plan-760.webp 760w, kit/wc2/plan.webp 1200w" sizes="(max-width: 900px) 92vw, 680px" alt="" width="1200" height="750">
+            <img loading="lazy" decoding="async" class="panel__model" src="kit/wc2/model.webp" srcset="kit/wc2/model-760.webp 760w, kit/wc2/model.webp 1200w" sizes="(max-width: 900px) 92vw, 680px" alt="" width="1200" height="750">
+            <div class="clear">
+              <img loading="lazy" decoding="async" class="clear__img" src="kit/wc2/clarity.webp" srcset="kit/wc2/clarity-760.webp 760w, kit/wc2/clarity.webp 1200w" sizes="(max-width: 900px) 92vw, 680px" alt="" width="1200" height="750">
+            </div>
+            <span class="lens"></span>
+          </div>
+          <p class="note panel-hint" aria-hidden="true">move the lens over the picture</p>
+        </div>
+      </div>
+      <p class="cue note" aria-hidden="true">keep scrolling ↓</p>
+    </div>
+  </section>
+
+  <!-- 4 to 8. One picture, lived in. The cottage scene from "Into focus" stays on screen and her four areas happen
+       inside it, across one day's light. Each ends with the shutter, and the frame drops out as a print. On the
+       still page each area is that print with her words beside it. -->
+  <section class="beat life" id="help" data-beat="life" style="--len: 12.5" data-chapter="Behind every photograph">
+    <i class="mark" data-chapter="Protecting what matters" style="--at: .085"></i>
+    <i class="mark" data-chapter="Growing your wealth" style="--at: .31"></i>
+    <i class="mark" data-chapter="Life’s milestones" style="--at: .53"></i>
+    <i class="mark" data-chapter="Planning for later life" style="--at: .8"></i>
+    <div class="stage">
+      <span class="sky" aria-hidden="true"></span>
+      <div class="stage__in">
+        <div class="life__words">
+          <header class="chap chap--intro">
+            <p class="kick">behind every photograph</p>
+            <h2 class="title">What I can help you with</h2>
+            <p class="note behind__sub">Planning for what matters at every stage.</p>
+          </header>
+          <article class="chap" id="protect" data-chapter="Protecting what matters">
+            <p class="kick">whatever the weather</p>
+            <h3 class="title topic__title">Protecting what matters</h3>
+            <p class="desc">Understanding your insurance, critical illness and income protection needs, including whether your existing coverage still fits your circumstances.</p>
+            <button class="pour" type="button">tap to make it pour ☂</button>
+          </article>
+          <article class="chap" id="grow" data-chapter="Growing your wealth">
+            <p class="kick">planted early, tended patiently</p>
+            <h3 class="title topic__title">Growing your wealth</h3>
+            <p class="desc">Making sense of investing and long-term wealth accumulation without unnecessary complexity.</p>
+          </article>
+          <article class="chap" id="milestones" data-chapter="Life’s milestones">
+            <p class="kick">the days you’ll frame</p>
+            <h3 class="title topic__title">Planning around life’s milestones</h3>
+            <p class="desc">Preparing financially for marriage, a home, children and other major changes in responsibility.</p>
+          </article>
+          <article class="chap" id="later" data-chapter="Planning for later life">
+            <p class="kick">one day, you’ll look back on all of it</p>
+            <h3 class="title topic__title">Planning for later life</h3>
+            <p class="desc">Building towards financial independence, retirement and the future you want.</p>
+          </article>
+        </div>
+        <ol class="roll" aria-hidden="true">
+          <li class="snap"><span class="snap__win cornered"><img loading="lazy" decoding="async" src="kit/wc2/snap-1.webp" alt="" width="480" height="300"></span><span class="snap__cap">rain or shine</span></li>
+          <li class="snap"><span class="snap__win cornered"><img loading="lazy" decoding="async" src="kit/wc2/snap-2.webp" alt="" width="480" height="300"></span><span class="snap__cap">planted early</span></li>
+          <li class="snap"><span class="snap__win cornered"><img loading="lazy" decoding="async" src="kit/wc2/snap-3.webp" alt="" width="480" height="300"></span><span class="snap__cap">moving-in day</span></li>
+          <li class="snap"><span class="snap__win cornered"><img loading="lazy" decoding="async" src="kit/wc2/snap-4.webp" alt="" width="480" height="300"></span><span class="snap__cap">golden hour</span></li>
+        </ol>
+        <div class="world cornered" aria-hidden="true">
+          <div class="world__view">
+            <div class="world__cam">
+              <img loading="lazy" decoding="async" class="world__base" src="kit/wc2/clarity.webp" srcset="kit/wc2/clarity-760.webp 760w, kit/wc2/clarity.webp 1200w" sizes="(max-width: 900px) 92vw, 820px" alt="" width="1200" height="750">
+              <canvas class="world__plant" width="340" height="340"></canvas>
+            <svg class="world__life" viewBox="0 0 1200 750" preserveAspectRatio="none" focusable="false">
+              <defs><filter id="wc" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".07" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2"/><feGaussianBlur stdDeviation=".28"/></filter><filter id="soft"><feGaussianBlur stdDeviation="2.4"/></filter></defs>
+              <g class="lf lf--1">
+                <g class="lf__arch" filter="url(#wc)"><path d="M672 487 C671 441 682 418 700 418 C718 418 729 441 728 487" fill="none" stroke="#5f8246" stroke-width="7.5" stroke-linecap="round"/><circle cx="672.0" cy="485.0" r="3.3" fill="#fffaf2" stroke="#a8667033" stroke-width=".6"/><ellipse cx="676.0" cy="488.0" rx="3.4" ry="1.6" fill="#55793f" transform="rotate(30 676.0 488.0)"/><circle cx="672.7" cy="472.0" r="4.1" fill="#f6c3cd" stroke="#a8667033" stroke-width=".6"/><circle cx="673.1" cy="459.8" r="5.0" fill="#f1a2b3" stroke="#a8667033" stroke-width=".6"/><ellipse cx="677.1" cy="462.8" rx="3.4" ry="1.6" fill="#55793f" transform="rotate(64 677.1 462.8)"/><circle cx="676.7" cy="445.4" r="3.7" fill="#fbe0a2" stroke="#a8667033" stroke-width=".6"/><circle cx="677.4" cy="440.5" r="4.6" fill="#fffaf2" stroke="#a8667033" stroke-width=".6"/><ellipse cx="681.4" cy="443.5" rx="3.4" ry="1.6" fill="#55793f" transform="rotate(98 681.4 443.5)"/><circle cx="683.4" cy="433.2" r="3.3" fill="#f6c3cd" stroke="#a8667033" stroke-width=".6"/><circle cx="684.4" cy="423.5" r="4.1" fill="#fffaf2" stroke="#a8667033" stroke-width=".6"/><ellipse cx="688.4" cy="426.5" rx="3.4" ry="1.6" fill="#55793f" transform="rotate(132 688.4 426.5)"/><circle cx="692.1" cy="423.3" r="5.0" fill="#f6c3cd" stroke="#a8667033" stroke-width=".6"/><circle cx="693.4" cy="420.8" r="3.7" fill="#f1a2b3" stroke="#a8667033" stroke-width=".6"/><ellipse cx="697.4" cy="423.8" rx="3.4" ry="1.6" fill="#55793f" transform="rotate(166 697.4 423.8)"/><circle cx="701.8" cy="416.0" r="4.6" fill="#fbe0a2" stroke="#a8667033" stroke-width=".6"/><circle cx="703.1" cy="420.8" r="3.3" fill="#fffaf2" stroke="#a8667033" stroke-width=".6"/><ellipse cx="707.1" cy="423.8" rx="3.4" ry="1.6" fill="#55793f" transform="rotate(200 707.1 423.8)"/><circle cx="711.3" cy="423.3" r="4.1" fill="#f6c3cd" stroke="#a8667033" stroke-width=".6"/><circle cx="712.4" cy="423.5" r="5.0" fill="#fffaf2" stroke="#a8667033" stroke-width=".6"/><ellipse cx="716.4" cy="426.5" rx="3.4" ry="1.6" fill="#55793f" transform="rotate(234 716.4 426.5)"/><circle cx="719.4" cy="433.2" r="3.7" fill="#f6c3cd" stroke="#a8667033" stroke-width=".6"/><circle cx="720.3" cy="440.5" r="4.6" fill="#f1a2b3" stroke="#a8667033" stroke-width=".6"/><ellipse cx="724.3" cy="443.5" rx="3.4" ry="1.6" fill="#55793f" transform="rotate(268 724.3 443.5)"/><circle cx="725.1" cy="445.4" r="3.3" fill="#fbe0a2" stroke="#a8667033" stroke-width=".6"/><circle cx="725.7" cy="459.8" r="4.1" fill="#fffaf2" stroke="#a8667033" stroke-width=".6"/><ellipse cx="729.7" cy="462.8" rx="3.4" ry="1.6" fill="#55793f" transform="rotate(302 729.7 462.8)"/><circle cx="727.9" cy="472.0" r="5.0" fill="#f6c3cd" stroke="#a8667033" stroke-width=".6"/><circle cx="728.0" cy="485.0" r="3.7" fill="#fffaf2" stroke="#a8667033" stroke-width=".6"/><ellipse cx="732.0" cy="488.0" rx="3.4" ry="1.6" fill="#55793f" transform="rotate(336 732.0 488.0)"/></g>
+                <g class="lf__bunt" filter="url(#wc)"><path d="M298 339 Q378 392 458 352" fill="none" stroke="#6b4a2e" stroke-width="1"/><path d="M299.9 340.3 L312.1 347.6 L306.0 356.9 Z" fill="#fff6e6" stroke="#5b3a2266" stroke-width=".7"/><path d="M315.9 349.7 L328.1 355.6 L322.0 365.7 Z" fill="#e9a3ae" stroke="#5b3a2266" stroke-width=".7"/><path d="M331.9 357.3 L344.1 361.8 L338.0 372.6 Z" fill="#f1d28a" stroke="#5b3a2266" stroke-width=".7"/><path d="M347.9 363.0 L360.1 366.1 L354.0 377.6 Z" fill="#a9c7a0" stroke="#5b3a2266" stroke-width=".7"/><path d="M363.9 366.9 L376.1 368.6 L370.0 380.7 Z" fill="#fff6e6" stroke="#5b3a2266" stroke-width=".7"/><path d="M379.9 368.9 L392.1 369.2 L386.0 382.0 Z" fill="#e9a3ae" stroke="#5b3a2266" stroke-width=".7"/><path d="M395.9 369.0 L408.1 367.9 L402.0 381.5 Z" fill="#f1d28a" stroke="#5b3a2266" stroke-width=".7"/><path d="M411.9 367.3 L424.1 364.8 L418.0 379.1 Z" fill="#a9c7a0" stroke="#5b3a2266" stroke-width=".7"/><path d="M427.9 363.8 L440.1 359.8 L434.0 374.8 Z" fill="#fff6e6" stroke="#5b3a2266" stroke-width=".7"/><path d="M443.9 358.3 L456.1 352.9 L450.0 368.6 Z" fill="#e9a3ae" stroke="#5b3a2266" stroke-width=".7"/></g>
+              </g>
+              <g class="lf lf--2">
+                <g class="lf__smoke" filter="url(#soft)"><circle cx="157" cy="274" r="6" fill="#fff"/><circle cx="161" cy="258" r="8" fill="#fff"/><circle cx="168" cy="240" r="10" fill="#fff"/></g>
+                <g class="lf__fence" filter="url(#wc)"><path d="M236.0 550.5 L374.0 527.5" fill="none" stroke="#fffaf0" stroke-width="2.4" stroke-linecap="round"/><path d="M236.0 556.5 L374.0 533.5" fill="none" stroke="#fffaf0" stroke-width="2.4" stroke-linecap="round"/><path d="M410.2 520.6 L508.0 504.5" fill="none" stroke="#fffaf0" stroke-width="2.4" stroke-linecap="round"/><path d="M410.2 526.6 L508.0 510.5" fill="none" stroke="#fffaf0" stroke-width="2.4" stroke-linecap="round"/><path d="M235.4 561.0 v-15.5 l2.6 -3 l2.6 3 v15.5 Z" fill="#fffaf0" stroke="#8a6f5699" stroke-width=".7" stroke-linejoin="round"/><path d="M248.8 558.7 v-16.9 l2.6 -3 l2.6 3 v16.9 Z" fill="#fffaf0" stroke="#8a6f5699" stroke-width=".7" stroke-linejoin="round"/><path d="M262.2 556.4 v-16.2 l2.6 -3 l2.6 3 v16.2 Z" fill="#fffaf0" stroke="#8a6f5699" stroke-width=".7" stroke-linejoin="round"/><path d="M275.6 554.1 v-15.5 l2.6 -3 l2.6 3 v15.5 Z" fill="#fffaf0" stroke="#8a6f5699" stroke-width=".7" stroke-linejoin="round"/><path d="M289.0 551.8 v-16.9 l2.6 -3 l2.6 3 v16.9 Z" fill="#fffaf0" stroke="#8a6f5699" stroke-width=".7" stroke-linejoin="round"/><path d="M302.4 549.5 v-16.2 l2.6 -3 l2.6 3 v16.2 Z" fill="#fffaf0" stroke="#8a6f5699" stroke-width=".7" stroke-linejoin="round"/><path d="M315.8 547.2 v-15.5 l2.6 -3 l2.6 3 v15.5 Z" fill="#fffaf0" stroke="#8a6f5699" stroke-width=".7" stroke-linejoin="round"/><path d="M329.2 544.9 v-16.9 l2.6 -3 l2.6 3 v16.9 Z" fill="#fffaf0" stroke="#8a6f5699" stroke-width=".7" stroke-linejoin="round"/><path d="M342.6 542.6 v-16.2 l2.6 -3 l2.6 3 v16.2 Z" fill="#fffaf0" stroke="#8a6f5699" stroke-width=".7" stroke-linejoin="round"/><path d="M356.0 540.3 v-15.5 l2.6 -3 l2.6 3 v15.5 Z" fill="#fffaf0" stroke="#8a6f5699" stroke-width=".7" stroke-linejoin="round"/><path d="M369.4 538.0 v-16.9 l2.6 -3 l2.6 3 v16.9 Z" fill="#fffaf0" stroke="#8a6f5699" stroke-width=".7" stroke-linejoin="round"/><path d="M409.6 531.1 v-16.9 l2.6 -3 l2.6 3 v16.9 Z" fill="#fffaf0" stroke="#8a6f5699" stroke-width=".7" stroke-linejoin="round"/><path d="M423.0 528.8 v-16.2 l2.6 -3 l2.6 3 v16.2 Z" fill="#fffaf0" stroke="#8a6f5699" stroke-width=".7" stroke-linejoin="round"/><path d="M436.4 526.5 v-15.5 l2.6 -3 l2.6 3 v15.5 Z" fill="#fffaf0" stroke="#8a6f5699" stroke-width=".7" stroke-linejoin="round"/><path d="M449.8 524.2 v-16.9 l2.6 -3 l2.6 3 v16.9 Z" fill="#fffaf0" stroke="#8a6f5699" stroke-width=".7" stroke-linejoin="round"/><path d="M463.2 521.9 v-16.2 l2.6 -3 l2.6 3 v16.2 Z" fill="#fffaf0" stroke="#8a6f5699" stroke-width=".7" stroke-linejoin="round"/><path d="M476.6 519.6 v-15.5 l2.6 -3 l2.6 3 v15.5 Z" fill="#fffaf0" stroke="#8a6f5699" stroke-width=".7" stroke-linejoin="round"/><path d="M490.0 517.3 v-16.9 l2.6 -3 l2.6 3 v16.9 Z" fill="#fffaf0" stroke="#8a6f5699" stroke-width=".7" stroke-linejoin="round"/><path d="M503.4 515.0 v-16.2 l2.6 -3 l2.6 3 v16.2 Z" fill="#fffaf0" stroke="#8a6f5699" stroke-width=".7" stroke-linejoin="round"/><path d="M409.1 536.5 v-22" fill="none" stroke="#6b4a2e" stroke-width="2.2" stroke-linecap="round"/><rect x="401.6" y="504.5" width="15" height="9.5" rx="4" fill="#c2553f" stroke="#5b3a22" stroke-width=".9"/><path d="M414.1 508.5 v-7 h5" fill="none" stroke="#f0c04b" stroke-width="1.6" stroke-linecap="round"/></g>
+                <g class="lf__bike" filter="url(#wc)" fill="none" stroke="#39445c" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="392" cy="512" rx="20" ry="2.6" fill="#3a271a2e" stroke="none"/><circle cx="379" cy="501" r="9.5"/><circle cx="405" cy="501" r="9.5"/><path d="M379 501 L388 486 L400 486 L405 501 M388 486 L393 501 L379 501 M393 501 L400 486 M386 482 L391 482 M400 486 L398 479 L403 478" stroke="#b9503a"/></g>
+              </g>
+              <g class="lf lf--3">
+                <ellipse cx="512" cy="509" rx="17" ry="3" fill="#3a271a30"/>
+                <g class="lf__swing"><path d="M503 66 L498 491 M521 70 L524 491" fill="none" stroke="#6b4a2e" stroke-width="1.3"/><rect x="494" y="489" width="34" height="5.5" rx="2" fill="#8d5c35" stroke="#5b3a22" stroke-width=".9"/></g>
+                <g class="lf__kite"><path d="M760 142 L432 452" fill="none" stroke="#5b3a22" stroke-width=".8" opacity=".5"/><path d="M760 98 L774 120 L760 142 L746 120 Z" fill="#d6543d" stroke="#5b3a22" stroke-width=".9"/><path d="M760 120 L774 120 L760 142 Z" fill="#f0c04b"/><path d="M760 98 L760 142 M746 120 L774 120" fill="none" stroke="#5b3a22" stroke-width=".8"/><path d="M760 142 q9 9 -2 19 t5 21 t-4 18" fill="none" stroke="#d6543d" stroke-width="1.5" stroke-linecap="round"/><path d="M756 160 l5 -3 l1 6 Z M761 181 l5 -2 l0 6 Z" fill="#f0c04b"/></g>
+              </g>
+              <g class="lf lf--5" filter="url(#wc)" fill="none" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="468" cy="524" rx="30" ry="3" fill="#3a271a2b" stroke="none"/><g stroke="#6b4a2e" stroke-width="4.6"><path d="M450 500 L453 517 M453 513 L466 512 M454 513 L453 522 M465 512 L466 521 M451 507 L465 506"/><path d="M478 496 L481 513 M481 509 L494 508 M482 509 L481 518 M493 508 L494 517 M479 503 L493 502"/></g><g stroke="#fffaf0" stroke-width="3"><path d="M450 500 L453 517 M453 513 L466 512 M454 513 L453 522 M465 512 L466 521 M451 507 L465 506"/><path d="M478 496 L481 513 M481 509 L494 508 M482 509 L481 518 M493 508 L494 517 M479 503 L493 502"/></g></g>
+              <g class="lf lf--4">
+                <g class="lf__balloon"><path d="M883 150 C883 119 927 119 927 150 C927 164 913 178 910 184 L900 184 C897 178 883 164 883 150 Z" fill="#fff4e2" stroke="#5b3a22" stroke-width="1"/><path d="M896 128 C889 140 891 168 900 184 L905 184 C899 166 899 140 905 127 Z" fill="#e59aa6"/><path d="M905 127 C911 140 911 166 905 184 L910 184 C919 168 921 140 914 128 Z" fill="#8fb7b0"/><path d="M901 184 L902 191 M909 184 L908 191" fill="none" stroke="#5b3a22" stroke-width=".8"/><rect x="900" y="191" width="10" height="8" rx="1.5" fill="#9a6a3c" stroke="#5b3a22" stroke-width=".8"/></g>
+              </g>
+            </svg>
+              <span class="world__dusk"></span>
+              <span class="world__storm"></span>
+              <span class="world__clouds"></span>
+              <span class="world__sun"></span>
+              <i class="world__lit" style="--x: 18.8%; --y: 48.3%"></i>
+              <i class="world__lit" style="--x: 22.4%; --y: 48.6%"></i>
+              <i class="world__lit" style="--x: 22.3%; --y: 60%"></i>
+              <img loading="lazy" decoding="async" class="world__umb" src="kit/wc2/umbrella-air.webp" alt="" width="509" height="462">
+            </div>
+            <canvas class="world__rain"></canvas>
+            <span class="world__tag"></span>
+            <span class="world__flash"></span>
+          </div>
+        </div>
+      </div>
+      <p class="cue note" aria-hidden="true">keep scrolling ↓</p>
+    </div>
+  </section>
+
+  <!-- 8. Making sense of financial planning: one frame in the middle, the rest either side -->
+  <section class="videos" id="videos" aria-labelledby="videos-title" data-chapter="Making sense of financial planning">
+    <div class="wrap">
+      <div class="videos__top">
+        <h2 class="title" id="videos-title">Making sense of <em>financial planning</em></h2>
+        <div class="reel-nav">
+          <button type="button" data-dir="-1" aria-label="Previous video">←</button>
+          <button type="button" data-dir="1" aria-label="Next video">→</button>
+        </div>
+      </div>
+      <!-- MOCK-UP. Placeholder polaroids until Carine's video links arrive. -->
+      <ul class="reel" aria-label="Videos">
+        <li class="is-center"><figure class="card"><div class="thumb"><img loading="lazy" decoding="async" src="kit/wc2/v1.webp" alt="" width="640" height="400"><span class="thumb__play"><svg aria-hidden="true"><use href="#i-play"/></svg></span></div><figcaption>Video 01 · coming soon</figcaption></figure></li>
+        <li><figure class="card"><div class="thumb"><img loading="lazy" decoding="async" src="kit/wc2/v2.webp" alt="" width="640" height="400"><span class="thumb__play"><svg aria-hidden="true"><use href="#i-play"/></svg></span></div><figcaption>Video 02 · coming soon</figcaption></figure></li>
+        <li><figure class="card"><div class="thumb"><img loading="lazy" decoding="async" src="kit/wc2/v3.webp" alt="" width="640" height="400"><span class="thumb__play"><svg aria-hidden="true"><use href="#i-play"/></svg></span></div><figcaption>Video 03 · coming soon</figcaption></figure></li>
+        <li><figure class="card"><div class="thumb"><img loading="lazy" decoding="async" src="kit/wc2/v4.webp" alt="" width="640" height="400"><span class="thumb__play"><svg aria-hidden="true"><use href="#i-play"/></svg></span></div><figcaption>Video 04 · coming soon</figcaption></figure></li>
+      </ul>
+      <div class="follow">
+        <p class="note">Follow me on</p>
+        <ul class="follow__list">
+          <li><a href="#" aria-label="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a></li>
+          <li><a href="#" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
+          <li><a href="#" aria-label="TikTok"><svg aria-hidden="true"><use href="#i-tiktok"/></svg></a></li>
+          <li><a href="#" aria-label="Facebook"><svg aria-hidden="true"><use href="#i-facebook"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/in/carinezheng/" rel="me noopener" target="_blank" aria-label="LinkedIn (opens in a new tab)"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. What working together looks like: it arrives as a conversation -->
+  <section class="beat together" id="together" data-beat="together" style="--len: 3" data-chapter="What working together looks like">
+    <div class="stage">
+      <div class="stage__in">
+        <h2 class="title">What working together looks like</h2>
+        <div class="card chat">
+          <img loading="lazy" decoding="async" class="tape" src="kit/wc/tape-blue.webp" alt="" width="280" height="78">
+          <div class="chat__head">
+            <img loading="lazy" decoding="async" class="chat__ava" src="kit/carine-avatar.webp" alt="" width="208" height="208">
+            <p class="chat__name">Carine Zheng</p>
+          </div>
+          <div class="chat__body">
+            <p class="typing" aria-hidden="true"><i></i><i></i><i></i></p>
+            <p class="chat__quote">I believe good financial planning starts with a conversation, not a sales pitch.</p>
+            <ol class="steps">
+              <li class="step"><span class="seal" aria-hidden="true">1</span><div><p class="step__name">We talk</p><p>A first conversation about what you already have, what you’re concerned about and what you’re working towards.</p></div></li>
+              <li class="step"><span class="seal" aria-hidden="true">2</span><div><p class="step__name">I map it out</p><p>From there, I’ll help you make sense of your options and decide what works for you.</p></div></li>
+              <li class="step"><span class="seal" aria-hidden="true">3</span><div><p class="step__name">We review it, regularly</p><p>Your circumstances change. Your priorities change. Your financial plan should be reviewed as they do.</p></div></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <p class="cue note" aria-hidden="true">keep scrolling ↓</p>
+    </div>
+  </section>
+
+  <!-- 10. Start your album: night falls; the visitor picks the pages they are working towards and sends them to WhatsApp -->
+  <section class="talk" id="talk" aria-labelledby="talk-title" data-chapter="Start your album" data-ground="night">
+    <div class="wrap talk__grid">
+      <div class="talk__art">
+        <figure class="card talk__card cornered">
+          <img loading="lazy" decoding="async" src="kit/wc2/cafe.webp" srcset="kit/wc2/cafe-640.webp 640w, kit/wc2/cafe.webp 1000w" sizes="(max-width: 900px) 84vw, 480px" alt="Carine in conversation with a client over coffee, in a watercolour painting" width="1000" height="666">
+        </figure>
+      </div>
+      <div>
+        <p class="kick">start your album</p>
+        <h2 class="title" id="talk-title">Let’s talk</h2>
+        <p class="talk__lead">Tell me where you are today and what you’re working towards. We can start with a conversation and take it from there.</p>
+        <form class="toy" id="toy" action="https://wa.me/6583893356" method="get" target="_blank">
+          <fieldset class="chips">
+            <legend>Which pages are you working towards?</legend>
+            <div class="chips__list">
+              <label class="chip"><input type="checkbox" value="a first home" data-img="kit/wc2/house.webp">A first home</label>
+              <label class="chip"><input type="checkbox" value="getting married" data-img="kit/wc2/rings.webp">Getting married</label>
+              <label class="chip"><input type="checkbox" value="starting a family" data-img="kit/wc2/shoes.webp">Starting a family</label>
+              <label class="chip"><input type="checkbox" value="children’s education" data-img="kit/wc2/cap.webp">Children’s education</label>
+              <label class="chip"><input type="checkbox" value="seeing the world" data-img="kit/wc2/clarity-760.webp" data-photo="1">Seeing the world</label>
+              <label class="chip"><input type="checkbox" value="caring for parents" data-img="kit/wc2/umbrella.webp">Caring for parents</label>
+              <label class="chip"><input type="checkbox" value="retiring well" data-img="kit/wc2/sunset.webp">Retiring well</label>
+              <label class="chip"><input type="checkbox" value="something else" data-img="kit/wc2/briefcase.webp">Something else</label>
+            </div>
+          </fieldset>
+          <div class="mypage">
+            <p class="note mypage__title">your first page</p>
+            <ul class="mypage__kept" aria-hidden="true"><li class="stamp"><div class="stamp__win cornered"><img class="is-photo" loading="lazy" decoding="async" src="kit/wc2/snap-1.webp" alt="" width="480" height="300"></div><p>rain or shine</p></li><li class="stamp"><div class="stamp__win cornered"><img class="is-photo" loading="lazy" decoding="async" src="kit/wc2/snap-2.webp" alt="" width="480" height="300"></div><p>planted early</p></li><li class="stamp"><div class="stamp__win cornered"><img class="is-photo" loading="lazy" decoding="async" src="kit/wc2/snap-3.webp" alt="" width="480" height="300"></div><p>moving-in day</p></li><li class="stamp"><div class="stamp__win cornered"><img class="is-photo" loading="lazy" decoding="async" src="kit/wc2/snap-4.webp" alt="" width="480" height="300"></div><p>golden hour</p></li></ul>
+            <ul class="mypage__list"></ul>
+            <p class="note mypage__empty">Tap a page above and it is pasted in here.</p>
+          </div>
+          <p class="vh" id="pageStatus" role="status"></p>
+          <label class="note" for="toyText">Your note (optional)</label>
+          <textarea id="toyText" name="text" rows="3" placeholder="Hi Carine,"></textarea>
+          <button class="btn btn--wa" type="submit"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Send my first page to Carine<span class="vh"> (opens WhatsApp in a new tab)</span></button>
+          <p class="note toy__fine">Opens WhatsApp with your choices and note. Nothing is saved on this page.</p>
+        </form>
+        <dl class="card details">
+          <img loading="lazy" decoding="async" class="tape" src="kit/wc/tape-gold.webp" alt="" width="280" height="78">
+          <div><dt>Email</dt><dd><a href="mailto:carinezheng@fapl.sg">carinezheng@fapl.sg</a></dd></div>
+          <div><dt>Office</dt><dd><a href="tel:+6562221889">+65 6222 1889</a></dd></div>
+          <div><dt>Address</dt><dd><address>150 Beach Road, #12-01/08<br>Gateway West, Singapore 189720</address></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="night" data-chapter="Start your album" data-ground="night">
+  <div class="wrap night__inner">
+    <div class="night__top">
+      <p class="night__brand">Carine <em>Zheng</em></p>
+      <section class="creds" aria-labelledby="creds-title">
+        <h2 id="creds-title">Regulatory and professional information</h2>
+        <dl>
+          <div><dt>Practice</dt><dd>Financial Alliance Pte Ltd</dd></div>
+          <div><dt>Representative No.</dt><dd>ZKC300055466</dd></div>
+        </dl>
+      </section>
+    </div>
+    <div class="disclaimer">
+      <p>Zheng Kaixin Carine is a representative of Financial Alliance Pte Ltd, a licensed financial adviser regulated by the Monetary Authority of Singapore. Representative No. ZKC300055466.</p>
+      <p>This website is for general information only. It does not constitute financial advice and does not take into account your specific objectives, financial situation or needs. Buying a life insurance policy is a long term commitment. Please seek advice before making any decision.</p>
+    </div>
+    <p class="copyright">© 2026 Carine Zheng · The paintings on this site are illustrations. No client stories are shown.</p>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/6583893356" rel="noopener" target="_blank" title="Chat with me on WhatsApp">
+  <svg aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>
+  <span class="vh">Chat with me on WhatsApp (opens in a new tab)</span>
+</a>
+
+<div class="tags">
+  <a class="tag tag--back" href="index.html">← All designs</a>
+  <div class="tag tag--mock">Design preview 07 · not live</div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  var motion = root.classList.contains('motion');
+  var $ = function (s, el) { return (el || document).querySelector(s); };
+  var $$ = function (s, el) { return Array.prototype.slice.call((el || document).querySelectorAll(s)); };
+  var clamp = function (v, a, b) { return Math.min(b, Math.max(a, v)); };
+  var ramp = function (p, a, b) { return clamp((p - a) / (b - a), 0, 1); };
+  var lerp = function (a, b, t) { return a + (b - a) * t; };
+
+  // Split copy into word spans so it can resolve or brighten one word at a time.
+  $$('.split, .words').forEach(function (el) {
+    var i = 0;
+    (function walk(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+            var s = document.createElement('span');
+            s.className = 'w'; s.style.setProperty('--i', i++); s.textContent = part;
+            frag.appendChild(s);
+          });
+          n.parentNode.replaceChild(frag, n);
+        } else if (n.nodeType === 1) { walk(n); }
+      });
+    })(el);
+    el.style.setProperty('--n', i);
+  });
+
+  // The living picture is one tall section. With motion it carries a marker per chapter for the header to read;
+  // without, the four articles are ordinary blocks down the page and name themselves.
+  $$('.life .mark').forEach(function (m) { if (!motion) m.parentNode.removeChild(m); });
+  if (motion) $$('.life .chap[data-chapter]').forEach(function (c) { c.removeAttribute('data-chapter'); });
+  var beats = $$('[data-beat]');
+  var chapters = $$('[data-chapter]');
+  var hudName = $('.hud__name'), hudPage = $('.hud__page'), hudFill = $('.hud__fill');
+  // Each chapter is a page of the album; the footer shares the last page.
+  var pageOf = {}, pageCount = 0;
+  chapters.forEach(function (c) { if (!(c.dataset.chapter in pageOf)) pageOf[c.dataset.chapter] = ++pageCount; });
+  var handlers = {};
+
+  function progressOf(el) {
+    var r = el.getBoundingClientRect(), len = r.height - innerHeight;
+    return len > 1 ? clamp(-r.top / len, 0, 1) : clamp((innerHeight - r.top) / (innerHeight + r.height), 0, 1);
+  }
+
+  /* 1. Cover: the two waiting prints drift a little with the pointer ---------------------------- */
+  var heroTuck = function () {};
+  (function () {
+    var hero = $('.hero'), art = $('.hero__art');
+    if (!motion) return;
+    hero.addEventListener('pointermove', function (e) {
+      if (e.pointerType !== 'mouse') return;
+      art.style.setProperty('--mx', ((e.clientX / innerWidth - .5) * -2).toFixed(3));
+      art.style.setProperty('--my', ((e.clientY / innerHeight - .5) * -2).toFixed(3));
+    });
+    hero.addEventListener('pointerleave', function () { art.style.setProperty('--mx', 0); art.style.setProperty('--my', 0); });
+  })();
+
+  /* 2. The pages still to fill: her two lines brighten; the album opens; five prints are placed, one after another ---- */
+  (function () {
+    var b = $('#pages'), s1 = $('.s1', b), s2 = $('.s2', b), mems = $$('.mem', b), book = $('.book', b);
+    function ease(t) { return t * t * (3 - 2 * t); }
+    handlers.pages = function (p) {
+      // Her first line brightens once the cover is out of the way (on a phone it swings up past the words).
+      s1.style.setProperty('--k', ramp(p, .16, .42));
+      s2.style.setProperty('--k', ramp(p, .54, .78));
+      s2.classList.toggle('is-in', p > .5);
+      // The cover swings open first; the camera comes round to look down on the open pages just behind it.
+      book.style.setProperty('--o', ease(ramp(p, .04, .26)).toFixed(4));
+      book.style.setProperty('--c', ease(ramp(p, .08, .31)).toFixed(4));
+      // Then the five prints come down one at a time, each easing onto its mount.
+      mems.forEach(function (m, i) {
+        var t = ramp(p, .3 + i * .125, .45 + i * .125);
+        m.style.setProperty('--b', t.toFixed(3));
+        m.style.setProperty('--e', (1 - Math.pow(1 - t, 3)).toFixed(4));
+      });
+    };
+  })();
+
+  /* 3. Into focus: the plan stands up and becomes a model; the lens then brings in the painted scene ------- */
+  (function () {
+    var b = $('#clarity'), panel = $('.panel', b), s1 = $('.s1', b);
+    var pointer = { x: 0, y: 0, t: -1e9 };
+    function setLens() {
+      var w = panel.clientWidth, h = panel.clientHeight, p = b._p || 0;
+      // The sheet stands up while the model rises out of the drawing; only then does the lens come out.
+      var up = ease(ramp(p, .07, .36)), out = ease(ramp(p, .4, .5)), grow = ramp(p, .64, .93);
+      var live = up >= 1 && performance.now() - pointer.t < 1800;
+      var x = live ? pointer.x : (.5 + .3 * Math.sin(p * Math.PI * 2.4)) * w;
+      var y = live ? pointer.y : (.5 + .2 * Math.sin(p * Math.PI * 3.4 + .6)) * h;
+      panel.style.setProperty('--c', up.toFixed(4));
+      panel.style.setProperty('--m', ramp(p, .15, .42).toFixed(4));
+      panel.style.setProperty('--f', ramp(p, .26, .4).toFixed(3));
+      panel.style.setProperty('--lx', x.toFixed(1) + 'px');
+      panel.style.setProperty('--ly', y.toFixed(1) + 'px');
+      panel.style.setProperty('--lr', (Math.min(w, h) * .2 * out + grow * Math.hypot(w, h)).toFixed(1) + 'px');
+      b.style.setProperty('--lo', (out * (1 - ramp(grow, .2, .5))).toFixed(2));
+    }
+    function ease(t) { return t * t * (3 - 2 * t); }
+    function track(e) {
+      var r = panel.getBoundingClientRect();
+      pointer.x = e.clientX - r.left; pointer.y = e.clientY - r.top; pointer.t = performance.now();
+      setLens();
+    }
+    if (motion) {
+      panel.addEventListener('pointermove', track);
+      panel.addEventListener('pointerdown', track);
+      // A mouse leaving hands the lens back to the scroll at once; a finger lifting leaves it where it was for a moment.
+      panel.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') { pointer.t = -1e9; setLens(); } });
+    }
+    handlers.clarity = function (p) { s1.style.setProperty('--k', ramp(p, 0, .55)); setLens(); };
+    handlers.clarity.layout = setLens;
+  })();
+
+  /* 4 to 8. One picture, lived in. The scroll is one number, p, from 0 to 1 across the whole scene; everything
+     here reads its own stretch of it. Rain is the only part that runs on the clock. ------------------------- */
+  (function () {
+    var b = $('#help'), world = $('.world', b), view = $('.world__view', b), cam = $('.world__cam', b);
+    var chaps = $$('.chap', b), snaps = $$('.snap', b), tag = $('.world__tag', b), umb = $('.world__umb', b);
+    var START = [0, .085, .31, .53, .8, 1.2];              // where each chapter's words come on
+    var SHOT = [.276, .496, .776, .962];                  // the shutter, once per area
+    var TAGS = [[.545, 'marriage'], [.61, 'a home'], [.675, 'children'], [.735, 'other major changes'], [.772, '']];
+    // The camera inside the picture: [p, zoom, where it looks across, where it looks down]
+    var CAM = [[0, 1, .5, .5], [.09, 1, .5, .5], [.15, 1.3, .25, .5], [.262, 1.3, .25, .5], [.3, 1, .5, .5], [.325, 1, .5, .5], [.37, 1.26, .6, .8], [.482, 1.26, .6, .8],
+      [.52, 1, .5, .5], [.54, 1, .5, .5], [.565, 1.34, .58, .62], [.6, 1.34, .58, .62], [.63, 1.34, .27, .56], [.665, 1.34, .27, .56], [.695, 1.1, .5, .4], [.725, 1.1, .52, .38],
+      [.748, 1.12, .7, .3], [.762, 1, .5, .5], [.8, 1, .5, .5], [.845, 1.28, .36, .6], [.895, 1.28, .36, .6], [.945, 1, .5, .5], [1, 1.07, .62, .46]];
+    function ease(t) { return t * t * (3 - 2 * t); }
+    function set(name, v) { b.style.setProperty(name, v.toFixed(3)); }
+
+    // --- the growth clip, cut out: one frame per step of scroll
+    var plant = $('.world__plant', b), pctx = plant.getContext('2d'), N = 28, frames = [], want = 0, shown = -1, started = false;
+    function drawPlant() {
+      var i = -1;
+      for (var d = 0; d < N && i < 0; d++) {
+        if (frames[want - d] && frames[want - d].ok) i = want - d;
+        else if (frames[want + d] && frames[want + d].ok) i = want + d;
+      }
+      if (i < 0 || i === shown) return;
+      shown = i;
+      pctx.clearRect(0, 0, plant.width, plant.height);
+      pctx.drawImage(frames[i], 0, 0, plant.width, plant.height);
+    }
+    function loadFrame(i) {
+      if (frames[i]) return;
+      var im = frames[i] = new Image();
+      im.onload = function () { im.ok = true; drawPlant(); };
+      im.src = 'kit/wc2/grow-a/g' + (i < 10 ? '0' : '') + i + '.webp';
+    }
+    function startPlant() {
+      if (started) return;
+      started = true;
+      var i;
+      loadFrame(want);
+      for (i = 0; i < N; i += 4) loadFrame(i);
+      for (i = 0; i < N; i++) loadFrame(i);
+    }
+
+    // --- rain, in the picture's frame; it stops on the open umbrella
+    var canvas = $('.world__rain', b), ctx = canvas.getContext('2d');
+    var drops = [], wet = 0, storm = 0, open = 0, pourUntil = 0, running = false, last = 0;
+    var dpr = Math.min(1.5, window.devicePixelRatio || 1);
+    var CANOPY = [[.03, .6], [.06, .485], [.1, .396], [.18, .277], [.26, .201], [.34, .13], [.42, .08], [.5, .045], [.58, .019], [.66, .015], [.74, .024], [.82, .048], [.9, .08], [.95, .115], [.975, .15]];
+    function canopyTop(fx) {
+      if (fx < CANOPY[0][0] || fx > CANOPY[CANOPY.length - 1][0]) return -1;
+      for (var k = 1; k < CANOPY.length; k++) {
+        if (fx <= CANOPY[k][0]) return lerp(CANOPY[k - 1][1], CANOPY[k][1], (fx - CANOPY[k - 1][0]) / (CANOPY[k][0] - CANOPY[k - 1][0]));
+      }
+      return -1;
+    }
+    function spawn(d, anywhere) {
+      d = d || {};
+      d.x = Math.random() * canvas.width * 1.15 - canvas.width * .1;
+      d.y = anywhere ? Math.random() * canvas.height : -Math.random() * 40 * dpr;
+      d.v = (700 + Math.random() * 500) * dpr; d.l = (10 + Math.random() * 13) * dpr;
+      return d;
+    }
+    function loop(t) {
+      if (!running) return;
+      var dt = Math.min(.05, (t - last) / 1000 || .016); last = t;
+      var pour = t < pourUntil;
+      var aim = clamp(storm * (pour ? 2.2 : 1) + (pour ? .6 : 0), 0, 2.2);
+      wet += (aim - wet) * Math.min(1, dt * 3);
+      var vr = view.getBoundingClientRect(), ur = umb.getBoundingClientRect();
+      var ux = (ur.left - vr.left) * dpr, uw = ur.width * dpr, uy = (ur.top - vr.top) * dpr, uh = ur.height * dpr;
+      var count = Math.round(170 * wet * Math.min(1, canvas.width / (700 * dpr) + .35));
+      while (drops.length < count) drops.push(spawn(null, true));
+      if (drops.length > count) drops.length = count;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (count) {
+        ctx.strokeStyle = 'rgba(226, 236, 248, .62)'; ctx.lineWidth = 1.2 * dpr; ctx.lineCap = 'round';
+        ctx.beginPath();
+        for (var i = 0; i < drops.length; i++) {
+          var d = drops[i];
+          d.y += d.v * dt; d.x += d.v * .12 * dt;
+          var stop = canvas.height + 20, top = open > .85 ? canopyTop((d.x - ux) / uw) : -1;
+          if (top >= 0) stop = uy + top * uh;
+          if (d.y > stop) { spawn(d); continue; }
+          ctx.moveTo(d.x, d.y); ctx.lineTo(d.x - d.l * .12, d.y - d.l);
+        }
+        ctx.stroke();
+      }
+      requestAnimationFrame(loop);
+    }
+    function pour() { if (storm > .3) pourUntil = performance.now() + 2800; }
+
+    // --- layout: the rain's canvas, and how far each print has to travel from the picture to its place in the row
+    function layout() {
+      canvas.width = Math.round(view.clientWidth * dpr); canvas.height = Math.round(view.clientHeight * dpr);
+      var wr = world.getBoundingClientRect(), sc = wr.width / (world.offsetWidth || 1);   // undo the picture's own entrance scale
+      var cx = wr.left + wr.width / 2, cy = wr.top + wr.height / 2, w = view.clientWidth, h = view.clientHeight;
+      snaps.forEach(function (sn) {
+        var keep = sn.style.transform; sn.style.transform = 'none';
+        var win = $('.snap__win', sn), r = win.getBoundingClientRect(), lr = sn.getBoundingClientRect();
+        sn.style.transform = keep;
+        var k = w / r.width;
+        sn.style.setProperty('--k', k.toFixed(4));
+        sn.style.setProperty('--dx', (cx - w / 2 - lr.left - (r.left - lr.left) * k).toFixed(1) + 'px');
+        sn.style.setProperty('--dy', (cy - h / 2 - lr.top - (r.top - lr.top) * k).toFixed(1) + 'px');
+      });
+      if (sc && b._p !== undefined) run(b._p);
+    }
+
+    function run(p) {
+      var i, k;
+      // words: one chapter at a time
+      for (k = 0; k < chaps.length; k++) chaps[k].classList.toggle('is-on', p >= START[k] - (k ? 0 : 1) && p < START[k + 1] - .014);
+      set('--in', ease(ramp(p, -.001, .05)));
+      // 1 weather: the storm comes over, the umbrella opens, the storm passes
+      storm = ease(ramp(p, .1, .15)) * (1 - ease(ramp(p, .278, .306)));
+      open = ease(ramp(p, .168, .215)) * (1 - ease(ramp(p, .286, .31)));
+      set('--storm', storm); set('--open', open); set('--drift', ramp(p, .09, .31));
+      // 2 growth: a sapling is planted, then grows
+      set('--planted', ramp(p, .328, .35));
+      want = Math.round(ramp(p, .352, .486) * (N - 1));
+      if (started) drawPlant();
+      // 3 milestones: four arrivals, one for each of her words
+      var a2 = ease(ramp(p, .618, .652));
+      set('--a1', ease(ramp(p, .553, .588))); set('--a2', a2); set('--a3', ease(ramp(p, .682, .716))); set('--a4', ease(ramp(p, .737, .764)));
+      var label = '';
+      for (i = 0; i < TAGS.length; i++) if (p >= TAGS[i][0]) label = TAGS[i][1];
+      if (label) tag.textContent = label;
+      tag.classList.toggle('is-on', !!label);
+      // 4 later life: the light turns gold
+      var gold = ease(ramp(p, .81, .95));
+      set('--a5', ease(ramp(p, .825, .86)));
+      set('--gold', gold);
+      set('--lit', Math.max(storm * .95, gold, a2 * .45));
+      // the shutter, and the print it leaves
+      var flash = 0;
+      for (i = 0; i < SHOT.length; i++) {
+        flash = Math.max(flash, 1 - Math.abs(p - SHOT[i]) / .007);
+        var t = ramp(p, SHOT[i], SHOT[i] + .024);
+        snaps[i].style.setProperty('--s', t.toFixed(3));
+        snaps[i].style.setProperty('--e', (1 - Math.pow(1 - t, 3)).toFixed(4));
+      }
+      set('--flash', clamp(flash, 0, 1) * .85);
+      // the camera
+      for (i = 1; i < CAM.length - 1 && p > CAM[i][0]; i++);
+      var A = CAM[i - 1], B = CAM[i], u = ease(ramp(p, A[0], B[0]));
+      var z = lerp(A[1], B[1], u), fx = lerp(A[2], B[2], u), fy = lerp(A[3], B[3], u), w = view.clientWidth, h = view.clientHeight;
+      var tx = clamp(w / 2 - fx * w * z, w - w * z, 0), ty = clamp(h / 2 - fy * h * z, h - h * z, 0);
+      cam.style.transform = 'translate(' + tx.toFixed(1) + 'px,' + ty.toFixed(1) + 'px) scale(' + z.toFixed(4) + ')';
+    }
+
+    if (motion) {
+      $('.pour', b).addEventListener('click', pour);
+      world.addEventListener('pointerdown', pour);
+      new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (e.isIntersecting && !running) { running = true; last = performance.now(); requestAnimationFrame(loop); }
+          else if (!e.isIntersecting) { running = false; }
+        });
+      }).observe(b);
+      new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) startPlant(); }); }, { rootMargin: '100% 0px' }).observe(b);
+    }
+    handlers.life = run;
+    handlers.life.layout = layout;
+  })();
+
+  /* 9. Working together: her message, then the three steps; the loop closes at the end ------- */
+  (function () {
+    var b = $('#together'), say = $('.chat__quote', b), steps = $$('.step', b), typing = $('.typing', b), at = [.1, .28, .5, .7];
+    handlers.together = function (p) {
+      say.classList.toggle('is-in', p >= at[0]);
+      typing.classList.toggle('is-on', p < at[0]);
+      steps.forEach(function (el, i) { el.classList.toggle('is-in', p >= at[i + 1]); });
+      b.style.setProperty('--q', ramp(p, .76, .94).toFixed(3));
+    };
+  })();
+
+  /* 8. Videos: mark the polaroid in the middle; arrows step through ------------------------- */
+  (function () {
+    var reel = $('.reel'), items = $$('.reel li');
+    function centre() {
+      var mid = reel.scrollLeft + reel.clientWidth / 2, best = 0;
+      items.forEach(function (li, i) { if (Math.abs(li.offsetLeft + li.offsetWidth / 2 - mid) < Math.abs(items[best].offsetLeft + items[best].offsetWidth / 2 - mid)) best = i; });
+      items.forEach(function (li, i) { li.classList.toggle('is-center', i === best); });
+      return best;
+    }
+    reel.addEventListener('scroll', function () { requestAnimationFrame(centre); }, { passive: true });
+    $$('.reel-nav button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var i = clamp(centre() + Number(btn.dataset.dir), 0, items.length - 1), li = items[i];
+        reel.scrollTo({ left: li.offsetLeft + li.offsetWidth / 2 - reel.clientWidth / 2, behavior: motion ? 'smooth' : 'auto' });
+      });
+    });
+  })();
+
+  /* 10. Start your album: each chosen page is pasted onto the visitor's first page; the button opens WhatsApp
+         with the choices and the note already typed. Nothing is stored. ---------------------------------- */
+  (function () {
+    var form = $('#toy'), boxes = $$('.chip input', form), list = $('.mypage__list', form), empty = $('.mypage__empty', form), status = $('#pageStatus');
+    function chosen() { return boxes.filter(function (x) { return x.checked; }).map(function (x) { return x.value; }); }
+    function sync(box) {
+      box.parentNode.classList.toggle('is-on', box.checked);
+      if (box.checked && !box._li) {
+        var li = document.createElement('li'), win = document.createElement('div'), im = new Image(), cap = document.createElement('p');
+        li.className = 'stamp'; win.className = 'stamp__win cornered';
+        im.alt = ''; im.src = box.dataset.img; if (box.dataset.photo) im.className = 'is-photo';
+        cap.textContent = box.value;
+        win.appendChild(im); li.appendChild(win); li.appendChild(cap); list.appendChild(li);
+        box._li = li;
+      } else if (!box.checked && box._li) {
+        list.removeChild(box._li); box._li = null;
+      }
+    }
+    function report() {
+      var picks = chosen();
+      empty.hidden = picks.length > 0;
+      status.textContent = picks.length ? 'On your first page: ' + picks.join(', ') + '.' : 'Your first page is empty.';
+    }
+    boxes.forEach(function (box) {
+      box.addEventListener('change', function () { sync(box); report(); });
+      sync(box); // a browser may bring back ticked boxes when the visitor returns to the page
+    });
+    empty.hidden = chosen().length > 0;
+    form.addEventListener('submit', function (e) {
+      var picks = chosen(), note = $('#toyText').value.trim(), parts = [];
+      if (picks.length) parts.push('Hi Carine, I\'d like to talk about planning for: ' + picks.join(', ') + '.');
+      if (note) parts.push(note);
+      e.preventDefault();
+      window.open('https://wa.me/6583893356' + (parts.length ? '?text=' + encodeURIComponent(parts.join('\n\n')) : ''), '_blank', 'noopener');
+    });
+  })();
+
+  /* The frame loop: one progress value per held section, plus the HUD -------------------- */
+  var ticking = false, current = null;
+  function update() {
+    ticking = false;
+    if (motion) {
+      heroTuck();
+      beats.forEach(function (b) {
+        var p = progressOf(b);
+        if (b._p !== undefined && Math.abs(p - b._p) < .0004) return;
+        b._p = p;
+        b.style.setProperty('--p', p.toFixed(4));
+        var h = handlers[b.dataset.beat];
+        if (h) h(p);
+      });
+    }
+    var max = root.scrollHeight - innerHeight;
+    hudFill.style.transform = 'scaleX(' + (max > 0 ? clamp(scrollY / max, 0, 1) : 0).toFixed(4) + ')';
+    var cur = chapters[0];
+    chapters.forEach(function (c) { if (c.getBoundingClientRect().top <= innerHeight * .45) cur = c; });
+    if (cur !== current) {
+      current = cur;
+      hudName.textContent = cur.dataset.chapter;
+      hudPage.textContent = 'page ' + pageOf[cur.dataset.chapter];
+      root.classList.toggle('is-night', cur.dataset.ground === 'night');
+    }
+  }
+  function request() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  function relayout() {
+    if (heroTuck.layout) heroTuck.layout();
+    Object.keys(handlers).forEach(function (k) { if (handlers[k].layout) handlers[k].layout(); });
+    beats.forEach(function (b) { b._p = undefined; });
+    request();
+  }
+  addEventListener('scroll', request, { passive: true });
+  addEventListener('resize', relayout);
+  addEventListener('load', relayout);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
+  relayout();
+})();
+</script>
+</body>
+</html>
