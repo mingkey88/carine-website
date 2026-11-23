@@ -32,7 +32,8 @@ held scene of about twelve screens.
 
 "Tap to make it pour" still works during the storm, on the button or on the picture. Nothing needs it.
 
-The header names each chapter as it plays. `#protect`, `#grow`, `#milestones` and `#later` still exist.
+The header names each chapter as it plays. Links to `#protect`, `#grow`, `#milestones` and `#later` land on that
+chapter of the scene (checked: each opens with the right words showing).
 
 ## Wording
 

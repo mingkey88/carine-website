@@ -469,6 +469,7 @@ assert old in s
 s = s.replace(old, '''  // The living picture is one tall section. With motion it carries a marker per chapter for the header to read;
   // without, the four articles are ordinary blocks down the page and name themselves.
   $$('.life .mark').forEach(function (m) { if (!motion) m.parentNode.removeChild(m); });
+  // (the ids of the four articles are moved to the markers too: see 07-living.html)
   if (motion) $$('.life .chap[data-chapter]').forEach(function (c) { c.removeAttribute('data-chapter'); });
 ''' + old)
 

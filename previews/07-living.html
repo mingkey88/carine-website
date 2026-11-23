@@ -939,7 +939,14 @@ address { font-style: normal; }
   // The living picture is one tall section. With motion it carries a marker per chapter for the header to read;
   // without, the four articles are ordinary blocks down the page and name themselves.
   $$('.life .mark').forEach(function (m) { if (!motion) m.parentNode.removeChild(m); });
-  if (motion) $$('.life .chap[data-chapter]').forEach(function (c) { c.removeAttribute('data-chapter'); });
+  // The same goes for links such as #protect: when the scene moves, the four articles are stacked in one place, so
+  // each id moves to its chapter's marker, which sits where that chapter plays.
+  if (motion) $$('.life .chap[data-chapter]').forEach(function (c) {
+    var m = $$('.life .mark').filter(function (k) { return k.dataset.chapter === c.dataset.chapter; })[0];
+    if (m) { m.id = c.id; c.removeAttribute('id'); }
+    c.removeAttribute('data-chapter');
+  });
+  if (motion && location.hash && $(location.hash + '.mark')) $(location.hash).scrollIntoView();
   var beats = $$('[data-beat]');
   var chapters = $$('[data-chapter]');
   var hudName = $('.hud__name'), hudPage = $('.hud__page'), hudFill = $('.hud__fill');
