@@ -4,7 +4,8 @@ Design 06 (`previews/06-album.html`) keeps the watercolour look and the scroll-t
 what the page is about. Design 05 shows what Carine does. Design 06 is about the visitor's life: the site is **an
 album that is not finished yet**, and Carine is the person who helps plan for the pages still to come.
 
-Built 23 Nov 2026. It is a preview: not live, and kept out of search like the rest of the site. Design 05 is
+Built and pushed to the staging link on 23 Nov 2026. It is a preview: not production, and kept out of search like
+the rest of the site. Design 05 is
 unchanged.
 
 ---
@@ -140,5 +141,9 @@ Tested on 23 Nov 2026 in headless Chromium against a local copy:
   1920 × 1080.
 - The page with JavaScript off, at laptop and phone width, read top to bottom.
 
+After the push, the staging link was checked the same way: scrolled end to end at 1440 × 900 and 390 × 664, the 32
+scripted checks run again (all passing), 84 requests with none failed, no broken pictures, and the new card on the
+cover page opening design 06.
+
 Not yet tested: real phones (iPhone Safari and an older Android), in-app browsers, a throttled connection, frame
-rate, a screen reader, and the live link (it has not been pushed to the live preview yet).
+rate, and a screen reader.
