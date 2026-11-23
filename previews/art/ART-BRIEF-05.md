@@ -208,6 +208,39 @@ with its fine white lines and faint grid still showing between the model pieces.
 paper: no other colour, no paint. No people. Absolutely no letters, numbers, words, labels, stamps or logos anywhere.
 ```
 
+**Image 14 (`14-lived-in`, 23 Nov 2026), for design 07.** The cottage painting with the arrivals painted in. One
+take; it sits exactly over the original:
+
+```
+Go back to the original full-colour watercolour landscape painting of the cottage: the house with the terracotta roof
+under the big tree on the left, the winding stone path, the stone bridge over the stream, the green hills and the low
+sun on the right. Same picture, landscape 3:2, same image size, same composition, framing, colours, daylight and
+brushwork, with everything in exactly the same place and the same size. Do not repaint or move anything that is
+already there. Add only these small things, painted in the same hand and the same light, so the home looks lived in:
+(1) an arch of white and pink flowers standing over the near end of the stone bridge; (2) a string of small pastel
+bunting flags hung along the veranda roof; (3) a low white picket fence with a small open gate and a little red
+mailbox along the edge of the lawn in front of the house; (4) a bicycle leaning against the small tree beside the
+veranda; (5) a simple wooden swing on two long ropes hanging from the lowest big branch of the large tree, over the
+grass to the left of the bridge; (6) a small red and yellow diamond kite high in the sky above the middle of the
+picture, its string trailing down towards the lawn; (7) one small striped hot-air balloon far away over the hills,
+well to the left of the sun; (8) two empty white wooden garden chairs side by side on the lawn in front of the
+veranda, turned towards the sun. Keep the grassy bank on the far side of the stream, to the right of the bridge, open
+and empty. No people, no animals, no letters, numbers or words anywhere.
+```
+
+**Clip 13 (`13-tree-growth`, 23 Nov 2026), for design 07.** Flow, Frames to Video, Omni 1.2 Flash, 720p, 8 seconds,
+one output, 24 credits. Start `frame_start_seedling_16x9`, end `frame_end_tree_16x9` (both already in the project).
+One take. The tree is thinly leaved for a moment half-way; it never goes bare. Only the first 3.3 seconds are kept:
+
+```
+A hand-painted ink-and-watercolour time-lapse on pure white paper. The seedling grows steadily into the full-grown
+tree: the green stem thickens into a brown trunk, branches reach out and divide, and the canopy of green leaves fills
+out from the inside, a little more with every moment. The tree is in leaf the whole time, at every size, and stays
+rooted in the same patch of grass. The camera is locked off: no zoom, no pan, no cuts. The background stays pure white
+throughout. Nothing appears but the tree and its leaves: no stump, no bare branches, no falling or swirling leaves, no
+flowers, no fruit, no birds, no soil flying. No text. No sound.
+```
+
 Both frames were cropped to 16:9 with the grass patch at the same spot before upload. Flow added a sound track
 anyway; `9-growth.mp4` is the muted copy.
 

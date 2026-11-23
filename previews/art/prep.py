@@ -9,7 +9,7 @@ import os
 import sys
 
 import numpy as np
-from PIL import Image, ImageFilter
+from PIL import Image, ImageChops, ImageFilter
 from scipy import ndimage as ndi
 
 src, out, sheet_out = sys.argv[1:4]
@@ -192,22 +192,62 @@ crop_to(clarity, BOX8, (1200, 750), name='clarity', q=74)
 crop_to(clarity, BOX8, (760, 475), name='clarity-760', q=74)
 crop_to(clarity, BOX8, (480, 300), q=60, name='clarity-muddle', blur=9, fog=0.34)
 
-# Design 07: the growth clip again, this time cut out so it can stand in the cottage scene. Multiply (used on the
-# paper in designs 05 and 06) would let the meadow show through the leaves, so each frame gets a real matte:
-# anything with colour in it is solid, and only the soft edge and the ground wash are see-through.
+# Design 07: a tree grows in the cottage scene. The Flow clip (seedling to rain tree on white, the first 3.3 seconds
+# are the growth) is cut into frames, and each gets a real matte so it can stand in the meadow: anything with colour
+# in it is solid, and only the soft edge and the ground wash are see-through. (Multiply, as used on plain paper in
+# designs 05 and 06, would let the meadow show through the leaves.)
 def matte(rgb, soft=46.0):
     a = np.clip((255.0 - rgb.min(axis=2)) / soft, 0, 1)
     aa = np.maximum(a, 1e-3)[..., None]
     colour = np.clip((rgb - (1 - a[..., None]) * 255.0) / aa, 0, 255)
     return np.dstack([colour, a * 255.0]).round().astype(np.uint8)
 
-grow_dir = os.path.join(out, 'grow')
-if os.path.isdir(grow_dir):
-    os.makedirs(os.path.join(out, 'grow-a'), exist_ok=True)
-    for n, i in enumerate(range(1, 56, 2)):
-        frame = np.asarray(Image.open(os.path.join(grow_dir, 'f%02d.webp' % i)).convert('RGB')).astype(np.float32)
-        cut = Image.fromarray(matte(frame), 'RGBA').resize((340, 340), Image.LANCZOS)
-        cut.save(os.path.join(out, 'grow-a', 'g%02d.webp' % n), 'WEBP', quality=74, alpha_quality=70, method=6)
+TREE_CLIP, TREE_N = os.path.join(src, '13-tree-growth.mp4'), 30
+if os.path.exists(TREE_CLIP):
+    import glob, subprocess, tempfile
+    tmp = tempfile.mkdtemp()
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', TREE_CLIP, '-vf', 'crop=840:600:220:100', os.path.join(tmp, '%03d.png')], check=True)
+    stills = sorted(glob.glob(os.path.join(tmp, '*.png')))
+    os.makedirs(os.path.join(out, 'tree'), exist_ok=True)
+    for n in range(TREE_N):
+        still = stills[round(n * (len(stills) - 1) / (TREE_N - 1))]
+        frame = np.clip(np.asarray(Image.open(still).convert('RGB')).astype(np.float32) * 255 / 244, 0, 255)
+        cut = Image.fromarray(matte(frame), 'RGBA').resize((434, 310), Image.LANCZOS)
+        cut.save(os.path.join(out, 'tree', 't%02d.webp' % n), 'WEBP', quality=68, alpha_quality=70, method=6)
+
+# Design 07: the things that arrive in the scene. '14-lived-in.png' is the cottage painting with them painted in;
+# ChatGPT drew it over the original, so the two line up to the pixel. Each arrival is lifted out as a soft-edged
+# patch (shapes below are in the 1200 x 750 crop) and laid back over the original, so it can arrive on its own.
+LIVED = os.path.join(src, '14-lived-in.png')
+if os.path.exists(LIVED):
+    from PIL import ImageDraw
+    x0, y0, x1, y1 = BOX8
+    lived = Image.fromarray(load('14-lived-in.png')[y0:y1, x0:x1].round().astype(np.uint8), 'RGB').resize((1200, 750), Image.LANCZOS)
+    def patch(name, shapes, feather=9, holes=()):
+        m = Image.new('L', (1200, 750), 0); d = ImageDraw.Draw(m)
+        for kind, xy, *w in shapes:
+            if kind == 'e': d.ellipse(xy, fill=255)
+            elif kind == 'r': d.rounded_rectangle(xy, 14, fill=255)
+            else: d.line(xy, fill=255, width=w[0])
+        m = m.filter(ImageFilter.GaussianBlur(feather))
+        if holes:
+            h = Image.new('L', (1200, 750), 255); dh = ImageDraw.Draw(h)
+            for xy in holes: dh.rectangle(xy, fill=0)
+            m = ImageChops.multiply(m, h.filter(ImageFilter.GaussianBlur(2.5)))
+        box = m.point(lambda v: 255 if v > 3 else 0).getbbox()
+        im = lived.copy(); im.putalpha(m); im = im.crop(box)
+        os.makedirs(os.path.join(out, 'life'), exist_ok=True)
+        dst = os.path.join(out, 'life', name + '.webp')
+        im.save(dst, 'WEBP', quality=78, alpha_quality=80, method=6)
+        report['life/' + name] = {'w': im.size[0], 'h': im.size[1], 'kb': round(os.path.getsize(dst) / 1024, 1),
+                                  'css': '--x: %.2f%%; --y: %.2f%%; --w: %.2f%%' % (box[0] / 12.0, box[1] / 7.5, (box[2] - box[0]) / 12.0)}
+    patch('arch', [('e', (540, 386, 696, 518))])
+    patch('bunting', [('r', (236, 414, 376, 452))], feather=6)
+    patch('home', [('r', (-30, 490, 424, 556)), ('e', (368, 452, 448, 520))], feather=7, holes=[(103, 470, 117, 570), (147, 470, 163, 570)])
+    patch('swing', [('r', (84, 138, 184, 596))], feather=8)
+    patch('kite', [('e', (702, 76, 802, 190)), ('l', (735, 165, 462, 478), 9)], feather=6)
+    patch('balloon', [('e', (808, 243, 860, 307))], feather=6)
+    patch('chairs', [('e', (446, 462, 544, 522))], feather=7)
 
 # Design 06: the same cottage as a blueprint and as a white model. ChatGPT redrew them over the painting, so the
 # same crop keeps all three lined up to the pixel and one can turn into the next.
