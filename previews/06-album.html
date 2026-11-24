@@ -167,7 +167,6 @@ h1, h2, h3 { font-weight: 400; }
    the resting tilt is `rotate`, so the three never fight. */
 .motion .h1 .w { display: inline-block; animation: resolve 1s var(--ease) both; animation-delay: calc(140ms + var(--i) * 80ms); }
 .motion .polaroid { animation: drop 1s var(--ease) .5s both; }
-.motion .hero__bloom { animation: bloom 1.6s ease .2s both; }
 .motion .blank {
   translate: calc(var(--mx, 0) * var(--d) * 1px) calc(var(--my, 0) * var(--d) * 1px);
   transition: translate .35s ease-out;
@@ -177,6 +176,36 @@ h1, h2, h3 { font-weight: 400; }
 @keyframes resolve { from { opacity: 0; filter: blur(14px); transform: translateY(12px); } }
 @keyframes drop { from { opacity: 0; transform: translateY(-40px) rotate(-8deg); } }
 @keyframes bloom { from { opacity: 0; transform: scale(.7); } }
+/* Behind the cover: watercolour washes that bleed onto the paper and then drift, very slowly, like paint still
+   wet. Each is one of the four washes in bloom.webp (the picture already behind the portrait, so nothing new is
+   fetched), cropped out and given a soft edge. Only `transform` and `opacity` move, which the browser can do
+   without repainting. They keep to the edges; the headline stays on plain paper. Off by default: the still page
+   (reduced motion, or no script) is unchanged. */
+.hero__wash { display: none; }
+.motion .hero__wash { display: block; position: absolute; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; -webkit-mask-image: linear-gradient(#000 78%, #0000); mask-image: linear-gradient(#000 78%, #0000); }
+.wash {
+  position: absolute; width: var(--w); aspect-ratio: var(--ar); border-radius: 50%;
+  background: url("kit/wc/bloom.webp") var(--bp) / var(--bs) no-repeat;
+  -webkit-mask-image: radial-gradient(closest-side, #000 52%, #0000 100%); mask-image: radial-gradient(closest-side, #000 52%, #0000 100%);
+  translate: calc(var(--mx, 0) * var(--d) * 1px) calc(var(--my, 0) * var(--d) * 1px); transition: translate .8s ease-out;
+  animation: bleed 2.6s var(--ease) both, var(--drift) var(--t) ease-in-out infinite alternate; animation-delay: calc(.3s + var(--n) * .28s), calc(var(--n) * -7s);
+  will-change: transform;
+}
+.wash--peach { --w: clamp(300px, 36vw, 700px); --ar: 66 / 57; --bs: 212.1% 175.4%; --bp: 23% 25.6%; --o: .6; --d: -10; --n: 0; --t: 26s; --drift: drift-a; left: -9%; top: 5%; }
+.wash--gold { --w: clamp(190px, 21vw, 420px); --ar: 45 / 31; --bs: 311.1% 322.6%; --bp: 73.7% 20.3%; --o: .62; --d: 16; --n: 1; --t: 21s; --drift: drift-b; left: 43%; top: 4%; }
+.wash--blue { --w: clamp(280px, 32vw, 640px); --ar: 71 / 50; --bs: 197.2% 200%; --bp: 91.3% 80%; --o: .5; --d: -18; --n: 2; --t: 30s; --drift: drift-c; left: 24%; bottom: -9%; }
+.wash--rose { --w: clamp(220px, 25vw, 500px); --ar: 45 / 32; --bs: 311.1% 312.5%; --bp: 22.1% 86.8%; --o: .6; --d: 12; --n: 3; --t: 24s; --drift: drift-b; right: -7%; bottom: 3%; }
+.wash--sky { --w: clamp(200px, 22vw, 440px); --ar: 71 / 50; --bs: 197.2% 200%; --bp: 91.3% 80%; --o: .4; --d: 22; --n: 4; --t: 34s; --drift: drift-a; right: -5%; top: 6%; }
+/* The first screen's paint arrives the way a wet brush lands: small and faint, then spreading. */
+@keyframes bleed { from { opacity: 0; scale: .45; } to { opacity: var(--o); scale: 1; } }
+@keyframes drift-a { from { transform: translate3d(-2%, 3%, 0) rotate(-5deg) scale(1); } to { transform: translate3d(11%, -7%, 0) rotate(7deg) scale(1.16); } }
+@keyframes drift-b { from { transform: translate3d(8%, -5%, 0) rotate(6deg) scale(1.1); } to { transform: translate3d(-10%, 9%, 0) rotate(-8deg) scale(.96); } }
+@keyframes drift-c { from { transform: translate3d(-9%, 2%, 0) rotate(3deg) scale(.98); } to { transform: translate3d(10%, -9%, 0) rotate(-6deg) scale(1.14); } }
+/* The wash behind her portrait breathes with them, once it has arrived. */
+.motion .hero__bloom { animation: bloom 1.6s ease .2s both, breathe 14s ease-in-out 1.8s infinite alternate; }
+@keyframes breathe { from { transform: scale(1) rotate(0deg); } to { transform: scale(1.06) rotate(2.5deg); } }
+/* Nothing drifts while the cover is off screen. */
+.hero.is-away .wash, .hero.is-away .hero__bloom { animation-play-state: paused; }
 
 /* 2. The pages still to fill: a photo album opens and five prints are placed on its pages as you scroll ---- */
 .pages .stage__in { display: grid; grid-template-columns: minmax(0, .74fr) minmax(0, 1.26fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
@@ -507,6 +536,11 @@ address { font-style: normal; }
 @media (max-width: 900px) {
   .hero__grid, .talk__grid, .night__top { grid-template-columns: 1fr; }
   .hero__art { width: min(330px, 78%); margin-top: 18px; }
+  .wash--peach { --w: 78vw; left: -30%; top: 1%; }
+  .wash--gold { --w: 46vw; left: auto; right: -12%; top: 13%; }
+  .wash--blue { --w: 74vw; left: -26%; bottom: 20%; }
+  .wash--rose { --w: 56vw; right: -18%; bottom: 0; }
+  .wash--sky { display: none; }
   .blank--a { left: -15%; }
   .blank--b { right: -13%; }
   .pages .stage__in, .clarity .stage__in, .topic .stage__in, .together .stage__in { grid-template-columns: 1fr; align-content: start; }
@@ -619,6 +653,7 @@ address { font-style: normal; }
   <!-- 1. Cover: a new headline over her own line; her portrait is the first print in the album, and two prints
        that have not been taken yet wait behind it -->
   <section class="hero" data-chapter="Not finished yet">
+    <div class="hero__wash" aria-hidden="true"><i class="wash wash--peach"></i><i class="wash wash--gold"></i><i class="wash wash--blue"></i><i class="wash wash--rose"></i><i class="wash wash--sky"></i></div>
     <div class="wrap hero__grid">
       <div>
         <p class="note hero__eyebrow">financial planner · Singapore</p>
@@ -986,17 +1021,19 @@ address { font-style: normal; }
     return len > 1 ? clamp(-r.top / len, 0, 1) : clamp((innerHeight - r.top) / (innerHeight + r.height), 0, 1);
   }
 
-  /* 1. Cover: the two waiting prints drift a little with the pointer ---------------------------- */
+  /* 1. Cover: the waiting prints and the washes behind them drift a little with the pointer ------- */
   var heroTuck = function () {};
   (function () {
-    var hero = $('.hero'), art = $('.hero__art');
+    var hero = $('.hero');
     if (!motion) return;
+    // Set on the cover itself, so the waiting prints and the washes behind them all read the same two numbers.
     hero.addEventListener('pointermove', function (e) {
       if (e.pointerType !== 'mouse') return;
-      art.style.setProperty('--mx', ((e.clientX / innerWidth - .5) * -2).toFixed(3));
-      art.style.setProperty('--my', ((e.clientY / innerHeight - .5) * -2).toFixed(3));
+      hero.style.setProperty('--mx', ((e.clientX / innerWidth - .5) * -2).toFixed(3));
+      hero.style.setProperty('--my', ((e.clientY / innerHeight - .5) * -2).toFixed(3));
     });
-    hero.addEventListener('pointerleave', function () { art.style.setProperty('--mx', 0); art.style.setProperty('--my', 0); });
+    hero.addEventListener('pointerleave', function () { hero.style.setProperty('--mx', 0); hero.style.setProperty('--my', 0); });
+    new IntersectionObserver(function (es) { es.forEach(function (e) { hero.classList.toggle('is-away', !e.isIntersecting); }); }).observe(hero);
   })();
 
   /* 2. The pages still to fill: her two lines brighten; the album opens; five prints are placed, one after another ---- */

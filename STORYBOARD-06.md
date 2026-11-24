@@ -29,7 +29,7 @@ captions in her handwriting face, a page number in the header, and one day's lig
 
 | # | Section | New wording (Draft) | Her words, kept | Device | What the scroll does | Play | Length |
 |---|---|---|---|---|---|---|---|
-| 1 | Cover | "Some of your best memories haven't happened yet." | "Financial planning for every stage of life." beneath the headline | Words that resolve | The headline sharpens word by word; her portrait drops onto the page, mounted with photo corners; two prints that have not been taken yet slide out from behind it | – | 1 screen |
+| 1 | Cover | "Some of your best memories haven't happened yet." | "Financial planning for every stage of life." beneath the headline | Words that resolve, on paper where the paint is still wet | The headline sharpens word by word; her portrait drops onto the page, mounted with photo corners; two prints that have not been taken yet slide out from behind it; watercolour washes bleed in behind and drift slowly (on arrival and on the clock, not the scroll) | – | 1 screen |
 | 2 | The pages still to fill | Kicker (also on the album's cover label) and five captions: the keys, the day you said yes, first steps, graduation day, a slow Tuesday, much later | Hero paragraph 1 (both sentences) | A photo album that opens | A closed navy album lies on the desk; its cover swings open on the spine in real 3D and the view comes round over the open pages; five prints come down one at a time onto their empty mounts and each caption is pencilled in | – | 4.2 |
 | 3 | Into focus | "planning is how the picture comes into focus"; "move the lens over the picture" | Hero paragraph 2 | One picture in three states | A blueprint of the cottage lies on the desk; it stands up to face the visitor as the drawing becomes a white model; a lens then shows the painted scene, and opens over all of it | Move the lens | 3.6 |
 | 4 | Behind every photograph | Kicker; four front captions: rain or shine, planted early, moving-in day, golden hour | "What I can help you with", "Planning for what matters at every stage.", and her four areas with their descriptions on the backs | Turn it over | The four prints turn over one after another to show her words | Tap a print to turn it | 3 |
@@ -187,6 +187,15 @@ sit in the middle of the space under the header, about 20 px above true centre (
 header whatever the screen's height, with up to 328 px empty beneath). Measured at 1920 × 1080, 1850 × 1005,
 1440 × 900, 1280 × 720 and 1024 × 768; phones are unchanged. The full page was scrolled again at 1440 × 900, with
 reduced motion and with JavaScript off, and the album and lens checks re-run: no errors.
+
+**Cover background, 24 Nov 2026.** Five soft watercolour washes now sit behind the cover: they bleed onto the paper
+as the page arrives, then drift very slowly, and shift a little with the mouse on a laptop. They are crops of
+`bloom.webp`, the wash already behind her portrait, so nothing new is downloaded (535 KB before the first screen,
+as before plus 4 KB of page). Only with motion on: the reduced-motion page and the page with JavaScript off are
+unchanged. They pause when the cover is off screen. Checked at 1850 × 1005, 1440 × 900, 1280 × 720 and 390 × 664;
+full page scrolled at 1440 × 900 and 390 × 664 with no errors. Text contrast, measured against the darkest
+pixel under each line while the washes drift: headline 8.5:1, red words 3.8:1 (large text; 4.1 without washes),
+her line 4.3:1 (large; 4.4 without), "or turn the page" 4.55:1 (4.8 without). Not tested: frame rate on a phone.
 
 Known: on a phone the cover swings up in front of her first sentence for a moment as it opens. The sentence is
 still dimmed at that point and brightens once the cover has passed.
