@@ -182,6 +182,12 @@ the end; all three pictures loaded); the full page end to end at both sizes; red
 sections ("frames empty at the start, full at the end" and "the lens following the pointer") are covered by the
 new ones.
 
+**Cover centred, 24 Nov 2026.** On screens wider than 900 px the cover now fills the first screen and its contents
+sit in the middle of the space under the header, about 20 px above true centre (before, they sat 96 px under the
+header whatever the screen's height, with up to 328 px empty beneath). Measured at 1920 × 1080, 1850 × 1005,
+1440 × 900, 1280 × 720 and 1024 × 768; phones are unchanged. The full page was scrolled again at 1440 × 900, with
+reduced motion and with JavaScript off, and the album and lens checks re-run: no errors.
+
 Known: on a phone the cover swings up in front of her first sentence for a moment as it opens. The sentence is
 still dimmed at that point and brightens once the cover has passed.
 
